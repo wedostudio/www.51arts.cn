@@ -29,7 +29,7 @@ class usercontrol extends base {
 		$this->app = $this->cache['apps'][UC_APPID];
 	}
 
-	// -1 Î´¿ªÆô
+	// -1 Î´ï¿½ï¿½ï¿½ï¿½
 	function onsynlogin() {
 		$this->init_input();
 		$uid = $this->input('uid');
@@ -73,7 +73,7 @@ class usercontrol extends base {
 		if(($status = $this->_check_username($username)) < 0) {
 			return $status;
 		}
-		if(($status = $this->_check_email($email)) < 0) {
+		if($email && ($status = $this->_check_email($email)) < 0) {
 			return $status;
 		}
 		$uid = $_ENV['user']->add_user($username, $password, $email, 0, $questionid, $answer, $regip);

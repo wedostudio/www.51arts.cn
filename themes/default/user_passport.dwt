@@ -98,20 +98,6 @@
     <form action="user.php" method="post" name="formUser" onsubmit="return register();">
       <table width="100%"  border="0" align="left" cellpadding="5" cellspacing="3">
         <tr>
-          <td width="13%" align="right">{$lang.label_username}</td>
-          <td width="87%">
-          <input name="username" type="text" size="25" id="username" onblur="is_registered(this.value);" class="inputBg"/>
-            <span id="username_notice" style="color:#FF0000"> *</span>
-          </td>
-        </tr>
-        <tr>
-          <td align="right">{$lang.label_email}</td>
-          <td>
-          <input name="email" type="text" size="25" id="email" onblur="checkEmail(this.value);"  class="inputBg"/>
-            <span id="email_notice" style="color:#FF0000"> *</span>
-          </td>
-        </tr>
-        <tr>
           <td align="right">{$lang.label_password}</td>
           <td>
           <input name="password" type="password" id="password1" onblur="check_password(this.value);" onkeyup="checkIntensity(this.value)" class="inputBg" style="width:179px;" />

@@ -315,10 +315,13 @@ class ucenter extends integrate
     /* 编辑用户信息 */
     function edit_user($cfg, $forget_pwd = '0')
     {
+        
+
         $real_username = $cfg['username'];
         $cfg['username'] = addslashes($cfg['username']);
         $set_str = '';
-        $valarr =array('email'=>'email', 'gender'=>'sex', 'bday'=>'birthday');
+        $user_name=$cfg['user_name'];
+        $valarr =array('email'=>'email', 'gender'=>'sex', 'bday'=>'birthday','user_name'=>'user_name');
         foreach ($cfg as $key => $val)
         {
             if ($key == 'username' || $key == 'password' || $key == 'old_password')

@@ -490,6 +490,7 @@ elseif ($action == 'act_edit_profile')
 
     $birthday = trim($_POST['birthdayYear']) .'-'. trim($_POST['birthdayMonth']) .'-'.
     trim($_POST['birthdayDay']);
+    $user_name = trim($_POST['user_name']);
     $email = trim($_POST['email']);
     $other['msn'] = $msn = isset($_POST['extend_field1']) ? trim($_POST['extend_field1']) : '';
     $other['qq'] = $qq = isset($_POST['extend_field2']) ? trim($_POST['extend_field2']) : '';
@@ -525,7 +526,7 @@ elseif ($action == 'act_edit_profile')
     /* 写入密码提示问题和答案 */
     if (!empty($passwd_answer) && !empty($sel_question))
     {
-        $sql = 'UPDATE ' . $ecs->table('users') . " SET `passwd_question`='$sel_question', `passwd_answer`='$passwd_answer'  WHERE `user_id`='" . $_SESSION['user_id'] . "'";
+        $sql = 'UPDATE ' . $ecs->table('users') . " SET `passwd_question`='$sel_question', `user_name`='$user_name',`passwd_answer`='$passwd_answer'  WHERE `user_id`='" . $_SESSION['user_id'] . "'";
         $db->query($sql);
     }
 
@@ -558,6 +559,7 @@ elseif ($action == 'act_edit_profile')
     $profile  = array(
         'user_id'  => $user_id,
         'email'    => isset($_POST['email']) ? trim($_POST['email']) : '',
+        'user_name'=>isset($_POST['user_name'])?trim($_POST['user_name']) : '',
         'sex'      => isset($_POST['sex'])   ? intval($_POST['sex']) : 0,
         'birthday' => $birthday,
         'other'    => isset($other) ? $other : array()

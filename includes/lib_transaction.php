@@ -51,6 +51,9 @@ function edit_profile($profile)
         }
         $cfg['email'] = $profile['email'];
     }
+    
+    $cfg['user_name'] = $profile['user_name'];
+    
     if (!empty($profile['birthday']))
     {
         $cfg['bday'] = $profile['birthday'];

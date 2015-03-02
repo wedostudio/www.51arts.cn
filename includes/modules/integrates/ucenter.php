@@ -317,13 +317,43 @@ class ucenter extends integrate
     function edit_user($cfg, $forget_pwd = '0')
     {
         
-        //echo "55";exit;
         $real_username = $cfg['username'];
-        //echo $cfg['username'];exit;
         $cfg['username'] = addslashes($cfg['username']);
         $set_str = '';
         $user_name=$cfg['user_name'];
-        //var_dump($cfg);exit;
+        if (!empty($cfg['email']))
+        {
+            $ucresult = uc_call("uc_user_edit", array($cfg['username'], '', '', $cfg['email'], 1));
+            if ($ucresult > 0 )
+            {
+                $flag = true;
+            }
+            elseif($ucresult == -4)
+            {
+                //echo 'Email 格式有误';
+                $this->error = ERR_INVALID_EMAIL;
+        
+                return false;
+            }
+            elseif($ucresult == -5)
+            {
+                //echo 'Email 不允许注册';
+                $this->error = ERR_INVALID_EMAIL;
+        
+                return false;
+            }
+            elseif($ucresult == -6)
+            {
+                //echo '该 Email 已经被注册';
+                $this->error = ERR_EMAIL_EXISTS;
+        
+                return false;
+            }
+            elseif ($ucresult < 0 )
+            {
+                return false;
+            }
+        }
         $valarr =array('email'=>'email', 'gender'=>'sex', 'bday'=>'birthday','user_name'=>'user_name');
         foreach ($cfg as $key => $val)
         {
@@ -347,39 +377,7 @@ class ucenter extends integrate
             $flag  = true;
         }
 
-        if (!empty($cfg['email']))
-        {
-            $ucresult = uc_call("uc_user_edit", array($cfg['username'], '', '', $cfg['email'], 1));
-            if ($ucresult > 0 )
-            {
-                $flag = true;
-            }
-            elseif($ucresult == -4)
-            {
-                //echo 'Email 格式有误';
-                $this->error = ERR_INVALID_EMAIL;
-
-                return false;
-            }
-            elseif($ucresult == -5)
-            {
-                //echo 'Email 不允许注册';
-                $this->error = ERR_INVALID_EMAIL;
-
-                return false;
-            }
-            elseif($ucresult == -6)
-            {
-                //echo '该 Email 已经被注册';
-                $this->error = ERR_EMAIL_EXISTS;
-
-                return false;
-            }
-            elseif ($ucresult < 0 )
-            {
-                return false;
-            }
-        }
+        
         if (!empty($cfg['old_password']) && !empty($cfg['password']) && $forget_pwd == 0)
         {
             $ucresult = uc_call("uc_user_edit", array($real_username, $cfg['old_password'], $cfg['password'], ''));

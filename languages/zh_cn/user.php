@@ -419,6 +419,7 @@ $_LANG['msg_un_registered'] = '用户名已经存在,请重新输入';
 $_LANG['msg_can_rg'] = '可以注册';
 $_LANG['msg_email_blank'] = '邮件地址不能为空';
 $_LANG['msg_email_registered'] = '邮箱已存在,请重新输入';
+$_LANG['msg_phone_registered'] = '手机号已存在,请重新输入';
 $_LANG['msg_email_format'] = '邮件地址不合法';
 $_LANG['msg_un_unexist'] = '手机号不存在';
 

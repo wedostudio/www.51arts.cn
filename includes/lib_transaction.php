@@ -39,45 +39,53 @@ function edit_profile($profile)
 
     $cfg = array();
     $cfg['username'] = $GLOBALS['db']->getOne("SELECT user_name FROM " . $GLOBALS['ecs']->table('users') . " WHERE user_id='" . $profile['user_id'] . "'");//改前的username
-    //echo  $cfg['username'];exit;
     if (isset($profile['sex']))
     {
         $cfg['gender'] = intval($profile['sex']);
     }
     if (!empty($profile['email']))
     {
-        //echo "1";
         if (!is_email($profile['email']))
         {
-            //echo "2";
             $GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['email_invalid'], $profile['email']));
-            
             return false;
         }
-        //echo "3";exit;
         $cfg['email'] = $profile['email'];
     }
-    //WEDO
+    //WEDO-S
     $un=$cfg['user_name'] = $profile['user_name'];
     $sql="SELECT * FROM `dy_users` WHERE user_name = '".$un."'";
-    //echo $sql;exit;
     $results=$GLOBALS['db']->getAll($sql);
-    //echo $results[0]['user_name'];exit;
     if ($results[0]['user_name'] && $results[0]['user_id']!=$profile['user_id']){
-        //$t=sprintf($GLOBALS['_LANG']['username_exist'], $profile['user_name']);echo $t;exit;
-        $GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['username_exist'], $profile['user_name']));
-        //var_dump($GLOBALS['err']);exit;
+        $GLOBALS['user']->error = ERR_USERNAME_EXISTS;
+        //$GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['username_exist'], $profile['user_name']));
         return false;
     }
-    //echo "1";exit;
+    $sql="SELECT * FROM `dy_users` WHERE email = '".$profile['email']."'";
+    $results=$GLOBALS['db']->getAll($sql);
+    if ($results[0]['email'] && $results[0]['user_id']!=$profile['user_id']){
+        //echo "email";exit;
+        $GLOBALS['user']->error = ERR_EMAIL_EXISTS;
+        //$GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['email_exist'], $profile['email']));
+        return false;
+    }
+
+    $phone=$profile['other']['mobile_phone'];
+    $sql="SELECT * FROM `dy_users` WHERE mobile_phone = '".$phone."'";
+    $results=$GLOBALS['db']->getAll($sql);
+    if ($results[0]['mobile_phone'] && $results[0]['user_id']!=$profile['user_id']){
+        $GLOBALS['user']->error = ERR_PHONE_EXISTS;
+        //$GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['msg_phone_registered'], $profile['email']));
+        return false;
+    }
+    //WEDO-E
+    
     if (!empty($profile['birthday']))
     {
         $cfg['bday'] = $profile['birthday'];
     }
-    //echo $cfg['username'];exit;
     if (!$GLOBALS['user']->edit_user($cfg))
     {
-        //echo "e";exit;
         if ($GLOBALS['user']->error == ERR_EMAIL_EXISTS)
         {
             $GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['email_exist'], $profile['email']));

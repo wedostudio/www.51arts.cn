@@ -576,23 +576,25 @@ elseif ($action == 'act_edit_profile')
         'other'    => isset($other) ? $other : array()
         );
 
-
     if (edit_profile($profile))
     {
         show_message($_LANG['edit_profile_success'], $_LANG['profile_lnk'], 'user.php?act=profile', 'info');
     }
     else
     {
-        //echo($user->error);exit;
+        //echo($user->error);echo "||";echo ERR_EMAIL_EXISTS; echo "||";echo ERR_USERNAME_EXISTS;exit;
         if ($user->error == ERR_EMAIL_EXISTS)
         {
             $msg = sprintf($_LANG['email_exist'], $profile['email']);
         }
         
         //WEDO-S
-        elseif ($user->error == 0){
+        elseif ($user->error == ERR_USERNAME_EXISTS){
             
             $msg = sprintf($_LANG['username_exist'], $profile['user_name']);
+        }elseif ($user->error == ERR_PHONE_EXISTS){
+            
+            $msg = sprintf($_LANG['msg_phone_registered'], $mobile_phone);
         }
         //WEDO-E
         else

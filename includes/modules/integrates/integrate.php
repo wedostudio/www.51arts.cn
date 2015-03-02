@@ -144,7 +144,7 @@ class integrate
      */
     function login($username, $password, $remember = null)
     {
-        if ($this->check_user($username, $password) > 0)
+        if ($this->check_mobile($username, $password) > 0)
         {
             if ($this->need_sync)
             {
@@ -257,6 +257,7 @@ class integrate
      */
     function edit_user($cfg)
     {
+        //echo "44";exit;
         if (empty($cfg['username']))
         {
             return false;
@@ -514,7 +515,29 @@ class integrate
             return  $this->db->getOne($sql);
         }
     }
-
+    function check_mobile($username, $password = null)//检查手机号
+    {
+    
+        $post_username = $username;
+    
+        /* 如果没有定义密码则只检查用户名 */
+        if ($password === null)
+        {
+            $sql = "SELECT " . $this->field_id .
+            " FROM " . $this->table($this->user_table).
+            " WHERE mobile_phone ='" . $post_username . "'";
+    
+            return $this->db->getOne($sql);
+        }
+        else
+        {
+            $sql = "SELECT " . $this->field_id .
+            " FROM " . $this->table($this->user_table).
+            " WHERE mobile_phone ='" . $post_username . "' AND " . $this->field_pass . " ='" . $this->compile_password(array('password'=>$password)) . "'";
+    
+            return  $this->db->getOne($sql);
+        }
+    }
     /**
      *  检查指定邮箱是否存在
      *

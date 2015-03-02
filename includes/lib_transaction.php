@@ -28,40 +28,56 @@ if (!defined('IN_ECS'))
  */
 function edit_profile($profile)
 {
+    //echo "55";exit;
     if (empty($profile['user_id']))
     {
+        //echo "4";exit;
         $GLOBALS['err']->add($GLOBALS['_LANG']['not_login']);
 
         return false;
     }
 
     $cfg = array();
-    $cfg['username'] = $GLOBALS['db']->getOne("SELECT user_name FROM " . $GLOBALS['ecs']->table('users') . " WHERE user_id='" . $profile['user_id'] . "'");
+    $cfg['username'] = $GLOBALS['db']->getOne("SELECT user_name FROM " . $GLOBALS['ecs']->table('users') . " WHERE user_id='" . $profile['user_id'] . "'");//改前的username
+    //echo  $cfg['username'];exit;
     if (isset($profile['sex']))
     {
         $cfg['gender'] = intval($profile['sex']);
     }
     if (!empty($profile['email']))
     {
+        //echo "1";
         if (!is_email($profile['email']))
         {
+            //echo "2";
             $GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['email_invalid'], $profile['email']));
-
+            
             return false;
         }
+        //echo "3";exit;
         $cfg['email'] = $profile['email'];
     }
-    
-    $cfg['user_name'] = $profile['user_name'];
-    
+    //WEDO
+    $un=$cfg['user_name'] = $profile['user_name'];
+    $sql="SELECT * FROM `dy_users` WHERE user_name = '".$un."'";
+    //echo $sql;exit;
+    $results=$GLOBALS['db']->getAll($sql);
+    //echo $results[0]['user_name'];exit;
+    if ($results[0]['user_name'] && $results[0]['user_id']!=$profile['user_id']){
+        //$t=sprintf($GLOBALS['_LANG']['username_exist'], $profile['user_name']);echo $t;exit;
+        $GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['username_exist'], $profile['user_name']));
+        //var_dump($GLOBALS['err']);exit;
+        return false;
+    }
+    //echo "1";exit;
     if (!empty($profile['birthday']))
     {
         $cfg['bday'] = $profile['birthday'];
     }
-
-
+    //echo $cfg['username'];exit;
     if (!$GLOBALS['user']->edit_user($cfg))
     {
+        //echo "e";exit;
         if ($GLOBALS['user']->error == ERR_EMAIL_EXISTS)
         {
             $GLOBALS['err']->add(sprintf($GLOBALS['_LANG']['email_exist'], $profile['email']));
@@ -73,12 +89,13 @@ function edit_profile($profile)
 
         return false;
     }
-
+    //echo "7";exit;
     /* 过滤非法的键值 */
     $other_key_array = array('msn', 'qq', 'office_phone', 'home_phone', 'mobile_phone');
     foreach ($profile['other'] as $key => $val)
     {
         //删除非法key值
+        //echo "5";exit;
         if (!in_array($key, $other_key_array))
         {
             unset($profile['other'][$key]);
@@ -91,6 +108,7 @@ function edit_profile($profile)
     /* 修改在其他资料 */
     if (!empty($profile['other']))
     {
+        //echo "e";exit;
         $GLOBALS['db']->autoExecute($GLOBALS['ecs']->table('users'), $profile['other'], 'UPDATE', "user_id = '$profile[user_id]'");
     }
 

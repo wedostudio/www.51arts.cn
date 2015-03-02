@@ -329,7 +329,7 @@ elseif ($action == 'login')
 /* 处理会员的登录 */
 elseif ($action == 'act_login')
 {
-    $username = isset($_POST['username']) ? trim($_POST['username']) : '';
+    $mobile_phone = isset($_POST['username']) ? trim($_POST['username']) : '';
     $password = isset($_POST['password']) ? trim($_POST['password']) : '';
     $back_act = isset($_POST['back_act']) ? trim($_POST['back_act']) : '';
 
@@ -352,9 +352,20 @@ elseif ($action == 'act_login')
             show_message($_LANG['invalid_captcha'], $_LANG['relogin_lnk'], 'user.php', 'error');
         }
     }
+    //WEDO
+    $sql="SELECT user_name FROM dy_users WHERE mobile_phone = ".$mobile_phone;
+    $results=$db->getRow($sql);
+    //var_dump($results);exit;
+    $username=$results['user_name'];
+    if(!$username){
+        show_message($_LANG['msg_un_unexist'], $_LANG['relogin_lnk'], 'user.php', 'error');
+    }
+    
 
+    
     if ($user->login($username, $password,isset($_POST['remember'])))
     {
+        //echo "te";exit;
         update_user_info();
         recalculate_price();
 
@@ -559,7 +570,7 @@ elseif ($action == 'act_edit_profile')
     $profile  = array(
         'user_id'  => $user_id,
         'email'    => isset($_POST['email']) ? trim($_POST['email']) : '',
-        'user_name'=>isset($_POST['user_name'])?trim($_POST['user_name']) : '',
+        'user_name'=>isset($_POST['user_name'])?trim($_POST['user_name']) : '',//改后的username
         'sex'      => isset($_POST['sex'])   ? intval($_POST['sex']) : 0,
         'birthday' => $birthday,
         'other'    => isset($other) ? $other : array()
@@ -572,12 +583,21 @@ elseif ($action == 'act_edit_profile')
     }
     else
     {
+        //echo($user->error);exit;
         if ($user->error == ERR_EMAIL_EXISTS)
         {
             $msg = sprintf($_LANG['email_exist'], $profile['email']);
         }
+        
+        //WEDO-S
+        elseif ($user->error == 0){
+            
+            $msg = sprintf($_LANG['username_exist'], $profile['user_name']);
+        }
+        //WEDO-E
         else
         {
+            
             $msg = $_LANG['edit_profile_failed'];
         }
         show_message($msg, '', '', 'info');

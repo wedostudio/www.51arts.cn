@@ -126,9 +126,10 @@ class ucenter extends integrate
      */
     function login($username, $password)
     {
+
         list($uid, $uname, $pwd, $email, $repeat) = uc_call("uc_user_login", array($username, $password));
         $uname = addslashes($uname);
-
+        //echo $uid;exit;
         if($uid > 0)
         {
             //检查用户是否存在,不存在直接放入用户表
@@ -316,11 +317,13 @@ class ucenter extends integrate
     function edit_user($cfg, $forget_pwd = '0')
     {
         
-
+        //echo "55";exit;
         $real_username = $cfg['username'];
+        //echo $cfg['username'];exit;
         $cfg['username'] = addslashes($cfg['username']);
         $set_str = '';
         $user_name=$cfg['user_name'];
+        //var_dump($cfg);exit;
         $valarr =array('email'=>'email', 'gender'=>'sex', 'bday'=>'birthday','user_name'=>'user_name');
         foreach ($cfg as $key => $val)
         {
@@ -335,6 +338,12 @@ class ucenter extends integrate
         {
             $sql = "UPDATE " . $GLOBALS['ecs']->table('users') . " SET $set_str  WHERE user_name = '$cfg[username]'";
             $GLOBALS['db']->query($sql);
+            //WEDO 同时更新uc_member的数据
+            $sql = "UPDATE uc_members SET `username`='".$cfg['user_name']."',`email` = '".$cfg['email']."'   WHERE `username` = '$cfg[username]'";
+            
+            //echo $sql;exit;
+            $GLOBALS['db']->query($sql);
+            
             $flag  = true;
         }
 

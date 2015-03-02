@@ -138,7 +138,6 @@ $_LANG['oldpassword_error'] = '您输入的旧密码有误!请确认再后输入
 //JS语言项
 $_LANG['profile_js']['bonus_sn_empty'] = '请输入您要添加的红包号码！';
 $_LANG['profile_js']['bonus_sn_error'] = '您输入的红包号码格式不正确！';
-
 $_LANG['profile_js']['email_empty'] = '请输入您的电子邮件地址！';
 $_LANG['profile_js']['email_error'] = '您输入的电子邮件地址格式不正确！';
 $_LANG['profile_js']['old_password_empty'] = '请输入您的原密码！';
@@ -147,6 +146,27 @@ $_LANG['profile_js']['confirm_password_empty'] = '请输入您的确认密码！
 $_LANG['profile_js']['both_password_error'] = '您现两次输入的密码不一致！';
 $_LANG['profile_js']['msg_blank'] = '不能为空';
 $_LANG['profile_js']['no_select_question'] = '- 您没有完成密码提示问题的操作';
+$_LANG['profile_js']['username_empty'] = '- 用户名不能为空。';
+$_LANG['profile_js']['username_shorter'] = '- 用户名长度不能少于 3 个字符。';
+$_LANG['profile_js']['username_invalid'] = '- 用户名只能是由字母数字以及下划线组成。';
+$_LANG['profile_js']['password_empty'] = '- 登录密码不能为空。';
+$_LANG['profile_js']['password_shorter'] = '- 登录密码不能少于 6 个字符。';
+$_LANG['profile_js']['confirm_password_invalid'] = '- 两次输入密码不一致';
+$_LANG['profile_js']['email_empty'] = '- Email 为空';
+$_LANG['profile_js']['email_invalid'] = '- Email 不是合法的地址';
+$_LANG['profile_js']['mobile_phone_invalid'] = '- 手机号码不是一个有效号码';
+$_LANG['profile_js']['msg_un_blank'] = '* 用户名不能为空';
+$_LANG['profile_js']['msg_un_length'] = '* 用户名最长不得超过7个汉字';
+$_LANG['profile_js']['msg_un_format'] = '* 用户名含有非法字符';
+$_LANG['profile_js']['msg_can_rg'] = '* 可以注册';
+$_LANG['profile_js']['msg_email_blank'] = '* 邮件地址不能为空';
+$_LANG['profile_js']['msg_email_registered'] = '* 邮箱已存在,请重新输入';
+$_LANG['profile_js']['msg_email_format'] = '* 邮件地址不合法';
+$_LANG['profile_js']['msg_blank'] = '不能为空';
+$_LANG['profile_js']['no_select_question'] = '- 您没有完成密码提示问题的操作';
+$_LANG['profile_js']['passwd_balnk'] = '- 密码中不能包含空格';
+//$_LANG['profile_js']['phone_error'] = '电话号码格式不正确';
+//$_LANG['profile_js']['username_error'] = '用户名格式不正确';
 
 /* 支付方式 */
 $_LANG['pay_name'] = '名称';
@@ -400,6 +420,7 @@ $_LANG['msg_can_rg'] = '可以注册';
 $_LANG['msg_email_blank'] = '邮件地址不能为空';
 $_LANG['msg_email_registered'] = '邮箱已存在,请重新输入';
 $_LANG['msg_email_format'] = '邮件地址不合法';
+$_LANG['msg_un_unexist'] = '手机号不存在';
 
 $_LANG['login_success'] = '登录成功';
 $_LANG['confirm_login'] = '确认登录';

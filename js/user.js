@@ -5,6 +5,9 @@
  */
 function userEdit()
 {
+	
+	
+	
   var frm = document.forms['formEdit'];
   var email = frm.elements['email'].value;
   var msg = '';
@@ -39,6 +42,35 @@ function userEdit()
 	}
   }
 
+
+  
+  //WEDO-S
+  var username  = Utils.trim(frm.elements['user_name'].value);
+  var mobile_phone = frm.elements['extend_field5'] ? Utils.trim(frm.elements['extend_field5'].value) : '';
+  
+  if (username.length == 0)
+  {
+    msg += username_empty + '\n';
+  }
+  else if (username.match(/^\s*$|^c:\\con\\con$|[%,\'\*\"\s\t\<\>\&\\]/))
+  {
+    msg += username_invalid + '\n';
+  }
+  else if (username.length < 3)
+  {
+    msg += username_shorter + '\n';
+  }
+
+ 
+  if (mobile_phone.length>0)
+  {
+    var reg = /^1[3|4|5|8|7][0-9]\d{8}$/;
+    if (!reg.test(mobile_phone))
+    {
+      msg += mobile_phone_invalid + '\n';
+    }
+  }
+ 
   if (msg.length > 0)
   {
     alert(msg);
@@ -48,6 +80,15 @@ function userEdit()
   {
     return true;
   }
+
+  //WEDO-E
+  
+  
+  
+  
+  
+  
+  
 }
 
 /* 会员修改密码 */

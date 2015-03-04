@@ -100,6 +100,7 @@
 		<!-- {/if} -->
 		{/foreach}
                 <tr>
+                <td><input type="button" name="submit" value="修改头像" class="bnt_blue_1" style="border:none;" onclick="window.location.href='upload/upload0.php'" ></td>
                   <td colspan="2" align="center" bgcolor="#FFFFFF"><input name="act" type="hidden" value="act_edit_profile" />
                     <input name="submit" type="submit" value="{$lang.confirm_edit}" class="bnt_blue_1" style="border:none;" />
                   </td>

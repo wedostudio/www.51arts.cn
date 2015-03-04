@@ -21,6 +21,7 @@ require(dirname(__FILE__) . '/includes/init.php');
 require_once(ROOT_PATH . 'languages/' .$_CFG['lang']. '/user.php');
 
 $user_id = $_SESSION['user_id'];
+
 $action  = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'default';
 
 $affiliate = unserialize($GLOBALS['_CFG']['affiliate']);

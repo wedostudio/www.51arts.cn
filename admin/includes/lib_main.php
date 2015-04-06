@@ -311,16 +311,29 @@ function get_position_list()
 function create_html_editor($input_name, $input_value = '')
 {
     global $smarty;
-
-    $editor = new FCKeditor($input_name);
-    $editor->BasePath   = '../includes/fckeditor/';
-    $editor->ToolbarSet = 'Normal';
-    $editor->Width      = '100%';
-    $editor->Height     = '320';
-    $editor->Value      = $input_value;
-    $FCKeditor = $editor->CreateHtml();
-    $smarty->assign('FCKeditor', $FCKeditor);
+    $kindeditor="
+    <script id='editor' name='$input_name' type='text/plain' style='width:1024px;height:500px;'>$input_value</script>
+    <script charset='utf-8' src='../includes/ueditor/ueditor.config.js'></script>
+    <script charset='utf-8' src='../includes/ueditor/ueditor.all.min.js'></script>
+    <script>
+    var ue = UE.getEditor('editor');
+    </script>
+    ";
+    $smarty->assign('FCKeditor', $kindeditor);
 }
+// function create_html_editor($input_name, $input_value = '')
+// {
+//     global $smarty;
+
+//     $editor = new FCKeditor($input_name);
+//     $editor->BasePath   = '../includes/fckeditor/';
+//     $editor->ToolbarSet = 'Normal';
+//     $editor->Width      = '100%';
+//     $editor->Height     = '320';
+//     $editor->Value      = $input_value;
+//     $FCKeditor = $editor->CreateHtml();
+//     $smarty->assign('FCKeditor', $FCKeditor);
+// }
 
 /**
  * 取得商品列表：用于把商品添加到组合、关联类、赠品类

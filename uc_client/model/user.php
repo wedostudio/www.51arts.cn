@@ -139,7 +139,6 @@ class usermodel {
 	}
 
 	function edit_user($username, $oldpw, $newpw, $email, $ignoreoldpw = 0, $questionid = '', $answer = '') {
-	    //echo "j";exit;
 		$data = $this->db->fetch_first("SELECT username, uid, password, salt FROM ".UC_DBTABLEPRE."members WHERE username='$username'");
 
 		if($ignoreoldpw) {

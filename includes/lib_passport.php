@@ -70,7 +70,7 @@ function register($username, $password, $email, $other = array())
         return false;
     }
 
-    if (!$GLOBALS['user']->add_user($username, $password, $email))
+    if (!$GLOBALS['user']->add_user($username, $password, $email, $other))
     {
         if ($GLOBALS['user']->error == ERR_INVALID_USERNAME)
         {

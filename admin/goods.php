@@ -1165,6 +1165,13 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
     krsort($link);
     $link = array_combine($key_array, $link);
 
+    //WEDO 插入同款产品的所有货号
+//     $sql = "SELECT max(goods_sn_suffix), goods_status " .
+//         " FROM " . $ecs->table('goods_all') .
+//         " WHERE goods_id = '$_REQUEST[goods_id]'";
+//     $row = $db->getRow($sql);
+//     if($row)
+        
 
     sys_msg($is_insert ? $_LANG['add_goods_ok'] : $_LANG['edit_goods_ok'], 0, $link);
 }

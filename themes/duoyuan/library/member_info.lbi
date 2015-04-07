@@ -1,0 +1,13 @@
+<div id="topleft">
+{if $user_info}
+	<span id="welcome">您好，<font class="f4_b">{$user_info.username}</font>，欢迎来到多元主义！</span>
+	<a href="user.php">{$lang.user_center}</a>
+	<span>/</span>
+	<a href="user.php?act=logout">{$lang.user_logout}</a>
+{else}
+	<span id="welcome">您好，欢迎来到多元主义！</span>
+	<a href="user.php"><img src="images/bnt_log.gif" /></a>
+	<span>/</span>
+	<a href="user.php?act=register"><img src="images/bnt_reg.gif" /></a>
+{/if}
+</div>

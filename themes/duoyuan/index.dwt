@@ -1,0 +1,1173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+
+		<link rel="stylesheet" type="text/css" href="css/main_banner.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/main_activity.css" />
+		<link rel="stylesheet" type="text/css" href="css/common_repos.css" />
+		<link rel="stylesheet" type="text/css" href="css/common_rmenu.css" />
+
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/common_function.js"></script>
+		<script type="text/javascript" src="js/common_duoyuan	.js"></script>
+		<script type="text/javascript" src="js/common_banner.js"></script>
+		<script type="text/javascript" src="js/common_rmenu.js"></script>
+		<script type="text/javascript" src="js/main_activity.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,index.js'}
+</head>
+<body>
+		<div id="wrap">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+<!-- #BeginLibraryItem "/library/index_ad.lbi" --><!-- #EndLibraryItem -->
+
+			<div id="repos" class="fitwidth">
+				<table>
+					<tr id="repos-img">
+						<td>
+							<a href="#">
+								<img src="img/repos_img_1.jpg" alt="红木" />
+							</a>
+						</td>
+						<td>
+							<a href="#">
+								<img src="img/repos_img_2.jpg" alt="陶瓷" />
+							</a>
+						</td>
+						<td>
+							<a href="#">
+								<img src="img/repos_img_3.jpg" alt="漆器" />
+							</a>
+						</td>
+						<td>
+							<a href="#">
+								<img src="img/repos_img_4.jpg" alt="玉石" />
+							</a>
+						</td>
+						<td>
+							<a href="#">
+								<img src="img/repos_img_5.jpg" alt="字画" />
+							</a>
+						</td>
+						<td>
+							<a href="#">
+								<img src="img/repos_img_6.jpg" alt="银器" />
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div id="activity" class="fullwidth">
+				<div id="act_wrap" class="fitwidth">
+
+					<div id="act">
+
+						<ul class="slide-pic">
+							<li class="current">
+								<a href="#">
+									<img alt="act img" src="img/act_big_1.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img alt="act img" src="img/act_big_2.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img alt="act img" src="img/act_big_3.jpg" />
+								</a>
+							</li>
+						</ul>
+
+						<ul class="slide-li">
+							<li class="current">
+								<a href="#">
+									<img alt="act img" src="img/act_sml_1.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img alt="act img" src="img/act_sml_2.jpg" />
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img alt="act img" src="img/act_sml_3.jpg" />
+								</a>
+							</li>
+						</ul>
+
+					</div>
+
+					<div id="art_headlines">
+
+						<h4><span>艺术头条</span>/热点推荐</h4>
+						<ul>
+							<li>
+								<div>
+									<span>活动</span><a href="#">首次宝贝竞拍比赛火热进行中</a>
+								</div>
+							</li>
+							<li>
+								<div>
+									<span>名家</span><a href="#">国画大师进驻多元平台</a>
+								</div>
+							</li>
+							<li>
+								<div>
+									<span>资讯</span><a href="#">高更3亿美元买家从巴塞尔...</a>
+								</div>
+							</li>
+							<li>
+								<div>
+									<span>精选</span><a href="#">名家大师近代红木家具展览会</a>
+								</div>
+							</li>
+						</ul>
+						<a href="#">
+							<img id="art_headlines_sale" src="img/art_headlines_sale.jpg" alt="sale" />
+						</a>
+					</div>
+
+				</div>
+			</div>
+
+			<div id="sale_n_new" class="fitwidth">
+
+				<div id="hot_sale">
+					<div class="sale_n_new_title"><span class="color_gray">/<a href="#" class="hover_color">查看更多</a></span>
+					</div>
+
+					<div id="hot_sale_showbox" class="sale_n_new_item">
+						<div class="slide-pic">
+							<a href="#">
+								<img src="" alt="hot sale" />
+								<div></div>
+								<p></p>
+							</a>
+						</div>
+
+						<ul class="slide-li">
+							<li class="current">
+								<a href="#">
+									<img src="img/hot_sale_img_01.jpg" alt="hot sale" />
+								</a>
+								<p><span class="item_name">明代红木简约大气单人椅</span><span class="item_info">当前价：<span class="item_price">1487</span><span>元</span></span>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/hot_sale_img_02.jpg" alt="hot sale" />
+								</a>
+								<p><span class="item_name">清代砂陶</span><span class="item_info">当前价：<span class="item_price">24787</span><span>元</span></span>
+							</li>
+							<li class="last_item">
+								<a href="#">
+									<img src="img/hot_sale_img_03.jpg" alt="hot sale" />
+								</a>
+								<p><span class="item_name">梅子青大盘</span><span class="item_info">当前价：<span class="item_price">123487</span><span>元</span></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="new_item">
+					<div class="sale_n_new_title"><span class="color_gray">/<a href="#" class="hover_color">查看更多</a></span>
+					</div>
+
+					<div id="new_item_showbox" class="sale_n_new_item">
+						<div class="slide-pic">
+							<a href="#">
+								<img src="" alt="new item" />
+								<div></div>
+								<p></p>
+							</a>
+						</div>
+						<ul class="slide-li">
+							<li>
+								<a href="#">
+									<img src="img/new_item_img_01.jpg" alt="item_info" />
+								</a>
+								<p><span class="item_name">明代红木简约大气单人椅</span><span class="item_info">当前价：<span class="item_price">2487</span><span>元</span></span>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/new_item_img_02.jpg" alt="item_info" />
+								</a>
+								<p><span class="item_name">清代砂陶</span><span class="item_info">当前价：<span class="item_price">24787</span><span>元</span></span>
+							</li>
+							<li class="last_item">
+								<a href="#">
+									<img src="img/new_item_img_03.jpg" alt="item_info" />
+								</a>
+								<p><span class="item_name">梅子青大盘</span><span class="item_info">当前价：<span class="item_price">123487</span><span>元</span></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div id="artinfo_wrap" class="fullwidth">
+				<div id="artinfo" class="fitwidth">
+					<div id="artinfo_title">
+						<span id="artinfo_sub_title" class="color_black">/艺术资讯实时更新</span>
+						<span id="artinfo_more"><a href="#"class="color_black hover_color">查看更多资讯</a></span>
+					</div>
+
+					<div id="artinfo_list">
+						<ul>
+							<a href="#">
+								<li>
+									<img src="img/artinfo_img_01.jpg" alt="art info" />
+									<span class="color_gray">2015.02.09</span>
+									<p class="color_black">高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+								</li>
+							</a>
+							<a href="#">
+								<li>
+									<img src="img/artinfo_img_02.jpg" alt="art info" />
+									<span class="color_gray">2015.02.09</span>
+									<p class="color_black">高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+								</li>
+							</a>
+							<a href="#">
+								<li>
+									<img src="img/artinfo_img_03.jpg" alt="art info" />
+									<span class="color_gray">2015.02.09</span>
+									<p class="color_black">高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+								</li>
+							</a>
+							<a href="#">
+								<li>
+									<img src="img/artinfo_img_04.jpg" alt="art info" />
+									<span class="color_gray">2015.02.09</span>
+									<p class="color_black">高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+								</li>
+							</a>
+							<a href="#">
+								<li>
+									<img src="img/artinfo_img_05.jpg" alt="art info" />
+									<span class="color_gray">2015.02.09</span>
+									<p class="color_black">高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+								</li>
+							</a>
+							<a href="#">
+								<li>
+									<img src="img/artinfo_img_06.jpg" alt="art info" />
+									<span class="color_gray">2015.02.09</span>
+									<p class="color_black">高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+								</li>
+							</a>
+						</ul>
+					</div>
+				</div>
+				<div id="artinfo_pre"></div>
+				<div id="artinfo_next"></div>
+			</div>
+
+			<div id="classitem" class="fitwidth">
+
+				<div id="muyuan" class="classitem_wrap">
+					<h1 class="classtitile"><a href="#"><span>上等红木家具</span></a></h1>
+					<p class="class_bgline"></p>
+					<div class="item_classify">
+						<ul class="item_classify_title">
+							<li>
+								<ul class="item_nav_01">
+									<li class="little_title"><a href="#">卧室家具</a>
+									</li>
+									<li><a href="#">床</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">衣柜</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">摆件</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<ul class="item_nav_02">
+									<li class="little_title"><a href="#">客厅家具</a>
+									</li>
+									<li><a href="#">沙发</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">凳子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">桌子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">摆件</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<ul class="item_nav_03">
+									<li class="little_title"><a href="#">其它红木制品</a>
+									</li>
+									<li><a href="#">沙发</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">凳子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">桌子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+
+					<table cellspacing="13px" class="show_iteminfo">
+						<tr>
+							<td>
+								<img src="img/muyuan_01.jpg" alt="木元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/muyuan_02.jpg" alt="木元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/muyuan_03.jpg" alt="木元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/muyuan_04.jpg" alt="木元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="img/muyuan_05.jpg" alt="木元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/muyuan_06.jpg" alt="木元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/muyuan_07.jpg" alt="木元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/muyuan_08.jpg" alt="木元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+						</tr>
+					</table>
+
+				</div>
+
+				<div id="taoyuan" class="classitem_wrap">
+					<h1 class="classtitile"><a href="#"><span>传统陶瓷工艺</span></a></h1>
+					<p class="class_bgline"></p>
+					<div class="item_classify">
+						<ul class="item_classify_title">
+							<li>
+								<ul class="item_nav_01">
+									<li class="little_title"><a href="#">卧室家具</a>
+									</li>
+									<li><a href="#">床</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">衣柜</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">摆件</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<ul class="item_nav_02">
+									<li class="little_title"><a href="#">客厅家具</a>
+									</li>
+									<li><a href="#">沙发</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">凳子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">桌子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">摆件</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<ul class="item_nav_03">
+									<li class="little_title"><a href="#">其它红木制品</a>
+									</li>
+									<li><a href="#">沙发</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">凳子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">桌子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+
+					<table cellspacing="13px" class="show_iteminfo">
+						<tr>
+							<td>
+								<img src="img/taoyuan_01.jpg" alt="陶元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/taoyuan_02.jpg" alt="陶元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/taoyuan_03.jpg" alt="陶元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/taoyuan_04.jpg" alt="陶元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="img/taoyuan_05.jpg" alt="陶元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/taoyuan_06.jpg" alt="陶元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/taoyuan_07.jpg" alt="陶元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/taoyuan_08.jpg" alt="陶元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div id="qiyuan" class="classitem_wrap">
+					<h1 class="classtitile"><a href="#"><span>明清红木家具</span></a></h1>
+					<p class="class_bgline"></p>
+					<div class="item_classify">
+						<ul class="item_classify_title">
+							<li>
+								<ul class="item_nav_01">
+									<li class="little_title"><a href="#">卧室家具</a>
+									</li>
+									<li><a href="#">床</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">衣柜</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">摆件</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<ul class="item_nav_02">
+									<li class="little_title"><a href="#">客厅家具</a>
+									</li>
+									<li><a href="#">沙发</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">凳子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">桌子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">摆件</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<ul class="item_nav_03">
+									<li class="little_title"><a href="#">其它红木制品</a>
+									</li>
+									<li><a href="#">沙发</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">凳子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">桌子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+
+					<table cellspacing="13px" class="show_iteminfo">
+						<tr>
+							<td>
+								<img src="img/qiyuan_01.jpg" alt="漆元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/qiyuan_02.jpg" alt="漆元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/qiyuan_03.jpg" alt="漆元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/qiyuan_04.jpg" alt="漆元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="img/qiyuan_05.jpg" alt="漆元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/qiyuan_06.jpg" alt="漆元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/qiyuan_07.jpg" alt="漆元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/qiyuan_08.jpg" alt="漆元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div id="shiyuan" class="classitem_wrap">
+					<h1 class="classtitile"><a href="#"><span>明清红木家具</span></a></h1>
+					<p class="class_bgline"></p>
+					<div class="item_classify">
+						<ul class="item_classify_title">
+							<li>
+								<ul class="item_nav_01">
+									<li class="little_title"><a href="#">卧室家具</a>
+									</li>
+									<li><a href="#">床</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">衣柜</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">摆件</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<ul class="item_nav_02">
+									<li class="little_title"><a href="#">客厅家具</a>
+									</li>
+									<li><a href="#">沙发</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">凳子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">桌子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">摆件</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<ul class="item_nav_03">
+									<li class="little_title"><a href="#">其它红木制品</a>
+									</li>
+									<li><a href="#">沙发</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">凳子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">桌子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+
+					<table cellspacing="13px" class="show_iteminfo">
+						<tr>
+							<td>
+								<img src="img/shiyuan_01.jpg" alt="石元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/shiyuan_02.jpg" alt="石元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/shiyuan_03.jpg" alt="石元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/shiyuan_04.jpg" alt="石元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="img/shiyuan_05.jpg" alt="石元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/shiyuan_06.jpg" alt="石元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/shiyuan_07.jpg" alt="石元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/shiyuan_08.jpg" alt="石元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div id="yinyuan" class="classitem_wrap">
+					<h1 class="classtitile"><a href="#"><span>明清红木家具</span></a></h1>
+					<p class="class_bgline"></p>
+					<div class="item_classify">
+						<ul class="item_classify_title">
+							<li>
+								<ul class="item_nav_01">
+									<li class="little_title"><a href="#">卧室家具</a>
+									</li>
+									<li><a href="#">床</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">衣柜</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">摆件</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<ul class="item_nav_02">
+									<li class="little_title"><a href="#">客厅家具</a>
+									</li>
+									<li><a href="#">沙发</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">凳子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">桌子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">摆件</a>
+									</li>
+								</ul>
+							</li>
+
+							<li>
+								<ul class="item_nav_03">
+									<li class="little_title"><a href="#">其它红木制品</a>
+									</li>
+									<li><a href="#">沙发</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">凳子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">桌子</a>
+									</li>
+									<li>/</li>
+									<li><a href="#">置物架</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+
+					<table cellspacing="13px" class="show_iteminfo">
+						<tr>
+							<td>
+								<img src="img/yinyuan_01.jpg" alt="银元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/yinyuan_02.jpg" alt="银元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/yinyuan_03.jpg" alt="银元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/yinyuan_04.jpg" alt="银元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="img/yinyuan_05.jpg" alt="银元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/yinyuan_06.jpg" alt="银元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/yinyuan_07.jpg" alt="银元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+							<td>
+								<img src="img/yinyuan_08.jpg" alt="银元" />
+								<p>
+									<span class="item_name">某某艺术品</span>
+									<span class="item_price">估价：10000.0</span>
+									<a href="#">查看详情</a>
+								</p>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+			</div>
+
+			<div id="artcircle_wrap" class="fullwidth">
+				<div id="artcircle" class="fitwidth">
+					<div id="artists_big_wrap">
+						<ul class="artists_big">
+							<a href="#">
+								<li>
+									<img src="img/artists_big_01.jpg" alt="艺术家" />
+									<h5><span>/&nbsp;</span>巍然</h5>
+									<h4>中国漆器史上的一抹“清”</h4>
+									<div class="text_overflow_ddd">
+										<p>漆器是中国古代在化学工艺及工艺美术方面的重要发明。漆器是中国古代在化学工艺及工艺美术方面的重要发明。漆器是中国古代在化学工艺及工艺美术方面的重要发明。它一般以优美的图案在器物表面构成一个绮丽的彩色世界。</p>
+									</div>
+								</li>
+							</a>
+							<a href="#">
+								<li>
+									<img src="img/artists_big_02.jpg" alt="艺术家" />
+									<h5><span>/&nbsp;</span>巍然</h5>
+									<h4>中国漆器史上的一抹“清”</h4>
+									<div class="text_overflow_ddd">
+										<p>漆器是中国古代在化学工艺及工艺美术方面的重要发明。它一般以优美的图案在器物表面构成一个绮丽的彩色世界。</p>
+									</div>
+								</li>
+							</a>
+							<a href="#">
+								<li>
+									<img src="img/artists_big_03.jpg" alt="艺术家" />
+									<h5><span>/&nbsp;</span>巍然</h5>
+									<h4>中国漆器史上的一抹“清”</h4>
+									<div class="text_overflow_ddd">
+										<p>漆器是中国古代在化学工艺及工艺美术方面的重要发明。漆器是中国古代在化学工艺及工艺美术方面的重要发明。它一般以优美的图案在器物表面构成一个绮丽的彩色世界。</p>
+									</div>
+								</li>
+							</a>
+							<a href="#">
+								<li>
+									<img src="img/artists_big_04.jpg" alt="艺术家" />
+									<h5><span>/&nbsp;</span>巍然</h5>
+									<h4>中国漆器史上的一抹“清”</h4>
+									<div class="text_overflow_ddd">
+										<p>漆器是中国古代在化学工艺及工艺美术方面的重要发明。它一般以优美的图案在器物表面构成一个绮丽的彩色世界。</p>
+									</div>
+								</li>
+							</a>
+						</ul>
+					</div>
+					<div id="artists_small_wrap">
+						<ul class="artists_small">
+							<li>
+								<a href="#">
+									<img src="img/artists_small_01.jpg" alt="艺术家" />
+									<p></p><span>陶青</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/artists_small_02.jpg" alt="艺术家" />
+									<p></p><span>陶青</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/artists_small_03.jpg" alt="艺术家" />
+									<p></p><span>陶青</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/artists_small_04.jpg" alt="艺术家" />
+									<p></p><span>陶青</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/artists_small_05.jpg" alt="艺术家" />
+									<p></p><span>陶青</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/artists_small_06.jpg" alt="艺术家" />
+									<p></p><span>陶青</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/artists_small_07.jpg" alt="艺术家" />
+									<p></p><span>陶青</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/artists_small_08.jpg" alt="艺术家" />
+									<p></p><span>陶青</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/artists_small_09.jpg" alt="艺术家" />
+									<p></p><span>陶青</span>
+								</a>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div id="footer_wrap" class="fullwidth">
+				<div id="footer" class="fitwidth">
+					<div id="ft_nav_wrap">
+
+						<div id="ft_nav">
+							<ul>
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="#">购买艺术</a>
+										</li>
+										<li><a href="#">购买流程</a>
+										</li>
+
+										<li><a href="#">支付方式</a>
+										</li>
+
+										<li><a href="#">提货方式</a>
+										</li>
+
+										<li><a href="#">竞拍保证</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="#">合作艺术</a>
+										</li>
+										<li><a href="#">艺术家签约</a>
+										</li>
+
+										<li><a href="#">在线签约</a>
+										</li>
+
+										<li><a href="#">包装推广</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="#">专业服务</a>
+										</li>
+										<li><a href="#">VIP/SVIP</a>
+										</li>
+
+										<li><a href="#">联动合作</a>
+										</li>
+
+										<li><a href="#">常见问题</a>
+										</li>
+
+										<li><a href="#">法律政策</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="#">关<span class="nbsp_font">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>于</a>
+										</li>
+										<li><a href="#">网站地图</a>
+										</li>
+
+										<li><a href="#">品牌介绍</a>
+										</li>
+
+										<li><a href="#">联系我们</a>
+										</li>
+
+										<li><a href="#">友情链接</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+						<img src="img/ft_phone_code.jpg" alt="二维码" />
+						<img class="ft_second_code" src="img/ft_weixin_code.jpg" alt="二维码" />
+
+					</div>
+					<div id="ft_shot">
+						<ul>
+							<li><a href="#">回到首页</a>
+							</li>
+							<li class="ft_shot_sepa">/</li>
+							<li class="ft_shot_2"><a>收藏多元主义</a>
+							</li>
+							<li class="ft_shot_sepa">/</li>
+							<li><a>服务热线：400-100-8759</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="ft_bottom" class="fitwidth"></div>
+		</div>
+
+	</body>
+
+</html>

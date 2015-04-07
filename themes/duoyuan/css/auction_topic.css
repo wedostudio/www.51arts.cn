@@ -1,0 +1,180 @@
+/* logo_custom bg start */
+
+#logo_custom {
+	width: 98px;
+	background: url("../img/lv3_auction_ing_logo.jpg") no-repeat left bottom;
+}
+/* logo_custom bg end */
+/* banner start */
+
+#banner,
+#banner img {
+	width: 1000px;
+	height: 337px;
+}
+/* banner end */
+
+#item_wrap {
+	margin-top: 60px;
+	margin-bottom: 50px;
+	overflow: hidden;
+}
+/* item sort start */
+
+#item_sort {
+	overflow: hidden;
+}
+#item_sort a {
+	border: 1px solid #e9e9e9;
+	padding: 0 5px;
+	height: 24px;
+	line-height: 24px;
+	display: block;
+	float: left;
+}
+#item_sort a:hover {
+	color: #DC5154;
+}
+#item_sort .fixed_price {
+	margin-left: 10px;
+}
+#item_sort .price_sort {
+	padding-right: 15px;
+	margin-left: 10px;
+	background: url("../img/lv2_artrepos_pricesort_bg.png") no-repeat 90% center;
+}
+#item_sort .price_sort_drt {
+	background: #e9e9e9;
+	margin-right: 2px;
+}
+/* item sort end */
+/* item list start */
+
+#item_list {
+	margin-top: 25px;
+	overflow: hidden;
+}
+#item_list table {
+	border-collapse: separate;
+	border-spacing: 20px;
+	margin-left: -20px;
+}
+#item_list td div.item_top {
+	width: 320px;
+}
+#item_list td div.item_top {
+	background: #f6f7f9;
+}
+#item_list td div.item_top img {
+	width: 320px;
+	height: 279px;
+}
+#item_list td div.item_top h4 {
+	line-height: 40px;
+	height: 40px;
+	font-size: 16px;
+	font-weight: 500;
+	text-align: center;
+	overflow: hidden;
+}
+#item_list td div.item_bottom {
+	width: 298px;
+	padding: 20px 10px;
+	border: 1px solid #e0e0e0;
+	border-top: none;
+	background: #fff;
+	overflow: hidden;
+}
+#item_list .price {
+	border-bottom: 1px dotted #e0e0e0;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+#item_list .price span {
+	color: #de5452;
+	font-weight: 900;
+	margin-left: 10px;
+}
+#item_list .overtime {
+	float: left;
+}
+#item_list .overtime span {
+	margin-left: 10px;
+}
+#item_list .pricecnt {
+	float: right;
+}
+#item_list .pricecnt span {
+	margin-left: 10px;
+}
+#item_list .price,
+#item_list .overtime,
+#item_list .pricecnt {
+	color: #6f6f6f;
+}
+/* item list end */
+/* other auction start */
+
+#other_auction {
+	padding-top: 45px;
+}
+#other_auction_title {
+	height: 30px;
+	position: relative;
+	background: url("../img/lv4_auction_topic_otherauction_title.jpg") no-repeat left bottom;
+}
+#other_auction_title a {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#other_auction_item {
+	margin-top: 25px;
+	overflow: hidden;
+}
+#other_auction_item .other_auction_left {
+	float: left;
+}
+#other_auction_item .other_auction_right {
+	float: right;
+}
+#other_auction_item > a > div {
+	width: 486px;
+}
+#other_auction_item img {
+	width: 486px;
+	height: 199px;
+}
+#other_auction_item .oth_auction_text {
+	width: 444px;
+	padding: 15px 20px;
+	border: 1px solid #e0e0e0;
+	border-top: none;
+	overflow: hidden;
+}
+#other_auction_item .oth_auction_text h2 {
+	border-bottom: 1px dotted #e0e0e0;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#other_auction_item .auctioncnt {
+	float: left;
+}
+#other_auction_item .overtime span {
+	margin-left: 10px;
+}
+#other_auction_item .overtime {
+	float: right;
+}
+#other_auction_item .auctioncnt span {
+	margin-left: 10px;
+}
+#other_auction_item .overtime,
+#other_auction_item .auctioncnt {
+	color: #6f6f6f;
+}
+/* other auction end */

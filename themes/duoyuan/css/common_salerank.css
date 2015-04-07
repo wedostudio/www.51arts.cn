@@ -1,0 +1,65 @@
+/* salerank begin */
+
+#salerank {
+	padding-top: 45px;
+}
+#salerank_info {
+	height: 30px;
+	position: relative;
+}
+#salerank_info #salerank_bg {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	display: block;
+	width: 100px;
+	height: 25px;
+	background: url("../img/salerank_title.jpg") no-repeat left bottom;
+}
+#salerank_info #salerank_title {
+	position: absolute;
+	left: 100px;
+	bottom: 0;
+}
+#salerank_info a {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+#salerank table {
+	border-collapse: separate;
+	border-spacing: 25px 10px;
+	margin-left: -25px;
+	margin-top: 15px;
+}
+#salerank table .salerank_item td,
+#salerank table .salerank_item td img {
+	width: 180px;
+	height: 180px;
+	position: relative;
+}
+#salerank table .salerank_item td a {
+	display: none;
+	position: absolute;
+	top: 80px;
+	left: 50px;
+	width: 80px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	background: #dd5451;
+	color: #fff;
+}
+#salerank table .salerank_name,
+#salerank table .salerank_name span {
+	text-align: center;
+	line-height: 16px;
+	color: #6F6F6F;
+}
+#salerank table .salerank_name td span {
+	height: 16px;
+	width: 180px;
+	overflow: hidden;
+	display: block;
+}
+/* salerank end */

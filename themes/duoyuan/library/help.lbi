@@ -1,11 +1,17 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!--{if $helps}-->
-<!-- {foreach from=$helps item=help_cat} -->
-<dl>
-  <dt><a href='{$help_cat.cat_id}' title="{$help_cat.cat_name}">{$help_cat.cat_name}</a></dt>
-  <!-- {foreach from=$help_cat.article item=item} -->
-  <dd><a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a></dd>
-  <!-- {/foreach} -->
-</dl>
-<!-- {/foreach} -->
-<!--{/if}-->
+						<div id="ft_nav">
+							<ul>
+							<!--{if $helps}-->
+								<!-- {foreach from=$helps item=help_cat} -->
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="{$help_cat.cat_id}">{$help_cat.cat_name}</a>
+										</li>
+										<!-- {foreach from=$help_cat.article item=item} -->
+										<li><a href="#">购买流程</a></li>
+										<!-- {/foreach} -->
+									</ul>
+								</li>
+								<!-- {/foreach} -->
+							<!--{/if}-->
+							</ul>
+						</div>

@@ -1,0 +1,344 @@
+/* logo_custom bg start */
+
+#logo_custom.superinfo_logo {
+	width: 100px;
+	background: url("../img/lv3_artinfo_superinfo_logo.jpg") no-repeat left bottom;
+}
+#logo_custom.arteye_logo {
+	width: 100px;
+	background: url("../img/lv3_artinfo_arteye_logo.jpg") no-repeat left bottom;
+}
+#logo_custom.artdecode_logo {
+	width: 100px;
+	background: url("../img/lv3_artinfo_artdecode_logo.jpg") no-repeat left bottom;
+}
+/* logo_custom bg end */
+/* banner start */
+
+#banner {
+	height: 300px;
+	position: relative;
+}
+#banner img {
+	height: 300px;
+	width: 1000px;
+}
+#banner #banner_bg {
+	background: #000;
+	filter: alpha(opacity=70);
+	opacity: 0.7;
+}
+#banner div {
+	position: absolute;
+	height: 40px;
+	width: 1000px;
+	text-align: center;
+	bottom: 0;
+	left: 0;
+}
+#banner div h3 {
+	color: #fff;
+	line-height: 40px;
+	font-weight: 500;
+}
+/* banner end */
+
+#content_wrap {
+	margin-top: 70px;
+	margin-bottom: 50px;
+}
+#content_left {
+	float: left;
+	width: 640px;
+	padding-top: 45px;
+}
+#content_right {
+	float: right;
+	width: 313px;
+	overflow: hidden;
+	padding-top: 45px;
+}
+/* super info start */
+
+#artinfo_elem_title.superinfo_title {
+	height: 30px;
+	width: 125px;
+	margin-bottom: 30px;
+	background: url("../img/lv2_artinfo_superinfo_title.png") no-repeat left bottom;
+}
+#artinfo_elem_title.arteye_title {
+	height: 32px;
+	width: 91px;
+	margin-bottom: 30px;
+	background: url("../img/lv2_artinfo_arteye_title.png") no-repeat left bottom;
+}
+#artinfo_elem_title.artdecode_title {
+	height: 30px;
+	width: 123px;
+	margin-bottom: 30px;
+	background: url("../img/lv2_artinfo_artdecode_title.png") no-repeat left bottom;
+}
+#artinfo_elem_list li {
+	position: relative;
+}
+#artinfo_elem_list li img {
+	width: 148px;
+	height: 118px;
+}
+#artinfo_elem_list li > div {
+	position: absolute;
+	left: 148px;
+	top: 5px;
+	height: 96px;
+	padding: 0 20px 20px 20px;
+}
+#artinfo_elem_list li a h3:hover,
+#artinfo_elem_list li a span:hover {
+	color: #DC5154;
+}
+#artinfo_elem_list li > div h3 {
+	font-size: 16px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	color: #000;
+	width: 450px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+#artinfo_elem_list li > div div.text_overflow_ddd {
+	overflow: hidden;
+	height: 40px;
+	margin-bottom: 10px;
+}
+#artinfo_elem_list li > div p {
+	line-height: 20px;
+	color: #6f6f6f;
+}
+#artinfo_elem_list .info_time {
+	float: left;
+}
+#artinfo_elem_list .info_comment {
+	float: right;
+}
+#artinfo_elem_list .comment_praise {
+	width: 14px;
+	height: 14px;
+	padding-left: 18px;
+	background: url("../img/lv3_artinfo_superinfo_praise.jpg") no-repeat left;
+}
+#artinfo_elem_list .info_time span,
+#artinfo_elem_list .info_comment span,
+#artinfo_elem_list .comment_praise span {
+	font-size: 12px;
+}
+#artinfo_elem_list .info_sepa {
+	margin: 0 5px;
+}
+#artinfo_elem_list div.dotted_line {
+	margin: 20px auto;
+}
+#page_ctl {
+	width: 640px;
+	height: 30px;
+	margin-top: 25px;
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+}
+#page_ctl > ul {
+	width: 332px;
+	text-align: center;
+	margin: 0 auto;
+}
+#page_ctl > ul li {
+	float: left;
+	width: 110px;
+	height: 30px;
+}
+#page_ctl > ul li a {
+	line-height: 30px;
+	color: #000;
+}
+#page_ctl > ul li a:hover {
+	color: #DC5154;
+}
+#page_select {
+	border-left: 1px solid #e0e0e0;
+	border-right: 1px solid #e0e0e0;
+}
+/* div select start */
+
+#pagectl_divselect {
+	position: relative;
+	z-index: 10000;
+}
+#pagectl_divselect cite {
+	width: 60px;
+	height: 30px;
+	line-height: 30px;
+	display: block;
+	color: #000;
+	cursor: pointer;
+	font-style: normal;
+	padding-left: 20px;
+	padding-right: 10px;
+	margin-right: 20px;
+	background: url(../img/lv3_artinfo_superinfo_pagectl_bg.png) no-repeat right center;
+}
+#pagectl_divselect ul {
+	width: 110px;
+	border: 1px solid #e0e0e0;
+	border-top: none;
+	background-color: #fff;
+	position: absolute;
+	z-index: 20000;
+	margin-top: -1px;
+	margin-left: -1px;
+	display: none;
+}
+#pagectl_divselect ul li {
+	height: 30px;
+	line-height: 30px;
+}
+#pagectl_divselect ul li a {
+	display: block;
+	height: 30px;
+	color: #000;
+	text-align: left;
+	padding-left: 30px;
+}
+#pagectl_divselect ul li a:hover {
+	color: #DC5154;
+}
+/* div select end */
+/* super info end */
+/* hot info start*/
+
+#hot_info {
+	width: 313px;
+	overflow: hidden;
+}
+#hot_info_title {
+	height: 30px;
+	margin-bottom: 30px;
+	background: url("../img/lv2_artinfo_hotinfo_title.png") no-repeat left bottom;
+}
+#hot_info_title a {
+	display: block;
+	width: 91px;
+	height: 30px;
+}
+#hot_info_list div.dotted_line {
+	margin: 18px auto;
+}
+#hot_info_list li {
+	height: 72px;
+	position: relative;
+}
+#hot_info_list li img {
+	height: 72px;
+	width: 125px;
+}
+#hot_info_list li > div {
+	position: absolute;
+	top: 0px;
+	left: 135px;
+}
+#hot_info_list li > div div.text_overflow_ddd {
+	overflow: hidden;
+	margin-top: 10px;
+	height: 50px;
+}
+#hot_info_list li > div p {
+	line-height: 25px;
+	color: #000;
+}
+#hot_info_list li > div p:hover {
+	color: #DC5154;
+}
+/* hot info end*/
+/* opus show start*/
+
+#opus_show {
+	margin-top: 40px;
+	width: 313px;
+	height: 310px;
+	position: relative;
+}
+#opus_show img {
+	width: 313px;
+	height: 310px;
+}
+#opus_show_info_bg {
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+	background: #000;
+}
+#opus_show_info,
+#opus_show_info_bg {
+	width: 313px;
+	height: 60px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	color: #fff;
+	text-align: center;
+	overflow: hidden;
+	padding: 20px 10px;
+}
+#opus_show_info div.text_overflow_ddd {
+	width: 293px;
+	margin-top: 10px;
+	overflow: hidden;
+	height: 40px;
+}
+#opus_show_info p {
+	line-height: 20px;
+}
+/* opus show end*/
+/* salerank begin */
+
+#salerank {
+	margin-top: 45px;
+	padding-top: 45px;
+}
+#salerank_info #salerank_bg {
+	display: block;
+	width: 100px;
+	height: 25px;
+	background: url("../img/salerank_title.png") no-repeat center;
+}
+#salerank table {
+	border-collapse: separate;
+	border-spacing: 13px 18px;
+	margin-left: -13px;
+	margin-top: 20px;
+}
+#salerank table td {
+	width: 150px;
+	height: 155px;
+}
+#salerank table td a {
+	display: block;
+	float: left;
+	width: 150px;
+	height: 155px;
+}
+#salerank table td img {
+	width: 150px;
+	height: 130px;
+}
+#salerank table td h4 {
+	width: 148px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	font-weight: 500;
+	border: 1px solid #c2c2c2;
+	border-top: none;
+	overflow: hidden;
+}
+#salerank table a:hover {
+	color: #DC5154;
+}
+/* salerank end */

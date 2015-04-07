@@ -1,0 +1,148 @@
+/* act start */
+
+#act {
+	position: relative;
+	overflow: hidden;
+	background: #bdbcc0;
+	float: left;
+	height: 265px;
+	width: 707px;
+}
+#act .slide-pic,
+#act .slide-pic img {
+	overflow: hidden;
+	width: 707px;
+	height: 265px;
+}
+#act .slide-pic li {
+	display: none;
+}
+#act .slide-pic li.current {
+	display: block;
+}
+#act .slide-li {
+	left: 10px;
+	top: 0px;
+	position: absolute;
+}
+#act .slide-li li {
+	width: 170px;
+	height: 70px;
+	margin-top: 12px;
+	_margin-top: 9px;
+	border: 1px solid #dedee0;
+}
+#act .slide-li a {
+	display: block;
+	text-decoration: none;
+}
+#act .slide-li a img {
+	width: 170px;
+	height: 70px;
+}
+#act .slide-li li.current {
+	border: 1px solid #fff;
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+}
+/* act end */
+/* sale and new start */
+
+#sale_n_new {
+	overflow: hidden;
+	margin-top: 70px;
+}
+#hot_sale {
+	width: 490px;
+	float: left;
+}
+#new_item {
+	width: 490px;
+	float: right;
+}
+#sale_n_new .sale_n_new_title {
+	width: 80px;
+	height: 30px;
+	padding-left: 100px;
+	margin: 0 auto;
+	background: red;
+	position: relative;
+	margin-bottom: 22px;
+}
+#sale_n_new .sale_n_new_title span {
+	position: absolute;
+	left: 105px;
+	bottom: 0;
+}
+#hot_sale .sale_n_new_title {
+	background: url(img/hot_sale_title.png) no-repeat left bottom;
+}
+#new_item .sale_n_new_title {
+	background: url(img/new_item_title.png) no-repeat left bottom;
+}
+#sale_n_new .slide-pic,
+#sale_n_new .slide-pic img {
+	width: 365px;
+	height: 370px;
+	float: left;
+}
+#sale_n_new .slide-pic {
+	background: #f7f7f7;
+	position: relative;
+}
+#sale_n_new .slide-pic div,
+#sale_n_new .slide-pic p {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 40px;
+	line-height: 40px;
+	width: 365px;
+	cursor: pointer;
+}
+#sale_n_new .slide-pic p span {
+	color: #fff;
+}
+#sale_n_new .slide-pic div {
+	background: #000;
+	filter: alpha(opacity=70);
+	opacity: 0.7;
+}
+#sale_n_new .slide-pic .item_name {
+	display: block;
+	float: left;
+	margin-left: 10px;
+}
+#sale_n_new .slide-pic .item_info {
+	display: block;
+	margin-right: 10px;
+	float: right;
+	font-weight: 900;
+}
+#sale_n_new .slide-pic .item_price {
+	color: red;
+	font-weight: 900;
+}
+#sale_n_new .slide-li {
+	width: 118px;
+	float: right;
+}
+#sale_n_new .slide-li li,
+#sale_n_new .slide-li li img {
+	width: 118px;
+	height: 118px;
+}
+#sale_n_new .slide-li li {
+	margin-bottom: 8px;
+}
+#sale_n_new .slide-li li p {
+	display: none;
+}
+#sale_n_new .slide-li li.last_item {
+	margin-bottom: 0;
+}
+#sale_n_new .slide-li li.current {
+	filter: alpha(opacity=40);
+	opacity: 0.4;
+}
+/* sale and new end */

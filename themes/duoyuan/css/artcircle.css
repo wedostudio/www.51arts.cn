@@ -1,0 +1,202 @@
+/* logo_custom bg start */
+
+#logo_custom {
+	width: 76px;
+	background: url("../img/lv2_artcircle_logo.jpg") no-repeat left bottom;
+}
+/* logo_custom bg end */
+/* artists start */
+
+#artists {
+	padding-top: 35px;
+	
+}
+#artists_title {
+	height: 30px;
+	position: relative;
+	background: url("../img/lv2_artcircle_artists_title.jpg") no-repeat left bottom;
+}
+#artists_title a {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#artists_table table {
+	border-collapse: separate;
+	border-spacing: 29px 30px;
+	margin-left: -29px;
+}
+#artists_table table td,
+#artists_table table td img {
+	width: 142px;
+	height: 134px;
+}
+#artists_table table .artist_hot,
+#artists_table table .artist_hot img {
+	width: 487px;
+	height: 462px;
+	position: relative;
+	height: 472px\9;
+}
+#artists_table table .artist_info {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 487px;
+	height: 75px;
+}
+#artists_table table .artist_info div {
+	width: 487px;
+	height: 75px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+#artists_table table .artist_info .info_bg {
+	background: #000;
+	filter: alpha(opacity=70);
+	opacity: 0.7;
+	bottom: 5px\9;
+}
+#artists_table table .artist_info .info_text p {
+	width: 447px;
+	color: #fff;
+	padding: 0 28px;
+	height: 20px;
+	line-height: 20px;
+	overflow: hidden;
+}
+#artists_table table .artist_info .info_text h4 {
+	width: 447px;
+	color: #fff;
+	padding: 0 20px;
+	margin-top: 15px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 15px;
+	overflow: hidden;
+}
+@-moz-document url-prefix() {
+	#artists_table table {
+		border-spacing: 29px 25px;
+	}
+	#artists_table table .artist_info .info_bg {
+		bottom: 4px;
+	}
+}
+/* artists end */
+/* art org start */
+
+#artorg {
+	margin-top: 80px;
+	padding-top: 35px;
+	
+	overflow: hidden;
+}
+#artorg_title {
+	height: 30px;
+	position: relative;
+	background: url("../img/lv2_artcircle_artorg_title.jpg") no-repeat left bottom;
+}
+#artorg_title a {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#artorg_list {
+	margin-top: 30px;
+}
+#artorg_list a > div {
+	width: 465px;
+}
+#artorg_list div img {
+	width: 465px;
+	height: 267px;
+}
+#artorg_list .org_left {
+	float: left;
+}
+#artorg_list .org_right {
+	float: right;
+}
+#artorg_list h4 {
+	font-size: 15px;
+	margin: 20px 20px 0 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#artorg_list div.text_overflow_ddd {
+	margin: 10px 20px;
+	padding-top: 10px;
+	height: 60px;
+	border-top: 1px dotted #e0e0e0;
+}
+#artorg_list p {
+	color: #8d8d8d;	
+	line-height: 20px;
+
+	
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+/* art org end */
+/* art collector start */
+
+#art_collector {
+	margin-top: 80px;
+	margin-bottom: 80px;
+	padding-top: 35px;
+
+	overflow: hidden;
+}
+#art_collector_title {
+	height: 30px;
+	position: relative;
+	background: url("../img/lv2_artcircle_artcollector_title.jpg") no-repeat left bottom;
+}
+#art_collector_title a {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#art_collector_list {
+	margin-top: 30px;
+	margin-left: -72px;
+}
+#art_collector_list li {
+	float: left;
+	margin-left: 72px;
+}
+#art_collector_list li img {
+	width: 196px;
+	height: 184px;
+}
+#art_collector_list li > div {
+	width: 176px;
+	padding: 10px;
+}
+#art_collector_list li > div h4 {
+	margin: 10px auto;
+	color: #000;
+	font-weight: 900;
+}
+#art_collector_list li > div div.text_overflow_ddd {
+	height: 100px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+#art_collector_list li > div p {
+	line-height: 20px;
+	
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+#art_collector_list a:hover h4 {
+	color: #DC5154;
+}
+#art_collector_list a:hover h4 span,
+#art_collector_list a:hover p {
+	color: #6f6f6f;
+}
+/* art collector end */

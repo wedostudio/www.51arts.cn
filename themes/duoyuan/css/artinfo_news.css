@@ -1,0 +1,412 @@
+/* logo_custom bg start */
+
+#logo_custom {
+	width: 100px;
+	background: url("../img/lv3_artinfo_superinfo_logo.jpg") no-repeat left bottom;
+}
+/* logo_custom bg end */
+
+#content_wrap {
+	overflow: hidden;
+	margin-top: 70px;
+	margin-bottom: 70px;
+}
+#content_left {
+	float: left;
+	width: 680px;
+	overflow: hidden;
+}
+#content_right {
+	float: right;
+	width: 285px;
+	overflow: hidden;
+	padding-top: 45px;
+}
+/* news start */
+
+#news {
+	overflow: hidden;
+	padding: 20px 20px;
+	border: 1px solid #e9e9e9;
+}
+#news_top {
+	position: relative;
+}
+#news_top .comment_praise {
+	width: 14px;
+	height: 14px;
+	padding-left: 18px;
+	font-size: 12px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background: url("../img/lv3_artinfo_superinfo_praise.jpg") no-repeat left;
+}
+#news_title {
+	margin-top: 10px;
+	text-align: center;
+}
+#news_title p {
+	width: 400px;
+	margin: 40px auto 30px auto;
+	font-size: 24px;
+}
+#news_title .type_sepa {
+	margin-left: 20px;
+}
+#news_content {
+	margin: 10px auto 0 auto;
+	padding-top: 50px;
+}
+#news_img {
+	margin: 0 auto;
+	width: 640px;
+	height: 298px;
+	position: relative;
+}
+#news_img #img_pre {
+	position: absolute;
+	top: 110px;
+	left: 0;
+	width: 30px;
+	height: 60px;
+	cursor: pointer;
+	background: url("../img/picture_pre.png") no-repeat center;
+}
+#news_img #img_next {
+	position: absolute;
+	top: 110px;
+	right: 0;
+	width: 30px;
+	height: 60px;
+	cursor: pointer;
+	background: url("../img/picture_next.png") no-repeat center;
+}
+#news_img ul {
+	position: absolute;
+	top: 0px;
+	left: 58px;
+	width: 524px;
+	height: 298px;
+}
+#news_img ul li {
+	position: relative;
+}
+#news_img ul img {
+	width: 524px;
+	height: 298px;
+}
+#news_img .img_title {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 524px;
+	height: 30px;
+	line-height: 30px;
+	filter: alpha(opacity=70);
+	opacity: 0.7;
+	background: #000;
+	text-align: center;
+}
+#news_text {
+	margin-top: 50px;
+}
+#news_text p {
+	line-height: 30px;
+	margin: 20px auto;
+	width: 524px;
+	text-indent: 2em;
+	text-align: justify;
+	text-justify: inter-ideograph;
+}
+#page_ctl {
+	margin-top: 50px;
+	position: relative;
+	background: red;
+}
+#page_ctl ul {
+	margin: 0 auto;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	margin-left: -29px;
+	text-align: center;
+}
+#page_ctl ul li {
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-left: 5px;
+	line-height: 16px;
+	color: #fff;
+	text-align: center;
+	background: #b9b9b9;
+	padding-left: 2px;
+}
+#page_ctl ul li.current {
+	background: #666666;
+}
+#paper_ctl {
+	width: 524px;
+	height: 30px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+	font-size: 10px;
+}
+#paper_ctl span {
+	font-size: 12px;
+}
+#paper_ctl #paper_pre {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+#paper_ctl #paper_next {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+/* news end */
+/* comment start */
+
+#comment {
+	background: #f7f7f7;
+	padding: 20px;
+}
+#comment_write {
+	width: 640px;
+	overflow: hidden;
+}
+#my_icon,
+#my_icon img {
+	float: left;
+	height: 70px;
+	width: 70px;
+	background: #d0d0d0;
+}
+#comment_write form {
+	float: left;
+	margin-left: 15px;
+	height: 110px;
+	width: 550px;
+	锛�}
+#comment_write form textarea {
+	height: 68px;
+	width: 550px;
+	resize: none;
+	overflow-y: auto;
+	border: 1px solid #e0e0e0;
+}
+#comment_write form input {
+	margin-top: 10px;
+	width: 70px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	float: right;
+	border: none;
+	background: #e06360;
+	color: #fff;
+}
+#comment_area {
+	margin-top: 30px;
+}
+#comment_area_list li {
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #e0e0e0;
+	overflow: hidden;
+}
+#comment_area_list li .cmt_usericon {
+	width: 40px;
+	height: 40px;
+	float: left;
+}
+#comment_area_list li .cmt_text {
+	float: left;
+	width: 600px;
+	overflow: hidden;
+}
+#comment_area_list li .cmt_usertext {
+	width: 600px;
+	
+	overflow: hidden;
+}
+#comment_area_list .cmt_usertext a {
+	float: left;
+	margin: 0 10px;
+	width: 75px;
+	overflow: hidden;
+	color: #e06360;
+}
+#comment_area_list .cmt_usertext p {
+	float: right;
+	overflow: hidden;
+	width: 505px;
+}
+#comment_area_list .cmt_misc {
+	margin-top: 8px;
+	width: 600px;
+	float: left;
+}
+#comment_area_list .cmt_time {
+	font-size: 12px;
+	padding-left: 10px;
+}
+#comment_area_list .cmt_reply {
+	float: right;
+	font-size: 12px;
+}
+#cmt_page_ctl {
+	width: 680px;
+	overflow: hidden;
+}
+#cmt_page_ctl ul {
+	width: 150px;
+	margin: 0 auto;
+}
+#cmt_page_ctl ul li {
+	float: left;
+	height: 30px;
+	font-size: 14px;
+	line-height: 30px;
+}
+#cmt_page_ctl ul .cmt_sepa {
+	border-right: 1px solid #e0e0e0;
+	padding-right: 10px;
+	margin-right: 10px;
+}
+/* comment end */
+/* hot info start*/
+
+#hot_info {
+	width: 285px;
+	overflow: hidden;
+}
+#hot_info_title {
+	height: 30px;
+	margin-bottom: 30px;
+	background: url("../img/lv4_artinfo_superinfo_news_hotinfo_title.png") no-repeat center;
+}
+#hot_info_title a {
+	display: block;
+	width: 101px;
+	height: 30px;
+	margin: 0 auto;
+}
+#hot_info_list div.dotted_line {
+	
+	margin: 18px auto;
+}
+#hot_info_list li {
+	height: 72px;
+	position: relative;
+}
+#hot_info_list li img {
+	height: 72px;
+	width: 125px;
+}
+#hot_info_list li > div {
+	position: absolute;
+	top: 0px;
+	left: 135px;
+}
+#hot_info_list li > div div.text_overflow_ddd {
+	overflow: hidden;
+	margin-top: 10px;
+	height: 50px;
+	
+}
+#hot_info_list li > div p {
+	
+	line-height: 25px;
+	
+	color: #000;
+}
+#hot_info_list li > div p:hover {
+	color: #DC5154;
+}
+/* hot info end*/
+/* opus show start*/
+
+#opus_show {
+	margin-top: 40px;
+	width: 285px;
+	height: 310px;
+	position: relative;
+}
+#opus_show img {
+	width: 285px;
+	height: 310px;
+}
+#opus_show_info {
+	width: 285px;
+	height: 60px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: #000;
+	color: #fff;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
+	text-align: center;
+	overflow: hidden;
+	padding: 20px 10px;
+}
+#opus_show_info p {
+	width: 263px;
+	margin-top: 5px;
+	overflow: hidden;
+	line-height: 20px;
+	height: 40px;
+}
+/* opus show end*/
+/* new products start */
+
+#new_products {
+	width: 285px;
+	padding-top: 30px;
+	margin-top: 30px;
+	overflow: hidden;
+}
+#new_products_title {
+	height: 30px;
+	margin-bottom: 30px;
+	padding-top: 20px;
+	background: url("../img/lv4_artinfo_superinfo_news_newproducts_title.png") no-repeat bottom center;
+}
+#new_products_title a {
+	display: block;
+	width: 122px;
+	height: 29px;
+	margin: 0 auto;
+}
+#new_products_list li {
+	width: 285px;
+	height: 235px;
+	position: relative;
+	margin-top: 20px;
+}
+#new_products_list li img {
+	width: 285px;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#new_products_list li p {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 34px;
+	width: 283px;
+	line-height: 34px;
+	text-align: center;
+	overflow: hidden;
+	border: 1px solid #e0e0e0;
+	border-top: none;
+}
+/* new products end */

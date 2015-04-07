@@ -1,0 +1,67 @@
+/* banner begin */
+
+#banner {
+	height: 425px;
+	_height: 435px;
+	max-width: 1920px;
+	overflow: hidden;
+	background: #fff;
+}
+.slidebox {
+	overflow: hidden;
+	position: relative;
+}
+#banner .slidepic {
+	position: absolute;
+	width: 9999em;
+}
+#banner .slidepic li,
+#banner .slidepic img {
+	display: block;
+	width: 1920px;
+	height: 410px;
+	overflow: hidden;
+	float: left;
+}
+#banner .slidebtn {
+	position: absolute;
+	bottom: 0;
+	left: 48%;
+	margin: 0 auto;
+}
+#banner .slidebtn li {
+	cursor: pointer;
+	float: left;
+	height: 5px;
+	width: 5px;
+	margin: 0px 5px;
+	background: url(img/banner_btn_null.png) no-repeat center;
+}
+#banner .slidebtn li.current {
+	background: url(img/banner_btn_dotted.png) no-repeat center;
+}
+#banner #banner_pre {
+	position: absolute;
+	top: 160px;
+	left: 50%;
+	margin-left: -600px;
+	width: 33px;
+	height: 64px;
+	cursor: pointer;
+	background: url("img/slide_pre.png") no-repeat center;
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+}
+#banner #banner_next {
+	position: absolute;
+	top: 160px;
+	right: 50%;
+	margin-right: -600px;
+	width: 33px;
+	height: 64px;
+	cursor: pointer;
+	background: url("img/slide_next.png") no-repeat center;
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+}
+/* banner end */

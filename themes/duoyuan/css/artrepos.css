@@ -1,0 +1,43 @@
+/* banner begin */
+
+#banner {
+	height: 312px;
+	_height: 322px;
+	max-width: 1920px;
+	overflow: hidden;
+	background: #fff;
+}
+.slidebox {
+	overflow: hidden;
+	position: relative;
+}
+#banner .slidepic {
+	position: absolute;
+	width: 9999em;
+}
+#banner .slidepic li,
+#banner .slidepic img {
+	display: block;
+	width: 1920px;
+	height: 297px;
+	overflow: hidden;
+	float: left;
+}
+#banner .slidebtn {
+	position: absolute;
+	bottom: 0;
+	left: 48%;
+	margin: 0 auto;
+}
+#banner .slidebtn li {
+	cursor: pointer;
+	float: left;
+	height: 5px;
+	width: 5px;
+	margin: 0px 5px;
+	background: url(../img/banner_btn_null.png) no-repeat center;
+}
+#banner .slidebtn li.current {
+	background: url(../img/banner_btn_dotted.png) no-repeat center;
+}
+/* banner end */

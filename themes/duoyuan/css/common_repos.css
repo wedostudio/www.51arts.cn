@@ -1,0 +1,23 @@
+/* repos begin */
+
+#repos {
+	margin: 50px auto;
+}
+#repos table {
+	margin-left: -10px;
+	border-collapse: collapse;
+}
+#repos td {
+	text-align: center;
+	width: 150px;
+	padding: 5px 10px;
+}
+#repos img {
+	width: 150px;
+	height: 90px;
+}
+#repos #repos-img a:hover img {
+	filter: alpha(opacity=80);
+	opacity: 0.8;
+}
+/* repos end */

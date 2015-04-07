@@ -12,15 +12,16 @@
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 
-		<link rel="stylesheet" type="text/css" href="css/main_banner.css" />
-		<link rel="stylesheet" type="text/css" href="css/main.css" />
-		<link rel="stylesheet" type="text/css" href="css/main_activity.css" />
-		<link rel="stylesheet" type="text/css" href="css/common_repos.css" />
-		<link rel="stylesheet" type="text/css" href="css/common_rmenu.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/main_banner.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/main_activity.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_repos.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_rmenu.css" />
 
 		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 		<script type="text/javascript" src="js/common_function.js"></script>
-		<script type="text/javascript" src="js/common_duoyuan	.js"></script>
+		<script type="text/javascript" src="js/common_duoyuan.js"></script>
 		<script type="text/javascript" src="js/common_banner.js"></script>
 		<script type="text/javascript" src="js/common_rmenu.js"></script>
 		<script type="text/javascript" src="js/main_activity.js"></script>
@@ -33,39 +34,59 @@
 		<div id="wrap">
 <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 
-<!-- #BeginLibraryItem "/library/index_ad.lbi" --><!-- #EndLibraryItem -->
+			<div id="rmenu"></div>
+			<div id="artist_signed"></div>
+			<div id="banner" class="fullwidth slidebox">
+				<ul class="slidepic">
+					<!-- TemplateBeginEditable name="大幻灯片广告位" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+				</ul>
+				<div class="slidebtn">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+				<div id="banner_pre"></div>
+				<div id="banner_next"></div>
+			</div>
 
 			<div id="repos" class="fitwidth">
 				<table>
 					<tr id="repos-img">
 						<td>
 							<a href="#">
-								<img src="img/repos_img_1.jpg" alt="红木" />
+								<img src="/themes/duoyuan/img/repos_img_1.jpg" alt="红木" />
 							</a>
 						</td>
 						<td>
 							<a href="#">
-								<img src="img/repos_img_2.jpg" alt="陶瓷" />
+								<img src="/themes/duoyuan/img/repos_img_2.jpg" alt="陶瓷" />
 							</a>
 						</td>
 						<td>
 							<a href="#">
-								<img src="img/repos_img_3.jpg" alt="漆器" />
+								<img src="/themes/duoyuan/img/repos_img_3.jpg" alt="漆器" />
 							</a>
 						</td>
 						<td>
 							<a href="#">
-								<img src="img/repos_img_4.jpg" alt="玉石" />
+								<img src="/themes/duoyuan/img/repos_img_4.jpg" alt="玉石" />
 							</a>
 						</td>
 						<td>
 							<a href="#">
-								<img src="img/repos_img_5.jpg" alt="字画" />
+								<img src="/themes/duoyuan/img/repos_img_5.jpg" alt="字画" />
 							</a>
 						</td>
 						<td>
 							<a href="#">
-								<img src="img/repos_img_6.jpg" alt="银器" />
+								<img src="/themes/duoyuan/img/repos_img_6.jpg" alt="银器" />
 							</a>
 						</td>
 					</tr>
@@ -78,39 +99,23 @@
 					<div id="act">
 
 						<ul class="slide-pic">
-							<li class="current">
-								<a href="#">
-									<img alt="act img" src="img/act_big_1.jpg" />
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img alt="act img" src="img/act_big_2.jpg" />
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img alt="act img" src="img/act_big_3.jpg" />
-								</a>
-							</li>
+							<!-- TemplateBeginEditable name="" -->
+							<!-- TemplateBeginEditable name="首页小幻灯片-大" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
 						</ul>
 
 						<ul class="slide-li">
-							<li class="current">
-								<a href="#">
-									<img alt="act img" src="img/act_sml_1.jpg" />
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img alt="act img" src="img/act_sml_2.jpg" />
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<img alt="act img" src="img/act_sml_3.jpg" />
-								</a>
-							</li>
+							<!-- TemplateBeginEditable name="" -->
+							<!-- TemplateBeginEditable name="首页小幻灯片-小" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
 						</ul>
 
 					</div>
@@ -119,29 +124,16 @@
 
 						<h4><span>艺术头条</span>/热点推荐</h4>
 						<ul>
-							<li>
+						<!--{foreach from=$new_articles item=article}-->
+						  	<li>
 								<div>
-									<span>活动</span><a href="#">首次宝贝竞拍比赛火热进行中</a>
+									<span>{$article.cat_name}</span><a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title|truncate:16:"...":true}</a>
 								</div>
 							</li>
-							<li>
-								<div>
-									<span>名家</span><a href="#">国画大师进驻多元平台</a>
-								</div>
-							</li>
-							<li>
-								<div>
-									<span>资讯</span><a href="#">高更3亿美元买家从巴塞尔...</a>
-								</div>
-							</li>
-							<li>
-								<div>
-									<span>精选</span><a href="#">名家大师近代红木家具展览会</a>
-								</div>
-							</li>
+						<!--{/foreach}-->
 						</ul>
 						<a href="#">
-							<img id="art_headlines_sale" src="img/art_headlines_sale.jpg" alt="sale" />
+							<img id="art_headlines_sale" src="/themes/duoyuan/img/art_headlines_sale.jpg" alt="sale" />
 						</a>
 					</div>
 
@@ -154,6 +146,7 @@
 					<div class="sale_n_new_title"><span class="color_gray">/<a href="#" class="hover_color">查看更多</a></span>
 					</div>
 
+					<!-- {if $hot_goods} -->
 					<div id="hot_sale_showbox" class="sale_n_new_item">
 						<div class="slide-pic">
 							<a href="#">
@@ -162,64 +155,60 @@
 								<p></p>
 							</a>
 						</div>
-
 						<ul class="slide-li">
+							<!--{foreach from=$hot_goods item=goods}-->
 							<li class="current">
-								<a href="#">
-									<img src="img/hot_sale_img_01.jpg" alt="hot sale" />
+								<a href="{$goods.url}">
+									<img src="{$goods.goods_img}" alt="hot sale" />
 								</a>
-								<p><span class="item_name">明代红木简约大气单人椅</span><span class="item_info">当前价：<span class="item_price">1487</span><span>元</span></span>
+								<p><span class="item_name">{$goods.short_style_name}</span><span class="item_info">
+								当前价：<span class="item_price">
+								<!-- {if $goods.promote_price neq ""} -->
+					            {$goods.promote_price}
+					            <!-- {else}-->
+					            {$goods.shop_price}
+					            <!--{/if}-->
+								</span><span>元</span></span>
 							</li>
-							<li>
-								<a href="#">
-									<img src="img/hot_sale_img_02.jpg" alt="hot sale" />
-								</a>
-								<p><span class="item_name">清代砂陶</span><span class="item_info">当前价：<span class="item_price">24787</span><span>元</span></span>
-							</li>
-							<li class="last_item">
-								<a href="#">
-									<img src="img/hot_sale_img_03.jpg" alt="hot sale" />
-								</a>
-								<p><span class="item_name">梅子青大盘</span><span class="item_info">当前价：<span class="item_price">123487</span><span>元</span></span>
-							</li>
+							<!--{/foreach}-->
 						</ul>
 					</div>
+					<!-- {/if} -->
 				</div>
 
 				<div id="new_item">
 					<div class="sale_n_new_title"><span class="color_gray">/<a href="#" class="hover_color">查看更多</a></span>
 					</div>
-
+					
+					<!-- {if $new_goods} -->
 					<div id="new_item_showbox" class="sale_n_new_item">
 						<div class="slide-pic">
-							<a href="#">
+							<a href="{$goods.url}">
 								<img src="" alt="new item" />
 								<div></div>
 								<p></p>
 							</a>
 						</div>
 						<ul class="slide-li">
+							<!--{foreach from=$new_goods item=goods}-->
 							<li>
 								<a href="#">
-									<img src="img/new_item_img_01.jpg" alt="item_info" />
+									<img src="{$goods.goods_img}" alt="item_info" />
 								</a>
-								<p><span class="item_name">明代红木简约大气单人椅</span><span class="item_info">当前价：<span class="item_price">2487</span><span>元</span></span>
+								<p><span class="item_name">{$goods.short_style_name}</span>
+								<span class="item_info">当前价：<span class="item_price">
+								<!-- {if $goods.promote_price neq ""} -->
+					            {$goods.promote_price}
+					            <!-- {else}-->
+					            {$goods.shop_price}
+					            <!--{/if}-->
+								</span><span>元</span></span>
 							</li>
-							<li>
-								<a href="#">
-									<img src="img/new_item_img_02.jpg" alt="item_info" />
-								</a>
-								<p><span class="item_name">清代砂陶</span><span class="item_info">当前价：<span class="item_price">24787</span><span>元</span></span>
-							</li>
-							<li class="last_item">
-								<a href="#">
-									<img src="img/new_item_img_03.jpg" alt="item_info" />
-								</a>
-								<p><span class="item_name">梅子青大盘</span><span class="item_info">当前价：<span class="item_price">123487</span><span>元</span></span>
-							</li>
+							<!--{/foreach}-->
 						</ul>
 					</div>
 				</div>
+				<!-- {/if} -->
 			</div>
 
 			<div id="artinfo_wrap" class="fullwidth">
@@ -231,48 +220,15 @@
 
 					<div id="artinfo_list">
 						<ul>
-							<a href="#">
+						<!--{foreach from=$ysqb_articles item=article}-->
+							<a href="{$article.url}">
 								<li>
-									<img src="img/artinfo_img_01.jpg" alt="art info" />
-									<span class="color_gray">2015.02.09</span>
-									<p class="color_black">高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+									<img src="/themes/duoyuan/img/artinfo_img_01.jpg" alt="art info" />
+									<span class="color_gray">{$article.add_time}</span>
+									<p class="color_black">{$article.description}</p>
 								</li>
 							</a>
-							<a href="#">
-								<li>
-									<img src="img/artinfo_img_02.jpg" alt="art info" />
-									<span class="color_gray">2015.02.09</span>
-									<p class="color_black">高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
-								</li>
-							</a>
-							<a href="#">
-								<li>
-									<img src="img/artinfo_img_03.jpg" alt="art info" />
-									<span class="color_gray">2015.02.09</span>
-									<p class="color_black">高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
-								</li>
-							</a>
-							<a href="#">
-								<li>
-									<img src="img/artinfo_img_04.jpg" alt="art info" />
-									<span class="color_gray">2015.02.09</span>
-									<p class="color_black">高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
-								</li>
-							</a>
-							<a href="#">
-								<li>
-									<img src="img/artinfo_img_05.jpg" alt="art info" />
-									<span class="color_gray">2015.02.09</span>
-									<p class="color_black">高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
-								</li>
-							</a>
-							<a href="#">
-								<li>
-									<img src="img/artinfo_img_06.jpg" alt="art info" />
-									<span class="color_gray">2015.02.09</span>
-									<p class="color_black">高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
-								</li>
-							</a>
+						<!--{/foreach}-->
 						</ul>
 					</div>
 				</div>
@@ -1076,88 +1032,21 @@
 			<div id="footer_wrap" class="fullwidth">
 				<div id="footer" class="fitwidth">
 					<div id="ft_nav_wrap">
-
-						<div id="ft_nav">
-							<ul>
-								<li>
-									<ul class="ft_sec_nav">
-										<li class="ft_title"><a href="#">购买艺术</a>
-										</li>
-										<li><a href="#">购买流程</a>
-										</li>
-
-										<li><a href="#">支付方式</a>
-										</li>
-
-										<li><a href="#">提货方式</a>
-										</li>
-
-										<li><a href="#">竞拍保证</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="ft_sec_nav">
-										<li class="ft_title"><a href="#">合作艺术</a>
-										</li>
-										<li><a href="#">艺术家签约</a>
-										</li>
-
-										<li><a href="#">在线签约</a>
-										</li>
-
-										<li><a href="#">包装推广</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="ft_sec_nav">
-										<li class="ft_title"><a href="#">专业服务</a>
-										</li>
-										<li><a href="#">VIP/SVIP</a>
-										</li>
-
-										<li><a href="#">联动合作</a>
-										</li>
-
-										<li><a href="#">常见问题</a>
-										</li>
-
-										<li><a href="#">法律政策</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="ft_sec_nav">
-										<li class="ft_title"><a href="#">关<span class="nbsp_font">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>于</a>
-										</li>
-										<li><a href="#">网站地图</a>
-										</li>
-
-										<li><a href="#">品牌介绍</a>
-										</li>
-
-										<li><a href="#">联系我们</a>
-										</li>
-
-										<li><a href="#">友情链接</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-
-						<img src="img/ft_phone_code.jpg" alt="二维码" />
-						<img class="ft_second_code" src="img/ft_weixin_code.jpg" alt="二维码" />
+						<!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+						
+						<img src="/themes/duoyuan/img/ft_phone_code.jpg" alt="二维码" />
+						<img class="ft_second_code" src="/themes/duoyuan/img/ft_weixin_code.jpg" alt="二维码" />
 
 					</div>
 					<div id="ft_shot">
 						<ul>
-							<li><a href="#">回到首页</a>
-							</li>
+							<li><a href="#">回到首页</a></li>
+							<!-- {if $txt_links} -->
+    						<!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
 							<li class="ft_shot_sepa">/</li>
-							<li class="ft_shot_2"><a>收藏多元主义</a>
-							</li>
+							<li class="ft_shot_2"><a href="{$link.url}" target="_blank">{$link.name}</a></li>
+							<!--结束文字类型的友情链接{/foreach}-->
+    						<!-- {/if} -->
 							<li class="ft_shot_sepa">/</li>
 							<li><a>服务热线：400-100-8759</a>
 							</li>

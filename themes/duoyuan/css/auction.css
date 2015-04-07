@@ -1,0 +1,112 @@
+/* logo_custom bg start */
+
+#logo_custom {
+	width: 97px;
+	background: url("../img/lv2_auction_logo.jpg") no-repeat left bottom;
+}
+/* logo_custom bg end */
+/* auction today start */
+
+#auction_today {
+	padding-top: 35px;
+	overflow: hidden;
+}
+#auction_today_title {
+	height: 30px;
+	margin-bottom: 28px;
+	position: relative;
+	background: url("../img/lv2_auction_auctiontoday_title.jpg") no-repeat left bottom;
+}
+#auction_today_title a {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+#auction_today_img,
+#auction_today_img img {
+	float: left;
+	width: 720px;
+	height: 276px;
+}
+#auction_today_text {
+	float: right;
+	width: 199px;
+	height: 174px;
+	padding: 50px 40px;
+	border: 1px solid #c2c2c2;
+	border-left: none;
+	overflow: hidden;
+}
+#auction_today_text h2 {
+	font-size: 22px;
+}
+#auction_today_text p {
+	line-height: 25px;
+	overflow: hidden;
+}
+#auction_today_text .auction_count {
+	width: 199px;
+	border-top: 1px dotted #c2c2c2;
+	border-bottom: 1px dotted #c2c2c2;
+	line-height: 50px;
+	margin: 15px 0;
+}
+/* auction today end */
+/* auction_soon & auction_before start */
+
+#auction_soon,
+#auction_before {
+	padding-top: 35px;
+	overflow: hidden;
+}
+#auction_soon .auction_unit_title {
+	background: url("../img/lv2_auction_auctiontobe_title.jpg") no-repeat left bottom;
+}
+#auction_before .auction_unit_title {
+	background: url("../img/lv2_auction_auctionbefore_title.jpg") no-repeat left bottom;
+}
+.auction_unit_title {
+	height: 30px;
+	margin-bottom: 28px;
+	position: relative;
+}
+.auction_unit_title a {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.auction_unit_list {
+	margin-top: 25px;
+	margin-left: -20px;
+	overflow: hidden;
+}
+.auction_unit_list ul li {
+	float: left;
+	width: 320px;
+	margin-left: 20px;
+}
+.auction_unit_list ul li img {
+	width: 320px;
+	height: 200px;
+	float: left;
+}
+.auction_unit_list ul div {
+	clear: both;
+	padding: 10px 20px;
+	border: 1px solid #c2c2c2;
+	border-top: none;
+}
+.auction_unit_list h4 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.auction_unit_list p {
+	border-top: 1px dotted #c2c2c2;
+	line-height: 20px;
+	height: 20px;
+	padding-top: 10px;
+	margin-top: 10px;
+	overflow: hidden;
+}
+/* auction_soon & auction_before end */

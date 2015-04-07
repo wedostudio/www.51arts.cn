@@ -6,8 +6,8 @@
 	<a href="user.php?act=logout">{$lang.user_logout}</a>
 {else}
 	<span id="welcome">您好，欢迎来到多元主义！</span>
-	<a href="user.php"><img src="images/bnt_log.gif" /></a>
+	<a href="user.php" id="login_top">登录</a>
 	<span>/</span>
-	<a href="user.php?act=register"><img src="images/bnt_reg.gif" /></a>
+	<a href="user.php?act=register">注册</a>
 {/if}
 </div>

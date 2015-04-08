@@ -73,7 +73,7 @@ function insert_query_info()
  */
 function insert_history()
 {
-    $str = '';
+    $str = '<tr>';
     if (!empty($_COOKIE['ECS']['history']))
     {
         $where = db_create_in($_COOKIE['ECS']['history'], 'goods_id');
@@ -81,6 +81,7 @@ function insert_history()
                 " WHERE $where AND is_on_sale = 1 AND is_alone_sale = 1 AND is_delete = 0";
         $query = $GLOBALS['db']->query($sql);
         $res = array();
+        $i = 0;
         while ($row = $GLOBALS['db']->fetch_array($query))
         {
             $goods['goods_id'] = $row['goods_id'];
@@ -89,10 +90,16 @@ function insert_history()
             $goods['goods_thumb'] = get_image_path($row['goods_id'], $row['goods_thumb'], true);
             $goods['shop_price'] = price_format($row['shop_price']);
             $goods['url'] = build_uri('goods', array('gid'=>$row['goods_id']), $row['goods_name']);
-            $str.='<ul class="clearfix"><li class="goodsimg"><a href="'.$goods['url'].'" target="_blank"><img src="'.$goods['goods_thumb'].'" alt="'.$goods['goods_name'].'" class="B_blue" /></a></li><li><a href="'.$goods['url'].'" target="_blank" title="'.$goods['goods_name'].'">'.$goods['short_name'].'</a><br />'.$GLOBALS['_LANG']['shop_price'].'<font class="f1">'.$goods['shop_price'].'</font><br /></li></ul>';
+            if($i%2==0)
+            {
+                $str .= "</tr><tr>";
+            }
+            $str.='<td><li class="goodsimg"><a href="'.$goods['url'].'" target="_blank"><img src="'.$goods['goods_thumb'].'" alt="'.$goods['goods_name'].'" class="B_blue" /><div class="productname"><h4>'.$goods['short_name'].'</h4></div></a></td>';
+            $i++;
         }
         $str .= '<ul id="clear_history"><a onclick="clear_history()">' . $GLOBALS['_LANG']['clear_history'] . '</a></ul>';
     }
+    $str .= "</tr>";
     return $str;
 }
 

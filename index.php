@@ -120,6 +120,7 @@ if (!$smarty->is_cached('index.dwt', $cache_id))
     $smarty->assign('promotion_goods', get_promote_goods()); // 特价商品
     $smarty->assign('brand_list',      get_brands());
     $smarty->assign('promotion_info',  get_promotion_info()); // 增加一个动态显示所有促销信息的标签栏
+    $smarty->assign('index_goods',     get_index_goods(array(6,12,1,16,18)));    // 推荐商品
 
     $smarty->assign('invoice_list',    index_get_invoice_query());  // 发货查询
     $smarty->assign('new_articles',    index_get_new_articles());   // 最新文章
@@ -392,4 +393,60 @@ function index_get_links()
     return $links;
 }
 
+/**
+ * 获得首页分类商品
+ *
+ * @access  public
+ * @param   string      $cats
+ * @return  array
+ */
+function get_index_goods($cats, $num=8)
+{
+    if (!$cats)
+    {
+        return array();
+    }
+
+    //取不同分类对应的商品
+    $cat_goods = array();
+    foreach ($cats as $cat)
+    {
+        $sql = 'SELECT g.goods_id, g.goods_name, g.goods_name_style, g.market_price, g.shop_price AS org_price, g.promote_price, c.cat_name,g.sort_order,g.goods_brief, g.goods_thumb, g.goods_img ' .
+            ' FROM ' . $GLOBALS['ecs']->table('goods') . ' AS g ' .
+            ' LEFT JOIN ' . $GLOBALS['ecs']->table('category') . ' AS c ON c.cat_id = g.cat_id ' .
+            ' WHERE g.cat_id='.$cat.' AND g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 AND (g.is_best = 1 OR g.is_new =1 OR g.is_hot = 1)'.
+            ' ORDER BY g.sort_order, g.last_update DESC LIMIT '.$num;
+        $result = $GLOBALS['db']->getAll($sql);
+        foreach ($result AS $idx => $row)
+        {
+            if ($row['promote_price'] > 0)
+            {
+                $promote_price = bargain_price($row['promote_price'], $row['promote_start_date'], $row['promote_end_date']);
+                $goods[$idx]['promote_price'] = $promote_price > 0 ? price_format($promote_price) : '';
+            }
+            else
+            {
+                $goods[$idx]['promote_price'] = '';
+            }
+        
+            $goods[$idx]['id']           = $row['goods_id'];
+            $goods[$idx]['name']         = $row['goods_name'];
+            $goods[$idx]['catname']      = $row['cat_name'];
+            $goods[$idx]['brief']        = $row['goods_brief'];
+            $goods[$idx]['goods_style_name']   = add_style($row['goods_name'],$row['goods_name_style']);
+        
+            $goods[$idx]['short_name']   = $GLOBALS['_CFG']['goods_name_length'] > 0 ?
+            sub_str($row['goods_name'], $GLOBALS['_CFG']['goods_name_length']) : $row['goods_name'];
+            $goods[$idx]['short_style_name']   = add_style($goods[$idx]['short_name'],$row['goods_name_style']);
+            $goods[$idx]['market_price'] = price_format($row['market_price']);
+            $goods[$idx]['shop_price']   = price_format($row['org_price']);
+            $goods[$idx]['thumb']        = get_image_path($row['goods_id'], $row['goods_thumb'], true);
+            $goods[$idx]['goods_img']    = get_image_path($row['goods_id'], $row['goods_img']);
+            $goods[$idx]['url']          = build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']);
+        }
+        $cat_goods[$cat]['cattree'] = get_child_tree($cat);
+        $cat_goods[$cat]['goods'] = $goods;
+    }
+    return $cat_goods;
+}
 ?>

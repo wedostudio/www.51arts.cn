@@ -6,7 +6,7 @@ $(document).ready(function() {
 		<a href=\"index.html\" class=\"btn btn_index\"> \
 		</a> \
 		<div class=\"btn btn_wx\"> \
-			<img class=\"wxpic\" src=\"img/weixin_code.jpg\"/> \
+			<img class=\"wxpic\" src=\"/themes/duoyuan/img/weixin_code.jpg\"/> \
 		</div> \
 		<a class=\"btn btn_qq\" target=\"_blank\" href=\"http://wpa.qq.com/msgrd?v=3&uin=2874311610&site=qq&menu=yes\"> \
 		</a> \

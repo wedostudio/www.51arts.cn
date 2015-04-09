@@ -1,4 +1,4 @@
-
+{insert_scripts files='transport.js,utils.js'}
 <div id="top_wrap" class="fullwidth">
 				<div id="top" class="fitwidth">
 					{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'}
@@ -114,6 +114,7 @@
 						<li class="clear"></li>
 
 					</ul>
+					{insert_scripts files='transport.js'}	
 					{insert name='cart_info'}
 				</div>
 			</div>

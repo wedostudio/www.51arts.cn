@@ -16,15 +16,15 @@
 		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_rmenu.css" />
 		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/productdetail.css" />
 
-		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="js/common_function.js"></script>
-		<script type="text/javascript" src="js/common.js"></script>
-		<script type="text/javascript" src="js/common_banner.js"></script>
-		<script type="text/javascript" src="js/common_rmenu.js"></script>
-		<script type="text/javascript" src="js/productdetail.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
 {* 包含脚本文件 *}
+{insert_scripts files='jquery.js,jquery.json.js'}
 {insert_scripts files='common.js'}
+<script type="text/javascript" src="js/common_function.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/common_banner.js"></script>
+<script type="text/javascript" src="js/common_rmenu.js"></script>
+<script type="text/javascript" src="js/productdetail.js"></script>
 </head>
 <body>
 		<div id="wrap">
@@ -58,9 +58,9 @@
 
 						<div id="product_price">
 							<!-- {if $cfg.show_marketprice} 市场价格-->
-							<p>市场价:<span class="cost_price">{$goods.market_price}</span>元</p>
+							<p>市场价:<span class="cost_price">{$goods.market_price}</span></p>
 							<!-- {/if} -->
-							<p>本店价:<span class="sale_price">{$lang.shop_price}</span>{$goods.shop_price_formated}</p>
+							<p>本店价:{$goods.shop_price_formated}</p>
 						</div>
 						<!-- {* 开始循环所有可选属性 *} -->
 						<!-- {foreach from=$specification item=spec key=spec_key} -->

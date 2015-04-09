@@ -16,14 +16,14 @@
 		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/artrepos_common.css" />
 		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_rmenu.css" />
 
-		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-		<script type="text/javascript" src="js/common_function.js"></script>
-		<script type="text/javascript" src="js/common.js"></script>
-		<script type="text/javascript" src="js/common_banner.js"></script>
-		<script type="text/javascript" src="js/common_rmenu.js"></script>
 <link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
 {* 包含脚本文件 *}
-{insert_scripts files='common.js,compare.js'}
+{insert_scripts files='jquery.js,jquery.json.js'}
+{insert_scripts files='common.js,global.js,compare.js'}
+<script type="text/javascript" src="js/common_function.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/common_banner.js"></script>
+<script type="text/javascript" src="js/common_rmenu.js"></script>
 </head>
 <body>
 		<div id="wrap">

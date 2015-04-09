@@ -349,7 +349,7 @@ var Transport =
     {
       try
       {
-        legalParams = "JSON=" + params.toJSONString();
+        legalParams = "JSON=" + $.toJSON(params);
       }
       catch (ex)
       {
@@ -405,7 +405,7 @@ var Transport =
         result = this.preFilter(xhr.responseText);
         try
         {
-          result = result.parseJSON();
+          result = $.evalJSON(result);
         }
         catch (ex)
         {
@@ -493,7 +493,7 @@ Ajax.call = Transport.run;
 */
 
 // Augment the basic prototypes if they have not already been augmented.
-
+/*
 if ( ! Object.prototype.toJSONString) {
     Array.prototype.toJSONString = function () {
         var a = ['['], // The array holding the text fragments.
@@ -734,6 +734,7 @@ if ( ! Object.prototype.toJSONString) {
         };
     })(String.prototype);
 }
+*/
 
 Ajax.onRunning  = showLoader;
 Ajax.onComplete = hideLoader;

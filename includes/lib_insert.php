@@ -90,7 +90,7 @@ function insert_history()
             $goods['goods_thumb'] = get_image_path($row['goods_id'], $row['goods_thumb'], true);
             $goods['shop_price'] = price_format($row['shop_price']);
             $goods['url'] = build_uri('goods', array('gid'=>$row['goods_id']), $row['goods_name']);
-            if($i%2==0)
+            if($i%3==0)
             {
                 $str .= "</tr><tr>";
             }

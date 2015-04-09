@@ -318,7 +318,7 @@
 <tr>
 {/if}
 							<td>
-								<img src="{$g.thumb}" alt="{$g.name|escape:html}" />
+								<img src="{$g.goods_img}" alt="{$g.name|escape:html}" />
 								<p>
 									<span class="item_name">{$g.short_style_name}</span>
 									<span class="item_price">估价：

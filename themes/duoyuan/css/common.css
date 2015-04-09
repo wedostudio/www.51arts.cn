@@ -78,6 +78,10 @@ img {
 	height: 1px;
 	background: url("img/dotted_line_bg.png") repeat;
 }
+.dotted_line2 {
+	height: 1px;
+	background: url("img/dotted_line_bg2.png") repeat;
+}
 /* top begin */
 
 #top_wrap {

@@ -87,7 +87,49 @@ if ($_REQUEST['act'] == 'list')
     /* 显示模板 */
     $smarty->display('auction_list.dwt', $cache_id);
 }
+/*------------------------------------------------------ */
+//-- 拍卖活动首页
+/*------------------------------------------------------ */
+elseif ($_REQUEST['act'] == 'index')
+{
+    /* 缓存id：语言 */
+    $cache_id = sprintf('%X', crc32($_SESSION['user_rank'] . '-' . $_CFG['lang']));
 
+    /* 如果没有缓存，生成缓存 */
+    if (!$smarty->is_cached('auction_index.dwt', $cache_id))
+    {
+        /* 取得正在拍卖的活动 */
+        $auction_ing = get_auction_list(0, 1, 1);
+        $smarty->assign('auction_ing',  $auction_ing);
+
+        /* 取得即将拍卖的活动 */
+        $auction_pre = get_auction_list(1, 3, 1);
+        $smarty->assign('auction_pre',  $auction_pre);
+        
+        /* 取得拍卖结束的活动 */
+        $auction_end = get_auction_list(2, 3, 1);
+        $smarty->assign('auction_end',  $auction_end);
+        
+        /* 取得拍卖结束的活动 */
+//         $hot_goods = get_recommend_goods('hot');
+//         $smarty->assign('hot_goods',  $hot_goods);
+        
+        /* 模板赋值 */
+        $smarty->assign('cfg', $_CFG);
+        assign_template();
+        $position = assign_ur_here();
+        $smarty->assign('page_title', $position['title']);    // 页面标题
+        $smarty->assign('ur_here',    $position['ur_here']);  // 当前位置
+        $smarty->assign('helps',      get_shop_help());       // 网店帮助
+        $smarty->assign('top_goods',  get_top10());           // 销售排行
+        $smarty->assign('promotion_info', get_promotion_info());
+
+        assign_dynamic('auction_list');
+    }
+
+    /* 显示模板 */
+    $smarty->display('auction_index.dwt', $cache_id);
+}
 /*------------------------------------------------------ */
 //-- 拍卖商品 --> 商品详情
 /*------------------------------------------------------ */
@@ -495,4 +537,52 @@ function auction_list($size, $page)
     return $auction_list;
 }
 
+/**
+ * 取得拍卖列表
+ * @param   int     $type   0正在拍卖 1即将拍卖 2拍卖结束
+ * @param   int     $size   每页记录数
+ * @param   int     $page   当前页
+ * @return  array
+ */
+function get_auction_list($type=0, $size, $page)
+{
+    $auction_list = array();
+
+    $now = gmtime();
+    $sql = "SELECT a.*, IFNULL(g.goods_thumb, '') AS goods_thumb " .
+        "FROM " . $GLOBALS['ecs']->table('goods_activity') . " AS a " .
+        "LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON a.goods_id = g.goods_id " .
+        "WHERE a.act_type = '" . GAT_AUCTION . "' " ;
+    switch ($type)
+    {
+        case 1:
+            $sql .= " AND a.start_time > '$now' AND a.is_finished = 0 ORDER BY a.start_time ASC";
+            break;
+        case 2:
+            $sql .= " AND (a.end_time < '$now' OR a.is_finished = 1) ORDER BY a.end_time DESC";
+            break;
+        default:
+            $sql .= " AND a.start_time <= '$now' AND a.end_time >= '$now' AND a.is_finished = 0 ORDER BY a.end_time ASC";
+    }
+    
+    $res = $GLOBALS['db']->selectLimit($sql, $size, ($page - 1) * $size);
+    while ($row = $GLOBALS['db']->fetchRow($res))
+    {
+        $ext_info = unserialize($row['ext_info']);
+        $auction = array_merge($row, $ext_info);
+        $auction['status_no'] = auction_status($auction);
+
+        $auction['start_time'] = local_date('Y-m-d', $auction['start_time']);
+        $auction['end_time']   = local_date('Y-m-d', $auction['end_time']);
+        $auction['formated_start_price'] = price_format($auction['start_price']);
+        $auction['formated_end_price'] = price_format($auction['end_price']);
+        $auction['formated_deposit'] = price_format($auction['deposit']);
+        $auction['goods_thumb'] = get_image_path($row['goods_id'], $row['goods_thumb'], true);
+        $auction['url'] = build_uri('auction', array('auid'=>$auction['act_id']));
+        
+        $auction_list[] = $auction;
+    }
+    
+    return $auction_list;
+}
 ?>

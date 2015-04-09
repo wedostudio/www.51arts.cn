@@ -49,7 +49,7 @@
 							<!--{/if}-->
 							<td>
 								<a href="{$goods.url}">
-									<img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" />
+									<img src="{$goods.goods_img}" alt="{$goods.goods_name}" />
 									<h4><!-- {if $goods.goods_style_name} -->
 				                    {$goods.goods_style_name}
 				                    <!-- {else} -->

@@ -41,11 +41,11 @@
 				</div>
 			</div>
 			<div id="header" class="fitwidth">
-				<a href="#">
+				<a href="/index.php">
 					<div id="logo"></div>
 				</a>
 				<div id="logo_sub">
-					<a href="#">
+					<a href="/index.php">
 						<div id="logo_custom"></div>
 					</a>
 					<div id="logo_url"></div>
@@ -91,7 +91,7 @@
 						</li>
 						<li class="nav_sep">/</li>
 						<li class="navs">
-							<a href="auction.html" class="nav_a">在线拍卖</a>
+							<a href="/auction.php?act=index" class="nav_a">在线拍卖</a>
 							<ul id="subNav_4" class="sub_nav subnav_auction">
 								<li><a href="auction_tobe.html">预<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>展</a>
 								</li>

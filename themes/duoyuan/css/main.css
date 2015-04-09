@@ -150,7 +150,7 @@
 	width: 30px;
 	height: 60px;
 	cursor: pointer;
-	background: url("../img/artinfo_pre.png") no-repeat center;
+	background: url("img/artinfo_pre.png") no-repeat center;
 }
 #artinfo_next {
 	position: absolute;
@@ -160,7 +160,7 @@
 	width: 30px;
 	height: 60px;
 	cursor: pointer;
-	background: url("../img/artinfo_next.png") no-repeat center;
+	background: url("img/artinfo_next.png") no-repeat center;
 }
 /* artinfo end */
 /* classitem begin */

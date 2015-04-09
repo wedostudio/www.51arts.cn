@@ -1,9 +1,10 @@
+
 <div id="top_wrap" class="fullwidth">
 				<div id="top" class="fitwidth">
 					{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'}
 					<div id="search">
 
-						<form action="" method="post" name="search" id="top_form">
+						<form name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" id="top_form">
 							<table>
 								<tr>
 									<td>
@@ -113,11 +114,7 @@
 						<li class="clear"></li>
 
 					</ul>
-					<a href="#">
-						<span class="nav_cart">
-							<span class="nav_cart_cnt">2</span>
-						</span>
-					</a>
+					{insert name='cart_info'}
 				</div>
 			</div>
 			<div id="rmenu"></div>

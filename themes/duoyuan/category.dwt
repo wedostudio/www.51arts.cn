@@ -6,193 +6,189 @@
 <meta name="Description" content="{$description}" />
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>{$page_title}</title>
-<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
-<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
-<!-- {if $cat_style} -->
-<link href="{$cat_style}" rel="stylesheet" type="text/css" />
-<!-- {/if} -->
+
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/artrepos_common.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_rmenu.css" />
+
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/common_function.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/common_banner.js"></script>
+		<script type="text/javascript" src="js/common_rmenu.js"></script>
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
 {* 包含脚本文件 *}
-{insert_scripts files='common.js,global.js,compare.js'}
+{insert_scripts files='common.js,compare.js'}
 </head>
 <body>
+		<div id="wrap">
 <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
-<!--当前位置 start-->
-<div class="block box">
- <div id="ur_here">
-  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
- </div>
-</div>
-<!--当前位置 end-->
-<div class="blank"></div>
-<div class="block clearfix">
-  <!--left start-->
-  <div class="AreaL">
-    <!-- TemplateBeginEditable name="左边区域" -->
-<!-- #BeginLibraryItem "/library/cart.lbi" -->
 
-{insert_scripts files='transport.js'}
-<div class="cart" id="ECS_CARTINFO">
- {insert name='cart_info'}
-</div>
-<div class="blank5"></div>
+			<div id="lv3_banner" class="fitwidth">
+				<a href="#">
+					<img src="/themes/duoyuan/img/lv3_artrepos_taoyuan_banner_01.jpg" alt="banner" />
+				</a>
+			</div>
 
- <!-- #EndLibraryItem -->
-<!-- #BeginLibraryItem "/library/category_tree.lbi" -->
-
-<div class="box">
- <div class="box_1">
-  <div id="category_tree">
-    <!--{foreach from=$categories item=cat}-->
-     <dl>
-     <dt><a href="{$cat.url}">{$cat.name|escape:html}</a></dt>
-     <!--{foreach from=$cat.children item=child}-->
-     <dd><a href="{$child.url}">{$child.name|escape:html}</a></dd>
-     <!--{/foreach}-->
-     </dl>
-    <!--{/foreach}--> 
-  </div>
- </div>
-</div>
-<div class="blank5"></div>
-
- <!-- #EndLibraryItem -->
- <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
-<!-- TemplateEndEditable -->
-<!-- TemplateBeginEditable name="左边广告区域（宽200px）" -->
-<!-- TemplateEndEditable -->
-    <!--AD end-->
-  </div>
-  <!--left end-->
-  <!--right start-->
-  <div class="AreaR">
-	 <!--组合搜索 开始-->
+			<div id="artrepos_wrap" class="fitwidth">
+				<!--组合搜索 开始-->
 	  <!--{if $brands.1 || $price_grade.1 || $filter_attr_list}-->
-	  <div class="box">
-		 <div class="box_1">
-			<h3><span>{$lang.goods_filter}</span></h3>
-			<!--{if $brands.1}-->
-			<div class="screeBox">
-			  <strong>{$lang.brand}：</strong>
-				<!--{foreach from=$brands item=brand}-->
-					<!-- {if $brand.selected} -->
-					<span>{$brand.brand_name}</span>
-					<!-- {else} -->
-					<a href="{$brand.url}">{$brand.brand_name}</a>&nbsp;
-					<!-- {/if} -->
-				<!--{/foreach}-->
-			</div>
-			<!--{/if}-->
-			<!--{if $price_grade.1}-->
-			<div class="screeBox">
-			<strong>{$lang.price}：</strong>
-			<!--{foreach from=$price_grade item=grade}-->
-				<!-- {if $grade.selected} -->
-				<span>{$grade.price_range}</span>
-				<!-- {else} -->
-				<a href="{$grade.url}">{$grade.price_range}</a>&nbsp;
-				<!-- {/if} -->
-			<!--{/foreach}-->
-			</div>
-			<!--{/if}-->
-			<!--{foreach from=$filter_attr_list item=filter_attr}-->
-      <div class="screeBox">
-			<strong>{$filter_attr.filter_attr_name|escape:html} :</strong>
-			<!--{foreach from=$filter_attr.attr_list item=attr}-->
-				<!-- {if $attr.selected} -->
-				<span>{$attr.attr_value}</span>
-				<!-- {else} -->
-				<a href="{$attr.url}">{$attr.attr_value}</a>&nbsp;
-				<!-- {/if} -->
-			<!--{/foreach}-->
-			</div>
-      <!--{/foreach}-->
-		 </div>
-		</div>
-		<div class="blank5"></div>
+				<div id="repos_classify" class="fitwidth">
+					<ul>
+					<!--{if $brands.1}-->
+						<li>
+							<ul>
+								<li class="classify_title">{$lang.brand}</li>
+								<li>/</li>
+								<!--{foreach from=$brands item=brand}-->
+								<!-- {if $brand.selected} -->
+									<li>{$brand.brand_name}</li>
+								<!-- {else} -->
+								<a href="{$brand.url}">
+									<li>{$brand.brand_name}</li>
+								</a>
+								<!-- {/if} -->
+								<li>/</li>
+								<!--{/foreach}-->
+							</ul>
+						</li>
+					<!--{/if}-->
+					
+					<!--{if $price_grade.1}-->
+						<li>
+							<ul>
+								<li class="classify_title">{$lang.price}</li>
+								<li>/</li>
+								<!--{foreach from=$price_grade item=grade}-->
+								<!-- {if $grade.selected} -->
+									<li>{$grade.price_range}</li>
+								<!-- {else} -->
+								<a href="{$grade.url}">
+									<li>{$grade.price_range}</li>
+								</a>
+								<!-- {/if} -->
+								<li>/</li>
+								<!--{/foreach}-->
+							</ul>
+						</li>
+					<!--{/if}-->
+					
+					<!--{foreach from=$filter_attr_list item=filter_attr}-->
+						<li>
+							<ul>
+								<li class="classify_title">{$filter_attr.filter_attr_name|escape:html}</li>
+								<li>/</li>
+								<!--{foreach from=$filter_attr。attr_list item=attr}-->
+								<!-- {if $attr.selected} -->
+									<li>{$attr.attr_value}</li>
+								<!-- {else} -->
+								<a href="{$attr.url}">
+									<li>{$attr.attr_value}</li>
+								</a>
+								<!-- {/if} -->
+								<li>/</li>
+								<!--{/foreach}-->
+							</ul>
+						</li>
+					<!--{/foreach}-->
+
+					</ul>
+				</div>
+
 	  <!-- {/if} -->
-	 <!--组合搜索 结束-->
-   <!-- TemplateBeginEditable name="右边区域" -->
-<!-- #BeginLibraryItem "/library/recommend_best.lbi" -->
+		 <!--组合搜索 结束-->
+		 <form method="GET" class="sort" name="listform">
+				<div id="repos_sort">
+					<div id="sort_left">
+					<a>{$lang.btn_display}：</a>
+				  
+				  	<a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=goods_id&order=<!-- {if $pager.sort == 'goods_id' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list">上架时间</a>
+				  	<a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=<!-- {if $pager.sort == 'shop_price' && $pager.order == 'ASC'} -->DESC<!-- {else} -->ASC<!-- {/if} -->#goods_list">价格</a>
+				  	<a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=last_update&order=<!-- {if $pager.sort == 'last_update' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list">更新时间	</a>
+					</div>
 
-<!-- {if $best_goods} -->
-<!-- {if $cat_rec_sign neq 1} -->
-<div class="box">
-<div class="box_2 centerPadd">
-  <div class="itemTit" id="itemBest">
-      {if $cat_rec[1]}
-      <h2><a href="javascript:void(0)" onclick="change_tab_style('itemBest', 'h2', this);get_cat_recommend(1, 0);">{$lang.all_goods}</a></h2>
-      {foreach from=$cat_rec[1] item=rec_data}
-      <h2 class="h2bg"><a href="javascript:void(0)" onclick="change_tab_style('itemBest', 'h2', this);get_cat_recommend(1, {$rec_data.cat_id})">{$rec_data.cat_name}</a></h2>
-      {/foreach}
-      {/if}
-  </div>
-  <div id="show_best_area" class="clearfix goodsBox">
-  <!-- {/if} -->
-  <!--{foreach from=$best_goods item=goods}-->
-  <div class="goodsItem">
-         <span class="best"></span>
-           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></a><br />
-           <a href="#"><img src="images/bnt_buy.gif" /></a> <a href="#"><img src="images/bnt_coll.gif" /></a>
-           <p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
-           <font class="f1">
-           <!-- {if $goods.promote_price neq ""} -->
-          {$goods.promote_price}
-          <!-- {else}-->
-          {$goods.shop_price}
-          <!--{/if}-->
-           </font>
-        </div>
-  <!--{/foreach}-->
-  <div class="more"><a href="../search.php?intro=best"><img src="images/more.gif" /></a></div>
-  <!-- {if $cat_rec_sign neq 1} -->
-  </div>
-</div>
-</div>
-<div class="blank5"></div>
-  <!-- {/if} -->
-<!-- {/if} -->
+					<!--<div id="sell_right">
+						<a href="#">在售中</a>
+						<a href="#">已售出</a>
 
- <!-- #EndLibraryItem -->
-  <!-- #BeginLibraryItem "/library/goods_list.lbi" --><!-- #EndLibraryItem -->
-  <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
-<!-- TemplateEndEditable -->
+					</div>-->
+					<div class="clear_float"></div>
+				</div>
+			  <input type="hidden" name="category" value="{$category}" />
+			  <input type="hidden" name="display" value="{$pager.display}" id="display" />
+			  <input type="hidden" name="brand" value="{$brand_id}" />
+			  <input type="hidden" name="price_min" value="{$price_min}" />
+			  <input type="hidden" name="price_max" value="{$price_max}" />
+			  <input type="hidden" name="filter_attr" value="{$filter_attr}" />
+			  <input type="hidden" name="page" value="{$pager.page}" />
+			  <input type="hidden" name="sort" value="{$pager.sort}" />
+			  <input type="hidden" name="order" value="{$pager.order}" />
+		  </form>
 
-
-  </div>  
-  <!--right end-->
-</div>
-<div class="blank5"></div>
-<!--帮助-->
-<div class="block">
-  <div class="box">
-   <div class="helpTitBg clearfix">
-    <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
-   </div>
-  </div>  
-</div>
-<div class="blank"></div>
-<!--帮助-->
-<!--友情链接 start-->
-<!--{if $img_links  or $txt_links }-->
-<div id="bottomNav" class="box">
- <div class="box_1">
-  <div class="links clearfix">
-    <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
-    <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" alt="{$link.name}" border="0" /></a>
-    <!--结束图片类型的友情链接{/foreach}-->
-    <!-- {if $txt_links} -->
-    <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
-    [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>] 
-    <!--结束文字类型的友情链接{/foreach}-->
-    <!-- {/if} -->
-  </div>
- </div>
-</div>
+				<div id="repos_list">
+<!--{if $goods_list}-->
+					<table cellspacing="13px">
+						<tr>
+						<!--{foreach name=goods_list from=$goods_list item=goods}-->
+							<!-- {if $goods.goods_id} -->
+							<!-- {if $smarty.foreach.goods_list.index%4==0} -->
+							</tr></tr>
+							<!--{/if}-->
+							<td>
+								<a href="{$goods.url}">
+									<img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" />
+									<h4><!-- {if $goods.goods_style_name} -->
+				                    {$goods.goods_style_name}
+				                    <!-- {else} -->
+				                    {$goods.goods_name}
+				                    <!-- {/if} -->
+				                    </h4>
+								</a>
+							</td>
+							<!--{/if}-->
+                		<!--{/foreach}-->
+						</tr>
+					</table>
 <!--{/if}-->
-<!--友情链接 end-->
-<div class="blank"></div>
-<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
-</body>
+				</div>
+
+				<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+			</div>
+
+			
+			<div id="footer_wrap" class="fullwidth">
+				<div id="footer" class="fitwidth">
+					<div id="ft_nav_wrap">
+						<!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+						
+						<img src="/themes/duoyuan/img/ft_phone_code.jpg" alt="二维码" />
+						<img class="ft_second_code" src="/themes/duoyuan/img/ft_weixin_code.jpg" alt="二维码" />
+
+					</div>
+					<div id="ft_shot">
+						<ul>
+							<li><a href="#">回到首页</a></li>
+							<!-- {if $txt_links} -->
+    						<!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+							<li class="ft_shot_sepa">/</li>
+							<li class="ft_shot_2"><a href="{$link.url}" target="_blank">{$link.name}</a></li>
+							<!--结束文字类型的友情链接{/foreach}-->
+    						<!-- {/if} -->
+							<li class="ft_shot_sepa">/</li>
+							<li><a>服务热线：400-100-8759</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="ft_bottom" class="fitwidth"></div>
+		</div>
+
+	</body>
+
 </html>

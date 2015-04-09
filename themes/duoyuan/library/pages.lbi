@@ -28,7 +28,7 @@
       <!-- {if $pager.page eq $key} -->
       <li class="page_now">{$key}</li>
       <!-- {else} -->
-      <a href="{$item}">[{$key}]</a>
+      <li><a href="{$item}">[{$key}]</a></li>
       <!-- {/if} -->
     <!--{/foreach}-->
   <!-- {/if} -->

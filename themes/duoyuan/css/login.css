@@ -1,0 +1,107 @@
+#logowinwrap {
+	border: 1px solid #e0e0e0;
+	overflow: hidden;
+	width: 410px;
+	padding: 10px 10px 10px 20px;
+	
+	margin: 50px auto;
+}
+/* login_wrap start */
+
+#login_wrap {
+	background: #fff;
+	float: left;
+	float left;
+	
+}
+#login_wrap li {
+	width: 230px;
+	height: 30px;
+	padding-top: 10px;
+	position: relative;
+}
+#login_wrap #inputlabels {
+	position: absolute;
+	top: 12px;
+	_top: 23px;
+	left: 10px;
+	z-index: 20;
+	font-size: 12px;
+	line-height: 25px;
+	color: #6f6f6f;
+}
+#login_wrap #username,
+#login_wrap #password {
+	width: 200px;
+	height: 25px;
+	font-size: 12px;
+	line-height: 25px;
+	border: 1px solid #e4e4e4;
+	color: #6f6f6f;
+	padding-left: 10px;
+}
+#login_wrap #verify,
+#login_wrap #login {
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	color: #6f6f6f;
+	margin-right: 10px;
+}
+#login_wrap #verify {
+	padding-left: 10px;
+	border: 1px solid #e4e4e4;
+	width: 90px;
+}
+#login_wrap #login {
+	width: 100px;
+	height: 30px;
+	border: none;
+	background: #dd5451;
+	color: #fff;
+}
+#login_wrap #login:hover {
+	border: 1px solid #e4e4e4;
+}
+#login_wrap #vry_code,
+#login_wrap #forget-pwd {
+	width: 95px;
+	height: 28px;
+	line-height: 28px;
+}
+#login_wrap #forget-pwd {
+	font-size: 12px;
+	color: #6f6f6f;
+	padding-left: 10px;
+}
+#login_wrap #forget-pwd:hover {
+	color: #DC5154;
+}
+#login_wrap #vry_code {
+	position: absolute;
+	bottom: 5;
+	font-size: 12px;
+	background: #e4e4e4;
+	text-align: center;
+	color: #fff;
+}
+/* login_wrap end */
+
+#register_guide {
+	float: left;
+	height: 120px;
+	padding-left: 20px;
+	border-left: 1px solid #e0e0e0;
+}
+#register_guide p {
+	font-size: 16px;
+	font-weight: 700;
+	margin-top: 12px;
+}
+#register_guide a {
+	display: block;
+	margin-top: 25px;
+	font-size: 14px;
+	color: #DC5154;
+	text-decoration: underline;
+}

@@ -1,0 +1,97 @@
+#header #logo {
+	width: 225px;
+}
+#content_wrap {
+	margin: 30px auto;
+	border: 1px solid #e0e0e0;
+	overflow: hidden;
+}
+#register_wrap {
+	width: 650px;
+	padding: 30px;
+	overflow: hidden;
+	float: left;
+}
+#register_wrap ul li {
+	height: 30px;
+	margin-top: 20px;
+	line-height: 30px;
+}
+#register_items {
+	float: left;
+	width: 100px;
+	text-align: left;
+}
+#register_items span {
+	color: #fff;
+	padding-right: 5px;
+}
+#register_items span.ness {
+	color: #DC5154;
+}
+#register_content {
+	float: left;
+	margin-left: 20px;
+	width: 255px;
+}
+#register_content li input {
+	height: 28px;
+	padding: 0 10px;
+	width: 230px;
+	border: 1px solid #e0e0e0;
+}
+#register_content li.vrfcode input {
+	width: 100px;
+}
+#register_content li.vrfcode img {
+	width: 100px;
+	height: 30px;
+	float: right;
+}
+#register_content #reg_btn {
+	background: #dd5451;
+	width: 120px;
+	color: #fff;
+	border: 1px solid #e0e0e0;
+}
+#register_prom {
+	float: left;
+	width: 250px;
+	margin-left: 20px;
+}
+#register_prom li {
+	position: relative;
+	color: #DC5154;
+}
+#register_prom li span.prompt,
+#register_prom li span.prompt_dy {
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	line-height: 30px;
+}
+#register_prom #get_phonecode {
+	height: 28px;
+	border: none;
+	line-height: 28px;
+	padding: 0 5px;
+	border: 1px solid #e0e0e0;
+}
+#login_wrap {
+	float: left;
+	margin-top: 20px;
+	padding-top: 20px;
+	width: 200px;
+	border-left: 1px solid #e0e0e0;
+	height: 430px;
+}
+#login_wrap a {
+	display: block;
+	color: #0a8cd2;
+	margin-top: 10px;
+	margin-left: 30px;
+}
+#login_wrap a:hover {
+	color: #DC5154;
+}

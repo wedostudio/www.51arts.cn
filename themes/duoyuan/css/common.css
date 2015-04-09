@@ -218,17 +218,35 @@ img {
 	color: #6f6f6f;
 }
 #logo {
-	float: left;
-	width: 221px;
-	height: 63px;
+	position: absolute;
+	left: 0;
+	bottom: 5px;
+	width: 227px;
+	height: 43px;
 	cursor: pointer;
-	background: url("img/logo_bg.jpg") no-repeat left bottom;
+	background: url("img/logo_main.jpg") no-repeat left bottom;
+}
+#logo_sub {
+	position: absolute;
+	left: 237px;
+	bottom: 5px;
+	width: 96px;
+	height: 43px;
 }
 #logo_custom {
-	float: left;
-	margin-left: 10px;
+	position: absolute;
+	left: 0;
+	top: 8px;
 	cursor: pointer;
-	height: 38px;
+	height: 18px;
+}
+#logo_url {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 96px;
+	height: 17px;
+	background: url("img/logo_url.jpg") no-repeat left bottom;
 }
 /* header end */
 /* nav begin */

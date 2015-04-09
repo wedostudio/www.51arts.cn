@@ -1,16 +1,16 @@
 /* logo_custom bg start */
 
-#logo_custom.superinfo_logo {
-	width: 100px;
-	background: url("../img/lv3_artinfo_superinfo_logo.jpg") no-repeat left bottom;
+#logo_custom.logo_superinfo {
+	width: 69px;
+	background: url("img/logo_artinfo_superinfo.jpg") no-repeat left bottom;
 }
-#logo_custom.arteye_logo {
-	width: 100px;
-	background: url("../img/lv3_artinfo_arteye_logo.jpg") no-repeat left bottom;
+#logo_custom.logo_arteye {
+	width: 51px;
+	background: url("img/logo_artinfo_arteye.jpg") no-repeat left bottom;
 }
-#logo_custom.artdecode_logo {
-	width: 100px;
-	background: url("../img/lv3_artinfo_artdecode_logo.jpg") no-repeat left bottom;
+#logo_custom.logo_artdecode {
+	width: 69px;
+	background: url("img/logo_artinfo_artdecode.jpg") no-repeat left bottom;
 }
 /* logo_custom bg end */
 /* banner start */
@@ -64,19 +64,19 @@
 	height: 30px;
 	width: 125px;
 	margin-bottom: 30px;
-	background: url("../img/lv2_artinfo_superinfo_title.png") no-repeat left bottom;
+	background: url("img/lv2_artinfo_superinfo_title.png") no-repeat left bottom;
 }
 #artinfo_elem_title.arteye_title {
 	height: 32px;
 	width: 91px;
 	margin-bottom: 30px;
-	background: url("../img/lv2_artinfo_arteye_title.png") no-repeat left bottom;
+	background: url("img/lv2_artinfo_arteye_title.png") no-repeat left bottom;
 }
 #artinfo_elem_title.artdecode_title {
 	height: 30px;
 	width: 123px;
 	margin-bottom: 30px;
-	background: url("../img/lv2_artinfo_artdecode_title.png") no-repeat left bottom;
+	background: url("img/lv2_artinfo_artdecode_title.png") no-repeat left bottom;
 }
 #artinfo_elem_list li {
 	position: relative;
@@ -125,7 +125,7 @@
 	width: 14px;
 	height: 14px;
 	padding-left: 18px;
-	background: url("../img/lv3_artinfo_superinfo_praise.jpg") no-repeat left;
+	background: url("img/lv3_artinfo_superinfo_praise.jpg") no-repeat left;
 }
 #artinfo_elem_list .info_time span,
 #artinfo_elem_list .info_comment span,
@@ -183,7 +183,7 @@
 	padding-left: 20px;
 	padding-right: 10px;
 	margin-right: 20px;
-	background: url(../img/lv3_artinfo_superinfo_pagectl_bg.png) no-repeat right center;
+	background: url(img/lv3_artinfo_superinfo_pagectl_bg.png) no-repeat right center;
 }
 #pagectl_divselect ul {
 	width: 110px;
@@ -221,7 +221,7 @@
 #hot_info_title {
 	height: 30px;
 	margin-bottom: 30px;
-	background: url("../img/lv2_artinfo_hotinfo_title.png") no-repeat left bottom;
+	background: url("img/lv2_artinfo_hotinfo_title.png") no-repeat left bottom;
 }
 #hot_info_title a {
 	display: block;
@@ -306,7 +306,7 @@
 	display: block;
 	width: 100px;
 	height: 25px;
-	background: url("../img/salerank_title.png") no-repeat center;
+	background: url("img/salerank_title.png") no-repeat center;
 }
 #salerank table {
 	border-collapse: separate;

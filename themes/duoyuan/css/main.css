@@ -1,3 +1,10 @@
+/* logo_custom bg start */
+
+#logo_custom {
+	width: 96px;
+	background: url("img/logo_index.jpg") no-repeat left bottom;
+}
+/* logo_custom bg end */
 /* artist signed start */
 
 #artist_signed {
@@ -186,7 +193,7 @@
 	width: 853px;
 	height: 16px;
 	margin: 0 auto;
-	background: url(../img/class_bg_line.png) no-repeat top;
+	background: url(img/class_bg_line.png) no-repeat top;
 }
 #classitem .item_classify {
 	width: 853px;
@@ -248,8 +255,8 @@
 #classitem table td p span.item_name {
 	display: inline;
 	line-height: 20px;
-	text-align: bottom;
 	border-bottom: 1px solid #b1ada9;
+	padding-bottom: 3px;
 }
 #classitem table td p span.item_price {
 	line-height: 20px;
@@ -292,7 +299,7 @@
 #artists_big_wrap {
 	position: relative;
 	height: 335px;
-	background: url(../img/artcircle_bg.png) no-repeat;
+	background: url(img/artcircle_bg.png) no-repeat;
 	background-position: 30px 35px;
 }
 #artcircle .artists_big {
@@ -310,7 +317,7 @@
 	border: 1px solid #fff;
 }
 #artcircle .artists_big li:hover {
-	border: 1px solid #DC5154;
+	border: 1px solid #c0c0c0;
 }
 #artcircle .artists_big li img {
 	width: 190px;
@@ -393,6 +400,6 @@
 
 #ft_bottom {
 	height: 130px;
-	background: url(../img/ft_bottom_bg.png) no-repeat center;
+	background: url(img/ft_bottom_bg.png) no-repeat center;
 }
 /* ft bottom end */

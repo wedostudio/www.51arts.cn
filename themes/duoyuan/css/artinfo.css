@@ -1,8 +1,8 @@
 /* logo_custom bg start */
 
 #logo_custom {
-	width: 98px;
-	background: url("../img/lv2_artinfo_logo.jpg") no-repeat left bottom;
+	width: 69px;
+	background: url("img/logo_artinfo.jpg") no-repeat left bottom;
 }
 /* logo_custom bg end */
 /* super info start*/
@@ -17,7 +17,7 @@
 	width: 658px;
 	position: relative;
 	margin-bottom: 30px;
-	background: url("../img/lv2_artinfo_superinfo_title.png") no-repeat left bottom;
+	background: url("img/lv2_artinfo_superinfo_title.png") no-repeat left bottom;
 }
 #super_info_title a {
 	position: absolute;
@@ -72,7 +72,7 @@
 	height: 30px;
 	margin-bottom: 25px;
 	position: relative;
-	background: url("../img/lv2_artinfo_clicksort_title.png") no-repeat left bottom;
+	background: url("img/lv2_artinfo_clicksort_title.png") no-repeat left bottom;
 }
 #click_sort_title a {
 	display: block;
@@ -90,7 +90,7 @@
 #click_sort_list li {
 	list-style-type: none;
 	list-style-position: inside;
-	list-style-image: url(../img/lv2_artinfo_clicksort_dot.png);
+	list-style-image: url(img/lv2_artinfo_clicksort_dot.png);
 }
 #click_sort_list li.current > a {
 	font-weight: 600;
@@ -148,7 +148,7 @@
 	width: 658px;
 	position: relative;
 	margin-bottom: 12px;
-	background: url("../img/lv2_artinfo_arteye_title.png") no-repeat left bottom;
+	background: url("img/lv2_artinfo_arteye_title.png") no-repeat left bottom;
 }
 #art_eye_title a {
 	position: absolute;
@@ -247,7 +247,7 @@
 	height: 30px;
 	margin-bottom: 25px;
 	position: relative;
-	background: url("../img/lv2_artinfo_artdecode_title.png") no-repeat left bottom;
+	background: url("img/lv2_artinfo_artdecode_title.png") no-repeat left bottom;
 }
 #art_decode_title a {
 	position: absolute;

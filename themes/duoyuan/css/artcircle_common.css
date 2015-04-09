@@ -1,16 +1,16 @@
 /* logo_custom bg start */
 
-#logo_custom.artists_logo {
-	width: 74px;
-	background: url("../img/lv3_artcircle_artists_logo.jpg") no-repeat left bottom;
+#logo_custom.logo_artists {
+	width: 52px;
+	background: url("img/logo_artcircle_artists.jpg") no-repeat left bottom;
 }
-#logo_custom.artorgs_logo {
-	width: 74px;
-	background: url("../img/lv3_artcircle_artorgs_logo.jpg") no-repeat left bottom;
+#logo_custom.logo_artorgs {
+	width: 69px;
+	background: url("img/logo_artcircle_artorgs.jpg") no-repeat left bottom;
 }
-#logo_custom.artcollectors_logo {
-	width: 74px;
-	background: url("../img/lv3_artcircle_artcollectors_logo.jpg") no-repeat left bottom;
+#logo_custom.logo_artcollectors {
+	width: 85px;
+	background: url("img/logo_artcircle_artcollectors.jpg") no-repeat left bottom;
 }
 /* logo_custom bg end */
 /* banner begin */
@@ -51,11 +51,11 @@
 	color: #5b5b5b;
 	margin-left: 7px;
 	font-size: 12px;
-	background: url(../img/lv3_artcircle_artartists_banner_btn_null.png) no-repeat center;
+	background: url(img/lv3_artcircle_artartists_banner_btn_null.png) no-repeat center;
 }
 #banner .slidebtn li.current {
 	color: #434343;
-	background: url(../img/lv3_artcircle_artartists_banner_btn_dotted.png) no-repeat center;
+	background: url(img/lv3_artcircle_artartists_banner_btn_dotted.png) no-repeat center;
 }
 /* banner end */
 /* artists classify start */
@@ -130,14 +130,14 @@
 	width: 9px;
 	padding: 0;
 	border: none;
-	background: url(../img/lv3_artcircle_artartists_ptdown.png) no-repeat center;
+	background: url(img/lv3_artcircle_artartists_ptdown.png) no-repeat center;
 }
 #sort_left .new_sort_up {
 	margin-left: 10px;
 	width: 9px;
 	padding: 0;
 	border: none;
-	background: url(../img/lv3_artcircle_artartists_ptup.png) no-repeat center;
+	background: url(img/lv3_artcircle_artartists_ptup.png) no-repeat center;
 }
 /* artists sort end */
 /* artists list start */

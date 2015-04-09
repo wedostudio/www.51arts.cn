@@ -25,7 +25,7 @@
 	height: 25px;
 	margin-bottom: 28px;
 	position: relative;
-	background: url("../img/lv2_artinfo_hotinfo_title.png") no-repeat left bottom;
+	background: url("img/lv2_artinfo_hotinfo_title.png") no-repeat left bottom;
 }
 #hot_info_title a {
 	display: block;

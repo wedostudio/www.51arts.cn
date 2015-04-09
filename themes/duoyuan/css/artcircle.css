@@ -1,8 +1,8 @@
 /* logo_custom bg start */
 
 #logo_custom {
-	width: 76px;
-	background: url("../img/lv2_artcircle_logo.jpg") no-repeat left bottom;
+	width: 52px;
+	background: url("img/logo_artcircle.jpg") no-repeat left bottom;
 }
 /* logo_custom bg end */
 /* artists start */
@@ -14,7 +14,7 @@
 #artists_title {
 	height: 30px;
 	position: relative;
-	background: url("../img/lv2_artcircle_artists_title.jpg") no-repeat left bottom;
+	background: url("img/lv2_artcircle_artists_title.jpg") no-repeat left bottom;
 }
 #artists_title a {
 	position: absolute;
@@ -96,7 +96,7 @@
 #artorg_title {
 	height: 30px;
 	position: relative;
-	background: url("../img/lv2_artcircle_artorg_title.jpg") no-repeat left bottom;
+	background: url("img/lv2_artcircle_artorg_title.jpg") no-repeat left bottom;
 }
 #artorg_title a {
 	position: absolute;
@@ -153,7 +153,7 @@
 #art_collector_title {
 	height: 30px;
 	position: relative;
-	background: url("../img/lv2_artcircle_artcollector_title.jpg") no-repeat left bottom;
+	background: url("img/lv2_artcircle_artcollector_title.jpg") no-repeat left bottom;
 }
 #art_collector_title a {
 	position: absolute;

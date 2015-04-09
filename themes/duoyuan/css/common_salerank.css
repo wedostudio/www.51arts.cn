@@ -14,7 +14,7 @@
 	display: block;
 	width: 100px;
 	height: 25px;
-	background: url("../img/salerank_title.jpg") no-repeat left bottom;
+	background: url("img/salerank_title.jpg") no-repeat left bottom;
 }
 #salerank_info #salerank_title {
 	position: absolute;

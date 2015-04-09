@@ -1,8 +1,8 @@
 /* logo_custom bg start */
 
 #logo_custom {
-	width: 100px;
-	background: url("../img/lv3_artinfo_superinfo_logo.jpg") no-repeat left bottom;
+	width: 69px;
+	background: url("img/logo_artinfo_news.jpg") no-repeat left bottom;
 }
 /* logo_custom bg end */
 
@@ -40,7 +40,7 @@
 	position: absolute;
 	right: 0;
 	bottom: 0;
-	background: url("../img/lv3_artinfo_superinfo_praise.jpg") no-repeat left;
+	background: url("img/lv3_artinfo_superinfo_praise.jpg") no-repeat left;
 }
 #news_title {
 	margin-top: 10px;
@@ -71,7 +71,7 @@
 	width: 30px;
 	height: 60px;
 	cursor: pointer;
-	background: url("../img/picture_pre.png") no-repeat center;
+	background: url("img/picture_pre.png") no-repeat center;
 }
 #news_img #img_next {
 	position: absolute;
@@ -80,7 +80,7 @@
 	width: 30px;
 	height: 60px;
 	cursor: pointer;
-	background: url("../img/picture_next.png") no-repeat center;
+	background: url("img/picture_next.png") no-repeat center;
 }
 #news_img ul {
 	position: absolute;
@@ -192,7 +192,8 @@
 	margin-left: 15px;
 	height: 110px;
 	width: 550px;
-	锛�}
+	；
+}
 #comment_write form textarea {
 	height: 68px;
 	width: 550px;
@@ -232,7 +233,6 @@
 }
 #comment_area_list li .cmt_usertext {
 	width: 600px;
-	
 	overflow: hidden;
 }
 #comment_area_list .cmt_usertext a {
@@ -289,7 +289,7 @@
 #hot_info_title {
 	height: 30px;
 	margin-bottom: 30px;
-	background: url("../img/lv4_artinfo_superinfo_news_hotinfo_title.png") no-repeat center;
+	background: url("img/lv4_artinfo_superinfo_news_hotinfo_title.png") no-repeat center;
 }
 #hot_info_title a {
 	display: block;
@@ -298,7 +298,6 @@
 	margin: 0 auto;
 }
 #hot_info_list div.dotted_line {
-	
 	margin: 18px auto;
 }
 #hot_info_list li {
@@ -318,12 +317,9 @@
 	overflow: hidden;
 	margin-top: 10px;
 	height: 50px;
-	
 }
 #hot_info_list li > div p {
-	
 	line-height: 25px;
-	
 	color: #000;
 }
 #hot_info_list li > div p:hover {
@@ -376,7 +372,7 @@
 	height: 30px;
 	margin-bottom: 30px;
 	padding-top: 20px;
-	background: url("../img/lv4_artinfo_superinfo_news_newproducts_title.png") no-repeat bottom center;
+	background: url("img/lv4_artinfo_superinfo_news_newproducts_title.png") no-repeat bottom center;
 }
 #new_products_title a {
 	display: block;

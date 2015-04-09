@@ -1,3 +1,10 @@
+/* logo_custom bg start */
+
+#logo_custom {
+	width: 69px;
+	background: url("img/logo_artrepos.jpg") no-repeat left bottom;
+}
+/* logo_custom bg end */
 /* banner begin */
 
 #banner {
@@ -35,9 +42,9 @@
 	height: 5px;
 	width: 5px;
 	margin: 0px 5px;
-	background: url(../img/banner_btn_null.png) no-repeat center;
+	background: url(img/banner_btn_null.png) no-repeat center;
 }
 #banner .slidebtn li.current {
-	background: url(../img/banner_btn_dotted.png) no-repeat center;
+	background: url(img/banner_btn_dotted.png) no-repeat center;
 }
 /* banner end */

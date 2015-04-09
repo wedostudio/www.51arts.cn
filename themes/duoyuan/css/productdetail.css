@@ -1,8 +1,8 @@
 /* logo_custom bg start */
 
 #logo_custom {
-	width: 98px;
-	background: url("img/lv2_artrepos_logo.jpg") no-repeat left bottom;
+	width: 69px;
+	background: url("img/logo_productdetail.jpg") no-repeat left bottom;
 }
 /* logo_custom bg end */
 /* product show start */
@@ -32,23 +32,23 @@
 }
 #product_img_lit ul li {
 	float: left;
-	width: 80px;
-	height: 80px;
-	border: 2px solid #e0e0e0;
+	width: 82px;
+	height: 82px;
+	border: 1px solid #e0e0e0;
 	background: #f7f7f7;
 	margin-right: 5px;
 	cursor: pointer;
 }
 #product_img_lit ul li.current {
-	border: 2px solid #dd5451;
+	border: 1px solid #dd5451;
 }
 #product_img_lit ul li.last_one {
 	margin-right: 0;
 	margin-left： 6px;
 }
 #product_img_lit ul li img {
-	width: 80px;
-	height: 80px;
+	width: 82px;
+	height: 82px;
 	float: left;
 }
 /* product imgs end */
@@ -122,16 +122,16 @@
 	float: left;
 	width: 53px;
 	height: 53px;
-	border: 2px solid #e0e0e0;
+	border: 1px solid #e0e0e0;
 	background: #f7f7f7;
 	margin-left: 8px;
 	cursor: pointer;
 }
 #product_classify ul li.current {
-	border: 2px solid #dd5451;
+	border: 1px solid #dd5451;
 }
 #product_classify ul li:hover {
-	border: 2px solid #dd5451;
+	border: 1px solid #dd5451;
 }
 #product_classify ul li img {
 	width: 53px;

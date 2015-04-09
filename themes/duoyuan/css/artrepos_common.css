@@ -1,8 +1,32 @@
 /* logo_custom bg start */
 
-#logo_custom {
-	width: 98px;
-	background: url("img/lv2_artrepos_logo.jpg") no-repeat left bottom;
+#logo_custom.logo_muyuan {
+	width: 37px;
+	background: url("img/logo_artrepos_muyuan.jpg") no-repeat left bottom;
+}
+#logo_custom.logo_taoyuan {
+	width: 37px;
+	background: url("img/logo_artrepos_taoyuan.jpg") no-repeat left bottom;
+}
+#logo_custom.logo_qiyuan {
+	width: 37px;
+	background: url("img/logo_artrepos_qiyuan.jpg") no-repeat left bottom;
+}
+#logo_custom.logo_shiyuan {
+	width: 37px;
+	background: url("img/logo_artrepos_shiyuan.jpg") no-repeat left bottom;
+}
+#logo_custom.logo_yiyuan {
+	width: 37px;
+	background: url("img/logo_artrepos_yiyuan.jpg") no-repeat left bottom;
+}
+#logo_custom.logo_yinyuan {
+	width: 37px;
+	background: url("img/logo_artrepos_yinyuan.jpg") no-repeat left bottom;
+}
+#logo_custom.logo_duoyuan {
+	width: 37px;
+	background: url("img/logo_artrepos_duoyuan.jpg") no-repeat left bottom;
 }
 /* logo_custom bg end */
 /* repos classify start */
@@ -66,7 +90,7 @@
 #sort_left .price_sort {
 	padding-right: 15px;
 	margin-left: 10px;
-	background: url("../img/lv2_artrepos_pricesort_bg.png") no-repeat 90% center;
+	background: url("img/lv2_artrepos_pricesort_bg.png") no-repeat 90% center;
 }
 #sort_left .price_sort_drt {
 	background: #e9e9e9;
@@ -140,9 +164,6 @@
 	background: #fff;
 }
 /* page control end */
-
-
-
 /* lv3 banner begin */
 
 #lv3_banner {

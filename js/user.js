@@ -391,6 +391,13 @@ function is_registered( username )
         document.getElementById('username_notice').innerHTML = msg_un_blank;
         var submit_disabled = true;
     }
+    
+    //2015-04-10 Add by Sinfey
+    if (!is_mobile(username))
+    {
+        document.getElementById('username_notice').innerHTML = '请输入正确格式的手机号码';
+		var submit_disabled = true;
+    }
 
     if ( !chkstr( username ) )
     {
@@ -904,4 +911,15 @@ function calResult()
       notice.innerHTML = notice_result + parseInt(result + 0.5);
     }
   }
+}
+
+//2015-04-10 Add by Sinfey
+function is_mobile(number){
+   //var partten = /^0?(13[0-9]|15[012356789]|18[02356789]|14[57])[0-9]{8}$/;
+   var partten = /^0?[0-9]{11}$/;
+   if(partten.test(number)){
+      return true;//alert('是手机号码');
+   }else{
+      return false;//alert('不是手机号码');
+   }
 }

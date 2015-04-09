@@ -117,7 +117,7 @@ if($_GET['act']=='send'){
 		}
 	}
 	
-	$post_data = "account=用户名&password=".md5('密码')."&mobile=".$mobile."&content=".rawurlencode("您的验证码是：".$mobile_code."。请不要把验证码泄露给其他人。");
+	$post_data = "account=cf_jzsy&password=".md5('T6tPaR')."&mobile=".$mobile."&content=".rawurlencode("您的验证码是：".$mobile_code."。请不要把验证码泄露给其他人。");
 	//密码可以使用明文密码或使用32位MD5加密
 
 	$get = Post($post_data, $target);

@@ -59,32 +59,32 @@
 				<table>
 					<tr id="repos-img">
 						<td>
-							<a href="#">
+							<a href="/category.php?id=6">
 								<img src="/themes/duoyuan/img/repos_img_1.jpg" alt="红木" />
 							</a>
 						</td>
 						<td>
-							<a href="#">
+							<a href="/category.php?id=12">
 								<img src="/themes/duoyuan/img/repos_img_2.jpg" alt="陶瓷" />
 							</a>
 						</td>
 						<td>
-							<a href="#">
+							<a href="/category.php?id=1">
 								<img src="/themes/duoyuan/img/repos_img_3.jpg" alt="漆器" />
 							</a>
 						</td>
 						<td>
-							<a href="#">
+							<a href="/category.php?id=16">
 								<img src="/themes/duoyuan/img/repos_img_4.jpg" alt="玉石" />
 							</a>
 						</td>
 						<td>
-							<a href="#">
+							<a href="/category.php?id=17">
 								<img src="/themes/duoyuan/img/repos_img_5.jpg" alt="字画" />
 							</a>
 						</td>
 						<td>
-							<a href="#">
+							<a href="/category.php?id=18">
 								<img src="/themes/duoyuan/img/repos_img_6.jpg" alt="银器" />
 							</a>
 						</td>

@@ -1,11 +1,14 @@
 //for navigation
 $(document).ready(function() {
-	$("#nav .navs").mouseover(function() {
-		$('#subNav_' + Number($(this).index('.navs') + 1)).css({
+	var $navs = $("#nav .navs");
+	$navs.mouseover(function() {
+		var i = $.inArray(this, $navs) + 1;
+		$('#subNav_' + i).css({
 			'display': 'block'
 		});
 	}).mouseout(function() {
-		$('#subNav_' + Number($(this).index('.navs') + 1)).css({
+		var i = $.inArray(this, $navs) + 1;
+		$('#subNav_' + i).css({
 			'display': 'none'
 		});
 	});

@@ -159,18 +159,23 @@ elseif ($action == 'act_register')
         $other['qq'] = isset($_POST['extend_field2']) ? $_POST['extend_field2'] : '';
         $other['office_phone'] = isset($_POST['extend_field3']) ? $_POST['extend_field3'] : '';
         $other['home_phone'] = isset($_POST['extend_field4']) ? $_POST['extend_field4'] : '';
-        $username = $other['mobile_phone'] = isset($_POST['extend_field5']) ? $_POST['extend_field5'] : '';
+        $other['mobile_phone'] = $username;// = isset($_POST['extend_field5']) ? $_POST['extend_field5'] : '';
         $sel_question = empty($_POST['sel_question']) ? '' : compile_str($_POST['sel_question']);
         $passwd_answer = isset($_POST['passwd_answer']) ? compile_str(trim($_POST['passwd_answer'])) : '';
+        $mobile_code = isset($_POST['mobile_code']) ? trim($_POST['mobile_code']) : '';
 
 
         $back_act = isset($_POST['back_act']) ? trim($_POST['back_act']) : '';
-
-        if(empty($_POST['agreement']))
-        {
-            show_message($_LANG['passport_js']['agreement']);
-        }
-        if (strlen($username) < 3)
+//         var_dump($_SESSION);exit;
+//         if(!$_SESSION['mobile'] || $_SESSION['mobile']!=$username)
+//         {
+//             show_message('非法操作');
+//         }
+//         if(!$_SESSION['mobile_code'] || $_SESSION['mobile_code']!=$mobile_code)
+//         {
+//             show_message('手机验证码错误');
+//         }
+        if (strlen($username) < 11)
         {
             show_message($_LANG['passport_js']['username_shorter']);
         }

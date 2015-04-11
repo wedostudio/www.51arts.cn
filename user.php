@@ -20,6 +20,21 @@ require(dirname(__FILE__) . '/includes/init.php');
 /* 载入语言文件 */
 require_once(ROOT_PATH . 'languages/' .$_CFG['lang']. '/user.php');
 
+//判断是否是手机端 WEDO
+$ua = strtolower($_SERVER['HTTP_USER_AGENT']);
+$uachar = "/(nokia|sony|ericsson|mot|samsung|sgh|lg|philips|panasonic|alcatel|lenovo|cldc|midp|mobile|android|iphone|ipad)/i";
+if(($ua == '' || preg_match($uachar, $ua))&& !strpos(strtolower($_SERVER['REQUEST_URI']),'wap'))
+{
+    $Loaction = 'mobile/';
+
+    if (!empty($Loaction))
+    {
+        ecs_header("Location: $Loaction\n");
+        exit;
+    }
+
+}
+
 $user_id = $_SESSION['user_id'];
 
 $action  = isset($_REQUEST['act']) ? trim($_REQUEST['act']) : 'default';
@@ -103,6 +118,16 @@ if ($action == 'default')
             $smarty->assign('next_rank_name', sprintf($_LANG['next_level'], $rank['next_rank'] ,$rank['next_rank_name']));
         }
     }
+    
+    //判断是否是分销商和代理商，生成二维码 WEDO
+    $qrcode = '';
+    if (!empty($_SESSION['user_rank']) && in_array($_SESSION['user_rank'], array(3,4)))
+    {
+        include_once(ROOT_PATH .'includes/googleQRcode.php');
+        $qrcode = generateQRfromGoogle('http://www.51arts.cn/?u='.$_SESSION['user_id']);
+    }
+    $smarty->assign('qrcode', $qrcode);
+    
     $smarty->assign('info',        get_user_default($user_id));
     $smarty->assign('user_notice', $_CFG['user_notice']);
     $smarty->assign('prompt',      get_user_prompt($user_id));
@@ -281,7 +306,8 @@ elseif ($action == 'is_registered')
     $username = trim($_GET['username']);
     $username = json_str_iconv($username);
 
-    if ($user->check_user($username) || admin_registered($username))
+    // WEDO 手机号码也检查
+    if ($user->check_user($username) || mobile_registered($username) || admin_registered($username))
     {
         echo 'false';
     }
@@ -361,17 +387,13 @@ elseif ($action == 'act_login')
     //WEDO
     $sql="SELECT user_name FROM dy_users WHERE mobile_phone = ".$mobile_phone;
     $results=$db->getRow($sql);
-    //var_dump($results);exit;
     $username=$results['user_name'];
     if(!$username){
         show_message($_LANG['msg_un_unexist'], $_LANG['relogin_lnk'], 'user.php', 'error');
     }
     
-
-    
     if ($user->login($username, $password,isset($_POST['remember'])))
     {
-        //echo "te";exit;
         update_user_info();
         recalculate_price();
 

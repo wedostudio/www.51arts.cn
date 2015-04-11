@@ -397,4 +397,15 @@ function admin_registered( $adminname )
     return $res;
 }
 
+/**
+ * 判断手机号码是否存在 WEDO
+ * @param   string      $mobile 手机号码
+ * @return  boolean
+ */
+function mobile_registered( $mobile )
+{
+    $res = $GLOBALS['db']->getOne("SELECT COUNT(*) FROM " . $GLOBALS['ecs']->table('user') .
+        " WHERE mobile_phone = '$mobile'");
+    return $res;
+}
 ?>

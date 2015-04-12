@@ -368,11 +368,6 @@ class ucenter extends integrate
         {
             $sql = "UPDATE " . $GLOBALS['ecs']->table('users') . " SET $set_str  WHERE user_name = '$cfg[username]'";
             $GLOBALS['db']->query($sql);
-            //WEDO 同时更新uc_member的数据
-            $sql = "UPDATE uc_members SET `username`='".$cfg['user_name']."',`email` = '".$cfg['email']."'   WHERE `username` = '$cfg[username]'";
-            
-            //echo $sql;exit;
-            $GLOBALS['db']->query($sql);
             
             $flag  = true;
         }

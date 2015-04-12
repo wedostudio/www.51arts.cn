@@ -2779,4 +2779,37 @@ if (!function_exists('array_combine')) {
     }
 }
 
+/**
+ * 取得艺术家列表
+ * @return array 艺术家列表 id => name
+ */
+function get_arts_list()
+{
+    $sql = 'SELECT user_name, user_id FROM ' . $GLOBALS['ecs']->table('users') . ' WHERE user_rank=6 ORDER BY user_id';
+    $res = $GLOBALS['db']->getAll($sql);
+
+    $arts_list = array();
+    foreach ($res AS $row)
+    {
+        $arts_list[$row['user_id']] = addslashes($row['user_name']);
+    }
+
+    return $arts_list;
+}
+/**
+ * 取得一级分类列表
+ */
+function get_top_cat_list()
+{
+    $sql = 'SELECT cat_name, cat_id FROM ' . $GLOBALS['ecs']->table('category') . ' WHERE parent_id=0 ORDER BY cat_desc';
+    $res = $GLOBALS['db']->getAll($sql);
+
+    $topcat_list = array();
+    foreach ($res AS $row)
+    {
+        $topcat_list[$row['cat_id']] = addslashes($row['cat_name']);
+    }
+
+    return $topcat_list;
+}
 ?>

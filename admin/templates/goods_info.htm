@@ -19,10 +19,11 @@
         class="tab-back" id="detail-tab">{$lang.tab_detail}</span><span
         class="tab-back" id="mix-tab">{$lang.tab_mix}</span>{if $goods_type_list}<span
         class="tab-back" id="properties-tab">{$lang.tab_properties}</span>{/if}<span
-        class="tab-back" id="gallery-tab">{$lang.tab_gallery}</span><span
+        class="tab-back" id="gallery-tab">{$lang.tab_gallery}</span>
+        <!-- <span
         class="tab-back" id="linkgoods-tab">{$lang.tab_linkgoods}</span>{if $code eq ''}<span
         class="tab-back" id="groupgoods-tab">{$lang.tab_groupgoods}</span>{/if}<span
-        class="tab-back" id="article-tab">{$lang.tab_article}</span>
+        class="tab-back" id="article-tab">{$lang.tab_article}</span> -->
       </p>
     </div>
 
@@ -72,7 +73,7 @@
               {/foreach}
             </td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td class="label">{$lang.lab_goods_brand}</td>
             <td><select name="brand_id" onchange="hideBrandDiv()" ><option value="0">{$lang.select_please}{html_options options=$brand_list selected=$goods.brand_id}</select>
               {if $is_add}
@@ -94,14 +95,14 @@
         {html_options options=$suppliers_list_name selected=$goods.suppliers_id}
       </select></td>
           </tr>
-         {/if}
+         {/if} -->
           <tr>
             <td class="label">{$lang.lab_shop_price}</td>
             <td><input type="text" name="shop_price" value="{$goods.shop_price}" size="20" onblur="priceSetted()"/>
             <input type="button" value="{$lang.compute_by_mp}" onclick="marketPriceSetted()" />
             {$lang.require_field}</td>
           </tr>
-          {if $user_rank_list}
+          <!-- {if $user_rank_list}
           <tr>
             <td class="label"><a href="javascript:showNotice('noticeUserPrice');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.lab_user_price}</td>
             <td>
@@ -113,10 +114,10 @@
               <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeUserPrice">{$lang.notice_user_price}</span>
             </td>
           </tr>
-          {/if}
+          {/if} -->
 
           <!--鍟嗗搧浼樻儬浠锋牸-->
-          <tr>
+          <!-- <tr>
             <td class="label"><a href="javascript:showNotice('volumePrice');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.lab_volume_price}</td>
             <td>
               <table width="100%" id="tbody-volume" align="center">
@@ -136,21 +137,21 @@
               </table>
               <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="volumePrice">{$lang.notice_volume_price}</span>
             </td>
-          </tr>
+          </tr> -->
           <!--鍟嗗搧浼樻儬浠锋牸 end -->
 
-          <tr>
+          <!-- <tr>
             <td class="label">{$lang.lab_market_price}</td>
             <td><input type="text" name="market_price" value="{$goods.market_price}" size="20" />
               <input type="button" value="{$lang.integral_market_price}" onclick="integral_market_price()" />
             </td>
-          </tr>
+          </tr>-->
           <tr>
             <td class="label"><a href="javascript:showNotice('giveIntegral');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_give_integral}</td>
             <td><input type="text" name="give_integral" value="{$goods.give_integral}" size="20" />
             <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="giveIntegral">{$lang.notice_give_integral}</span></td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td class="label"><a href="javascript:showNotice('rankIntegral');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_rank_integral}</td>
             <td><input type="text" name="rank_integral" value="{$goods.rank_integral}" size="20" />
             <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="rankIntegral">{$lang.notice_rank_integral}</span></td>
@@ -170,7 +171,7 @@
             <td id="promote_6">
               <input name="promote_start_date" type="text" id="promote_start_date" size="12" value='{$goods.promote_start_date}' readonly="readonly" /><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('promote_start_date', '%Y-%m-%d', false, false, 'selbtn1');" value="{$lang.btn_select}" class="button"/> - <input name="promote_end_date" type="text" id="promote_end_date" size="12" value='{$goods.promote_end_date}' readonly="readonly" /><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('promote_end_date', '%Y-%m-%d', false, false, 'selbtn2');" value="{$lang.btn_select}" class="button"/>
             </td>
-          </tr>
+          </tr> -->
           <tr>
             <td class="label">{$lang.lab_picture}</td>
             <td>

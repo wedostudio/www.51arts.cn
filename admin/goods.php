@@ -66,6 +66,8 @@ if ($_REQUEST['act'] == 'list' || $_REQUEST['act'] == 'trash')
     $smarty->assign('action_link',  $action_link);
     $smarty->assign('code',     $code);
     $smarty->assign('cat_list',     cat_list(0, $cat_id));
+    $smarty->assign('top_cat_list', get_top_cat_list());
+    $smarty->assign('arts_list',    get_arts_list());
     $smarty->assign('brand_list',   get_brand_list());
     $smarty->assign('intro_list',   get_intro_list());
     $smarty->assign('lang',         $_LANG);

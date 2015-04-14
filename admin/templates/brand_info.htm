@@ -4,13 +4,34 @@
 <form method="post" action="brand.php" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
 <table cellspacing="1" cellpadding="3" width="100%">
   <tr>
-    <td class="label">{$lang.brand_name}</td>
+    <td class="label">艺术家名称</td>
     <td><input type="text" name="brand_name" maxlength="60" value="{$brand.brand_name}" />{$lang.require_field}</td>
   </tr>
   <tr>
+    <td class="label">类型</td>
+    <td><input type="text" name="brand_name" maxlength="60" value="{$brand.brand_name}" /></td>
+  </tr>
+  <tr>
+    <td class="label">头衔</td>
+    <td><input type="text" name="brand_name" maxlength="60" value="{$brand.brand_name}" /></td>
+  </tr>
+  <tr>
+    <td class="label">籍贯</td>
+    <td><input type="text" name="brand_name" maxlength="60" value="{$brand.brand_name}" /></td>
+  </tr>
+  <tr>
+    <td class="label">年代</td>
+    <td><input type="text" name="brand_name" maxlength="60" value="{$brand.brand_name}" /></td>
+  </tr>
+  <tr>
+    <td class="label">领域</td>
+    <td><input type="text" name="brand_name" maxlength="60" value="{$brand.brand_name}" /></td>
+  </tr>
+  
+  <!--<tr>
     <td class="label">{$lang.site_url}</td>
     <td><input type="text" name="site_url" maxlength="60" size="40" value="{$brand.site_url}" /></td>
-  </tr>
+  </tr>-->
   <tr>
     <td class="label"><a href="javascript:showNotice('warn_brandlogo');" title="{$lang.form_notice}">
         <img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.brand_logo}</td>
@@ -24,9 +45,12 @@
     </span>
     </td>
   </tr>
-  <tr>
+  <!--<tr>
     <td class="label">{$lang.brand_desc}</td>
     <td><textarea  name="brand_desc" cols="60" rows="4"  >{$brand.brand_desc}</textarea></td>
+  </tr>-->
+  <tr>
+  	<td></td>
   </tr>
   <tr>
     <td class="label">{$lang.sort_order}</td>

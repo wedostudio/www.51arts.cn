@@ -26,8 +26,8 @@ $exc = new exchange($ecs->table("brand"), $db, 'brand_id', 'brand_name');
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'list')
 {
-    $smarty->assign('ur_here',      $_LANG['06_goods_brand_list']);
-    $smarty->assign('action_link',  array('text' => $_LANG['07_brand_add'], 'href' => 'brand.php?act=add'));
+    $smarty->assign('ur_here',      $_LANG['06_article_list']);
+    $smarty->assign('action_link',  array('text' => $_LANG['07_artist_add'], 'href' => 'brand.php?act=add'));
     $smarty->assign('full_page',    1);
 
     $brand_list = get_brandlist();
@@ -49,8 +49,8 @@ elseif ($_REQUEST['act'] == 'add')
     /* 权限判断 */
     admin_priv('brand_manage');
 
-    $smarty->assign('ur_here',     $_LANG['07_brand_add']);
-    $smarty->assign('action_link', array('text' => $_LANG['06_goods_brand_list'], 'href' => 'brand.php?act=list'));
+    $smarty->assign('ur_here',     $_LANG['07_artist_add']);
+    $smarty->assign('action_link', array('text' => $_LANG['06_artist_list'], 'href' => 'brand.php?act=list'));
     $smarty->assign('form_action', 'insert');
 
     assign_query_info();

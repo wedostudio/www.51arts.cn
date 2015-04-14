@@ -151,8 +151,8 @@ $_LANG['02_goods_add'] = '添加新商品';
 $_LANG['03_category_list'] = '商品分类';
 $_LANG['04_category_add'] = '添加分类';
 $_LANG['05_comment_manage'] = '用户评论';
-$_LANG['06_goods_brand_list'] = '商品品牌';
-$_LANG['07_brand_add'] = '添加品牌';
+$_LANG['06_artist_list'] = '艺术圈列表';
+$_LANG['07_artist_add'] = '添加艺术圈';
 $_LANG['08_goods_type'] = '商品类型';
 $_LANG['09_attribute_list'] = '商品属性';
 $_LANG['10_attribute_add'] = '添加属性';
@@ -160,11 +160,13 @@ $_LANG['11_goods_trash'] = '商品回收站';
 $_LANG['12_batch_pic'] = '图片批量处理';
 $_LANG['13_batch_add'] = '商品批量上传';
 $_LANG['15_batch_edit'] = '商品批量修改';
-$_LANG['16_goods_script'] = '生成商品代码';
+//$_LANG['16_goods_script'] = '生成商品代码';
+//$_LANG['16_artist_list'] = '艺术圈'; //wedo 
 $_LANG['17_tag_manage'] = '标签管理';
 $_LANG['18_product_list'] = '货品列表';
 $_LANG['52_attribute_add'] = '编辑属性';
 $_LANG['53_suppliers_goods'] = '供货商商品管理';
+
 
 $_LANG['14_goods_export'] = '商品批量导出';
 

@@ -8,12 +8,11 @@
 <table cellspacing="1" cellpadding="3" width="100%">
   <tr>
     <td class="label">{$lang.label_act_name}</td>
-    <td><input name="act_name" type="text" id="act_name" value="{$auction.act_name}" maxlength="60" />
-    {$lang.notice_act_name}</td>
+    <td>{$auction.act_name}</td>
   </tr>
   <tr>
     <td class="label">{$lang.label_act_desc}</td>
-    <td><textarea  name="act_desc" cols="60" rows="4" id="act_desc"  >{$auction.act_desc}</textarea></td>
+    <td>{$auction.act_desc}</td>
   </tr>
   <tr>
     <td align="right">{$lang.label_search_goods}</td>
@@ -31,13 +30,11 @@
   </tr>
   <tr>
     <td class="label">{$lang.label_start_time}</td>
-    <td><input name="start_time" type="text" id="start_time" value="{$auction.start_time}" readonly="readonly" />
-      <input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('start_time', '%Y-%m-%d %H:%M', '24', false, 'selbtn1');" value="{$lang.btn_select}" class="button" /></td>
+    <td>{$auction.start_time}</td>
   </tr>
   <tr>
     <td class="label">{$lang.label_end_time}</td>
-    <td><input name="end_time" type="text" id="end_time" value="{$auction.end_time}" readonly="readonly" />
-      <input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('end_time', '%Y-%m-%d %H:%M', '24', false, 'selbtn2');" value="{$lang.btn_select}" class="button" /></td>
+    <td>{$auction.end_time}</td>
   </tr>
   <tr>
     <td class="label">{$lang.label_start_price}</td>
@@ -75,7 +72,9 @@
         <input type="hidden" name="act" value="settle_money" />
         {/if}
       {/if}
-      <input type="hidden" name="id" value="{$auction.act_id}" /></td>
+      <input type="hidden" name="id" value="{$auction.act_id}" />
+      <input type="hidden" name="t_id" value="{$auction.t_id}" />
+      </td>
   </tr>
 </table>
 </form>

@@ -14,30 +14,30 @@
  */
 
 /* menu */
-$_LANG['auction_list'] = '拍卖商品列表';
-$_LANG['add_auction'] = '添加拍卖商品';
-$_LANG['edit_auction'] = '编辑拍卖商品';
+$_LANG['auction_list'] = '拍卖活动列表';
+$_LANG['add_auction'] = '添加拍卖活动';
+$_LANG['edit_auction'] = '编辑拍卖活动';
 $_LANG['auction_log'] = '拍卖商品出价记录';
-$_LANG['continue_add_auction'] = '继续添加拍卖商品';
-$_LANG['back_auction_list'] = '返回拍卖商品列表';
-$_LANG['add_auction_ok'] = '添加拍卖商品成功';
-$_LANG['edit_auction_ok'] = '编辑拍卖商品成功';
+$_LANG['continue_add_auction'] = '继续添加拍卖活动';
+$_LANG['back_auction_list'] = '返回拍卖活动列表';
+$_LANG['add_auction_ok'] = '添加拍卖活动成功';
+$_LANG['edit_auction_ok'] = '编辑拍卖活动成功';
 $_LANG['settle_deposit_ok'] = '处理冻结的保证金成功';
 
 /* list */
-$_LANG['act_is_going'] = '仅显示进行中的商品';
+$_LANG['act_is_going'] = '仅显示进行中的活动';
 $_LANG['act_name'] = '拍卖活动名称';
-$_LANG['goods_name'] = '商品名称';
+$_LANG['goods_name'] = '活动名称';
 $_LANG['start_time'] = '开始时间';
 $_LANG['end_time'] = '结束时间';
 $_LANG['deposit'] = '保证金';
 $_LANG['start_price'] = '起拍价';
 $_LANG['end_price'] = '一口价';
 $_LANG['amplitude'] = '加价幅度';
-$_LANG['auction_not_exist'] = '您要操作的拍卖商品不存在';
-$_LANG['auction_cannot_remove'] = '该拍卖商品已经有人出价，不能删除';
-$_LANG['js_languages']['batch_drop_confirm'] = '您确实要删除选中的拍卖商品吗？';
-$_LANG['batch_drop_ok'] = '操作完成（已经有人出价的拍卖商品不能删除）';
+$_LANG['auction_not_exist'] = '您要操作的拍卖活动不存在';
+$_LANG['auction_cannot_remove'] = '该拍卖活动已经有人出价，不能删除';
+$_LANG['js_languages']['batch_drop_confirm'] = '您确实要删除选中的拍卖活动吗？';
+$_LANG['batch_drop_ok'] = '操作完成（已经有人出价的拍卖活动不能删除）';
 $_LANG['no_record_selected'] = '没有选择记录';
 
 /* info */

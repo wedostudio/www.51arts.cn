@@ -404,7 +404,7 @@ function admin_registered( $adminname )
  */
 function mobile_registered( $mobile )
 {
-    $res = $GLOBALS['db']->getOne("SELECT COUNT(*) FROM " . $GLOBALS['ecs']->table('user') .
+    $res = $GLOBALS['db']->getOne("SELECT COUNT(*) FROM " . $GLOBALS['ecs']->table('users') .
         " WHERE mobile_phone = '$mobile'");
     return $res;
 }

@@ -17,6 +17,7 @@ define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
 include_once(ROOT_PATH . 'includes/cls_image.php');
+include_once(ROOT_PATH . 'includes/fckeditor/fckeditor.php'); //wedo 调用FCKeditor
 $image = new cls_image($_CFG['bgcolor']);
 
 $exc = new exchange($ecs->table("brand"), $db, 'brand_id', 'brand_name');
@@ -36,7 +37,7 @@ if ($_REQUEST['act'] == 'list')
     $smarty->assign('filter',       $brand_list['filter']);
     $smarty->assign('record_count', $brand_list['record_count']);
     $smarty->assign('page_count',   $brand_list['page_count']);
-
+	
     assign_query_info();
     $smarty->display('brand_list.htm');
 }
@@ -55,38 +56,40 @@ elseif ($_REQUEST['act'] == 'add')
 
     assign_query_info();
     $smarty->assign('brand', array('sort_order'=>50, 'is_show'=>1));
+	create_html_editor('artist_describe', $brand['artist_describe']);
     $smarty->display('brand_info.htm');
 }
 elseif ($_REQUEST['act'] == 'insert')
 {
-    /*检查品牌名是否重复*/
-    admin_priv('brand_manage');
-
-    $is_show = isset($_REQUEST['is_show']) ? intval($_REQUEST['is_show']) : 0;
-
-    $is_only = $exc->is_only('brand_name', $_POST['brand_name']);
-
-    if (!$is_only)
-    {
-        sys_msg(sprintf($_LANG['brandname_exist'], stripslashes($_POST['brand_name'])), 1);
-    }
+    /*检查品牌名是否重复*///wedo
+//  admin_priv('brand_manage');
+//
+//  $is_show = isset($_REQUEST['is_show']) ? intval($_REQUEST['is_show']) : 0;
+//
+//  $is_only = $exc->is_only('brand_name', $_POST['brand_name']);
+//
+//  if (!$is_only)
+//  {
+//      sys_msg(sprintf($_LANG['brandname_exist'], stripslashes($_POST['brand_name'])), 1);
+//  }
 
     /*对描述处理*/
-    if (!empty($_POST['brand_desc']))
-    {
-        $_POST['brand_desc'] = $_POST['brand_desc'];
-    }
+//  if (!empty($_POST['brand_desc']))
+//  {
+//      $_POST['brand_desc'] = $_POST['brand_desc'];
+//  }
 
      /*处理图片*/
     $img_name = basename($image->upload_image($_FILES['brand_logo'],'brandlogo'));
 
      /*处理URL*/
-    $site_url = sanitize_url( $_POST['site_url'] );
+    //$site_url = sanitize_url( $_POST['site_url'] );wedo
 
     /*插入数据*/
 
-    $sql = "INSERT INTO ".$ecs->table('brand')."(brand_name, site_url, brand_desc, brand_logo, is_show, sort_order) ".
-           "VALUES ('$_POST[brand_name]', '$site_url', '$_POST[brand_desc]', '$img_name', '$is_show', '$_POST[sort_order]')";
+    $sql = "INSERT INTO ".$ecs->table('brand')."(brand_name, brand_logo, is_show,artist_type, artist_title, artist_area, artist_times, artist_field, artist_describe) ".
+           "VALUES ('$_POST[brand_name]', '$img_name', '$is_show', '$_POST[artist_type]', '$_POST[artist_title]', '$_POST[artist_area]', '$_POST[artist_times]' ,'$_POST[artist_field]' ,'$_POST[artist_describe]')";
+	//var_dump($sql);exit;
     $db->query($sql);
 
     admin_log($_POST['brand_name'],'add','brand');
@@ -110,45 +113,48 @@ elseif ($_REQUEST['act'] == 'edit')
 {
     /* 权限判断 */
     admin_priv('brand_manage');
-    $sql = "SELECT brand_id, brand_name, site_url, brand_logo, brand_desc, brand_logo, is_show, sort_order ".
-            "FROM " .$ecs->table('brand'). " WHERE brand_id='$_REQUEST[id]'";
+    //$sql = "SELECT brand_id, brand_name, site_url, brand_logo, brand_desc, brand_logo, is_show, sort_order ".
+    $sql = "SELECT *".
+            " FROM " .$ecs->table('brand'). " WHERE brand_id='$_REQUEST[id]'";
     $brand = $db->GetRow($sql);
 
     $smarty->assign('ur_here',     $_LANG['brand_edit']);
-    $smarty->assign('action_link', array('text' => $_LANG['06_goods_brand_list'], 'href' => 'brand.php?act=list&' . list_link_postfix()));
+    $smarty->assign('action_link', array('text' => $_LANG['06_artist_list'], 'href' => 'brand.php?act=list&' . list_link_postfix()));
     $smarty->assign('brand',       $brand);
     $smarty->assign('form_action', 'updata');
-
+	
+	create_html_editor('artist_describe', $brand['artist_describe']);
     assign_query_info();
     $smarty->display('brand_info.htm');
 }
 elseif ($_REQUEST['act'] == 'updata')
 {
     admin_priv('brand_manage');
-    if ($_POST['brand_name'] != $_POST['old_brandname'])
-    {
-        /*检查品牌名是否相同*/
-        $is_only = $exc->is_only('brand_name', $_POST['brand_name'], $_POST['id']);
+//  if ($_POST['brand_name'] != $_POST['old_brandname'])//wedo 名称不检查
+//  {
+//      /*检查品牌名是否相同*/
+//      $is_only = $exc->is_only('brand_name', $_POST['brand_name'], $_POST['id']);
+//
+//      if (!$is_only)
+//      {
+//          sys_msg(sprintf($_LANG['brandname_exist'], stripslashes($_POST['brand_name'])), 1);
+//      }
+//  }
 
-        if (!$is_only)
-        {
-            sys_msg(sprintf($_LANG['brandname_exist'], stripslashes($_POST['brand_name'])), 1);
-        }
-    }
-
-    /*对描述处理*/
-    if (!empty($_POST['brand_desc']))
-    {
-        $_POST['brand_desc'] = $_POST['brand_desc'];
-    }
+    /*对描述处理*///wedo
+//  if (!empty($_POST['brand_desc']))
+//  {
+//      $_POST['brand_desc'] = $_POST['brand_desc'];
+//  }
 
     $is_show = isset($_REQUEST['is_show']) ? intval($_REQUEST['is_show']) : 0;
      /*处理URL*/
-    $site_url = sanitize_url( $_POST['site_url'] );
+    //$site_url = sanitize_url( $_POST['site_url'] );wedo
 
     /* 处理图片 */
     $img_name = basename($image->upload_image($_FILES['brand_logo'],'brandlogo'));
-    $param = "brand_name = '$_POST[brand_name]',  site_url='$site_url', brand_desc='$_POST[brand_desc]', is_show='$is_show', sort_order='$_POST[sort_order]' ";
+    $param = "brand_name = '$_POST[brand_name]', is_show='$is_show', artist_type='$_POST[artist_type]', artist_title='$_POST[artist_title]', artist_area='$_POST[artist_area]', artist_times='$_POST[artist_times]', artist_field='$_POST[artist_field]', artist_describe='$_POST[artist_describe]'";
+	//var_dump($param);exit;
     if (!empty($img_name))
     {
         //有图片上传

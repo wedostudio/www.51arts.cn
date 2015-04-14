@@ -1,12 +1,13 @@
-<div id="append_parent"></div>
+<div id="topleft">
 <?php if ($this->_var['user_info']): ?>
-<font style="position:relative; top:10px;">
-<?php echo $this->_var['lang']['hello']; ?>，<font class="f4_b"><?php echo $this->_var['user_info']['username']; ?></font>, <?php echo $this->_var['lang']['welcome_return']; ?>！
-<a href="user.php"><?php echo $this->_var['lang']['user_center']; ?></a>|
- <a href="user.php?act=logout"><?php echo $this->_var['lang']['user_logout']; ?></a>
-</font>
+	<span id="welcome">您好，<font class="f4_b"><?php echo $this->_var['user_info']['username']; ?></font>，欢迎来到多元主义！</span>
+	<a href="user.php"><?php echo $this->_var['lang']['user_center']; ?></a>
+	<span>/</span>
+	<a href="user.php?act=logout"><?php echo $this->_var['lang']['user_logout']; ?></a>
 <?php else: ?>
- <?php echo $this->_var['lang']['welcome']; ?>&nbsp;&nbsp;&nbsp;&nbsp;
- <a href="user.php"><img src="themes/default/images/bnt_log.gif" /></a>
- <a href="user.php?act=register"><img src="themes/default/images/bnt_reg.gif" /></a>
+	<span id="welcome">您好，欢迎来到多元主义！</span>
+	<a href="user.php" id="login_top">登录</a>
+	<span>/</span>
+	<a href="user.php?act=register">注册</a>
 <?php endif; ?>
+</div>

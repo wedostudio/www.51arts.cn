@@ -9,23 +9,40 @@
   </tr>
   <tr>
     <td class="label">类型</td>
-    <td><input type="text" name="brand_name" maxlength="60" value="{$brand.brand_name}" /></td>
+    <td>
+    	<select name="artist_type">
+		<option value="1" selected="selected">艺术家</option>
+		<option value="2">文创公司</option>
+		<option value="3">艺术爱好者</option>
+		</select>
+    </td>
   </tr>
   <tr>
     <td class="label">头衔</td>
-    <td><input type="text" name="brand_name" maxlength="60" value="{$brand.brand_name}" /></td>
+    <td><input type="text" name="artist_title" maxlength="60" value="{$brand.artist_title}" /></td>
   </tr>
   <tr>
     <td class="label">籍贯</td>
-    <td><input type="text" name="brand_name" maxlength="60" value="{$brand.brand_name}" /></td>
+    <td><input type="text" name="artist_area" maxlength="60" value="{$brand.artist_area}" /></td>
   </tr>
   <tr>
     <td class="label">年代</td>
-    <td><input type="text" name="brand_name" maxlength="60" value="{$brand.brand_name}" /></td>
+    <td>
+    	<select name="artist_times">
+	    <option value="1">40年代前</option>
+	    <option value="2">40年代</option>
+	    <option value="3">50年代</option>
+	    <option value="4">60年代</option>
+	    <option value="5">70年代</option>
+	    <option value="6">80年代</option>
+	    <option value="7">90年代</option>
+	    <option value="8">90年代后</option>
+	    </select>
+    </td>
   </tr>
   <tr>
     <td class="label">领域</td>
-    <td><input type="text" name="brand_name" maxlength="60" value="{$brand.brand_name}" /></td>
+    <td><input type="text" name="artist_field" maxlength="60" value="{$brand.artist_field}" /></td>
   </tr>
   
   <!--<tr>
@@ -49,13 +66,14 @@
     <td class="label">{$lang.brand_desc}</td>
     <td><textarea  name="brand_desc" cols="60" rows="4"  >{$brand.brand_desc}</textarea></td>
   </tr>-->
-  <tr>
-  	<td></td>
+  <tr >
+  	<td class="label">描述</td>
+  	<td >{$FCKeditor}</td>
   </tr>
-  <tr>
+  <!--<tr>
     <td class="label">{$lang.sort_order}</td>
     <td><input type="text" name="sort_order" maxlength="40" size="15" value="{$brand.sort_order}" /></td>
-  </tr>
+  </tr>-->
   <tr>
     <td class="label">{$lang.is_show}</td>
     <td><input type="radio" name="is_show" value="1" {if $brand.is_show eq 1}checked="checked"{/if} /> {$lang.yes}

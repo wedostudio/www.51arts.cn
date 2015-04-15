@@ -1,0 +1,83 @@
+/*banner*/
+.banner{position:relative;background:#fff;overflow:hidden;height:270px;}
+.banner .slick-slide{float:left;height:100%;overflow:hidden;}
+.banner .slick-slide a img{width:100%;vertical-align:top;}
+.banner .slick-dots{position:absolute;width:100%;left:0px;bottom:0px;text-align:center;z-index:1000;}
+.banner .slick-dots li{display:inline-block;width:12px;height:12px;margin:0 7px;background:#797979;overflow:hidden;border-radius:100%; vertical-align:top;}
+.banner .slick-dots li button{background:none;width:100%;height:400%;}
+.banner .slick-dots li.slick-active{background:#000000;}
+/*艺术情报*/
+.qing{position:relative;background:#fff;overflow:hidden;}
+.qing .slick-slide{float:left;height:100%;overflow:hidden;border-right:1px dashed #d1d1d1;margin-right:-1px;}
+.qing .slick-slide:last-child{border-right:0px;}
+.qing .slick-slide figure{height:118px;margin:0 10px 5px 10px;}
+.qing .slick-slide a img{vertical-align:middle;}
+.qing .slick-slide label.line{height:100%; vertical-align:middle;}
+.qing .slick-slide p{line-height:1.5em;margin:5px 2em;}
+.qing .slick-slide span{margin-left:2em;}
+
+.qing figcaption{margin:10px 0 30px 0;}
+/*多元分类*/
+.indexclass{height:4em;line-height:4em;background-color:#f9f9f9;background-size:100%;border-top:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;margin:2em 0;padding:0 2%;}
+.indexclass a.fl-left{width:16.5%;height:100%;text-align:right;color:#e0e0e0;background:url(../images/title1.png) no-repeat;background-size:720px;}
+.indexclass a:nth-child(1){background-position:-23px;}
+.indexclass a:nth-child(2){background-position:-135px;}
+.indexclass a:nth-child(3){background-position:-247px;}
+.indexclass a:nth-child(4){background-position:-359px;}
+.indexclass a:nth-child(5){background-position:-481px;}
+.indexclass a:nth-child(6){background-position:-593px;}
+/*搜索框*/
+.indexselect{border:1px solid #e0e0e0;height:3em;margin:0 1em;}
+.indexselect select{width:160px;height:3em;}
+/*拍卖专区、热卖宝贝、新品上架、名家名言*/
+.hotlist,.indexlist{margin:2em 2%;}
+.hotlist li.fl-left,.indexlist li{width:49%;margin-top:1em;position:relative;}
+.hotlist li:nth-child(odd),.indexlist li:nth-child(odd){float:right;}
+
+.indexlist{margin:0 2%;}
+.indexlist li{width:48%;}
+.indexlist li div.img{height:324px;margin-bottom:0.5em;}
+/*多元标题*/
+.yuantitle{width:86px;height:57px;background:url(../images/title2.png) no-repeat;background-size:100%;margin:2em auto 0 auto;}
+.yuantitle.ico_tit1{background-position:center 0px;}
+.yuantitle.ico_tit2{background-position:center -65px;}
+.yuantitle.ico_tit3{background-position:center -130px;}
+.yuantitle.ico_tit4{background-position:center -190px;}
+.yuantitle.ico_tit5{background-position:center -255px;}
+@media screen and (max-width:420px) { 
+	.banner{height:158px;}
+	.banner .slick-dots li{width:8px;height:8px;margin:0 4px;}
+	.indexclass a.fl-left{background-size:468px;}
+	.indexclass a:nth-child(1){background-position:-15px;}
+	.indexclass a:nth-child(2){background-position:-89px;}
+	.indexclass a:nth-child(3){background-position:-165px;}
+	.indexclass a:nth-child(4){background-position:-242px;}
+	.indexclass a:nth-child(5){background-position:-317px;}
+	.indexclass a:nth-child(6){background-position:-390px;}
+	
+	.qing .slick-slide figure{height:69px;}
+	.indexlist li div.img{height:189px;}
+	
+	.yuantitle{width:43px;height:29px;}
+	.yuantitle.ico_tit1{background-position:center 0px;}
+	.yuantitle.ico_tit2{background-position:center -33px;}
+	.yuantitle.ico_tit3{background-position:center -65px;}
+	.yuantitle.ico_tit4{background-position:center -95px;}
+	.yuantitle.ico_tit5{background-position:center -128px;}
+}
+@media screen and (max-width:360px) { 
+	.banner{height:135px;}
+	.indexclass a:nth-child(1){background-position:-25px;}
+	.indexclass a:nth-child(2){background-position:-98px;}
+	.indexclass a:nth-child(3){background-position:-173px;}
+	.indexclass a:nth-child(4){background-position:-250px;}
+	.indexclass a:nth-child(5){background-position:-323px;}
+	.indexclass a:nth-child(6){background-position:-396px;}
+	.indexlist li div.img{height:162px;}
+}
+
+@media screen and (max-width:320px) { 
+	.banner{height:120px;}
+	.indexlist li div.img{height:144px;}
+}
+

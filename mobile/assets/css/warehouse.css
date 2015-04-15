@@ -1,0 +1,39 @@
+.jiao{display:inline-block;width:0px;height:0px;border-style:solid;border-width:9px 5px;border-color:#333333 transparent transparent transparent;  vertical-align:middle;
+	margin:0 5px -9px 5px;
+}
+
+.waretab{border-top:1px solid #e0e0e0;margin:1.4em 0 0 0;}
+.waretab > span.fl-left{width:33%;border:1px solid #e0e0e0;border-top:0px;margin-right:-2px;line-height:2.4em;background-color:#f9f9f9;}
+.waretab > span:first-child{border-left:0px;}
+.waretab > span:last-child{width:34%;border-right:0px;}
+.waretab > span.on{border-bottom:1px solid #fff;background:#fff;}
+
+.wareclass{border-bottom:1px solid #e0e0e0;}
+.wareclass > li{border-bottom:1px solid #e0e0e0;margin-bottom:-1px;padding:0.4em 0;}
+.wareclass > li a.block{line-height:1.8em;min-height:1.8em;border-right:1px solid #e0e0e0;}
+.wareclass > li:last-child a.block{border-right:0px;}
+
+.three > li{width:33%;} 
+.three > li:nth-child(3n) a.block{border-right:0px;}
+.four > li{width:25%;}
+.four > li:nth-child(4n) a.block{border-right:0px;}
+.eight > li{width:12.5%;} 
+.eight > li:nth-child(8n) a.block{border-right:0px;}
+
+.tab{margin:1em 0.3em 0 0.3em;}
+.tab > span{width:25%;}
+.tab > span label.block{border:1px solid #e0e0e0;margin:0 0.3em;line-height:2em;}
+
+.warepai{margin:1em 2%;}
+.warepai > span.fl-left{border:1px solid #e0e0e0;line-height:1.8em;padding:0 0.5em;margin-right:10px;}
+.warepai > a.fl-left{width:1.8em;height:1.8em;line-height:1.8em;background:url(../images/jiantou.jpg) no-repeat center;border:1px solid #e0e0e0;background-size:70%;margin-right:10px;}
+.warepai > a.up{-webkit-transform:rotate(-180deg);}
+
+.warepailist{margin:0 2%;}
+.warepailist > li{width:48%;margin:10px 0;background:#f5f4f4;border-right:1px solid #f3f2f1;border-bottom:1px solid #e3e1df;}
+.warepailist > li p{line-height:2em;}
+.warepailist > li:nth-child(2n){float:right;}
+
+@media screen and (max-width:420px) { 
+	.waretab,.tab{font-size:85%;}
+}

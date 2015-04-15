@@ -8,13 +8,13 @@
 <meta name="twcClient" content="false" id="twcClient" />
 <title>搜索</title>
 <link rel="stylesheet" href="assets/css/css.css" />
-<link rel="stylesheet" href="assets/css/search.css" />
+<link rel="stylesheet" href="assets/css/search.css?v=233333" />
 <script src="assets/js/jquery-1.8.3.min.js"></script>
 </head>
 <body>
 
 <!-- 头部 -->
-<header class="center">
+<header class="center clearfix">
 	<span class="fl-left back">
 		<img src="assets/images/back.png" alt="" align="top">
 	</span>
@@ -22,27 +22,23 @@
 </header>
 
 <!-- 搜索 -->
-<section class="hidden">
-	<div class="seartab center">
-		<span class="fl-left on"><a href="#" class="block ft_16">所有</a></span>
-		<span class="fl-left"><a href="#" class="block ft_16">艺术仓库</a></span>
-		<span class="fl-left"><a href="#" class="block ft_16">艺术圈</a></span>
-		<span class="fl-left"><a href="#" class="block ft_16">艺术情报</a></span>
-	</div>
-</section>
+<div class="seartab hidden center clearfix">
+	<span class="fl-left on"><a href="search.php" class="block ft_16">所有</a></span>
+	<span class="fl-left"><a href="category.php?id=6" class="block ft_16">艺术仓库</a></span>
+	<span class="fl-left"><a href="artcircle.html" class="block ft_16">艺术圈</a></span>
+	<span class="fl-left"><a href="artinfo.html" class="block ft_16">艺术情报</a></span>
+</div>
 
-<form name="searchForm" method="get" action="search.php">
-	<section class="searchdiv hidden">
-		<span class="fl-left">
-			<button type="submit" class="ft_16 color3">
-				<img src="assets/images/search.png">搜索
+<div class="searchdiv hidden">
+	<form name="searchForm" method="get" action="search.php">
+		<div class="input-wrap">
+			<button class="ft_16 color3" type="submit">
+				<img src="assets/images/search.png">
 			</button>
-		</span>
-		<div class="hidden">
 			<input name="keywords" type="text" value="{$keywords}">
 		</div>
-	</section>
-</form>
+	</form>
+</div>
 
 <!-- 热门搜索 --->
 {if $searchkeywords}
@@ -56,80 +52,53 @@
 			<a href="search.php?keywords={$val|escape:url}">{$val}</a>
 		</li>
 		{/foreach}
-		<li class="fl-left hidden">
-			<a href="#" class="block ft_16">玉镯</a>
-		</li>
-		<li class="fl-left hidden">
-			<a href="#" class="block ft_16">红木家具</a>
-		</li>
-		<li class="fl-left hidden">
-			<a href="#" class="block ft_16">古代银器</a>
-		</li>
-		<li class="fl-left hidden">
-			<a href="#" class="block ft_16">工艺美术师</a>
-		</li>
-		<li class="fl-left hidden">
-			<a href="#" class="block ft_16">玉镯</a>
-		</li>
-		<li class="fl-left hidden">
-			<a href="#" class="block ft_16">红木家具</a>
-		</li>
-		<li class="fl-left hidden">
-			<a href="#" class="block ft_16">古代银器</a>
-		</li>
-		<li class="fl-left hidden">
-			<a href="#" class="block ft_16">工艺美术师</a>
-		</li>
-		<li class="fl-left hidden">
-			<a href="#" class="block ft_16">玉镯</a>
-		</li>
-		<li class="fl-left hidden">
-			<a href="#" class="block ft_16">红木家具</a>
-		</li>
-		<li class="fl-left hidden">
-			<a href="#" class="block ft_16">古代银器</a>
-		</li>
 	</ul>
 </section>
 {/if}
 
-<!-- 搜索结果-排序 --->
+<!-- 搜索结果-工具栏 --->
 {if $goods_data}
-<form action="search.php" method="post" name="listform">
-    <select name="sort">
-    {html_options options=$lang.sort selected=$pager.search.sort}
-    </select>
-    <select name="order">
-    {html_options options=$lang.order selected=$pager.search.order}
-    </select>
-    <input type="submit" value="进行排序" />
-    <input type="hidden" name="page" value="{$pager.page}" />
-    {foreach from=$pager.search key=key item=item}
-    {if $key neq "sort" and $key neq "order"}
-    	{if $key eq 'keywords'}
-        <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
-      	{else}
-        <input type="hidden" name="{$key}" value="{$item}" />
-      	{/if}
-    {/if}
-    {/foreach}
-  </form>
+<div class="result-toolbar">
+	<form action="search.php" method="post" name="listform">
+	    <select name="sort">
+	    {html_options options=$lang.sort selected=$pager.search.sort}
+	    </select>
+	    <select name="order">
+	    {html_options options=$lang.order selected=$pager.search.order}
+	    </select>
+	    <input type="submit" value="进行排序" />
+	    <input type="hidden" name="page" value="{$pager.page}" />
+	    {foreach from=$pager.search key=key item=item}
+	    {if $key neq "sort" and $key neq "order"}
+	    	{if $key eq 'keywords'}
+	        <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+	      	{else}
+	        <input type="hidden" name="{$key}" value="{$item}" />
+	      	{/if}
+	    {/if}
+	    {/foreach}
+	</form>
+</div>
 {/if}
 
 <!-- 搜索结果-数据列表 --->
+<ul class="result-datalist">
 {foreach from=$goods_data item=goods name=goods_list}
-{$smarty.foreach.goods_list.iteration}.<a href='goods.php?id={$goods.goods_id}'>{$goods.goods_name}</a>[{$goods.shop_price}]<br/>
+	<li><a href='goods.php?id={$goods.goods_id}'>{$goods.goods_name}</a></li>
 {foreachelse}
-	 暂无此类商品<br/>
-{/foreach}<br/><br/>
+	<li>没有找到任何结果</li>
+{/foreach}
+</ul>
 
 <!-- 搜索结果-数据分页 --->
 {if $pagebar}
-	{$pagebar}<br/>
+<div class="result-pagebar">
+	{$pagebar}
+</div>
 {/if}
 
 <!-- 公共底部 -->
-{include file="comm_footer.html"}
+{include file="includes/footer.html"}
 
 </body>
 </html>

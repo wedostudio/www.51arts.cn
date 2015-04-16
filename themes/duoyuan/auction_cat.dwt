@@ -53,7 +53,7 @@
 
 			<div id="auction_wrap" class="fitwidth wrap_top_border content_block">
 
-				<div id="auction_title" class="auction_ing_title"></div>
+				<div id="auction_title" class="{if $auction_type==1}auction_tobe_title{elseif $auction_type==2}auction_before_title{else}auction_ing_title{/if}"></div>
 				<div id="auction_list">
 					<ul>
 						<!-- {foreach from=$auction_list item=auction} 循环拍卖活动开始 -->

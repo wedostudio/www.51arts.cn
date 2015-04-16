@@ -298,6 +298,7 @@ elseif ($_REQUEST['act'] == 'cat')
 
         /* 模板赋值 */
         $smarty->assign('cfg', $_CFG);
+        $smarty->assign('auction_type', $type);
         assign_template();
         $position = assign_ur_here();
         $smarty->assign('page_title', $position['title']);    // 页面标题

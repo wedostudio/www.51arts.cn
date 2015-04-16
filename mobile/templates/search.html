@@ -8,7 +8,7 @@
 <meta name="twcClient" content="false" id="twcClient" />
 <title>搜索</title>
 <link rel="stylesheet" href="assets/css/css.css" />
-<link rel="stylesheet" href="assets/css/search.css?v=233333" />
+<link rel="stylesheet" href="assets/css/search.css?v=12" />
 <script src="assets/js/jquery-1.8.3.min.js"></script>
 </head>
 <body>
@@ -21,14 +21,15 @@
 	<span class="ft_20">搜 索</span>
 </header>
 
-<!-- 搜索 -->
-<div class="seartab hidden center clearfix">
+<!-- 搜索分类 -->
+<!-- <div class="seartab hidden center clearfix">
 	<span class="fl-left on"><a href="search.php" class="block ft_16">所有</a></span>
 	<span class="fl-left"><a href="category.php?id=6" class="block ft_16">艺术仓库</a></span>
 	<span class="fl-left"><a href="artcircle.html" class="block ft_16">艺术圈</a></span>
 	<span class="fl-left"><a href="artinfo.html" class="block ft_16">艺术情报</a></span>
-</div>
+</div> -->
 
+<!-- 搜索表单 -->
 <div class="searchdiv hidden">
 	<form name="searchForm" method="get" action="search.php">
 		<div class="input-wrap">
@@ -42,11 +43,11 @@
 
 <!-- 热门搜索 --->
 {if $searchkeywords}
-<section class="hidden">
+<section class="hotdiv hidden">
 	<div class="hottitle ft_16 hidden">
 		热门搜索
 	</div>
-	<ul class="hidden hotlist">
+	<ul class="hotlist hidden">
 		{foreach from=$searchkeywords item=val}
 		<li class="fl-left hidden">
 			<a href="search.php?keywords={$val|escape:url}">{$val}</a>
@@ -84,13 +85,18 @@
 <!-- 搜索结果-数据列表 --->
 <ul class="result-datalist">
 {foreach from=$goods_data item=goods name=goods_list}
-	<li><a href='goods.php?id={$goods.goods_id}'>{$goods.goods_name}</a></li>
+	<li>
+		<a href='goods.php?id={$goods.goods_id}'>
+			<img src="{$goods.goods_img}" alt="{$goods.goods_name}" />
+			<h4>{$goods.goods_name}</h4>
+		</a>
+	</li>
 {foreachelse}
 	<li>没有找到任何结果</li>
 {/foreach}
 </ul>
 
-<!-- 搜索结果-数据分页 --->
+<!-- 搜索结果-分页栏 --->
 {if $pagebar}
 <div class="result-pagebar">
 	{$pagebar}

@@ -394,7 +394,8 @@ else
         }
 
         $arr[$row['goods_id']]['goods_id']      = $row['goods_id'];
-        $arr[$row['goods_id']]['goods_name']      = $row['goods_name'];
+        $arr[$row['goods_id']]['goods_name']    = $row['goods_name'];
+        $arr[$row['goods_id']]['goods_img']		= '/' . $row['goods_img'];
         $arr[$row['goods_id']]['shop_price']    = price_format($row['shop_price']);
         $arr[$row['goods_id']]['promote_price'] = ($promote_price > 0) ? price_format($promote_price) : '';
         $arr[$row['goods_id']]['url']           = build_uri('goods', array('gid' => $row['goods_id']), $row['goods_name']);

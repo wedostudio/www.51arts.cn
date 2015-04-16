@@ -27,13 +27,13 @@ if ($_REQUEST['act'] == 'list')
 {
     /* 检查权限 */
     admin_priv('auction');
+    $t_id = $_REQUEST['t_id'];
 
     /* 模板赋值 */
     $smarty->assign('full_page',   1);
     $smarty->assign('ur_here',     $_LANG['auction_list']);
     $smarty->assign('action_link', array('href' => 'auction.php?act=add&t_id='.$t_id, 'text' => $_LANG['add_auction']));
 
-    $t_id = $_REQUEST['t_id'];
     $list = auction_list($t_id);
 
     $smarty->assign('auction_list', $list['item']);

@@ -54,7 +54,7 @@
 <!-- {foreach from=$auction_ing item=auction} 循环拍卖活动开始 -->
 			<div id="auction_today" class="fitwidth content_block wrap_top_border">
 
-				<div id="auction_today_title"><a href="/auction.php?act=list&type=0">查看更多</a>
+				<div id="auction_today_title"><a href="/auction.php?act=cat&type=0">查看更多</a>
 				</div>
 				<a href="{$auction.url}">
 					<div id="auction_today_img">
@@ -75,14 +75,14 @@
 			</div>
 <!--{/foreach}-->
 			<div id="auction_soon" class="fitwidth content_block wrap_top_border">
-				<div class="auction_unit_title"><a href="/auction.php?act=list&type=1">查看更多</a>
+				<div class="auction_unit_title"><a href="/auction.php?act=cat&type=1">查看更多</a>
 				</div>
 
 				<div class="auction_unit_list">
 					<ul>
 					
 						<!-- {foreach from=$auction_pre item=auction} 循环拍卖活动开始 -->
-						<a href="#">
+						<a href="{$auction.url}">
 							<li>
 								<img src="{$auction.goods_thumb}" alt="{$auction.goods_name|escape:html}" />
 								<div>
@@ -100,14 +100,14 @@
 			</div>
 
 			<div id="auction_before" class="fitwidth content_block wrap_top_border">
-				<div class="auction_unit_title"><a href="/auction.php?act=list&type=2">查看更多</a>
+				<div class="auction_unit_title"><a href="/auction.php?act=cat&type=2">查看更多</a>
 				</div>
 
 				<div class="auction_unit_list">
 					<ul>
 					
 						<!-- {foreach from=$auction_end item=auction} 循环拍卖活动开始 -->
-						<a href="#">
+						<a href="{$auction.url}">
 							<li>
 								<img src="{$auction.goods_thumb}" alt="{$auction.goods_name|escape:html}" />
 								<div>

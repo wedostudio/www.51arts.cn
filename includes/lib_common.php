@@ -1637,10 +1637,8 @@ function build_uri($app, $params, $append = '', $page = 0, $keywords = '', $size
 
             break;
         case 'allbrand':
-			var_dump($brand_id);
             if (empty($brand_id))
             {
-            	var_dump(33);exit;
                 return false;
             }
             else

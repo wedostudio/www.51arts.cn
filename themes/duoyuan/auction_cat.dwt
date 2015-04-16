@@ -64,7 +64,7 @@
 								</a>
 							</div>
 							<div class="auction_text">
-								<a href="#"><h2>{$auction.topic_name}</h2></a>
+								<a href="/auction.php?act=list&id={$auction.t_id}"><h2>{$auction.topic_name}</h2></a>
 								<div class="dotted_line2"></div>
 								<p>
 									<span>拍卖件数：{$auction.t_num}件</span>

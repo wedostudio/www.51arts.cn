@@ -474,7 +474,7 @@ function get_shop_help()
  * @return  void     assign_pager('allbrand',              $cate, $count, $size, $sort, $order, $page, '', $brand_id, 0, 0,'','','','',$letter,$times);   
  */
 function assign_pager($app, $cat, $record_count, $size, $sort, $order, $page = 1,
-                        $keywords = '', $brand = 0, $price_min = 0, $price_max = 0, $display_type = 'list', $filter_attr='', $url_format='', $sch_array='',$letter,$times, $buynow=0)
+                        $keywords = '', $brand = 0, $price_min = 0, $price_max = 0, $display_type = 'list', $filter_attr='', $url_format='', $sch_array='',$letter='',$times='', $buynow=0)
 {
     $sch = array('keywords'  => $keywords,
                  'sort'      => $sort,
@@ -522,7 +522,6 @@ function assign_pager($app, $cat, $record_count, $size, $sort, $order, $page = 1
             $uri_args = array('cid' => $cat, 'integral_min'=>$price_min, 'integral_max'=>$price_max, 'sort' => $sort, 'order' => $order, 'display' => $display_type);
             break;
         case 'allbrand':
-			    //assign_pager('allbrand',              $cate,  $page, '', $brand_id, 0, 0, $display,$_SESSION['user_rank'],$letter,$times); // 分页
             $uri_args = array('cid' => $cat,'sort' => $sort,'order' => $order,'page'=>$page,'brand_id'=>$brand,'letter'=>$letter,'times'=>$times);
             break;
         case 'auction_list':
@@ -625,7 +624,7 @@ function assign_pager($app, $cat, $record_count, $size, $sort, $order, $page = 1
             $pager['search'][$key] = $row;
         }
     }
-var_dump($pager);
+    
     $GLOBALS['smarty']->assign('pager', $pager);
 }
 

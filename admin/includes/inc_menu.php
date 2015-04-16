@@ -45,7 +45,7 @@ $modules['02_cat_and_goods']['goods_auto']             = 'goods_auto.php?act=lis
 // $modules['03_promotion']['07_card_list']            = 'card.php?act=list';
 // $modules['03_promotion']['08_group_buy']            = 'group_buy.php?act=list';
 // $modules['03_promotion']['09_topic']                = 'topic.php?act=list';
-$modules['03_promotion']['10_auction']              = 'auction.php?act=list';
+$modules['03_promotion']['10_auction']              = 'auction_topic.php?act=list';
 // $modules['03_promotion']['12_favourable']           = 'favourable.php?act=list';
 // $modules['03_promotion']['13_wholesale']            = 'wholesale.php?act=list';
 // $modules['03_promotion']['14_package_list']         = 'package.php?act=list';

@@ -185,24 +185,23 @@ elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit')
 {
     /* 检查权限 */
     admin_priv('auction');
-    
-    if(empty($_REQUEST['t_id']))
-    {
-        sys_msg('请先选择对应拍卖活动');
-    }
-    $t_id = $_REQUEST['t_id'];
 
     /* 是否添加 */
     $is_add = $_REQUEST['act'] == 'add';
     $smarty->assign('form_action', $is_add ? 'insert' : 'update');
 
-    //获取拍卖活动信息
-    $sql = "SELECT * FROM " . $ecs->table('goods_activity_topic') . " WHERE t_id = '$t_id'";
-    $topic = $db->getRow($sql);
-    
     /* 初始化、取得拍卖活动信息 */
     if ($is_add)
     {
+    
+        if(empty($_REQUEST['t_id']))
+        {
+            sys_msg('请先选择对应拍卖活动');
+        }
+        $t_id = $_REQUEST['t_id'];
+        //获取拍卖活动信息
+        $sql = "SELECT * FROM " . $ecs->table('goods_activity_topic') . " WHERE t_id = '$t_id'";
+        $topic = $db->getRow($sql);
         $auction = array(
             'act_id'        => 0,
             'act_name'      => $topic['topic_name'],
@@ -232,11 +231,9 @@ elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit')
             sys_msg($_LANG['auction_not_exist']);
         }
         $auction['status'] = $_LANG['auction_status'][$auction['status_no']];
-        $auction['start_time'] = date("Y-m-d H:i", $topic['start_time']);
-        $auction['end_time'] = date("Y-m-d H:i", $topic['end_time']);
-        $auction['t_id'] = $topic['t_id'];
         $smarty->assign('bid_user_count', sprintf($_LANG['bid_user_count'], $auction['bid_user_count']));
     }
+    
     $smarty->assign('auction', $auction);
 
     /* 赋值时间控件的语言 */
@@ -307,6 +304,7 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
         'start_time'    => $topic['start_time'],
         'end_time'      => $topic['end_time'],
         't_id'          => $t_id,
+        'buynow_price'  => empty($_POST['no_top']) ? round(floatval($_POST['end_price']), 2) : 0,
         'ext_info'      => serialize(array(
                     'deposit'       => round(floatval($_POST['deposit']), 2),
                     'start_price'   => round(floatval($_POST['start_price']), 2),

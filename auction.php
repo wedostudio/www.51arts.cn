@@ -68,7 +68,12 @@ if ($_REQUEST['act'] == 'list')
     if (!$smarty->is_cached('auction_list.dwt', $cache_id))
     {
 
-        $sql = "SELECT count(*) FROM " . $GLOBALS['ecs']->table('goods_activity') ." WHERE act_type = '" . GAT_AUCTION . "' AND t_id = " .$t_id;
+        $where = " WHERE act_type = '" . GAT_AUCTION . "' AND t_id = " .$t_id;
+        if ($buynow)
+        {
+            $where .=  " AND buynow_price<>0 ";
+        }
+        $sql = "SELECT count(*) FROM " . $GLOBALS['ecs']->table('goods_activity') ." $where";
         $count = $GLOBALS['db']->getOne($sql);
         
         $max_page = ($count> 0) ? ceil($count / $size) : 1;
@@ -79,10 +84,10 @@ if ($_REQUEST['act'] == 'list')
         $list = array();
         if($count)
         {
-            $where = "WHERE a.act_type = '" . GAT_AUCTION . "' AND a.t_id = " .$t_id;
+            $where = " WHERE a.act_type = '" . GAT_AUCTION . "' AND a.t_id = " .$t_id;
             if ($buynow)
             {
-                $where .=  "AND buynow_price<>0 ";
+                $where .=  " AND a.buynow_price<>0 ";
             }
             $where .= " ORDER BY $sort $order";
             
@@ -108,7 +113,7 @@ if ($_REQUEST['act'] == 'list')
             }
         }
         $smarty->assign('auction_list', $list);
-        assign_pager('auction_list', $t_id, $count, $size, $sort, $order, $page, '', '', '', '', '', '', $buynow); // 分页
+        assign_pager('auction_list', $t_id, $count, $size, $sort, $order, $page, '', '', '', '', '', '','','', $buynow); // 分页
         
         /* 其他拍卖 */
         $now = time();
@@ -184,7 +189,7 @@ elseif ($_REQUEST['act'] == 'index')
     {
         /* 取得正在拍卖的活动 */
         $auction_ing = get_auction_list(0, 1, 1);
-        $smarty->assign('auction_list',  $auction_ing);
+        $smarty->assign('auction_ing',  $auction_ing);
 
         /* 取得即将拍卖的活动 */
         $auction_pre = get_auction_list(1, 3, 1);
@@ -212,7 +217,7 @@ elseif ($_REQUEST['act'] == 'index')
 }
 
 /*------------------------------------------------------ */
-//-- 拍卖活动首页
+//-- 拍卖活动分类页（正在拍卖，即将拍卖，已经结束）
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'cat')
 {
@@ -530,6 +535,12 @@ elseif ($_REQUEST['act'] == 'bid')
         $sql = "UPDATE " . $ecs->table('goods_activity') . " SET is_finished = 1 WHERE act_id = '$id' LIMIT 1";
         $db->query($sql);
     }
+    
+    /* 更新最新出价和出价次数 */
+    $sql = "SELECT COUNT(*) FROM ".$ecs->table('auction_log')." WHERE act_id=$id";
+    $bidcount = $db->getOne($sql);
+    $sql = "UPDATE " . $ecs->table('goods_activity') . " SET bid_count = $bidcount, bid_price=$bid_price WHERE act_id = '$id' LIMIT 1";
+    $db->query($sql);
 
     /* 跳转到活动详情页 */
     ecs_header("Location: auction.php?act=view&id=$id\n");
@@ -741,7 +752,6 @@ function get_auction_list($type=0, $size, $page)
         default:
             $sql .= " AND a.start_time <= '$now' AND a.end_time >= '$now' AND a.is_finished = 0 ORDER BY a.end_time ASC";
     }
-    
     $res = $GLOBALS['db']->selectLimit($sql, $size, ($page - 1) * $size);
     while ($row = $GLOBALS['db']->fetchRow($res))
     {
@@ -763,7 +773,7 @@ function get_auction_list($type=0, $size, $page)
         
         $auction_list[] = $auction;
     }
-    
+
     return $auction_list;
 }
 ?>

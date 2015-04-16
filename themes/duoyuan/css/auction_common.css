@@ -64,19 +64,19 @@
 	height: 30px;
 	margin-bottom: 28px;
 	position: relative;
-	background: url("../img/lv2_auction_auctiontoday_title.jpg") no-repeat center bottom;
+	background: url("img/lv2_auction_auctiontoday_title.jpg") no-repeat center bottom;
 }
 #auction_title.auction_tobe_title {
 	height: 30px;
 	margin-bottom: 28px;
 	position: relative;
-	background: url("../img/lv2_auction_auctiontobe_title.jpg") no-repeat center bottom;
+	background: url("img/lv2_auction_auctiontobe_title.jpg") no-repeat center bottom;
 }
 #auction_title.auction_before_title {
 	height: 30px;
 	margin-bottom: 28px;
 	position: relative;
-	background: url("../img/lv2_auction_auctionbefore_title.jpg") no-repeat center bottom;
+	background: url("img/lv2_auction_auctionbefore_title.jpg") no-repeat center bottom;
 }
 #auction_list > ul > li {
 	margin-bottom: 30px;

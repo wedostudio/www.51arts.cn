@@ -15,7 +15,6 @@
 <link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_rmenu.css" />
 <link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/auction_common.css" />
-<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/auction.css" />
 <link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_salerank.css" />
 
 
@@ -37,17 +36,17 @@
 				<ul class="slidepic">
 					<li>
 						<a href="#">
-							<img alt="img1" src="/themes/duoyuan/img/lv2_auction_banner_01.jpg" />
+							<img alt="img1" src="/themes/duoyuan/img/lv3_auction_before_banner_01.jpg" />
 						</a>
 					</li>
 					<li>
 						<a href="#">
-							<img alt="img2" src="/themes/duoyuan/img/lv2_auction_banner_02.jpg " />
+							<img alt="img2" src="/themes/duoyuan/img/lv3_auction_before_banner_02.jpg " />
 						</a>
 					</li>
 					<li>
 						<a href="#">
-							<img alt="img3" src="/themes/duoyuan/img/lv2_auction_banner_03.jpg" />
+							<img alt="img3" src="/themes/duoyuan/img/lv3_auction_before_banner_03.jpg" />
 						</a>
 					</li>
 				</ul>
@@ -60,76 +59,44 @@
 				</div>
 
 			</div>
-<!-- {foreach from=$auction_ing item=auction} 循环拍卖活动开始 -->
-			<div id="auction_today" class="fitwidth content_block wrap_top_border">
 
-				<div id="auction_today_title"><a href="#">查看更多</a>
-				</div>
-				<a href="{$auction.url}">
-					<div id="auction_today_img">
-						<img src="{$auction.goods_thumb}" alt="{$auction.goods_name|escape:html}" />
-					</div>
-					<div id="auction_today_text">
-						<h2>{$auction.act_name|escape:html}</h2>
-						<div class="dotted_line2"></div>
-						<p class="auction_count"><span>拍卖件数：{$auction.t_num}件</span>
-						</p>
-						<div class="dotted_line2"></div>
-						<p><span>拍卖时间：</span>
-						</p>
-						<p><span>{$auction.start_time}—{$auction.end_time}</span>
-						</p>
-					</div>
-				</a>
-			</div>
-<!--{/foreach}-->
-			<div id="auction_soon" class="fitwidth content_block wrap_top_border">
-				<div class="auction_unit_title"><a href="#">查看更多</a>
-				</div>
+			<div id="auction_wrap" class="fitwidth wrap_top_border content_block">
 
-				<div class="auction_unit_list">
+				<div id="auction_title" class="auction_ing_title"></div>
+				<div id="auction_list">
 					<ul>
-					
-						<!-- {foreach from=$auction_pre item=auction} 循环拍卖活动开始 -->
-						<a href="#">
-							<li>
-								<img src="{$auction.goods_thumb}" alt="{$auction.goods_name|escape:html}" />
-								<div>
-									<h4>{$auction.goods_name|escape:html}</h4>
-									<div class="dotted_line2"></div>
-									<p>拍卖时间：{$auction.start_time}—{$auction.end_time}</p>
-								</div>
-							</li>
-						</a>
-						<!--{/foreach}-->
+						<!-- {foreach from=$auction_list item=auction} 循环拍卖活动开始 -->
+						<li>
+							<div class="auction_img">
+								<a href="{$auction.first.url}">
+									<img src="{$auction.first.goods_thumb}" alt="{$auction.goods_name|escape:html}" />
+								</a>
+							</div>
+							<div class="auction_text">
+								<a href="#"><h2>{$auction.topic_name}</h2></a>
+								<div class="dotted_line2"></div>
+								<p>
+									<span>拍卖件数：{$auction.t_num}件</span>
+									<span class="auction_time">拍卖时间：{$auction.start_time}-{$auction.end_time}</span>
+								</p>
+								<div class="dotted_line2"></div>
+								<ul>
+									<!-- {foreach from=$auction.list item=goods} 循环拍卖活动开始 -->
+									<a href="{$goods.url}">
+										<li>
+											<img src="{$goods.goods_thumb}" alt="{$goods.goods_name|escape:html}" />
+										</li>
+									</a>
+									<!-- {/foreach} -->
+								</ul>
+							</div>
+						</li>
+						<!-- {/foreach} -->
 
 					</ul>
 
 				</div>
-			</div>
 
-			<div id="auction_before" class="fitwidth content_block wrap_top_border">
-				<div class="auction_unit_title"><a href="#">查看更多</a>
-				</div>
-
-				<div class="auction_unit_list">
-					<ul>
-					
-						<!-- {foreach from=$auction_end item=auction} 循环拍卖活动开始 -->
-						<a href="#">
-							<li>
-								<img src="{$auction.goods_thumb}" alt="{$auction.goods_name|escape:html}" />
-								<div>
-									<h4>{$auction.goods_name|escape:html}</h4>
-									<div class="dotted_line2"></div>
-									<p>拍卖时间：{$auction.start_time}—{$auction.end_time}</p>
-								</div>
-							</li>
-						</a>
-						<!--{/foreach}-->
-
-					</ul>
-				</div>
 			</div>
 
 			<div id="salerank" class="fitwidth content_block wrap_top_border">

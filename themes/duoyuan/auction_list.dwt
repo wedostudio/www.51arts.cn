@@ -11,110 +11,293 @@
 <!-- TemplateEndEditable -->
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
-<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_rmenu.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/auction_common.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/auction.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_salerank.css" />
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
 {* 包含脚本文件 *}
+{insert_scripts files='jquery.js,jquery.json.js'}
 {insert_scripts files='common.js'}
+<script type="text/javascript" src="js/common_function.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/common_banner.js"></script>
+<script type="text/javascript" src="js/common_rmenu.js"></script>
+<script type="text/javascript" src="js/common_salerank.js"></script>
 </head>
 <body>
+		<div id="wrap">
 <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
-<!--当前位置 start-->
-<div class="block box">
- <div id="ur_here">
-  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
- </div>
-</div>
-<!--当前位置 end-->
-<div class="blank"></div>
-<div class="block clearfix">
-  <!--left start-->
-  <div class="AreaL">
-    <!-- TemplateBeginEditable name="左边区域" -->
-    <!-- #BeginLibraryItem "/library/cart.lbi" --><!-- #EndLibraryItem -->
-    <!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->
-    <!-- #BeginLibraryItem "/library/goods_related.lbi" --><!-- #EndLibraryItem -->
-    <!-- #BeginLibraryItem "/library/goods_fittings.lbi" --><!-- #EndLibraryItem -->
-    <!-- #BeginLibraryItem "/library/goods_article.lbi" --><!-- #EndLibraryItem -->
-    <!-- #BeginLibraryItem "/library/goods_attrlinked.lbi" --><!-- #EndLibraryItem -->
-    <!-- TemplateEndEditable -->
-    <!-- TemplateBeginEditable name="左边广告区域（宽200px）" -->
-    <!-- TemplateEndEditable -->
-    <!--AD end-->
-    <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
-  </div>
-  <!--left end-->
-  <!--right start-->
-  <div class="AreaR">
-	 <!-- TemplateBeginEditable name="右边通栏广告（宽750px）" -->
-   <!-- TemplateEndEditable -->
-   <div class="blank5"></div>
-   <div class="box">
-   <div class="box_1">
-    <h3><span>{$lang.auction_goods}</span></h3>
-    <div class="boxCenterList">
-      <!-- {if $auction_list} 如果有拍卖活动 -->
-      <!-- {foreach from=$auction_list item=auction} 循环拍卖活动开始 -->
-      <ul class="group clearfix">
-      <li style="margin-right:8px; text-align:center;">
-      <a href="{$auction.url}"><img src="{$auction.goods_thumb}" border="0" alt="{$auction.goods_name|escape:html}" style="vertical-align: middle" /></a>
-      </li>
-      <li style="width:555px; line-height:23px;">
-      {$lang.goods_name}：<a href="{$auction.url}" class="f5">{$auction.goods_name|escape:html}</a><br />
-      {$lang.act_status}：
-    <!-- {if $auction.status_no eq 0} -->
-            {$lang.au_pre_start}<br>
-            <!-- {elseif $auction.status_no eq 1} -->
-            {$lang.au_under_way_1}<br>
-            <!-- {else} -->
-            {$lang.au_finished}<br>
-            <!-- {/if} -->
-    {$lang.au_start_price}：{$auction.formated_start_price}<br>
-    <!-- {if $auction.end_price gt 0} -->
-    {$lang.au_end_price}：{$auction.formated_end_price}
-          <!-- {/if} -->
-      </li>
-      </ul>
-      <!--{/foreach}-->
-      <!-- {else} -->
-       <span style="margin:2px 10px; font-size:14px; line-height:36px;">{$lang.no_auction}</span>
-      <!-- {/if} -->
-    </div>
-   </div>
-  </div>
-  <div class="blank5"></div>
-  <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
-  </div>
-  <!--right end-->
-</div>
-<div class="blank5"></div>
-<!--帮助-->
-<div class="block">
-  <div class="box">
-   <div class="helpTitBg clearfix">
-    <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
-   </div>
-  </div>
-</div>
-<div class="blank"></div>
-<!--帮助-->
-<!--友情链接 start-->
-<!--{if $img_links  or $txt_links }-->
-<div id="bottomNav" class="box">
- <div class="box_1">
-  <div class="links clearfix">
-    <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
-    <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" alt="{$link.name}" border="0" /></a>
-    <!--结束图片类型的友情链接{/foreach}-->
-    <!-- {if $txt_links} -->
-    <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
-    [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>]
-    <!--结束文字类型的友情链接{/foreach}-->
-    <!-- {/if} -->
-  </div>
- </div>
-</div>
-<!--{/if}-->
-<!--友情链接 end-->
-<div class="blank"></div>
-<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
-</body>
+
+		<div id="banner" class="fullwidth slidebox content_block">
+				<ul class="slidepic">
+					<li>
+						<a href="#">
+							<img alt="img1" src="img/lv3_auction_before_banner_01.jpg" />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img alt="img2" src="img/lv3_auction_before_banner_02.jpg " />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img alt="img3" src="img/lv3_auction_before_banner_03.jpg" />
+						</a>
+					</li>
+				</ul>
+				<div class="slidebtn">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div id="auction_wrap" class="fitwidth wrap_top_border content_block">
+
+				<div id="auction_title" class="auction_before_title"></div>
+				<div id="auction_list">
+					<ul>
+					<!-- {foreach from=$auction_ing item=auction} 循环拍卖活动开始 -->
+						<li>
+							<div class="auction_img">
+								<a href="{$auction.url}">
+									<img src="{$auction.goods_thumb}" alt="{$auction.goods_name|escape:html}" />
+								</a>
+							</div>
+							<div class="auction_text">
+								<a href="#"><h2>{$auction.goods_name|escape:html}</h2></a>
+								<div class="dotted_line2"></div>
+								<p>
+									<span>拍卖件数：100件</span>
+									<span class="auction_time">拍卖时间：{$auction.start_time}—{$auction.end_time}</span>
+								</p>
+								<div class="dotted_line2"></div>
+								<ul>
+									<a href="#">
+										<li>
+											<img src="img/lv3_auction_before_auctiontoday_lit_01_01.jpg" alt="auction today" />
+										</li>
+									</a>
+									<a href="#">
+										<li>
+											<img src="img/lv3_auction_before_auctiontoday_lit_01_02.jpg" alt="auction today" />
+										</li>
+									</a>
+									<a href="#">
+										<li>
+											<img src="img/lv3_auction_before_auctiontoday_lit_01_03.jpg" alt="auction today" />
+										</li>
+									</a>
+									<a href="#">
+										<li class="last_img">
+											<img src="img/lv3_auction_before_auctiontoday_lit_01_04.jpg" alt="auction today" />
+										</li>
+									</a>
+								</ul>
+							</div>
+						</li>
+
+						<li>
+							<div class="auction_img">
+								<a href="#">
+									<img src="img/lv3_auction_before_auctiontoday_02.jpg" alt="auction today" />
+								</a>
+							</div>
+							<div class="auction_text">
+								<a href="#"><h2>福州现代工艺家具特别拍卖会</h2></a>
+								<div class="dotted_line2"></div>
+								<p>
+									<span>拍卖件数：100件</span>
+									<span class="auction_time">拍卖时间：2015.3.00-2015.5.11</span>
+								</p>
+								<div class="dotted_line2"></div>
+								<ul>
+									<a href="#">
+										<li>
+											<img src="img/lv3_auction_before_auctiontoday_lit_02_01.jpg" alt="auction today" />
+										</li>
+									</a>
+									<a href="#">
+										<li>
+											<img src="img/lv3_auction_before_auctiontoday_lit_02_02.jpg" alt="auction today" />
+										</li>
+									</a>
+									<a href="#">
+										<li>
+											<img src="img/lv3_auction_before_auctiontoday_lit_02_03.jpg" alt="auction today" />
+										</li>
+									</a>
+									<a href="#">
+										<li class="last_img">
+											<img src="img/lv3_auction_before_auctiontoday_lit_02_04.jpg" alt="auction today" />
+										</li>
+									</a>
+								</ul>
+							</div>
+						</li>
+
+						<li class="last_auction">
+							<div class="auction_img">
+								<a href="#">
+									<img src="img/lv3_auction_before_auctiontoday_03.jpg" alt="auction today" />
+								</a>
+							</div>
+							<div class="auction_text">
+								<a href="#"><h2>福州现代工艺家具特别拍卖会</h2></a>
+								<div class="dotted_line2"></div>
+								<p>
+									<span>拍卖件数：100件</span>
+									<span class="auction_time">拍卖时间：2015.3.00-2015.5.11</span>
+								</p>
+								<div class="dotted_line2"></div>
+								<ul>
+									<a href="#">
+										<li>
+											<img src="img/lv3_auction_before_auctiontoday_lit_03_01.jpg" alt="auction today" />
+										</li>
+									</a>
+									<a href="#">
+										<li>
+											<img src="img/lv3_auction_before_auctiontoday_lit_03_02.jpg" alt="auction today" />
+										</li>
+									</a>
+									<a href="#">
+										<li>
+											<img src="img/lv3_auction_before_auctiontoday_lit_03_03.jpg" alt="auction today" />
+										</li>
+									</a>
+									<a href="#">
+										<li class="last_img">
+											<img src="img/lv3_auction_before_auctiontoday_lit_03_04.jpg" alt="auction today" />
+										</li>
+									</a>
+								</ul>
+							</div>
+						</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div id="salerank" class="fitwidth content_block wrap_top_border">
+				<div id="salerank_info">
+					<span id="salerank_bg"></span>
+					<span id="salerank_title">/热门商品推荐</span>
+					<a href="#">查看更多</a>
+				</div>
+
+				<table cellspacing="25px">
+					<tr class="salerank_item">
+						<td>
+							<img src="img/salerank_01.jpg" alt="拍卖排行" />
+							<a href="#">查看详情</a>
+						</td>
+						<td>
+							<img src="img/salerank_02.jpg" alt="拍卖排行" />
+							<a href="#">查看详情</a>
+						</td>
+						<td>
+							<img src="img/salerank_03.jpg" alt="拍卖排行" />
+							<a href="#">查看详情</a>
+						</td>
+						<td>
+							<img src="img/salerank_04.jpg" alt="拍卖排行" />
+							<a href="#">查看详情</a>
+						</td>
+						<td>
+							<img src="img/salerank_05.jpg" alt="拍卖排行" />
+							<a href="#">查看详情</a>
+						</td>
+					</tr>
+					<tr class="salerank_name">
+						<td><span>明清红木家具</span>
+						</td>
+						<td><span>明清红木家具</span>
+						</td>
+						<td><span>明清红木家具</span>
+						</td>
+						<td><span>明清红木家具</span>
+						</td>
+						<td><span>明清红木家具</span>
+						</td>
+					</tr>
+
+					<tr class="salerank_item">
+						<td>
+							<img src="img/salerank_06.jpg" alt="拍卖排行" />
+							<a href="#">查看详情</a>
+						</td>
+						<td>
+							<img src="img/salerank_07.jpg" alt="拍卖排行" />
+							<a href="#">查看详情</a>
+						</td>
+						<td>
+							<img src="img/salerank_08.jpg" alt="拍卖排行" />
+							<a href="#">查看详情</a>
+						</td>
+						<td>
+							<img src="img/salerank_09.jpg" alt="拍卖排行" />
+							<a href="#">查看详情</a>
+						</td>
+						<td>
+							<img src="img/salerank_10.jpg" alt="拍卖排行" />
+							<a href="#">查看详情</a>
+						</td>
+					</tr>
+					<tr class="salerank_name">
+						<td><span>明清红木家具</span>
+						</td>
+						<td><span>明清红木家具</span>
+						</td>
+						<td><span>明清红木家具</span>
+						</td>
+						<td><span>明清红木家具</span>
+						</td>
+						<td><span>明清红木家具</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div id="footer_wrap" class="fullwidth">
+				<div id="footer" class="fitwidth">
+					<div id="ft_nav_wrap">
+						<!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+						
+						<img src="/themes/duoyuan/img/ft_phone_code.jpg" alt="二维码" />
+						<img class="ft_second_code" src="/themes/duoyuan/img/ft_weixin_code.jpg" alt="二维码" />
+
+					</div>
+					<div id="ft_shot">
+						<ul>
+							<li><a href="#">回到首页</a></li>
+							<!-- {if $txt_links} -->
+    						<!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+							<li class="ft_shot_sepa">/</li>
+							<li class="ft_shot_2"><a href="{$link.url}" target="_blank">{$link.name}</a></li>
+							<!--结束文字类型的友情链接{/foreach}-->
+    						<!-- {/if} -->
+							<li class="ft_shot_sepa">/</li>
+							<li><a>服务热线：400-100-8759</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="ft_bottom" class="fitwidth"></div>
+		</div>
+
+	</body>
+
 </html>

@@ -81,11 +81,11 @@
 						<li class="navs">
 							<a href="brand.php" class="nav_a">艺术圈</a>
 							<ul id="subNav_3" class="sub_nav subnav_artcircle">
-								<li><a href="/brand.php?artist_type=1">艺<span>&nbsp;&nbsp;</span>术<span>&nbsp;&nbsp;</span>家</a>
+								<li><a href="/brand.php?id=1">艺<span>&nbsp;&nbsp;</span>术<span>&nbsp;&nbsp;</span>家</a>
 								</li>
-								<li><a href="/brand.php?artist_type=2">艺术机构</a>
+								<li><a href="/brand.php?id=2">艺术机构</a>
 								</li>
-								<li><a href="/brand.php?artist_type=3">艺术收藏家</a>
+								<li><a href="/brand.php?id=3">艺术收藏家</a>
 								</li>
 							</ul>
 						</li>

@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,global.js,compare.js'}
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_rmenu.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/artcircle_common.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/common_function.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/common_banner.js"></script>
+		<script type="text/javascript" src="js/common_rmenu.js"></script>
+	</head>
+
+	<body>
+		<div id="wrap">
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+			<div id="banner" class="fitwidth slidebox">
+				<ul class="slidepic">
+					<li>
+						<a href="#">
+							<img alt="img1" src="img/lv3_artcircle_artcollectors_banner_01.jpg" />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img alt="img2" src="img/lv3_artcircle_artcollectors_banner_02.jpg " />
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img alt="img3" src="img/lv3_artcircle_artcollectors_banner_03.jpg" />
+						</a>
+					</li>
+				</ul>
+				<div class="slidebtn">
+					<ul>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div id="artcircle_elem_wrap" class="fitwidth">
+
+				<div id="artcircle_elem_classify" class="fitwidth">
+					<ul>
+						<li>
+							<ul>
+								<li class="classify_title">分<span class="nbsp_font">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>类</li>
+								<!--{foreach from=$top_cat_list item=tcat key=tcat_id}-->
+								        <li>/</li>	
+								        								        
+								<a href="brand.php?id={$artist_type}&artist_field={$tcat_id}">
+									<li>{$tcat}</li>
+								</a>
+								<!--{/foreach}-->
+								
+							</ul>
+						</li>
+
+						<li>
+							<ul class="letter_classify">
+								<li class="classify_title">按首字母</li>
+								<li>/</li>
+								<a href="#">
+									<li>A</li>
+								</a>
+								<a href="#">
+									<li>B</li>
+								</a>
+								<a href="#">
+									<li>C</li>
+								</a>
+								<a href="#">
+									<li>D</li>
+								</a>
+								<a href="#">
+									<li>E</li>
+								</a>
+								<a href="#">
+									<li>F</li>
+								</a>
+								<a href="#">
+									<li>G</li>
+								</a>
+								<a href="#">
+									<li>H</li>
+								</a>
+								<a href="#">
+									<li>I</li>
+								</a>
+								<a href="#">
+									<li>J</li>
+								</a>
+								<a href="#">
+									<li>K</li>
+								</a>
+								<a href="#">
+									<li>L</li>
+								</a>
+								<a href="#">
+									<li>M</li>
+								</a>
+								<a href="#">
+									<li>N</li>
+								</a>
+								<a href="#">
+									<li>O</li>
+								</a>
+								<a href="#">
+									<li>P</li>
+								</a>
+								<a href="#">
+									<li>Q</li>
+								</a>
+								<a href="#">
+									<li>R</li>
+								</a>
+								<a href="#">
+									<li>S</li>
+								</a>
+								<a href="#">
+									<li>T</li>
+								</a>
+								<a href="#">
+									<li>U</li>
+								</a>
+								<a href="#">
+									<li>V</li>
+								</a>
+								<a href="#">
+									<li>W</li>
+								</a>
+								<a href="#">
+									<li>X</li>
+								</a>
+								<a href="#">
+									<li>Y</li>
+								</a>
+								<a href="#">
+									<li>Z</li>
+								</a>
+							</ul>
+						</li>
+
+						<li>
+							<ul>
+								<li class="classify_title">年<span class="nbsp_font">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>代</li>
+								<li>/</li>
+								<a href="brand.php?id={$artist_type}&artist_times=1">
+									<li>四十年代前</li>
+								</a>
+								<li>/</li>
+								<a href="brand.php?id={$artist_type}&artist_times=2">
+									<li>四十年代</li>
+								</a>
+								<li>/</li>
+								<a href="brand.php?id={$artist_type}&artist_times=3">
+									<li>五十年代</li>
+								</a>
+								<li>/</li>
+								<a href="brand.php?id={$artist_type}&artist_times=4">
+									<li>六十年代</li>
+								</a>
+								<li>/</li>
+								<a href="brand.php?id={$artist_type}&artist_times=5">
+									<li>七十年代</li>
+								</a>
+								<li>/</li>
+								<a href="brand.php?id={$artist_type}&artist_times=6">
+									<li>八十年代</li>
+								</a>
+								<li>/</li>
+								<a href="brand.php?id={$artist_type}&artist_times=7">
+									<li>九十年代</li>
+								</a>
+								<li>/</li>
+								<a href="brand.php?id={$artist_type}&artist_times=8">
+									<li>九十年代后</li>
+								</a>
+							</ul>
+						</li>
+
+					</ul>
+				</div>
+
+				<div id="artcircle_elem_sort">
+					<div id="sort_left">
+						<a href="#">按人气</a>
+						<a class="new_sort" href="brand.php?id={$artist_type}&artist_field=<!-- {if $cur_artist_field} -->{$cur_artist_field}<!-- {/if} -->&artist_times=<!-- {if $cur_artist_times} -->{$cur_artist_times}<!-- {/if} -->">最新加入</a>
+					
+						<a href="#" class="new_sort_down"></a>
+						<a href="#" class="new_sort_up"></a>
+					</div>
+
+					<div class="clear_float"></div>
+				</div>
+
+				<div id="artcircle_elem_list">
+
+					<table cellspacing="13px">
+						
+						<!--	{ foreach from=$artist_list item=artist key=k  }-->
+							<!--{if $k%4==0}--><tr><!--{/if}-->
+							<td>
+								<a href="#">
+									<img src="/data/brandlogo/{$artist.brand_logo}" alt="{$artist.brand_name|escape:html}"  />
+									<h4>{$artist.brand_name}</h4>
+								</a>
+							</td>
+							<!--{if $k%4==3}--><tr><!--{/if}-->
+						<!--{/foreach}-->
+
+						
+					</table>
+
+				</div>
+
+								<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+			</div>
+
+			<div id="footer_wrap" class="fullwidth">
+				<div id="footer" class="fitwidth">
+					<div id="ft_nav_wrap">
+
+						<div id="ft_nav">
+							<ul>
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="#">购买艺术</a>
+										</li>
+										<li><a href="#">购买流程</a>
+										</li>
+
+										<li><a href="#">支付方式</a>
+										</li>
+
+										<li><a href="#">提货方式</a>
+										</li>
+
+										<li><a href="#">竞拍保证</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="#">合作艺术</a>
+										</li>
+										<li><a href="#">艺术家签约</a>
+										</li>
+
+										<li><a href="#">在线签约</a>
+										</li>
+
+										<li><a href="#">包装推广</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="#">专业服务</a>
+										</li>
+										<li><a href="#">VIP/SVIP</a>
+										</li>
+
+										<li><a href="#">联动合作</a>
+										</li>
+
+										<li><a href="#">常见问题</a>
+										</li>
+
+										<li><a href="#">法律政策</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="#">关<span class="nbsp_font">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>于</a>
+										</li>
+										<li><a href="#">网站地图</a>
+										</li>
+
+										<li><a href="#">品牌介绍</a>
+										</li>
+
+										<li><a href="#">联系我们</a>
+										</li>
+
+										<li><a href="#">友情链接</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+						<img src="img/ft_phone_code.jpg" alt="二维码" />
+						<img class="ft_second_code" src="img/ft_weixin_code.jpg" alt="二维码" />
+
+					</div>
+					<div id="ft_shot">
+						<ul>
+							<li><a href="#">回到首页</a>
+							</li>
+							<li class="ft_shot_sepa">/</li>
+							<li class="ft_shot_2"><a>收藏多元主义</a>
+							</li>
+							<li class="ft_shot_sepa">/</li>
+							<li><a>服务热线：400-100-8759</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+
+</html>

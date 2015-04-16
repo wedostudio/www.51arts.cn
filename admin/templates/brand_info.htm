@@ -42,7 +42,13 @@
   </tr>
   <tr>
     <td class="label">领域</td>
-    <td><input type="text" name="artist_field" maxlength="60" value="{$brand.artist_field}" /></td>
+    <td>
+    	<select name="artist_field">
+        {foreach from=$top_cat_list item=tcat key=tcat_id}
+	    <option value="{$tcat_id}" {if $brand.artist_field==$tcat_id}selected="selected"{/if}>{$tcat}</option>
+		{/foreach}
+		</select>
+	</td>
   </tr>
   
   <!--<tr>
@@ -66,14 +72,15 @@
     <td class="label">{$lang.brand_desc}</td>
     <td><textarea  name="brand_desc" cols="60" rows="4"  >{$brand.brand_desc}</textarea></td>
   </tr>-->
+    <tr>
+    <td class="label">{$lang.sort_order}</td>
+    <td><input type="text" name="sort_order" maxlength="40" size="15" value="{$brand.sort_order}" /></td>
+  </tr>
   <tr >
   	<td class="label">描述</td>
   	<td >{$FCKeditor}</td>
   </tr>
-  <!--<tr>
-    <td class="label">{$lang.sort_order}</td>
-    <td><input type="text" name="sort_order" maxlength="40" size="15" value="{$brand.sort_order}" /></td>
-  </tr>-->
+
   <tr>
     <td class="label">{$lang.is_show}</td>
     <td><input type="radio" name="is_show" value="1" {if $brand.is_show eq 1}checked="checked"{/if} /> {$lang.yes}

@@ -13,7 +13,7 @@
   <table cellpadding="3" cellspacing="1">
     <tr>
       <th>艺术家名称</th>
-   <!--   <th>{$lang.site_url}</th>-->
+      <th>排序</th>
       <th>是否显示</th>
       <th>操作</th>
     </tr>
@@ -24,8 +24,8 @@
         <span onclick="javascript:listTable.edit(this, 'edit_brand_name', {$brand.brand_id})">{$brand.brand_name|escape:html}</span>
       </td>
       <!--<td>{$brand.site_url}</td>
-      <td align="left">{$brand.brand_desc|truncate:36}</td>
-      <td align="right"><span onclick="javascript:listTable.edit(this, 'edit_sort_order', {$brand.brand_id})">{$brand.sort_order}</span></td>-->
+      <td align="left">{$brand.brand_desc|truncate:36}</td>-->
+      <td align="right"><span onclick="javascript:listTable.edit(this, 'edit_sort_order', {$brand.brand_id})">{$brand.sort_order}</span></td>
       <td align="center"><img src="images/{if $brand.is_show}yes{else}no{/if}.gif" onclick="listTable.toggle(this, 'toggle_show', {$brand.brand_id})" /></td>
       <td align="center">
         <a href="brand.php?act=edit&id={$brand.brand_id}" title="{$lang.edit}">{$lang.edit}</a> |

@@ -37,6 +37,7 @@ if ($_REQUEST['act'] == 'list')
     $smarty->assign('filter',       $brand_list['filter']);
     $smarty->assign('record_count', $brand_list['record_count']);
     $smarty->assign('page_count',   $brand_list['page_count']);
+
 	
     assign_query_info();
     $smarty->display('brand_list.htm');
@@ -53,6 +54,8 @@ elseif ($_REQUEST['act'] == 'add')
     $smarty->assign('ur_here',     $_LANG['07_artist_add']);
     $smarty->assign('action_link', array('text' => $_LANG['06_artist_list'], 'href' => 'brand.php?act=list'));
     $smarty->assign('form_action', 'insert');
+	$smarty->assign('top_cat_list', get_top_cat_list());
+//	var_dump(get_top_cat_list());exit;
 
     assign_query_info();
     $smarty->assign('brand', array('sort_order'=>50, 'is_show'=>1));
@@ -87,8 +90,8 @@ elseif ($_REQUEST['act'] == 'insert')
 
     /*插入数据*/
 
-    $sql = "INSERT INTO ".$ecs->table('brand')."(brand_name, brand_logo, is_show,artist_type, artist_title, artist_area, artist_times, artist_field, artist_describe) ".
-           "VALUES ('$_POST[brand_name]', '$img_name', '$is_show', '$_POST[artist_type]', '$_POST[artist_title]', '$_POST[artist_area]', '$_POST[artist_times]' ,'$_POST[artist_field]' ,'$_POST[artist_describe]')";
+    $sql = "INSERT INTO ".$ecs->table('brand')."(brand_name, brand_logo, is_show,artist_type, artist_title, artist_area, artist_times, artist_field, artist_describe,sort_order) ".
+           "VALUES ('$_POST[brand_name]', '$img_name', '$is_show', '$_POST[artist_type]', '$_POST[artist_title]', '$_POST[artist_area]', '$_POST[artist_times]' ,'$_POST[artist_field]' ,'$_POST[artist_describe]','$_POST[sort_order]')";
 	//var_dump($sql);exit;
     $db->query($sql);
 
@@ -123,6 +126,7 @@ elseif ($_REQUEST['act'] == 'edit')
     $smarty->assign('brand',       $brand);
     $smarty->assign('form_action', 'updata');
 	
+	$smarty->assign('top_cat_list', get_top_cat_list());
 	create_html_editor('artist_describe', $brand['artist_describe']);
     assign_query_info();
     $smarty->display('brand_info.htm');

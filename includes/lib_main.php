@@ -470,11 +470,11 @@ function get_shop_help()
  * @param   string  $keywords       查询关键字
  * @param   string  $brand          品牌
  * @param   string  $price_min      最小价格
- * @param   string  $price_max      最高价格
- * @return  void
+ * @param   string  $price_max      最高价格('allbrand',              $cate, $count, $size, $sort, $order, $page, '', $brand_id, 0, 0,'','','','',$letter,$times);
+ * @return  void     assign_pager('allbrand',              $cate, $count, $size, $sort, $order, $page, '', $brand_id, 0, 0,'','','','',$letter,$times);   
  */
 function assign_pager($app, $cat, $record_count, $size, $sort, $order, $page = 1,
-                        $keywords = '', $brand = 0, $price_min = 0, $price_max = 0, $display_type = 'list', $filter_attr='', $url_format='', $sch_array='')
+                        $keywords = '', $brand = 0, $price_min = 0, $price_max = 0, $display_type = 'list', $filter_attr='', $url_format='', $sch_array='',$letter,$times)
 {
     $sch = array('keywords'  => $keywords,
                  'sort'      => $sort,
@@ -519,6 +519,10 @@ function assign_pager($app, $cat, $record_count, $size, $sort, $order, $page = 1
             break;
         case 'exchange':
             $uri_args = array('cid' => $cat, 'integral_min'=>$price_min, 'integral_max'=>$price_max, 'sort' => $sort, 'order' => $order, 'display' => $display_type);
+            break;
+        case 'allbrand':
+			    //assign_pager('allbrand',              $cate,  $page, '', $brand_id, 0, 0, $display,$_SESSION['user_rank'],$letter,$times); // 分页
+            $uri_args = array('cid' => $cat,'sort' => $sort,'order' => $order,'page'=>$page,'brand_id'=>$brand,'letter'=>$letter,'times'=>$times);
             break;
     }
     /* 分页样式 */
@@ -617,7 +621,7 @@ function assign_pager($app, $cat, $record_count, $size, $sort, $order, $page = 1
             $pager['search'][$key] = $row;
         }
     }
-
+var_dump($pager);
     $GLOBALS['smarty']->assign('pager', $pager);
 }
 

@@ -38,51 +38,121 @@ if (!empty($_REQUEST['brand']))
 if (empty($brand_id))
 {
     /* 缓存编号 */
-    $cache_id = sprintf('%X', crc32($_CFG['lang']));
-    if (!$smarty->is_cached('brand_list.dwt', $cache_id))
-    {
-        assign_template();
-        $position = assign_ur_here('', $_LANG['all_brand']);
-        $smarty->assign('page_title',      $position['title']);    // 页面标题
-        $smarty->assign('ur_here',         $position['ur_here']);  // 当前位置
+//  if(empty($_REQUEST['artist_type'])){
+	    $cache_id = sprintf('%X', crc32($_CFG['lang']));
+			    if (!$smarty->is_cached('brand_list.dwt', $cache_id))
+			    {
+			        assign_template();
+			        $position = assign_ur_here('', $_LANG['all_brand']);
+			        $smarty->assign('page_title',      $position['title']);    // 页面标题
+			        $smarty->assign('ur_here',         $position['ur_here']);  // 当前位置
+			
+			        $smarty->assign('categories',      get_categories_tree()); // 分类树
+			        $smarty->assign('helps',           get_shop_help());       // 网店帮助
+			        $smarty->assign('top_goods',       get_top10());           // 销售排行
+			        
+			        define(ARTIST, 1);define(JIGOU,2);define(AIHAOZHE, 3);
+					
+					$smarty->assign('top10artist',       get_top(ARTIST,10));//wedo 获取前十的艺术家
+					$smarty->assign('top2artist',       get_top(JIGOU,2));//wedo 获取前2的艺术机构
+					$smarty->assign('top4artist',       get_top(AIHAOZHE,4));//wedo 获取前4的收藏爱好者
+			        $smarty->assign('brand_list', get_brands());
+//					echo "no artist_type";exit;
+				}
+//			}else{
+//				
+//		/* 排序、显示方式以及类型 */
+//
+// var_dump(get_top_cat_list()) ;exit;
+//$default_display_type = $_CFG['show_order_type'] == '0' ? 'list' : ($_CFG['show_order_type'] == '1' ? 'grid' : 'text');
+//$default_sort_order_method = $_CFG['sort_order_method'] == '0' ? 'DESC' : 'ASC';
+//$default_sort_order_type   = $_CFG['sort_order_type'] == '0' ? 'goods_id' : ($_CFG['sort_order_type'] == '1' ? 'shop_price' : 'last_update');
+//
+//$sort  = (isset($_REQUEST['sort'])  && in_array(trim(strtolower($_REQUEST['sort'])), array('goods_id', 'shop_price', 'last_update'))) ? trim($_REQUEST['sort'])  : $default_sort_order_type;
+//$order = (isset($_REQUEST['order']) && in_array(trim(strtoupper($_REQUEST['order'])), array('ASC', 'DESC')))                              ? trim($_REQUEST['order']) : $default_sort_order_method;
+//$order = (isset($_REQUEST['catsort']) && in_array(trim(strtoupper($_REQUEST['catsort'])), array('ASC', 'DESC')))                              ? trim($_REQUEST['order']) : $default_sort_order_method;
+//$display  = (isset($_REQUEST['display']) && in_array(trim(strtolower($_REQUEST['display'])), array('list', 'grid', 'text'))) ? trim($_REQUEST['display'])  : (isset($_COOKIE['ECS']['display']) ? $_COOKIE['ECS']['display'] : $default_display_type);
+//$display  = in_array($display, array('list', 'grid', 'text')) ? $display : 'text';
+//setcookie('ECS[display]', $display, gmtime() + 86400 * 7);
+//
+//
+//	    $cache_id = sprintf('%X', crc32($_CFG['lang'].$_REQUEST['artist_type']));
+//	    if ($smarty->is_cached('artist_list.dwt', $cache_id))
+//	    {
+//	    	//echo $_REQUEST['artist_type'];exit;
+//	        assign_template();
+//	        $position = assign_ur_here('', $_LANG['all_brand']);
+//	        $smarty->assign('page_title',      $position['title']);    // 页面标题
+//	        $smarty->assign('ur_here',         $position['ur_here']);  // 当前位置
+//	
+//	        $smarty->assign('categories',      get_categories_tree()); // 分类树
+//	        $smarty->assign('helps',           get_shop_help());       // 网店帮助
+//	        $smarty->assign('top_goods',       get_top10());           // 销售排行
+//	        
+//	        define(ARTIST, 1);define(JIGOU,2);define(AIHAOZHE, 3);
+//			
+//			$smarty->assign('top10artist',       get_top(ARTIST,10));//wedo 获取前十的艺术家
+//			$smarty->assign('top2artist',       get_top(JIGOU,2));//wedo 获取前2的艺术机构
+//			$smarty->assign('top4artist',       get_top(AIHAOZHE,4));//wedo 获取前4的收藏爱好者
+//	        $smarty->assign('brand_list', get_brands());
+////				$smarty->assign('top_cat_list', get_top_cat_list());
+////				var_dump(get_top_cat_list());exit;
+////			$size = 6;
+////			if(!in_array($_REQUEST['artist_type'], array(1,2,3))){echo"非法";exit;}
+////			$page = isset($_REQUEST['page']) ? intval($_REQUEST['page']) : 1;	
+////			$record_count = $db->getOne("SELECT COUNT(*) FROM " .$ecs->table('brand'). " WHERE artist_type=".$_REQUEST['artist_type']);
+////			
+////			$pager = get_pager('brand.php', array(), $record_count, $page, $size);
+////			var_dump($pager);exit;
+////			$artist_list = get_artist($_REQUEST['artist_type'], $size, $pager['start']);
+////			$smarty->assign('artist_list', $artist_list);
+////			$smarty->assign('pager',  $pager);
+//			
+//			
+//			
+//			
+//			
+//			$smarty->display('artist_list.dwt', $cache_id);
+//  		exit();
+//			
+//			
+//			
+//			
+//		}
+//  }
 
-        $smarty->assign('categories',      get_categories_tree()); // 分类树
-        $smarty->assign('helps',           get_shop_help());       // 网店帮助
-        $smarty->assign('top_goods',       get_top10());           // 销售排行
-
-        $smarty->assign('brand_list', get_brands());
-    }
     $smarty->display('brand_list.dwt', $cache_id);
     exit();
 }
 
 /* 初始化分页信息 */
 $page = !empty($_REQUEST['page'])  && intval($_REQUEST['page'])  > 0 ? intval($_REQUEST['page'])  : 1;
-$size = !empty($_CFG['page_size']) && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 10;
+$size = !empty($_CFG['page_size']) && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 6;
 $cate = !empty($_REQUEST['cat'])   && intval($_REQUEST['cat'])   > 0 ? intval($_REQUEST['cat'])   : 0;
-
+$letter = !empty($_REQUEST['letter'])   && intval($_REQUEST['letter'])   > 0 ? intval($_REQUEST['letter'])   : 0;
+$times = !empty($_REQUEST['times'])   && intval($_REQUEST['times'])   > 0 ? intval($_REQUEST['times'])   : 0;
+	$smarty->assign('top_cat_list', get_top_cat_list());
 /* 排序、显示方式以及类型 */
-$default_display_type = $_CFG['show_order_type'] == '0' ? 'list' : ($_CFG['show_order_type'] == '1' ? 'grid' : 'text');
 $default_sort_order_method = $_CFG['sort_order_method'] == '0' ? 'DESC' : 'ASC';
-$default_sort_order_type   = $_CFG['sort_order_type'] == '0' ? 'goods_id' : ($_CFG['sort_order_type'] == '1' ? 'shop_price' : 'last_update');
+$default_sort_order_type   = $_CFG['sort_order_type'] == '0' ? 'brand_id' : 'last_update';
 
-$sort  = (isset($_REQUEST['sort'])  && in_array(trim(strtolower($_REQUEST['sort'])), array('goods_id', 'shop_price', 'last_update'))) ? trim($_REQUEST['sort'])  : $default_sort_order_type;
-$order = (isset($_REQUEST['order']) && in_array(trim(strtoupper($_REQUEST['order'])), array('ASC', 'DESC')))                              ? trim($_REQUEST['order']) : $default_sort_order_method;
-$display  = (isset($_REQUEST['display']) && in_array(trim(strtolower($_REQUEST['display'])), array('list', 'grid', 'text'))) ? trim($_REQUEST['display'])  : (isset($_COOKIE['ECS']['display']) ? $_COOKIE['ECS']['display'] : $default_display_type);
-$display  = in_array($display, array('list', 'grid', 'text')) ? $display : 'text';
-setcookie('ECS[display]', $display, gmtime() + 86400 * 7);
+$sort  = (isset($_REQUEST['sort'])  && in_array(trim(strtolower($_REQUEST['sort'])), array('brand_id','last_update'))) ? trim($_REQUEST['sort'])  : $default_sort_order_type;
+$order = (isset($_REQUEST['order']) && in_array(trim(strtoupper($_REQUEST['order'])), array('ASC', 'DESC'))) ? trim($_REQUEST['order']) : $default_sort_order_method;
+//$display  = (isset($_REQUEST['display']) && in_array(trim(strtolower($_REQUEST['display'])), array('list', 'grid', 'text'))) ? trim($_REQUEST['display'])  : (isset($_COOKIE['ECS']['display']) ? $_COOKIE['ECS']['display'] : $default_display_type);
+//$display  = in_array($display, array('list', 'grid', 'text')) ? $display : 'text';
+//setcookie('ECS[display]', $display, gmtime() + 86400 * 7);
 
 /*------------------------------------------------------ */
 //-- PROCESSOR
 /*------------------------------------------------------ */
 
 /* 页面的缓存ID */
-$cache_id = sprintf('%X', crc32($brand_id . '-' . $display . '-' . $sort . '-' . $order . '-' . $page . '-' . $size . '-' . $_SESSION['user_rank'] . '-' . $_CFG['lang'] . '-' . $cate));
+$cache_id = sprintf('%X', crc32($brand_id . '-' . $sort . '-' . $order . '-' . $page . '-' . $size . '-' . $_SESSION['user_rank'] . '-' . $_CFG['lang'] . '-' . $cate. '-' . $letter. '-' . $times));
 
-if (!$smarty->is_cached('brand.dwt', $cache_id))
+if (!$smarty->is_cached('artist_lists.dwt', $cache_id))
 {
-    $brand_info = get_brand_info($brand_id);
-
+    $brand_info = get_allbrand_info($brand_id);
+   //var_dump($brand_info);exit;
     if (empty($brand_info))
     {
         ecs_header("Location: ./\n");
@@ -98,7 +168,7 @@ if (!$smarty->is_cached('brand.dwt', $cache_id))
     $position = assign_ur_here($cate, $brand_info['brand_name']);
     $smarty->assign('page_title',     $position['title']);   // 页面标题
     $smarty->assign('ur_here',        $position['ur_here']); // 当前位置
-    $smarty->assign('brand_id',       $brand_id);
+    $smarty->assign('artist_type',       $brand_id);
     $smarty->assign('category',       $cate);
 
     $smarty->assign('categories',     get_categories_tree());        // 分类树
@@ -118,28 +188,33 @@ if (!$smarty->is_cached('brand.dwt', $cache_id))
 
     $smarty->assign('best_goods',      brand_recommend_goods('best', $brand_id, $cate));
     $smarty->assign('promotion_goods', brand_recommend_goods('promote', $brand_id, $cate));
-    $smarty->assign('brand',           $brand_info);
+    $smarty->assign('artist_list',           $brand_info);
     $smarty->assign('promotion_info', get_promotion_info());
 
-    $count = goods_count_by_brand($brand_id, $cate);
+    //$count = goods_count_by_brand($brand_id, $cate);
 
-    $goodslist = brand_get_goods($brand_id, $cate, $size, $page, $sort, $order);
+    //$goodslist = brand_get_goods($brand_id, $cate, $size, $page, $sort, $order);
 
-    if($display == 'grid')
-    {
-        if(count($goodslist) % 2 != 0)
-        {
-            $goodslist[] = array();
-        }
-    }
-    $smarty->assign('goods_list',      $goodslist);
+//  if($display == 'grid')
+//  {
+//      if(count($goodslist) % 2 != 0)
+//      {
+//          $goodslist[] = array();
+//      }
+//  }
+    //$smarty->assign('goods_list',      $goodslist);
     $smarty->assign('script_name', 'brand');
+//var_dump($brand_id);
+$sql = "SELECT COUNT(*) FROM ".$ecs->table('brand')." WHERE artist_type=".$brand_id;
+//echo  $sql;exit;
+$count = $GLOBALS['db']->getOne($sql);
 
-    assign_pager('brand',              $cate, $count, $size, $sort, $order, $page, '', $brand_id, 0, 0, $display); // 分页
-    assign_dynamic('brand'); // 动态内容
+
+    assign_pager('allbrand',              $cate, $count, $size, $sort, $order, $page, '', $brand_id, 0, 0,'','','','',$letter,$times);
+    assign_dynamic('artist_list'); // 动态内容
 }
 
-$smarty->display('brand.dwt', $cache_id);
+$smarty->display('artist_list.dwt', $cache_id);
 
 /*------------------------------------------------------ */
 //-- PRIVATE FUNCTION
@@ -157,6 +232,12 @@ function get_brand_info($id)
     $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('brand') . " WHERE brand_id = '$id'";
 
     return $GLOBALS['db']->getRow($sql);
+}
+function get_allbrand_info($id)
+{
+    $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('brand') . " WHERE artist_type = '$id'";
+
+    return $GLOBALS['db']->getAll($sql);
 }
 
 /**
@@ -351,5 +432,51 @@ function brand_related_cat($brand)
 
     return $arr;
 }
+
+function get_top($type,$number){
+	switch ($type)
+{
+case 1:
+        $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('brand') .
+        "WHERE artist_type = 1 AND is_show = 1 ORDER BY sort_order ASC limit ".$number;
+  break;  
+case 2:
+        $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('brand') .
+        "WHERE artist_type = 2 AND is_show = 1 ORDER BY sort_order ASC limit ".$number;
+  break;
+case 3:
+        $sql = 'SELECT * FROM ' . $GLOBALS['ecs']->table('brand') .
+        "WHERE artist_type = 3 AND is_show = 1 ORDER BY sort_order ASC limit ".$number;
+}
+$res = $GLOBALS['db']->getAll($sql);
+
+return $res;
+}
+/**/
+ function get_artist($artist_type, $num = 16, $start = 0)
+
+{
+
+    $sql = "SELECT * FROM " .$GLOBALS['ecs']->table('brand'). " WHERE artist_type=".$artist_type;
+
+    $arr = array();
+
+    $res = $GLOBALS['db']->SelectLimit($sql, $num, $start);
+
+    while ($row = $GLOBALS['db']->fetchRow($res))
+
+    {
+
+	$arr[] = array(
+	'brand_id'         => $row['brand_id'],
+	'brand_logo'         => $row['brand_logo'],
+	 'brand_name'        => $row['brand_name']);
+	}
+
+    return $arr;
+
+}
+
+
 
 ?>

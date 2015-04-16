@@ -1636,6 +1636,67 @@ function build_uri($app, $params, $append = '', $page = 0, $keywords = '', $size
             }
 
             break;
+        case 'allbrand':
+			var_dump($brand_id);
+            if (empty($brand_id))
+            {
+            	var_dump(33);exit;
+                return false;
+            }
+            else
+            {
+                if ($rewrite)
+                {
+                    $uri = 'brand-' . $bid;
+                    if (isset($cid))
+                    {
+                        $uri .= '-c' . $cid;
+                    }
+                    if (!empty($page))
+                    {
+                        $uri .= '-' . $page;
+                    }
+                    if (!empty($sort))
+                    {
+                        $uri .= '-' . $sort;
+                    }
+                    if (!empty($order))
+                    {
+                        $uri .= '-' . $order;
+                    }
+                }
+                else
+                {//'cid' => $cat,'sort' => $sort,'order' => $order,'page'=>$page,'id'=>$brand_id,'letter'=>$letter,'times'=>$times
+                //echo "eee";exit;
+                    $uri = 'brand.php?id=' . $brand_id;
+                    if (!empty($cid))
+                    {
+                        $uri .= '&amp;cat=' . $cid;
+                    }
+                    if (!empty($page))
+                    {
+                        $uri .= '&amp;page=' . $page;
+                    }
+                    if (!empty($sort))
+                    {
+                        $uri .= '&amp;sort=' . $sort;
+                    }
+                    if (!empty($order))
+                    {
+                        $uri .= '&amp;order=' . $order;
+                    }
+                    if (!empty($letter))
+                    {
+                        $uri .= '&amp;letter=' . $letter;
+                    }
+                    if (!empty($times))
+                    {
+                        $uri .= '&amp;times=' . $times;
+                    }
+                }
+            }
+
+            break;
         case 'article_cat':
             if (empty($acid))
             {

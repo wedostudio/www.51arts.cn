@@ -4,121 +4,332 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Keywords" content="{$keywords}" />
 <meta name="Description" content="{$description}" />
+<meta name="keywords" content="多元主义;当代多元文化艺术；文创艺术品" />
+<meta name="description" content="本来没有艺术......" />
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>{$page_title}</title>
 <!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="icon" href="animated_favicon.gif" type="image/gif" />
-<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
-{* 包含脚本文件 *}
+		
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_rmenu.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_hotinfo.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/artcircle.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_salerank.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/common_function.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/common_rmenu.js"></script>
+		<script type="text/javascript" src="js/common_salerank.js"></script>
+		{* 包含脚本文件 *}
 {insert_scripts files='common.js,global.js,compare.js'}
-</head>
-<body>
+	</head>
+
+	<body>
+		<div id="wrap">
+
 <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
-<!--当前位置 start-->
-<div class="block box">
- <div id="ur_here">
-  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
- </div>
-</div>
-<!--当前位置 end-->
-<div class="blank"></div>
-<div class="block clearfix">
-  <!--left start-->
-  <div class="AreaL">
-   <!-- TemplateBeginEditable name="左边区域" -->
-<!-- #BeginLibraryItem "/library/cart.lbi" -->
 
-{insert_scripts files='transport.js'}
-<div class="cart" id="ECS_CARTINFO">
- {insert name='cart_info'}
-</div>
-<div class="blank5"></div>
+			<div class="fitwidth content_block">
+				<div id="banner">
+					<a href="#">
+<!--						<img src="img/lv2_artcircle_banner_01.jpg" alt="banner" />-->
+<!-- TemplateBeginEditable name="艺术圈广告" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
 
+{insert name='ads' id=$ads_id num=$ads_num}
  <!-- #EndLibraryItem -->
-<!-- #BeginLibraryItem "/library/category_tree.lbi" -->
-
-<div class="box">
- <div class="box_1">
-  <div id="category_tree">
-   <!--{foreach from=$categories item=cat}-->
-    <dl>
-    <dt><a href="{$cat.url}">{$cat.name|escape:html}</a></dt>
-    <!--{foreach from=$cat.children item=child}-->
-    <dd><a href="{$child.url}">{$child.name|escape:html}</a></dd>
-    <!--{/foreach}-->
-    </dl>
-    <!--{/foreach}-->
-  </div>
- </div>
-</div>
-<div class="blank5"></div>
-
- <!-- #EndLibraryItem -->
- <!-- #BeginLibraryItem "/library/filter_attr.lbi" --><!-- #EndLibraryItem -->
- <!-- #BeginLibraryItem "/library/price_grade.lbi" --><!-- #EndLibraryItem -->
 <!-- TemplateEndEditable -->
-<!-- TemplateBeginEditable name="左边广告区域（宽200px）" -->
-<!-- TemplateEndEditable -->
-    <!--AD end-->
-    <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
-  </div>
-  <!--left end-->
-  <!--right start-->
-  <div class="AreaR">
-     <!-- TemplateBeginEditable name="通栏广告区域（宽750px）" -->
-     <!-- TemplateEndEditable -->
-     <div class="blank5"></div>
-      <h3 class="border"><span><!--{$lang.all_brand}--></span></h3>
-     <div id="brandList" class="clearfix">
-     <!-- {foreach from=$brand_list name="brand_list_foreach" item=brand_data} -->
-		  <div class="brandBox">
-			<h4><span>{$brand_data.brand_name}</span>({$brand_data.goods_num})</h4>
-			<!-- {if $brand_data.brand_logo} -->
-			  <div class="brandLogo">
-        <a href="{$brand_data.url}"><img src="data/brandlogo/{$brand_data.brand_logo}" alt="{$brand_data.brand_name|escape:html} ({$brand_data.goods_num})" /></a>
+					</a>
 				</div>
-			<!-- {/if} -->
-			 <p title="{$brand_data.brand_desc}">{$brand_data.brand_desc}</p> 
-			</div>
-		<!-- {/foreach} -->	
 
-     </div>
-     <div class="blank5"></div>
-     <div class="dashed"></div>
-  </div>
-  <!--right end-->
-</div>
-<div class="blank5"></div>
-<!--帮助-->
-<div class="block">
-  <div class="box">
-   <div class="helpTitBg clearfix">
-    <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
-   </div>
-  </div>
-</div>
-<div class="blank"></div>
-<!--帮助-->
-<!--友情链接 start-->
-<!--{if $img_links  or $txt_links }-->
-<div id="bottomNav" class="box">
- <div class="box_1">
-  <div class="links clearfix">
-   <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
-    <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" alt="{$link.name}" border="0" /></a>
-    <!--结束图片类型的友情链接{/foreach}-->
-    <!-- {if $txt_links} -->
-    <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
-    [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>]
-    <!--结束文字类型的友情链接{/foreach}-->
-    <!-- {/if} -->
-  </div>
- </div>
-</div>
+				<div id="hot_info" class="wrap_top_border">
+					<div id="hot_info_title">
+						<a href="#"></a><span>/实时更新</span>
+					</div>
+					<ul id="hot_info_list">
+						<li>
+							<a href="#">
+								<img src="img/lv2_artcircle_hotinfo_01.jpg" alt="hot info" />
+							</a>
+							<div>
+								<h4><span>/</span><a href="#">巍然</a></h4>
+								<a href="#">
+									<div class="text_overflow_ddd">
+										<p>高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+									</div>
+								</a>
+							</div>
+						</li>
+						<div class="dotted_line"></div>
+						<li>
+							<a href="#">
+								<img src="img/lv2_artcircle_hotinfo_02.jpg" alt="hot info" />
+							</a>
+							<div>
+								<h4><span>/</span><a href="#">巍然</a></h4>
+								<a href="#">
+									<div class="text_overflow_ddd">
+										<p>高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+									</div>
+								</a>
+							</div>
+						</li>
+						<div class="dotted_line"></div>
+						<li>
+							<a href="#">
+								<img src="img/lv2_artcircle_hotinfo_03.jpg" alt="hot info" />
+							</a>
+							<div>
+								<h4><span>/</span><a href="#">巍然</a></h4>
+								<a href="#">
+									<div class="text_overflow_ddd">
+										<p>高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+									</div>
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="artists" class="fitwidth wrap_top_border">
+				<div id="artists_title"><a href="#">查看更多</a>
+				</div>
+
+				<div id="artists_table">
+
+					<table>
+						
+<!--{foreach from=$top10artist item=g key=k}-->
+<!--{if $k==0}-->
+							<tr>
+							<td colspan="3" rowspan="3" class="artist_hot">
+								<a href="#">
+									<img src="/data/brandlogo/{$g.brand_logo}" alt="{$g.brand_name|escape:html}" />
+									<div class="artist_info">
+										<div class="info_bg"></div>
+										<div class="info_text">
+											<h4>【热点人物】{$g.brand_name}</h4>
+											{$g.artist_describe}
+										</div>
+
+									</div>
+								</a>
+							</td>
+<!--{else}-->
+
+							<td>
+								<a href="#">
+									<img src="/data/brandlogo/{$g.brand_logo}" alt="{$g.brand_name|escape:html}" />
+								</a>
+							</td>
+							<!--{if $k%3==0}--></tr><tr><!--{/if}-->
 <!--{/if}-->
-<!--友情链接 end-->
-<div class="blank"></div>
-<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
-</body>
+<!--{/foreach}-->
+						</tr>
+					</table>
+
+				</div>
+
+			</div>
+
+			<div id="artorg" class="fitwidth wrap_top_border">
+				<div id="artorg_title"><a href="#">查看更多</a>
+				</div>
+
+				<div id="artorg_list">
+					<!--{foreach from=$top2artist item=g key=k}-->
+					<a href="#">
+						<!--{if $k==0}-->
+						<div class="org_left">
+						<!--{else}-->
+						<div class="org_right">
+						<!--{/if}-->
+							<img src="/data/brandlogo/{$g.brand_logo}" alt="art org" />
+							<h4>{$g.brand_name}</h4>
+							<div class="text_overflow_ddd">
+								<p><span>[机构简介]</span>{$g.artist_describe}</p>
+							</div>
+						</div>
+					</a>
+					<!--{/foreach}-->
+					<div class="clear_float"></div>
+				</div>
+
+			</div>
+
+			<div id="art_collector" class="fitwidth wrap_top_border">
+				<div id="art_collector_title"><a href="#">查看更多</a>
+				</div>
+
+				<div id="art_collector_list">
+					<ul>
+					<!--{foreach from=$top4artist item=g key=k}-->
+						<a href="#">
+							<li>
+								<img src="/data/brandlogo/{$g.brand_logo}" alt="art collector" />
+								<div>
+									<h4><span>/</span>{$g.brand_name}</h4>
+									<div class="text_overflow_ddd">
+										{$g.artist_describe}
+									</div>
+								</div>
+							</li>
+						</a>
+					<!--{/foreach}-->
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div id="salerank" class="fitwidth content_block wrap_top_border">
+				<div id="salerank_info">
+					<span id="salerank_bg"></span>
+					<span id="salerank_title">/热门商品推荐</span>
+					<a href="#">查看更多</a>
+				</div>
+
+				<table cellspacing="25px">
+					<tr class="salerank_item">
+				<!-- {foreach name=top_goods from=$top_goods item=goods}-->
+				<!--{if $k<5}-->
+						<td>
+							<img src="{$goods.goods_thumb}" alt="拍卖排行" />
+							<a href="{$goods.url}">查看详情</a>
+						</td>
+				<!--{/if}-->
+				<!--{/foreach}-->
+					</tr>
+					<tr class="salerank_name">
+				<!-- {foreach name=top_goods from=$top_goods item=goods}-->
+				<!--{if $k<5}-->					
+						<td><span>{$goods.short_name}</span>
+						</td>
+
+				<!--{/if}-->
+				<!--{/foreach}-->
+					</tr>
+
+					<tr class="salerank_item">
+				<!-- {foreach name=top_goods from=$top_goods item=goods key=k}-->
+				<!--{if $k>4}-->
+						<td>
+							<img src="{$goods.goods_thumb}" alt="拍卖排行" />
+							<a href="{$goods.url}">查看详情</a>
+						</td>
+				<!--{/if}-->
+				<!--{/foreach}-->
+
+					</tr>
+					<tr class="salerank_name">
+				<!-- {foreach name=top_goods from=$top_goods item=goods key=k}-->
+				<!--{if $k>4}-->					
+						<td><span>{$goods.short_name}</span>
+						</td>
+
+				<!--{/if}-->
+				<!--{/foreach}-->
+					</tr>
+					
+				</table>
+			</div>
+
+			<div id="footer_wrap" class="fullwidth">
+				<div id="footer" class="fitwidth">
+					<div id="ft_nav_wrap">
+
+						<div id="ft_nav">
+							<ul>
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="#">购买艺术</a>
+										</li>
+										<li><a href="#">购买流程</a>
+										</li>
+
+										<li><a href="#">支付方式</a>
+										</li>
+
+										<li><a href="#">提货方式</a>
+										</li>
+
+										<li><a href="#">竞拍保证</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="#">合作艺术</a>
+										</li>
+										<li><a href="#">艺术家签约</a>
+										</li>
+
+										<li><a href="#">在线签约</a>
+										</li>
+
+										<li><a href="#">包装推广</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="#">专业服务</a>
+										</li>
+										<li><a href="#">VIP/SVIP</a>
+										</li>
+
+										<li><a href="#">联动合作</a>
+										</li>
+
+										<li><a href="#">常见问题</a>
+										</li>
+
+										<li><a href="#">法律政策</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<ul class="ft_sec_nav">
+										<li class="ft_title"><a href="#">关<span class="nbsp_font">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>于</a>
+										</li>
+										<li><a href="#">网站地图</a>
+										</li>
+
+										<li><a href="#">品牌介绍</a>
+										</li>
+
+										<li><a href="#">联系我们</a>
+										</li>
+
+										<li><a href="#">友情链接</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+
+						<img src="img/ft_phone_code.jpg" alt="二维码" />
+						<img class="ft_second_code" src="img/ft_weixin_code.jpg" alt="二维码" />
+
+					</div>
+					<div id="ft_shot">
+						<ul>
+							<li><a href="#">回到首页</a>
+							</li>
+							<li class="ft_shot_sepa">/</li>
+							<li class="ft_shot_2"><a>收藏多元主义</a>
+							</li>
+							<li class="ft_shot_sepa">/</li>
+							<li><a>服务热线：400-100-8759</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+
 </html>

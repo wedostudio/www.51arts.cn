@@ -100,7 +100,7 @@ elseif ($_REQUEST['act'] == 'index')
     {
         /* 取得正在拍卖的活动 */
         $auction_ing = get_auction_list(0, 1, 1);
-        $smarty->assign('auction_ing',  $auction_ing);
+        $smarty->assign('auction_list',  $auction_ing);
 
         /* 取得即将拍卖的活动 */
         $auction_pre = get_auction_list(1, 3, 1);
@@ -129,6 +129,117 @@ elseif ($_REQUEST['act'] == 'index')
 
     /* 显示模板 */
     $smarty->display('auction_index.dwt', $cache_id);
+}
+
+/*------------------------------------------------------ */
+//-- 拍卖活动首页
+/*------------------------------------------------------ */
+elseif ($_REQUEST['act'] == 'cat')
+{
+    /* 取得每页记录数 */
+    $size = isset($_CFG['page_size']) && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 20;
+    
+    /* 计算总页数 */
+    $page_count = ceil($count / $size);
+    
+    /* 取得当前页 */
+    $page = isset($_REQUEST['page']) && intval($_REQUEST['page']) > 0 ? intval($_REQUEST['page']) : 1;
+    $page = $page > $page_count ? $page_count : $page;
+    
+    /* 缓存id：语言 */
+    $cache_id = sprintf('%X', crc32($_SESSION['user_rank'] . '-' . $_CFG['lang']));
+
+    /* 如果没有缓存，生成缓存 */
+    if (!$smarty->is_cached('auction_index.dwt', $cache_id))
+    {
+        $type = empty($_REQUEST['type']) ? 0 : $_REQUEST['type'];
+        $now = gmtime();
+        switch ($type)
+        {
+            case 1:
+                $sql = "SELECT * " .
+                    "FROM " . $GLOBALS['ecs']->table('goods_activity_topic') .
+                    "WHERE start_time > '$now' ORDER BY start_time ASC";
+                break;
+            case 2:
+                $sql = "SELECT * " .
+                    "FROM " . $GLOBALS['ecs']->table('goods_activity_topic') .
+                    "WHERE end_time < '$now' ORDER BY a.end_time DESC";
+                break;
+            default:
+                $sql = "SELECT * " .
+                    "FROM " . $GLOBALS['ecs']->table('goods_activity_topic') .
+                    "WHERE start_time <= '$now' AND end_time >= '$now' ORDER BY end_time ASC";
+        }
+        $res = $GLOBALS['db']->selectLimit($sql, 20, 0);
+        while ($row = $GLOBALS['db']->fetchRow($res))
+        {
+            $auction = $row;
+    
+            $auction['start_time'] = local_date('Y.m.d', $auction['start_time']);
+            $auction['end_time']   = local_date('Y.m.d', $auction['end_time']);
+            //拍卖活动的商品
+            $sql = "SELECT a.*, IFNULL(g.goods_img, '') AS goods_thumb " .
+                "FROM " . $GLOBALS['ecs']->table('goods_activity') . " AS a " .
+                "LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON a.goods_id = g.goods_id " .
+                "WHERE a.act_type = '" . GAT_AUCTION . "' AND a.t_id = " .$auction['t_id'] .
+                " ORDER BY a.act_id DESC";
+            $res1 = $GLOBALS['db']->selectLimit($sql, 5, 0);
+            $i = 0;
+            while ($row1 = $GLOBALS['db']->fetchRow($res1))
+            {
+                $ext_info = unserialize($row1['ext_info']);
+                $info = array_merge($row1, $ext_info);
+                $info['start_time'] = local_date($GLOBALS['_CFG']['time_format'], $info['start_time']);
+                $info['end_time']   = local_date($GLOBALS['_CFG']['time_format'], $info['end_time']);
+                $info['formated_start_price'] = price_format($info['start_price']);
+                $info['formated_end_price'] = price_format($info['end_price']);
+                $info['formated_deposit'] = price_format($info['deposit']);
+                $info['goods_thumb'] = get_image_path($row1['goods_id'], $row1['goods_thumb'], true);
+                $info['url'] = build_uri('auction', array('auid'=>$info['act_id']));
+                if($i==0)
+                {
+                    $first = $info;
+                }
+                else 
+                {
+                    $list[] = $info;
+                }
+                $i++;
+            }
+
+            $auction['first'] = $first;
+            $auction['list'] = $list;
+            //拍卖活动的商品数
+            $sql = "SELECT count(*) FROM " . $GLOBALS['ecs']->table('goods_activity') .
+                " WHERE t_id = '".$row['t_id']."'";
+            $auction['t_num'] = $GLOBALS['db']->getOne($sql);
+            
+            $auction_list[] = $auction;
+        }
+//         var_dump($auction);
+//         exit;
+        $smarty->assign('auction_list', $auction_list);    // 页面标题
+        
+        /* 取得拍卖结束的活动 */
+        //         $hot_goods = get_recommend_goods('hot');
+        //         $smarty->assign('hot_goods',  $hot_goods);
+
+        /* 模板赋值 */
+        $smarty->assign('cfg', $_CFG);
+        assign_template();
+        $position = assign_ur_here();
+        $smarty->assign('page_title', $position['title']);    // 页面标题
+        $smarty->assign('ur_here',    $position['ur_here']);  // 当前位置
+        $smarty->assign('helps',      get_shop_help());       // 网店帮助
+        $smarty->assign('top_goods',  get_top10());           // 销售排行
+        $smarty->assign('promotion_info', get_promotion_info());
+
+        assign_dynamic('auction_list');
+    }
+
+    /* 显示模板 */
+    $smarty->display('auction_cat.dwt', $cache_id);
 }
 /*------------------------------------------------------ */
 //-- 拍卖商品 --> 商品详情
@@ -549,7 +660,7 @@ function get_auction_list($type=0, $size, $page)
     $auction_list = array();
 
     $now = gmtime();
-    $sql = "SELECT a.*, IFNULL(g.goods_thumb, '') AS goods_thumb " .
+    $sql = "SELECT a.*, IFNULL(g.goods_img, '') AS goods_thumb " .
         "FROM " . $GLOBALS['ecs']->table('goods_activity') . " AS a " .
         "LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON a.goods_id = g.goods_id " .
         "WHERE a.act_type = '" . GAT_AUCTION . "' " ;
@@ -572,13 +683,17 @@ function get_auction_list($type=0, $size, $page)
         $auction = array_merge($row, $ext_info);
         $auction['status_no'] = auction_status($auction);
 
-        $auction['start_time'] = local_date('Y-m-d', $auction['start_time']);
-        $auction['end_time']   = local_date('Y-m-d', $auction['end_time']);
+        $auction['start_time'] = local_date('Y.m.d', $auction['start_time']);
+        $auction['end_time']   = local_date('Y.m.d', $auction['end_time']);
         $auction['formated_start_price'] = price_format($auction['start_price']);
         $auction['formated_end_price'] = price_format($auction['end_price']);
         $auction['formated_deposit'] = price_format($auction['deposit']);
         $auction['goods_thumb'] = get_image_path($row['goods_id'], $row['goods_thumb'], true);
         $auction['url'] = build_uri('auction', array('auid'=>$auction['act_id']));
+        //拍卖活动的商品数
+        $sql = "SELECT count(*) FROM " . $GLOBALS['ecs']->table('goods_activity') . 
+            " WHERE t_id = '".$row['t_id']."'";
+        $auction['t_num'] = $GLOBALS['db']->getOne($sql);
         
         $auction_list[] = $auction;
     }

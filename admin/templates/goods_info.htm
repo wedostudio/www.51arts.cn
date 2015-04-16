@@ -73,7 +73,7 @@
               {/foreach}
             </td>
           </tr>
-          <!-- <tr>
+          <tr style="display:none;">
             <td class="label">{$lang.lab_goods_brand}</td>
             <td><select name="brand_id" onchange="hideBrandDiv()" ><option value="0">{$lang.select_please}{html_options options=$brand_list selected=$goods.brand_id}</select>
               {if $is_add}
@@ -88,22 +88,22 @@
             </td>
           </tr>
          {if $suppliers_exists eq 1}
-          <tr>
+          <tr style="display:none;">
             <td class="label">{$lang.label_suppliers}</td>
             <td><select name="suppliers_id" id="suppliers_id">
         <option value="0">{$lang.suppliers_no}</option>
         {html_options options=$suppliers_list_name selected=$goods.suppliers_id}
       </select></td>
           </tr>
-         {/if} -->
+         {/if}
           <tr>
             <td class="label">{$lang.lab_shop_price}</td>
             <td><input type="text" name="shop_price" value="{$goods.shop_price}" size="20" onblur="priceSetted()"/>
             <input type="button" value="{$lang.compute_by_mp}" onclick="marketPriceSetted()" />
             {$lang.require_field}</td>
           </tr>
-          <!-- {if $user_rank_list}
-          <tr>
+          {if $user_rank_list}
+          <tr style="display:none;">
             <td class="label"><a href="javascript:showNotice('noticeUserPrice');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.lab_user_price}</td>
             <td>
               {foreach from=$user_rank_list item=user_rank}
@@ -114,10 +114,10 @@
               <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeUserPrice">{$lang.notice_user_price}</span>
             </td>
           </tr>
-          {/if} -->
+          {/if}
 
           <!--鍟嗗搧浼樻儬浠锋牸-->
-          <!-- <tr>
+          <tr style="display:none;">
             <td class="label"><a href="javascript:showNotice('volumePrice');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.lab_volume_price}</td>
             <td>
               <table width="100%" id="tbody-volume" align="center">
@@ -137,44 +137,44 @@
               </table>
               <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="volumePrice">{$lang.notice_volume_price}</span>
             </td>
-          </tr> -->
+          </tr>
           <!--鍟嗗搧浼樻儬浠锋牸 end -->
 
-          <!-- <tr>
+          <tr style="display:none;">
             <td class="label">{$lang.lab_market_price}</td>
             <td><input type="text" name="market_price" value="{$goods.market_price}" size="20" />
               <input type="button" value="{$lang.integral_market_price}" onclick="integral_market_price()" />
             </td>
-          </tr>-->
+          </tr>
           <tr>
             <td class="label"><a href="javascript:showNotice('giveIntegral');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_give_integral}</td>
             <td><input type="text" name="give_integral" value="{$goods.give_integral}" size="20" />
             <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="giveIntegral">{$lang.notice_give_integral}</span></td>
           </tr>
-          <!-- <tr>
+          <tr style="display:none;">
             <td class="label"><a href="javascript:showNotice('rankIntegral');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_rank_integral}</td>
             <td><input type="text" name="rank_integral" value="{$goods.rank_integral}" size="20" />
             <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="rankIntegral">{$lang.notice_rank_integral}</span></td>
           </tr>
-          <tr>
+          <tr style="display:none;">
             <td class="label"><a href="javascript:showNotice('noticPoints');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_integral}</td>
             <td><input type="text" name="integral" value="{$goods.integral}" size="20" onblur="parseint_integral()";/>
               <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticPoints">{$lang.notice_integral}</span>
             </td>
           </tr>
-          <tr>
+          <tr style="display:none;">
             <td class="label"><label for="is_promote"><input type="checkbox" id="is_promote" name="is_promote" value="1" {if $goods.is_promote}checked="checked"{/if} onclick="handlePromote(this.checked);" /> {$lang.lab_promote_price}</label></td>
             <td id="promote_3"><input type="text" id="promote_1" name="promote_price" value="{$goods.promote_price}" size="20" /></td>
           </tr>
-          <tr id="promote_4">
+          <tr id="promote_4" style="display:none;">
             <td class="label" id="promote_5">{$lang.lab_promote_date}</td>
             <td id="promote_6">
               <input name="promote_start_date" type="text" id="promote_start_date" size="12" value='{$goods.promote_start_date}' readonly="readonly" /><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('promote_start_date', '%Y-%m-%d', false, false, 'selbtn1');" value="{$lang.btn_select}" class="button"/> - <input name="promote_end_date" type="text" id="promote_end_date" size="12" value='{$goods.promote_end_date}' readonly="readonly" /><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('promote_end_date', '%Y-%m-%d', false, false, 'selbtn2');" value="{$lang.btn_select}" class="button"/>
             </td>
-          </tr> -->
+          </tr>
           <tr>
             <td class="label">{$lang.lab_picture}</td>
-            <td>
+            <td id="swfContainer">
               <input type="file" name="goods_img" size="35" />
               {if $goods.goods_img}
                 <a href="goods.php?act=show_image&img_url={$goods.goods_img}" target="_blank"><img src="images/yes.gif" border="0" /></a>
@@ -1120,4 +1120,62 @@
   }
   {/literal}
 </script>
+<script type="text/javascript" src="/upload/scripts/swfobject.js"></script>
+<script type="text/javascript" src="/upload/scripts/fullAvatarEditor.js"></script>
+<script type="text/javascript">
+            swfobject.addDomLoadEvent(function () {
+				//以下两行代码正式环境下请删除
+				//if(location.href.indexOf('http://') == -1) 
+				//alert('请于WEB服务器环境中查看、测试！\n\n既 http://*/simpleDemo.html\n\n而不是本地路径 file:///*/simpleDemo.html的方式');
+				var swf = new fullAvatarEditor("/upload/fullAvatarEditor.swf", "/upload/expressInstall.swf", "swfContainer", {
+					    id : 'fullAvatarEditor',
+						upload_url : 'upload1.php',	//上传接口
+						method : 'post',	//传递到上传接口中的查询参数的提交方式。更改该值时，请注意更改上传接口中的查询参数的接收方式
+						src_upload : 0,		//是否上传原图片的选项，有以下值：0-不上传；1-上传；2-显示复选框由用户选择
+						avatar_box_border_width : 0,
+						avatar_sizes : '100*100',//|50*50|32*32',
+						avatar_sizes_desc : '100*100像素'//|50*50像素|32*32像素'
+					}, function (msg) {
+						switch(msg.code)
+						{
+							case 1 : break;//alert("页面成功加载了组件！");break;
+							case 2 : 
+								//alert("已成功加载图片到编辑面板。");
+								document.getElementById("upload").style.display = "inline";
+								break;
+							case 3 :
+								if(msg.type == 0)
+								{
+									alert("摄像头已准备就绪且用户已允许使用。");
+								}
+								else if(msg.type == 1)
+								{
+									alert("摄像头已准备就绪但用户未允许使用！");
+								}
+								else
+								{
+									alert("摄像头被占用！");
+								}
+							break;
+							case 5 : 
+								if(msg.type == 0)
+								{
+									if(msg.content.sourceUrl)
+									{
+										alert("成功上传");
+									}
+									else
+									{
+										alert("上传成功");
+									}
+								}
+							break;
+						}
+					}
+				);
+				document.getElementById("upload").onclick=function(){
+					swf.call("upload");
+				};
+            });
+        </script>
 {include file="pagefooter.htm"}

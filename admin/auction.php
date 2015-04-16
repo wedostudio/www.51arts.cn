@@ -31,9 +31,10 @@ if ($_REQUEST['act'] == 'list')
     /* 模板赋值 */
     $smarty->assign('full_page',   1);
     $smarty->assign('ur_here',     $_LANG['auction_list']);
-    $smarty->assign('action_link', array('href' => 'auction.php?act=add', 'text' => $_LANG['add_auction']));
+    $smarty->assign('action_link', array('href' => 'auction.php?act=add&t_id='.$t_id, 'text' => $_LANG['add_auction']));
 
-    $list = auction_list();
+    $t_id = $_REQUEST['t_id'];
+    $list = auction_list($t_id);
 
     $smarty->assign('auction_list', $list['item']);
     $smarty->assign('filter',       $list['filter']);
@@ -54,7 +55,8 @@ if ($_REQUEST['act'] == 'list')
 
 elseif ($_REQUEST['act'] == 'query')
 {
-    $list = auction_list();
+    $t_id = $_REQUEST['t_id'];
+    $list = auction_list($t_id);
 
     $smarty->assign('auction_list', $list['item']);
     $smarty->assign('filter',       $list['filter']);
@@ -183,23 +185,34 @@ elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit')
 {
     /* 检查权限 */
     admin_priv('auction');
+    
+    if(empty($_REQUEST['t_id']))
+    {
+        sys_msg('请先选择对应拍卖活动');
+    }
+    $t_id = $_REQUEST['t_id'];
 
     /* 是否添加 */
     $is_add = $_REQUEST['act'] == 'add';
     $smarty->assign('form_action', $is_add ? 'insert' : 'update');
 
+    //获取拍卖活动信息
+    $sql = "SELECT * FROM " . $ecs->table('goods_activity_topic') . " WHERE t_id = '$t_id'";
+    $topic = $db->getRow($sql);
+    
     /* 初始化、取得拍卖活动信息 */
     if ($is_add)
     {
         $auction = array(
             'act_id'        => 0,
-            'act_name'      => '',
-            'act_desc'      => '',
+            'act_name'      => $topic['topic_name'],
+            'act_desc'      => $topic['topic_desc'],
+            't_id'          => $topic['t_id'],
             'goods_id'      => 0,
             'product_id'    => 0,
             'goods_name'    => $_LANG['pls_search_goods'],
-            'start_time'    => date('Y-m-d', time() + 86400),
-            'end_time'      => date('Y-m-d', time() + 4 * 86400),
+            'start_time'    => date("Y-m-d H:i", $topic['start_time']),
+            'end_time'      => date("Y-m-d H:i", $topic['end_time']),
             'deposit'       => 0,
             'start_price'   => 0,
             'end_price'     => 0,
@@ -219,6 +232,9 @@ elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit')
             sys_msg($_LANG['auction_not_exist']);
         }
         $auction['status'] = $_LANG['auction_status'][$auction['status_no']];
+        $auction['start_time'] = date("Y-m-d H:i", $topic['start_time']);
+        $auction['end_time'] = date("Y-m-d H:i", $topic['end_time']);
+        $auction['t_id'] = $topic['t_id'];
         $smarty->assign('bid_user_count', sprintf($_LANG['bid_user_count'], $auction['bid_user_count']));
     }
     $smarty->assign('auction', $auction);
@@ -238,7 +254,7 @@ elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit')
     {
         $smarty->assign('ur_here', $_LANG['edit_auction']);
     }
-    $smarty->assign('action_link', list_link($is_add));
+    $smarty->assign('action_link', list_link($t_id, $is_add));
     assign_query_info();
     $smarty->display('auction_info.htm');
 }
@@ -251,6 +267,12 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
 {
     /* 检查权限 */
     admin_priv('auction');
+    
+    if(empty($_REQUEST['t_id']))
+    {
+        sys_msg('请先选择对应拍卖活动');
+    }
+    $t_id = $_REQUEST['t_id'];
 
     /* 是否添加 */
     $is_add = $_REQUEST['act'] == 'insert';
@@ -268,18 +290,23 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
         sys_msg($_LANG['goods_not_exist']);
     }
     $goods_name = $row['goods_name'];
-
+       
+    //获取拍卖活动信息
+    $sql = "SELECT * FROM " . $ecs->table('goods_activity_topic') . " WHERE t_id = '$t_id'";
+    $topic = $db->getRow($sql);
+    
     /* 提交值 */
     $auction = array(
         'act_id'        => intval($_POST['id']),
-        'act_name'      => empty($_POST['act_name']) ? $goods_name : sub_str($_POST['act_name'], 255, false),
-        'act_desc'      => $_POST['act_desc'],
+        'act_name'      => $topic['topic_name'],
+        'act_desc'      => $topic['topic_desc'],
         'act_type'      => GAT_AUCTION,
         'goods_id'      => $goods_id,
         'product_id'    => empty($_POST['product_id']) ? 0 : $_POST['product_id'],
         'goods_name'    => $goods_name,
-        'start_time'    => local_strtotime($_POST['start_time']),
-        'end_time'      => local_strtotime($_POST['end_time']),
+        'start_time'    => $topic['start_time'],
+        'end_time'      => $topic['end_time'],
+        't_id'          => $t_id,
         'ext_info'      => serialize(array(
                     'deposit'       => round(floatval($_POST['deposit']), 2),
                     'start_price'   => round(floatval($_POST['start_price']), 2),
@@ -318,15 +345,15 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
     if ($is_add)
     {
         $links = array(
-            array('href' => 'auction.php?act=add', 'text' => $_LANG['continue_add_auction']),
-            array('href' => 'auction.php?act=list', 'text' => $_LANG['back_auction_list'])
+            array('href' => 'auction.php?act=add&t_id='.$t_id, 'text' => $_LANG['continue_add_auction']),
+            array('href' => 'auction.php?act=list&t_id='.$t_id, 'text' => $_LANG['back_auction_list'])
         );
         sys_msg($_LANG['add_auction_ok'], 0, $links);
     }
     else
     {
         $links = array(
-            array('href' => 'auction.php?act=list&' . list_link_postfix(), 'text' => $_LANG['back_auction_list'])
+            array('href' => 'auction.php?act=list&t_id='.$t_id.'&' . list_link_postfix(), 'text' => $_LANG['back_auction_list'])
         );
         sys_msg($_LANG['edit_auction_ok'], 0, $links);
     }
@@ -431,7 +458,7 @@ elseif ($_REQUEST['act'] == 'search_products')
  * 取得拍卖活动列表
  * @return   array
  */
-function auction_list()
+function auction_list($t_id=0)
 {
     $result = get_filter();
     if ($result === false)
@@ -442,11 +469,12 @@ function auction_list()
         {
             $filter['keyword'] = json_str_iconv($filter['keyword']);
         }
+        $filter['t_id']   = $t_id;
         $filter['is_going']   = empty($_REQUEST['is_going']) ? 0 : 1;
         $filter['sort_by']    = empty($_REQUEST['sort_by']) ? 'act_id' : trim($_REQUEST['sort_by']);
         $filter['sort_order'] = empty($_REQUEST['sort_order']) ? 'DESC' : trim($_REQUEST['sort_order']);
 
-        $where = "";
+        $where = $t_id ? " AND t_id=$t_id" : '';
         if (!empty($filter['keyword']))
         {
             $where .= " AND goods_name LIKE '%" . mysql_like_quote($filter['keyword']) . "%'";
@@ -503,9 +531,9 @@ function auction_list()
  * @param   string  $text       文字
  * @return  array('href' => $href, 'text' => $text)
  */
-function list_link($is_add = true, $text = '')
+function list_link($t_id, $is_add = true, $text = '')
 {
-    $href = 'auction.php?act=list';
+    $href = 'auction.php?act=list&t_id='.$t_id;
     if (!$is_add)
     {
         $href .= '&' . list_link_postfix();

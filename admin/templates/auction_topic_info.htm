@@ -1,0 +1,58 @@
+<!-- $Id: auction_info.htm 16992 2010-01-19 08:45:49Z wangleisvn $ -->
+{include file="pageheader.htm"}
+<script type="text/javascript" src="../js/calendar.php?lang={$cfg_lang}"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
+{insert_scripts files="validator.js,../js/transport.js,../js/utils.js}
+<div class="main-div">
+<form method="post" action="auction_topic.php" name="theForm" enctype="multipart/form-data" onSubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">{$lang.label_act_name}</td>
+    <td><input name="topic_name" type="text" id="act_name" value="{$auction.topic_name}" maxlength="60" />
+    {$lang.notice_act_name}</td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.label_act_desc}</td>
+    <td><textarea  name="topic_desc" cols="60" rows="4" id="act_desc"  >{$auction.topic_desc}</textarea></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.label_start_time}</td>
+    <td><input name="start_time" type="text" id="start_time" value="{$auction.start_time}" readonly="readonly" />
+      <input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('start_time', '%Y-%m-%d %H:%M', '24', false, 'selbtn1');" value="{$lang.btn_select}" class="button" /></td>
+  </tr>
+  <tr>
+    <td class="label">{$lang.label_end_time}</td>
+    <td><input name="end_time" type="text" id="end_time" value="{$auction.end_time}" readonly="readonly" />
+      <input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('end_time', '%Y-%m-%d %H:%M', '24', false, 'selbtn2');" value="{$lang.btn_select}" class="button" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" class="button" value="{$lang.button_submit}" />
+      <input type="reset" class="button" value="{$lang.button_reset}" />
+      <input type="hidden" name="act" value="{$form_action}" />
+      <input type="hidden" name="t_id" value="{$auction.t_id}" /></td>
+  </tr>
+</table>
+</form>
+</div>
+
+{literal}
+<script language="JavaScript">
+<!--
+var display_yes = (Browser.isIE) ? 'block' : 'table-row-group';
+
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+    validator = new Validator("theForm");
+    validator.islt('start_time', 'end_time', start_lt_end);
+    return validator.passed();
+}
+
+
+//-->
+</script>
+{/literal}
+{include file="pagefooter.htm"}

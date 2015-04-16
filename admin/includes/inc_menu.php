@@ -120,7 +120,7 @@ $modules['11_system']['navigator']                  = 'navigator.php?act=list';
 
 
 $modules['12_template']['02_template_select']       = 'template.php?act=list';
-// $modules['12_template']['03_template_setup']        = 'template.php?act=setup';
+$modules['12_template']['03_template_setup']        = 'template.php?act=setup';
 // $modules['12_template']['04_template_library']      = 'template.php?act=library';
 // $modules['12_template']['05_edit_languages']        = 'edit_languages.php?act=list';
 // $modules['12_template']['06_template_backup']       = 'template.php?act=backup_setting';

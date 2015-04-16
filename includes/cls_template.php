@@ -392,6 +392,10 @@ class cls_template
                 case 'if':
                     return '<?php endif; ?>';
                     break;
+                
+                case 'for':
+                    return '<?php endfor; ?>';
+                    break;
 
                 case 'foreach':
                     if ($this->_foreachmark == 'foreachelse')
@@ -430,6 +434,10 @@ class cls_template
                 case 'else':
 
                     return '<?php else: ?>';
+                    break;
+                    
+                case 'for':
+                    return '<?php for($i=1; $i<=' . $this->get_val(substr(trim(substr($tag, 4)), 1)) . '; $i++): ?>';
                     break;
 
                 case 'elseif':

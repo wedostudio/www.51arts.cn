@@ -93,11 +93,11 @@
 						<li class="navs">
 							<a href="/auction.php?act=index" class="nav_a">在线拍卖</a>
 							<ul id="subNav_4" class="sub_nav subnav_auction">
-								<li><a href="auction_tobe.html">预<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>展</a>
+								<li><a href="/auction.php?act=cat&type=1">预<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>展</a>
 								</li>
-								<li><a href="auction_ing.html">正在拍卖</a>
+								<li><a href="/auction.php?act=cat&type=0">正在拍卖</a>
 								</li>
-								<li><a href="auction_before.html">往期拍卖</a>
+								<li><a href="/auction.php?act=cat&type=2">往期拍卖</a>
 								</li>
 							</ul>
 						</li>

@@ -221,6 +221,17 @@ $page_libs = array(
         '/library/promotion_info.lbi' => 0,
         '/library/cart.lbi' => 0,
     ),
+    'auction_index' => array(
+        '/library/ur_here.lbi' => 0,
+        '/library/search_form.lbi' => 0,
+        '/library/member.lbi' => 0,
+        '/library/category_tree.lbi' => 0,
+        '/library/promotion_info.lbi' => 0,
+        '/library/cart.lbi' => 0,
+        '/library/history.lbi' => 0,
+    ),
+    'auction_cat' => array(
+    ),
     'auction_list' => array(
         '/library/ur_here.lbi' => 0,
         '/library/search_form.lbi' => 0,

@@ -18,6 +18,8 @@
     <region name=""/>
   </file>
   <file name="article_pro.dwt"/>
+  <file name="auction_index.dwt"/>
+  <file name="auction_cat.dwt"/>
   <file name="auction.dwt">
     <region name="">
       <lib>cart</lib>

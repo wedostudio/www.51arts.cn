@@ -1769,6 +1769,56 @@ function build_uri($app, $params, $append = '', $page = 0, $keywords = '', $size
             }
 
             break;
+        case 'auction_list':
+            if (empty($id))
+            {
+                return false;
+            }
+            else
+            {
+                if ($rewrite)
+                {
+                    $uri = 'auction_list-' . $id;
+                    if (!empty($buynow))
+                    {
+                        $uri .= '-' . $buynow;
+                    }
+                    if (!empty($page))
+                    {
+                        $uri .= '-' . $page;
+                    }
+                    if (!empty($sort))
+                    {
+                        $uri .= '-' . $sort;
+                    }
+                    if (!empty($order))
+                    {
+                        $uri .= '-' . $order;
+                    }
+                }
+                else
+                {
+                    $uri = 'auction.php?id=' . $id;
+                    if (!empty($buynow))
+                    {
+                        $uri .= '&amp;buynow=' . $buynow;
+                    }
+                    if (!empty($page))
+                    {
+                        $uri .= '&amp;page=' . $page;
+                    }
+                    if (!empty($sort))
+                    {
+                        $uri .= '&amp;sort=' . $sort;
+                    }
+                    if (!empty($order))
+                    {
+                        $uri .= '&amp;order=' . $order;
+                    }
+                }
+            }
+
+            break;
         case 'auction':
             if (empty($auid))
             {
@@ -2872,5 +2922,43 @@ function get_top_cat_list()
     }
 
     return $topcat_list;
+}
+
+/**
+ * 计算剩余时间
+ */
+function timeToDHIS($time)
+{
+    if($time <= 0)
+    {
+       return false; 
+    }
+    $timeStr = '';
+    $nY = intval($time / 60 / 60 / 24 / 365);
+    $nD = ($time / 60 / 60 / 24) % 365;
+    $nH = ($time / 60 / 60) % 24;
+    $nI = ($time / 60) % 60;
+    $nS = ($time % 60);
+    $nD = $nY * 365 + $nD;
+    if($nD >= 7)
+    {
+        $timeStr .= $nD? $nD . '天' :'';
+    }
+    elseif($nD >= 1)
+    {
+        $timeStr .= $nD? $nD . '天' :'';
+        $timeStr .= $nH? $nH . '时' :'';
+    }
+    elseif($nH >= 1)
+    {
+        $timeStr .= $nH? $nH . '时' :'';
+        $timeStr .= $nI? $nI . '分' :'';
+    }
+    else
+    {
+        $timeStr .= $nI? $nI . '分' :'';
+        $timeStr .= $nS? $nS . '秒' :'';
+    }
+    return $timeStr;
 }
 ?>

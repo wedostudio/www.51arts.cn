@@ -30,46 +30,130 @@ if (empty($_REQUEST['act']))
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'list')
 {
-    /* 取得拍卖活动总数 */
-    $count = auction_count();
-    if ($count > 0)
+    /* 初始化分页信息 */
+    $page = isset($_REQUEST['page'])   && intval($_REQUEST['page'])  > 0 ? intval($_REQUEST['page'])  : 1;
+    $size = 1;//isset($_CFG['page_size'])  && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 10;
+    
+    /* 获得请求的分类 ID */
+    if (isset($_REQUEST['id']))
     {
-        /* 取得每页记录数 */
-        $size = isset($_CFG['page_size']) && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 10;
-
-        /* 计算总页数 */
-        $page_count = ceil($count / $size);
-
-        /* 取得当前页 */
-        $page = isset($_REQUEST['page']) && intval($_REQUEST['page']) > 0 ? intval($_REQUEST['page']) : 1;
-        $page = $page > $page_count ? $page_count : $page;
-
-        /* 缓存id：语言 - 每页记录数 - 当前页 */
-        $cache_id = $_CFG['lang'] . '-' . $size . '-' . $page;
-        $cache_id = sprintf('%X', crc32($cache_id));
+        $t_id = intval($_REQUEST['id']);
     }
-    else
+    else 
     {
-        /* 缓存id：语言 */
-        $cache_id = $_CFG['lang'];
-        $cache_id = sprintf('%X', crc32($cache_id));
+        /* 如果没有找到任何记录则跳回到首页 */
+        ecs_header("Location: /auction.php?act=index\n");
+        exit;
     }
-
+    
+    if (isset($_REQUEST['buynow']))
+    {
+        $buynow = intval($_REQUEST['buynow'])==0 ? 0 : 1;
+    }
+    else 
+    {
+        $buynow = 0;
+    }
+    
+    $default_sort_order_method = $_CFG['sort_order_method'] == '0' ? 'DESC' : 'ASC';
+    $default_sort_order_type   = $_CFG['sort_order_type'] == '0' ? 'act_id' : ($_CFG['sort_order_type'] == '1' ? 'bid_price' : 'bid_count');
+    
+    $sort  = (isset($_REQUEST['sort'])  && in_array(trim(strtolower($_REQUEST['sort'])), array('act_id', 'bid_price', 'bid_count'))) ? trim($_REQUEST['sort'])  : $default_sort_order_type;
+    $order = (isset($_REQUEST['order']) && in_array(trim(strtoupper($_REQUEST['order'])), array('ASC', 'DESC'))) ? trim($_REQUEST['order']) : $default_sort_order_method;
+    /* 页面的缓存ID */
+    $cache_id = sprintf('%X', crc32($t_id . '-' . $sort  .'-' . $order  .'-' . $page . '-' . $size . '-' . $_SESSION['user_rank'] . '-' .
+    $_CFG['lang'] .'-'. $buynow));
+    
     /* 如果没有缓存，生成缓存 */
     if (!$smarty->is_cached('auction_list.dwt', $cache_id))
     {
-        if ($count > 0)
+
+        $sql = "SELECT count(*) FROM " . $GLOBALS['ecs']->table('goods_activity') ." WHERE act_type = '" . GAT_AUCTION . "' AND t_id = " .$t_id;
+        $count = $GLOBALS['db']->getOne($sql);
+        
+        $max_page = ($count> 0) ? ceil($count / $size) : 1;
+        if ($page > $max_page)
         {
-            /* 取得当前页的拍卖活动 */
-            $auction_list = auction_list($size, $page);
-            $smarty->assign('auction_list',  $auction_list);
-
-            /* 设置分页链接 */
-            $pager = get_pager('auction.php', array('act' => 'list'), $count, $page, $size);
-            $smarty->assign('pager', $pager);
+            $page = $max_page;
         }
-
+        $list = array();
+        if($count)
+        {
+            $where = "WHERE a.act_type = '" . GAT_AUCTION . "' AND a.t_id = " .$t_id;
+            if ($buynow)
+            {
+                $where .=  "AND buynow_price<>0 ";
+            }
+            $where .= " ORDER BY $sort $order";
+            
+            $sql = "SELECT a.*, IFNULL(g.goods_img, '') AS goods_thumb " .
+                "FROM " . $GLOBALS['ecs']->table('goods_activity') . " AS a " .
+                "LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON a.goods_id = g.goods_id " .
+                $where;
+            
+            $res1 = $GLOBALS['db']->selectLimit($sql, $size, ($page - 1) * $size);
+            while ($row1 = $GLOBALS['db']->fetchRow($res1))
+            {
+                $ext_info = unserialize($row1['ext_info']);
+                $info = array_merge($row1, $ext_info);
+                $info['lefttime'] = timeToDHIS($info['end_time']-time());
+                $info['start_time'] = local_date($GLOBALS['_CFG']['time_format'], $info['start_time']);
+                $info['end_time']   = local_date($GLOBALS['_CFG']['time_format'], $info['end_time']);
+                $info['formated_start_price'] = price_format($info['start_price']);
+                $info['formated_end_price'] = price_format($info['end_price']);
+                $info['formated_deposit'] = price_format($info['deposit']);
+                $info['goods_thumb'] = get_image_path($row1['goods_id'], $row1['goods_thumb'], true);
+                $info['url'] = build_uri('auction', array('auid'=>$info['act_id']));
+                $list[] = $info;
+            }
+        }
+        $smarty->assign('auction_list', $list);
+        assign_pager('auction_list', $t_id, $count, $size, $sort, $order, $page, '', '', '', '', '', '', $buynow); // 分页
+        
+        /* 其他拍卖 */
+        $now = time();
+        $sql = "SELECT * " .
+            "FROM " . $GLOBALS['ecs']->table('goods_activity_topic') .
+            "WHERE start_time <= '$now' AND end_time >= '$now' AND t_id<>$t_id ORDER BY end_time ASC";
+        $res = $GLOBALS['db']->selectLimit($sql, 2, 0);
+        $auction = array();
+        while ($row = $GLOBALS['db']->fetchRow($res))
+        {
+            $auction = $row;
+      
+            //拍卖活动的商品
+            $sql = "SELECT a.*, IFNULL(g.goods_img, '') AS goods_thumb " .
+                "FROM " . $GLOBALS['ecs']->table('goods_activity') . " AS a " .
+                "LEFT JOIN " . $GLOBALS['ecs']->table('goods') . " AS g ON a.goods_id = g.goods_id " .
+                "WHERE a.act_type = '" . GAT_AUCTION . "' AND a.t_id = " .$auction['t_id'] .
+                " ORDER BY a.act_id DESC";
+            $res1 = $GLOBALS['db']->selectLimit($sql, 1, 0);
+            while ($row1 = $GLOBALS['db']->fetchRow($res1))
+            {
+                $ext_info = unserialize($row1['ext_info']);
+                $info = array_merge($row1, $ext_info);
+                $info['start_time'] = local_date($GLOBALS['_CFG']['time_format'], $info['start_time']);
+                $info['end_time']   = local_date($GLOBALS['_CFG']['time_format'], $info['end_time']);
+                $info['formated_start_price'] = price_format($info['start_price']);
+                $info['formated_end_price'] = price_format($info['end_price']);
+                $info['formated_deposit'] = price_format($info['deposit']);
+                $info['goods_thumb'] = get_image_path($row1['goods_id'], $row1['goods_thumb'], true);
+                $info['url'] = build_uri('auction', array('auid'=>$info['act_id']));
+            }
+        
+            $auction['first'] = $info;
+            //拍卖活动的商品数
+            $sql = "SELECT count(*) FROM " . $GLOBALS['ecs']->table('goods_activity') .
+            " WHERE t_id = '".$row['t_id']."'";
+            $auction['t_num'] = $GLOBALS['db']->getOne($sql);
+            //剩余时间
+            $auction['lefttime'] = timeToDHIS($info['end_time']-time());
+        }
+        
+        $smarty->assign('other_auction_list', $auction);
+        
         /* 模板赋值 */
+        $smarty->assign('id', $t_id);
         $smarty->assign('cfg', $_CFG);
         assign_template();
         $position = assign_ur_here();
@@ -110,10 +194,6 @@ elseif ($_REQUEST['act'] == 'index')
         $auction_end = get_auction_list(2, 3, 1);
         $smarty->assign('auction_end',  $auction_end);
         
-        /* 取得拍卖结束的活动 */
-//         $hot_goods = get_recommend_goods('hot');
-//         $smarty->assign('hot_goods',  $hot_goods);
-        
         /* 模板赋值 */
         $smarty->assign('cfg', $_CFG);
         assign_template();
@@ -136,16 +216,6 @@ elseif ($_REQUEST['act'] == 'index')
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'cat')
 {
-    /* 取得每页记录数 */
-    $size = isset($_CFG['page_size']) && intval($_CFG['page_size']) > 0 ? intval($_CFG['page_size']) : 20;
-    
-    /* 计算总页数 */
-    $page_count = ceil($count / $size);
-    
-    /* 取得当前页 */
-    $page = isset($_REQUEST['page']) && intval($_REQUEST['page']) > 0 ? intval($_REQUEST['page']) : 1;
-    $page = $page > $page_count ? $page_count : $page;
-    
     /* 缓存id：语言 */
     $cache_id = sprintf('%X', crc32($_SESSION['user_rank'] . '-' . $_CFG['lang']));
 
@@ -164,7 +234,7 @@ elseif ($_REQUEST['act'] == 'cat')
             case 2:
                 $sql = "SELECT * " .
                     "FROM " . $GLOBALS['ecs']->table('goods_activity_topic') .
-                    "WHERE end_time < '$now' ORDER BY a.end_time DESC";
+                    "WHERE end_time < '$now' ORDER BY end_time DESC";
                 break;
             default:
                 $sql = "SELECT * " .
@@ -220,10 +290,6 @@ elseif ($_REQUEST['act'] == 'cat')
 //         var_dump($auction);
 //         exit;
         $smarty->assign('auction_list', $auction_list);    // 页面标题
-        
-        /* 取得拍卖结束的活动 */
-        //         $hot_goods = get_recommend_goods('hot');
-        //         $smarty->assign('hot_goods',  $hot_goods);
 
         /* 模板赋值 */
         $smarty->assign('cfg', $_CFG);
@@ -607,7 +673,7 @@ function auction_count()
  * @param   int     $page   当前页
  * @return  array
  */
-function auction_list($size, $page)
+function auction_list($type=0, $size, $page)
 {
     $auction_list = array();
     $auction_list['finished'] = $auction_list['finished'] = array();

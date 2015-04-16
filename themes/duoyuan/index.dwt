@@ -191,7 +191,7 @@
 						<ul class="slide-li">
 							<!--{foreach from=$new_goods item=goods}-->
 							<li>
-								<a href="#">
+								<a href="{$goods.url}">
 									<img src="{$goods.goods_img}" alt="item_info" />
 								</a>
 								<p><span class="item_name">{$goods.short_style_name}</span>

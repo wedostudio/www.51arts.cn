@@ -14,8 +14,7 @@
 
 <link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_rmenu.css" />
-<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/auction_common.css" />
-<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/auction.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/auction_topic.css" />
 <link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_salerank.css" />
 
 
@@ -35,240 +34,86 @@
 
 		<div id="banner" class="fullwidth slidebox content_block">
 				<ul class="slidepic">
-					<li>
-						<a href="#">
-							<img alt="img1" src="img/lv3_auction_before_banner_01.jpg" />
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img alt="img2" src="img/lv3_auction_before_banner_02.jpg " />
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img alt="img3" src="img/lv3_auction_before_banner_03.jpg" />
-						</a>
-					</li>
+					<!-- TemplateBeginEditable name="拍卖幻灯片" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
 				</ul>
 				<div class="slidebtn">
 					<ul>
+					<!-- {for $ads_num} --> 
 						<li></li>
-						<li></li>
-						<li></li>
+					<!-- {/for} -->
 					</ul>
 				</div>
 
 			</div>
 
-			<div id="auction_wrap" class="fitwidth wrap_top_border content_block">
+			<div id="item_wrap" class="fitwidth">
+				<div id="item_sort">
+					<a href="auction.php">默认</a>
+					<a href="auction.php?id={$id}&buynow=1&sort={$pager.sort}&order={$pager.order}" {if $pager.seach.buynow == 1}style="background:#e9e9e9"{/if} class="fixed_price">一口价</a>
+					<a href="#" class="price_sort">按价格</a>
+					<a {if $pager.sort == 'bid_price' && $pager.order == 'ASC'}class="price_sort_drt"{/if} href="auction.php?id={$id}&buynow={$pager.search.buynow}&sort=bid_price&order=ASC#goods_list">从低到高</a>
+					<a {if $pager.sort == 'bid_price' && $pager.order == 'DESC'}class="price_sort_drt"{/if} href="auction.php?id={$id}&buynow={$pager.search.buynow}&sort=bid_price&order=DESC#goods_list">从高到低</a>
+					<a href="#" class="price_sort">按出价次数</a>
+					<a {if $pager.sort == 'bid_count' && $pager.order == 'ASC'}class="price_sort_drt"{/if} href="auction.php?id={$id}&buynow={$pager.search.buynow}&sort=bid_count&order=ASC#goods_list">从少到多</a>
+					<a {if $pager.sort == 'bid_count' && $pager.order == 'DESC'}class="price_sort_drt"{/if} href="auction.php?id={$id}&buynow={$pager.search.buynow}&sort=bid_count&order=DESC#goods_list">从多到少</a>
+				</div>
 
-				<div id="auction_title" class="auction_before_title"></div>
-				<div id="auction_list">
-					<ul>
-					<!-- {foreach from=$auction_ing item=auction} 循环拍卖活动开始 -->
-						<li>
-							<div class="auction_img">
+				<div id="item_list">
+
+					<table cellspacing="20px">
+						<tr>
+						<!-- {foreach from=$auction_list item=auction} 循环拍卖活动开始 -->
+							<td>
 								<a href="{$auction.url}">
-									<img src="{$auction.goods_thumb}" alt="{$auction.goods_name|escape:html}" />
+									<div class="item_top">
+										<img src="{$auction.goods_thumb}" alt="{$auction.goods_name|escape:html}" />
+										<h4>{$auction.goods_name|escape:html}</h4>
+									</div>
+									<div class="item_bottom">
+										<p class="price">当前价<span>{$auction.bid_price}</span>元</p>
+										<div class="dotted_line2"></div>
+										<p class="overtime">距结束<span>{$auction.lefttime}</span>
+										</p>
+										<p class="pricecnt">出价次数<span>{$auction.bid_count}</span>次</p>
+									</div>
 								</a>
-							</div>
-							<div class="auction_text">
-								<a href="#"><h2>{$auction.goods_name|escape:html}</h2></a>
-								<div class="dotted_line2"></div>
-								<p>
-									<span>拍卖件数：100件</span>
-									<span class="auction_time">拍卖时间：{$auction.start_time}—{$auction.end_time}</span>
-								</p>
-								<div class="dotted_line2"></div>
-								<ul>
-									<a href="#">
-										<li>
-											<img src="img/lv3_auction_before_auctiontoday_lit_01_01.jpg" alt="auction today" />
-										</li>
-									</a>
-									<a href="#">
-										<li>
-											<img src="img/lv3_auction_before_auctiontoday_lit_01_02.jpg" alt="auction today" />
-										</li>
-									</a>
-									<a href="#">
-										<li>
-											<img src="img/lv3_auction_before_auctiontoday_lit_01_03.jpg" alt="auction today" />
-										</li>
-									</a>
-									<a href="#">
-										<li class="last_img">
-											<img src="img/lv3_auction_before_auctiontoday_lit_01_04.jpg" alt="auction today" />
-										</li>
-									</a>
-								</ul>
-							</div>
-						</li>
+							</td>
+						<!--{/foreach}-->
+							<td>						</tr>
 
-						<li>
-							<div class="auction_img">
-								<a href="#">
-									<img src="img/lv3_auction_before_auctiontoday_02.jpg" alt="auction today" />
-								</a>
-							</div>
-							<div class="auction_text">
-								<a href="#"><h2>福州现代工艺家具特别拍卖会</h2></a>
-								<div class="dotted_line2"></div>
-								<p>
-									<span>拍卖件数：100件</span>
-									<span class="auction_time">拍卖时间：2015.3.00-2015.5.11</span>
-								</p>
-								<div class="dotted_line2"></div>
-								<ul>
-									<a href="#">
-										<li>
-											<img src="img/lv3_auction_before_auctiontoday_lit_02_01.jpg" alt="auction today" />
-										</li>
-									</a>
-									<a href="#">
-										<li>
-											<img src="img/lv3_auction_before_auctiontoday_lit_02_02.jpg" alt="auction today" />
-										</li>
-									</a>
-									<a href="#">
-										<li>
-											<img src="img/lv3_auction_before_auctiontoday_lit_02_03.jpg" alt="auction today" />
-										</li>
-									</a>
-									<a href="#">
-										<li class="last_img">
-											<img src="img/lv3_auction_before_auctiontoday_lit_02_04.jpg" alt="auction today" />
-										</li>
-									</a>
-								</ul>
-							</div>
-						</li>
+					</table>
+				</div>
+				<!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+			</div>
 
-						<li class="last_auction">
-							<div class="auction_img">
-								<a href="#">
-									<img src="img/lv3_auction_before_auctiontoday_03.jpg" alt="auction today" />
-								</a>
-							</div>
-							<div class="auction_text">
-								<a href="#"><h2>福州现代工艺家具特别拍卖会</h2></a>
-								<div class="dotted_line2"></div>
-								<p>
-									<span>拍卖件数：100件</span>
-									<span class="auction_time">拍卖时间：2015.3.00-2015.5.11</span>
-								</p>
-								<div class="dotted_line2"></div>
-								<ul>
-									<a href="#">
-										<li>
-											<img src="img/lv3_auction_before_auctiontoday_lit_03_01.jpg" alt="auction today" />
-										</li>
-									</a>
-									<a href="#">
-										<li>
-											<img src="img/lv3_auction_before_auctiontoday_lit_03_02.jpg" alt="auction today" />
-										</li>
-									</a>
-									<a href="#">
-										<li>
-											<img src="img/lv3_auction_before_auctiontoday_lit_03_03.jpg" alt="auction today" />
-										</li>
-									</a>
-									<a href="#">
-										<li class="last_img">
-											<img src="img/lv3_auction_before_auctiontoday_lit_03_04.jpg" alt="auction today" />
-										</li>
-									</a>
-								</ul>
-							</div>
-						</li>
+			<div id="other_auction" class="fitwidth content_block wrap_top_border">
+				<div id="other_auction_title"><a href="/auction.php?act=cat">查看更多</a>
+				</div>
 
-					</ul>
-
+				<div id="other_auction_item">
+				<!-- {foreach from=$other_auction_list item=auction} 循环拍卖活动开始 -->
+					<a href="/auction.php?act=list&id={$auction.t_id}">
+						<div class="other_auction_left">
+							<img src="{$auction.first.goods_thumb}" alt="{$auction.first.goods_name|escape:html}" />
+							<div class="oth_auction_text">
+								<h2>{$auction.topic_name}</h2>
+								<div class="dotted_line2"></div>
+								<p class="auctioncnt">拍卖件数<span>{$auction.t_num}</span>件</p>
+								<p class="overtime">距结束<span>{$auction.lefttime}</span>
+							</div>
+						</div>
+					</a>
+				<!--{/foreach}-->
 				</div>
 
 			</div>
 
-			<div id="salerank" class="fitwidth content_block wrap_top_border">
-				<div id="salerank_info">
-					<span id="salerank_bg"></span>
-					<span id="salerank_title">/热门商品推荐</span>
-					<a href="#">查看更多</a>
-				</div>
-
-				<table cellspacing="25px">
-					<tr class="salerank_item">
-						<td>
-							<img src="img/salerank_01.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="img/salerank_02.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="img/salerank_03.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="img/salerank_04.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="img/salerank_05.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-					</tr>
-					<tr class="salerank_name">
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-					</tr>
-
-					<tr class="salerank_item">
-						<td>
-							<img src="img/salerank_06.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="img/salerank_07.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="img/salerank_08.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="img/salerank_09.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="img/salerank_10.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-					</tr>
-					<tr class="salerank_name">
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-					</tr>
-				</table>
-			</div>
+			<!-- #BeginLibraryItem "/auction_hot_goods.dwt" --><!-- #EndLibraryItem -->
 
 			<div id="footer_wrap" class="fullwidth">
 				<div id="footer" class="fitwidth">

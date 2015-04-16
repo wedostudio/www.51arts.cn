@@ -34,27 +34,18 @@
 
 		<div id="banner" class="fullwidth slidebox content_block">
 				<ul class="slidepic">
-					<li>
-						<a href="#">
-							<img alt="img1" src="/themes/duoyuan/img/lv3_auction_before_banner_01.jpg" />
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img alt="img2" src="/themes/duoyuan/img/lv3_auction_before_banner_02.jpg " />
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img alt="img3" src="/themes/duoyuan/img/lv3_auction_before_banner_03.jpg" />
-						</a>
-					</li>
+					<!-- TemplateBeginEditable name="拍卖幻灯片" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
 				</ul>
 				<div class="slidebtn">
 					<ul>
+					<!-- {for $ads_num} --> 
 						<li></li>
-						<li></li>
-						<li></li>
+					<!-- {/for} -->
 					</ul>
 				</div>
 
@@ -99,85 +90,7 @@
 
 			</div>
 
-			<div id="salerank" class="fitwidth content_block wrap_top_border">
-				<div id="salerank_info">
-					<span id="salerank_bg"></span>
-					<span id="salerank_title">/热门商品推荐</span>
-					<a href="#">查看更多</a>
-				</div>
-
-				<table cellspacing="25px">
-					<tr class="salerank_item">
-						<td>
-							<img src="/themes/duoyuan/img/salerank_01.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="/themes/duoyuan/img/salerank_02.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="/themes/duoyuan/img/salerank_03.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="/themes/duoyuan/img/salerank_04.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="/themes/duoyuan/img/salerank_05.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-					</tr>
-					<tr class="salerank_name">
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-					</tr>
-
-					<tr class="salerank_item">
-						<td>
-							<img src="/themes/duoyuan/img/salerank_06.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="/themes/duoyuan/img/salerank_07.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="/themes/duoyuan/img/salerank_08.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="/themes/duoyuan/img/salerank_09.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-						<td>
-							<img src="/themes/duoyuan/img/salerank_10.jpg" alt="拍卖排行" />
-							<a href="#">查看详情</a>
-						</td>
-					</tr>
-					<tr class="salerank_name">
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-						<td><span>明清红木家具</span>
-						</td>
-					</tr>
-				</table>
-			</div>
+			<!-- #BeginLibraryItem "/auction_hot_goods.dwt" --><!-- #EndLibraryItem -->
 
 			<div id="footer_wrap" class="fullwidth">
 				<div id="footer" class="fitwidth">

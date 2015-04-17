@@ -1,0 +1,71 @@
+/* 公共 */
+.searchdiv,
+.hotdiv,
+.result-toolbar,
+.result-datalist,
+.result-pagebar {
+	margin: 15px;
+}
+
+/* 搜索选项卡 */
+/*
+.seartab{ margin: 20px 0;}
+.seartab span.fl-left{ width: 25%; line-height: 50px;}
+.seartab span a.block{border:1px solid #e0e0e0;border-left:1px solid #fff;background-color:#f9f9f9;}
+.seartab span.on a{background-color:#ffffff;border-bottom:0px;}
+*/
+
+/* 搜索表单 */
+.searchdiv .input-wrap{ position: relative;}
+.searchdiv button{ position: absolute; left: 8px; top: 6px; background: none;}
+.searchdiv button img{ display: block;}
+.searchdiv input{ width: 100%; padding: 18px 0 18px 42px; border: 1px solid #ddd; box-sizing: border-box; font-size: 12px;}
+
+/* 热门搜索 */
+.hotdiv{ margin-left: 0; margin-right: 0;}
+.hottitle{ padding: 8px 15px; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0;}
+.hotlist{ margin-top: 0; margin-bottom: 0; padding: 0 15px; text-align: center;}
+.hotlist li{ float: left; width: 33%;}
+.hotlist li a{ display: block; padding: 8px 0; margin: -1px 0 0 -1px; border: 1px solid #e0e0e0;}
+.hotlist li a.block{height:2.4em;padding:0 0.5em;}
+
+/* 搜索结果 - 工具栏 */
+.result-toolbar select, input {
+	display: block;
+	float: left;
+	height: 30px;
+	margin-right: 15px;
+	padding: 6px;
+	border: 1px solid #ddd;
+	background: none;
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+/* 搜索结果 - 数据列表 */
+.result-datalist li {
+	margin-top: 15px;
+}
+.result-datalist li:first-child{
+	margin-top: 0;
+}
+.result-datalist li a,
+.result-datalist li img{
+	display: block;
+}
+.result-datalist li img {
+	max-width: 100%;
+	width: 100%;
+}
+.result-datalist li h4 {
+	line-height: 36px;
+}
+
+/* 搜索结果 - 分页栏 */
+.result-pagebar {
+	text-align: center;
+}
+.result-pagebar a {
+	display: inline-block;
+	margin: 0 15px;
+}

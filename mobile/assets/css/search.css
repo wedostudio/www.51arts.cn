@@ -1,30 +1,40 @@
+/* 公共 */
+.searchdiv,
+.hotdiv,
+.result-toolbar,
+.result-datalist,
+.result-pagebar {
+	margin: 15px;
+}
+
 /* 搜索选项卡 */
+/*
 .seartab{ margin: 20px 0;}
 .seartab span.fl-left{ width: 25%; line-height: 50px;}
 .seartab span a.block{border:1px solid #e0e0e0;border-left:1px solid #fff;background-color:#f9f9f9;}
 .seartab span.on a{background-color:#ffffff;border-bottom:0px;}
+*/
 
 /* 搜索表单 */
-.searchdiv{ margin: 20px;}
 .searchdiv .input-wrap{ position: relative;}
-.searchdiv button{ position: absolute; left: 10px; top: 6px; background: none;}
+.searchdiv button{ position: absolute; left: 8px; top: 6px; background: none;}
 .searchdiv button img{ display: block;}
-.searchdiv input{ border: 1px solid #ddd; box-sizing: border-box; width: 100%; height: 40px; padding-left: 44px;}
+.searchdiv input{ width: 100%; padding: 18px 0 18px 42px; border: 1px solid #ddd; box-sizing: border-box; font-size: 12px;}
 
-/* 热词列表 */
-.hottitle{padding:0 1em;line-height:2.4em;border-top:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;}
-.hotlist{margin:0 1em;}
-.hotlist li.fl-left{width:33%;border-bottom:1px solid #e0e0e0;border-right:1px solid #e0e0e0;margin-right:-1px;line-height:2.4em;}
-.hotlist li:nth-child(3n){border-right:0px;width:34%;}
+/* 热门搜索 */
+.hotdiv{ margin-left: 0; margin-right: 0;}
+.hottitle{ padding: 8px 15px; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0;}
+.hotlist{ margin-top: 0; margin-bottom: 0; padding: 0 15px; text-align: center;}
+.hotlist li{ float: left; width: 33%;}
+.hotlist li a{ display: block; padding: 8px 0; margin: -1px 0 0 -1px; border: 1px solid #e0e0e0;}
 .hotlist li a.block{height:2.4em;padding:0 0.5em;}
 
-/* 搜索结果-工具栏 */
-.result-toolbar {
-	margin: 20px;
-}
+/* 搜索结果 - 工具栏 */
 .result-toolbar select, input {
+	display: block;
+	float: left;
 	height: 30px;
-	margin-right: 10px;
+	margin-right: 15px;
 	padding: 6px;
 	border: 1px solid #ddd;
 	background: none;
@@ -32,23 +42,30 @@
 	font-size: 12px;
 }
 
-/* 搜索结果-数据列表 */
-.result-datalist {
-	margin: 0 20px;
+/* 搜索结果 - 数据列表 */
+.result-datalist li {
+	margin-top: 15px;
 }
-.result-datalist li,
-.result-datalist li a{
+.result-datalist li:first-child{
+	margin-top: 0;
+}
+.result-datalist li a,
+.result-datalist li img{
 	display: block;
 }
 .result-datalist li img {
 	max-width: 100%;
+	width: 100%;
+}
+.result-datalist li h4 {
+	line-height: 36px;
 }
 
-/* 搜索结果-分页栏 */
+/* 搜索结果 - 分页栏 */
 .result-pagebar {
-	margin: 20px;
+	text-align: center;
 }
 .result-pagebar a {
 	display: inline-block;
-	margin: 0 10px;
+	margin: 0 15px;
 }

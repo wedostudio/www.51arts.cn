@@ -385,7 +385,7 @@ elseif ($action == 'act_login')
         }
     }
     //WEDO
-    $sql="SELECT user_name FROM dy_users WHERE mobile_phone = ".$mobile_phone;
+    $sql="SELECT user_name FROM dy_users WHERE mobile_phone = '$mobile_phone'";
     $results=$db->getRow($sql);
     $username=$results['user_name'];
     if(!$username){

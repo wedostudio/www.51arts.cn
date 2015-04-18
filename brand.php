@@ -169,8 +169,13 @@ $count = $GLOBALS['db']->getOne($sql);
 		$sql.=" AND artist_times=".$_REQUEST['artist_times'];
 		$smarty->assign('cur_artist_times',   $_REQUEST['artist_times']);
 	}
+	if(!empty($_REQUEST['letter'])){
+		$sql.=" AND artist_letter= '".$_REQUEST['letter']."'";
+		$smarty->assign('cur_artist_letter',   $_REQUEST['letter']);
+	}
 		$sql.=" ORDER BY ".$sort." ".$order." LIMIT ".(($page-1)*$size).",".$size;
-//echo $page.'      ';echo $size;exit;
+//		echo $sql;exit;
+
 //echo $sql;exit;
 
 $brand_info = $GLOBALS['db']->getAll($sql);
@@ -191,7 +196,7 @@ $brand_info = $GLOBALS['db']->getAll($sql);
     $smarty->assign('ur_here',        $position['ur_here']); // 当前位置
     $smarty->assign('artist_type',       $brand_id);
     $smarty->assign('category',       $cate);
-
+    $smarty->assign('cur_sort',       $sort);
     $smarty->assign('categories',     get_categories_tree());        // 分类树
     $smarty->assign('helps',          get_shop_help());              // 网店帮助
     $smarty->assign('top_goods',      get_top10());                  // 销售排行

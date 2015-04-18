@@ -11,9 +11,9 @@
     <td class="label">类型</td>
     <td>
     	<select name="artist_type">
-		<option value="1" selected="selected">艺术家</option>
-		<option value="2">文创公司</option>
-		<option value="3">艺术爱好者</option>
+		<option value="1" {if $brand.artist_type eq 1} selected="selected" {/if}>艺术家</option>
+		<option value="2" {if $brand.artist_type eq 2} selected="selected" {/if}>文创公司</option>
+		<option value="3" {if $brand.artist_type eq 3} selected="selected" {/if}>艺术爱好者</option>
 		</select>
     </td>
   </tr>

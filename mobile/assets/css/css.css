@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* CSS Document */
+body{/*overflow-x:hidden;overflow-y:hidden;overflow-y:auto;width:100%;height:100%;*/overflow-x:hidden;width:100%;height:100%;}
+body,input,textarea,button{font-size:100%; font-family:Microsoft YaHei,Arial;color:#333333; }
+
+*{margin:0; padding:0; border:0;}
+ol,ul,li{list-style-image:none;list-style-position:outside;list-style-type:none;}
+.fl-left{float:left;}
+.fl-right{float:right;}
+.clear{clear:both; height:0px; width:100%; margin:0; padding:0; border:none; overflow:hidden; }
+
+.clearfix:after{ content: ""; display: block; height: 0; clear: both; visibility: hidden;}
+.clearfix{ *zoom: 1;}
+
+a{text-decoration:none; cursor:pointer; color:#333333;font-family:Microsoft YaHei,Arial;}
+a:focus{text-decoration:none;}
+a,span,li,select,button{-webkit-tap-highlight-color: rgba(0,0,0,0);}
+button,input{outline:none;}
+/**, *:before, *:after{box-sizing:border-box;}*/
+img{border:0px;max-width:100%;max-height:100%;}
+.block{display:block;}
+.none{display:none;}
+.color1{color:#ffffff;}
+.color2{color:#666666;}
+.color3{color:#b2b2b2;}
+.color4{color:#dd5451;}
+.color5{color:#e54932;}
+.color6{color:#514b4b;}
+.color7{color:#353434;}
+.color8{color:#cecbcb;}
+.color9{color:#048aee;}
+.color10{color:#737373;}
+
+.ft_12{font-size:0.75em;}
+.ft_13{font-size:0.82em;}
+.ft_14{font-size:0.875em;}
+.ft_16{font-size:1em;}
+.ft_18{font-size:1.125em;}
+.ft_20{font-size:1.25em;}
+.ft_22{font-size:1.375em;}
+.ft_24{font-size:1.5em;}
+.ft_25{font-size:1.56em;}
+.ft_26{font-size:1.625em;}
+.ft_28{font-size:1.75em;}
+.ft_30{font-size:1.88em;}
+.ft_32{font-size:2em;}
+.ft_36{font-size:2.25em;}
+
+.ft_ar{font-family:Arial, Helvetica, sans-serif;}
+.ft_mi{font-family:simsun;}
+
+h3.ft_18.color2{line-height:46px;margin-top:10px;padding:0 4%;}
+
+.center{text-align:center;}
+.textright{text-align:right;}
+.posire{position:relative;}
+.posifi{position:fixed;}
+.hidden{overflow:hidden;}
+.line{display:inline-block;}
+.normal{font-weight:normal;}
+.bold{font-weight:bold;}
+
+.slick-slide span{display:none;}
+
+div.img label.line{height:100%; vertical-align:middle;}
+div.img img{ vertical-align:middle;}
+
+.title{text-overflow:ellipsis;white-space:nowrap;float:left;_display:inline;overflow:hidden;text-aligN:left;}
+/*头部*/
+header{height:72px;background:#f9f9f9;line-height:72px;}
+header > label.line{height:100%; vertical-align:middle;margin-left:18px;}
+header  img{ vertical-align:middle;}
+header div.fl-right{height:100%;margin-right:10px;}
+header a.line{width:72px;height:31px;line-height:31px; vertical-align:middle;border-radius:5px;margin:0 5px;}
+header a.reg_a{background-color:#666666;}
+header a.login_a{background-color:#b1955d;}
+header span.back{margin-right:-60px;margin-left:16px;}
+/*底部*/
+.foot{height:100px;margin-top:2em;}
+.footbg{background:#595757;left:0px;width:100%;bottom:0px;z-index:2;}
+.footbg a.fl-left{width:25%;height:100%;}
+.footbg a.fl-left label.line{height:100%; vertical-align:middle;}
+footer img{ vertical-align:middle;}
+
+.footjiao{height:16px;left:0px;width:100%;bottom:100px;z-index:3;}
+.footjiao span{width:25%;height:100%;}
+.footjiao span label.block{width:0px;height:0px;margin:0 auto;border-width:8px;border-style:solid;border-color:transparent transparent #595757 transparent;display:none;}
+.footjiao span.on label.block{display:block;}
+
+div.foot ul{width:100%;left:0px;bottom:100px;z-index:2;display:none;}
+div.foot ul li{width:50%;background:#fff;opacity:0.8;border-top:1px solid #e0e0e0;}
+div.foot ul li a.block{margin:0.3em 0;line-height:2em;border-right:1px solid #e0e0e0;}
+div.foot ul li:nth-child(2n) a.block{border-right:0px;}
+
+figcaption.center img{ height:16px;}
+.jiao{display:inline-block;width:0px;height:0px;border-style:solid;border-width:9px 5px;border-color:#333333 transparent transparent transparent;  vertical-align:middle;
+	margin:0 5px -9px 5px;
+}
+.jiao.dq{border-color:transparent transparent #333333 transparent;margin:-9px 5px 0 5px;}
+@media screen and (max-width:420px) { 
+	/*body,.indexclass{font-size:75%;}*/
+	header{height:52px;line-height:52px;}
+	header > img{height:20px;}
+	header span.back{width:30px;margin-right:-40px;}
+	header a.line{width:52px;height:23px;line-height:23px;}
+
+	.foot{height:62px;}
+	footer img{width:35px;}
+	.footjiao,div.foot ul{bottom:62px;}
+}
+@media screen and (max-width:360px) { 
+
+}
+
+@media screen and (max-width:320px) { 
+
+}

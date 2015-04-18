@@ -11,131 +11,302 @@
 <!-- TemplateEndEditable -->
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
-<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_rmenu.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_hotinfo.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/artinfo.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_salerank.css" />
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
 {* 包含脚本文件 *}
+{insert_scripts files='jquery.js,jquery.json.js'}
 {insert_scripts files='common.js'}
+<script type="text/javascript" src="js/common_function.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/common_rmenu.js"></script>
+<script type="text/javascript" src="js/artinfo.js"></script>
+<script type="text/javascript" src="js/common_salerank.js"></script>
 </head>
 <body>
+		<div id="wrap">
 <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
-<!--当前位置 start-->
-<div class="block box">
- <div id="ur_here">
-  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
- </div>
-</div>
-<!--当前位置 end-->
-<div class="blank"></div>
-<div class="block clearfix">
-  <!--left start-->
-  <div class="AreaL">
-    <!-- TemplateBeginEditable name="左边区域" -->
-<!-- #BeginLibraryItem "/library/cart.lbi" -->
 
-{insert_scripts files='transport.js'}
-<div class="cart" id="ECS_CARTINFO">
- {insert name='cart_info'}
-</div>
-<div class="blank5"></div>
+		<div id="banner" class="fitwidth">
+				<a href="#">
+					<img src="img/lv3_artinfo_artdecode_banner_01.jpg" alt="super info" />
+					<div id="banner_bg"></div>
+					<div>
+						<h3>法国枫丹白露宫中国馆被盗文物不止15件</h3>
+					</div>
+				</a>
+			</div>
 
- <!-- #EndLibraryItem -->
-<!-- #BeginLibraryItem "/library/category_tree.lbi" -->
+			<div id="content_wrap" class="fitwidth">
+				<div id="content_left" class="wrap_top_border">
 
-<div class="box">
- <div class="box_1">
-  <div id="category_tree">
-    <!--{foreach from=$categories item=cat}-->
-     <dl>
-     <dt><a href="{$cat.url}">{$cat.name|escape:html}</a></dt>
-     <!--{foreach from=$cat.children item=child}-->
-     <dd><a href="{$child.url}">{$child.name|escape:html}</a></dd>
-     <!--{/foreach}-->
-     </dl>
-    <!--{/foreach}--> 
-  </div>
- </div>
-</div>
-<div class="blank5"></div>
+					<div id="artinfo_elem_title" class="artdecode_title"></div>
 
- <!-- #EndLibraryItem -->
-<!-- {if $article_categories} -->
- <!-- #BeginLibraryItem "/library/article_category_tree.lbi" --><!-- #EndLibraryItem -->
-<!-- {/if} -->
- <!-- #BeginLibraryItem "/library/filter_attr.lbi" --><!-- #EndLibraryItem -->
- <!-- #BeginLibraryItem "/library/price_grade.lbi" --><!-- #EndLibraryItem -->
-<!-- TemplateEndEditable -->
-<!-- TemplateBeginEditable name="左边广告区域（宽200px）" -->
-<!-- TemplateEndEditable -->
-    <!--AD end-->
-    <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
-  </div>
-  <!--left end-->
-  <!--right start-->
-  <div class="AreaR">
-   <div class="box">
-   <div class="box_1">
-    <h3><span>{$lang.article_list}</span></h3>
-    <div class="boxCenterList">
-          <form action="{$search_url}" name="search_form" method="post" class="article_search">
-        <input name="keywords" type="text" id="requirement" value="{$search_value}" class="inputBg" />
-        <input name="id" type="hidden" value="{$cat_id}" />
-        <input name="cur_url" id="cur_url" type="hidden" value="" />
-        <input type="submit" value="{$lang.button_search}" class="bnt_blue_1" />
-      </form>
-      <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
-      <tr>
-        <th bgcolor="#ffffff">{$lang.article_title}</th>
-          <th bgcolor="#ffffff">{$lang.article_author}</th>
-          <th bgcolor="#ffffff">{$lang.article_add_time}</th>
-        </tr>
-      <!-- {foreach from=$artciles_list item=article} -->
-      <tr>
-        <td bgcolor="#ffffff"><a href="{$article.url}" title="{$article.title|escape:html}" class="f6">{$article.short_title}</a></td>
-          <td bgcolor="#ffffff">{$article.author}</td>
-          <td bgcolor="#ffffff" align="center">{$article.add_time}</td>
-        </tr>
-      <!-- {/foreach} -->
-    </table>
-    </div>
-   </div>
-  </div>
-  <div class="blank5"></div>
-  <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
-  </div>  
-  <!--right end-->
-</div>
-<div class="blank5"></div>
-<!--帮助-->
-<div class="block">
-  <div class="box">
-   <div class="helpTitBg clearfix">
-    <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
-   </div>
-  </div>  
-</div>
-<div class="blank"></div>
-<!--帮助-->
-<!--友情链接 start-->
-<!--{if $img_links  or $txt_links }-->
-<div id="bottomNav" class="box">
- <div class="box_1">
-  <div class="links clearfix">
-    <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
-    <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" alt="{$link.name}" border="0" /></a>
-    <!--结束图片类型的友情链接{/foreach}-->
-    <!-- {if $txt_links} -->
-    <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
-    [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>] 
-    <!--结束文字类型的友情链接{/foreach}-->
-    <!-- {/if} -->
-  </div>
- </div>
-</div>
-<!--{/if}-->
-<!--友情链接 end-->
-<div class="blank"></div>
-<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
-</body>
-<script type="text/javascript">
-document.getElementById('cur_url').value = window.location.href;
-</script>
+					<ul id="artinfo_elem_list">
+						<li>
+							<img src="img/lv3_artinfo_artdecode_artdecode_01.jpg" alt="super info" />
+							<div>
+								<a href="#"><h3>法国枫丹白露宫中国馆被盗文物不止15件</h3></a>
+								<div class="text_overflow_ddd">
+									<P>法国枫丹白露宫中国馆本月1日失窃，当时博物馆方面公布15件文物遭窃法国枫丹白露宫中国馆本月1日失窃，当时博物馆方面公布15件文物遭窃当时博物馆方面公布15件文物遭窃.</P>
+								</div>
+								<span class="info_time"><span>2月20日</span><span>15:35</span></span>
+								<span class="info_comment"><span>评论</span><a href="#"><span>12</span></a>
+								<span class="info_sepa">|</span>
+								<a href="#"><span class="comment_praise">8</span></a>
+								</span>
+							</div>
+						</li>
+						<div class="dotted_line"></div>
+						<li>
+							<img src="img/lv3_artinfo_artdecode_artdecode_02.jpg" alt="super info" />
+							<div>
+								<a href="#"><h3>法国枫丹白露宫中国馆被盗文物不止15件</h3></a>
+								<div class="text_overflow_ddd">
+									<P>法国枫丹白露宫中国馆本月1日失窃，当时博物馆方面公布15件文物遭窃法国枫丹白露宫中国馆本月1日失窃，当时博物馆方面公布15件文物遭窃</P>
+								</div>
+								<span class="info_time"><span>2月20日</span><span>15:35</span></span>
+								<span class="info_comment"><span>评论</span><a href="#"><span>12</span></a>
+								<span class="info_sepa">|</span>
+								<a href="#"><span class="comment_praise">8</span></a>
+								</span>
+							</div>
+						</li>
+						<div class="dotted_line"></div>
+						<li>
+							<img src="img/lv3_artinfo_artdecode_artdecode_03.jpg" alt="super info" />
+							<div>
+								<a href="#"><h3>法国枫丹白露宫中国馆被盗文物不止15件</h3></a>
+								<div class="text_overflow_ddd">
+									<P>法国枫丹白露宫中国馆本月1日失窃，当时博物馆方面公布15件文物遭窃</P>
+								</div>
+								<span class="info_time"><span>2月20日</span><span>15:35</span></span>
+								<span class="info_comment"><span>评论</span><a href="#"><span>12</span></a>
+								<span class="info_sepa">|</span>
+								<a href="#"><span class="comment_praise">8</span></a>
+								</span>
+							</div>
+						</li>
+						<div class="dotted_line"></div>
+						<li>
+							<img src="img/lv3_artinfo_artdecode_artdecode_04.jpg" alt="super info" />
+							<div>
+								<a href="#"><h3>法国枫丹白露宫中国馆被盗文物不止15件</h3></a>
+								<div class="text_overflow_ddd">
+									<P>法国枫丹白露宫中国馆本月1日失窃，当时博物馆方面公布15件文物遭窃</P>
+								</div>
+								<span class="info_time"><span>2月20日</span><span>15:35</span></span>
+								<span class="info_comment"><span>评论</span><a href="#"><span>12</span></a>
+								<span class="info_sepa">|</span>
+								<a href="#"><span class="comment_praise">8</span></a>
+								</span>
+							</div>
+						</li>
+						<div class="dotted_line"></div>
+						<li>
+							<img src="img/lv3_artinfo_artdecode_artdecode_05.jpg" alt="super info" />
+							<div>
+								<a href="#"><h3>法国枫丹白露宫中国馆被盗文物不止15件</h3></a>
+								<div class="text_overflow_ddd">
+									<P>法国枫丹白露宫中国馆本月1日失窃，当时博物馆方面公布15件文物遭窃</P>
+								</div>
+								<span class="info_time"><span>2月20日</span><span>15:35</span></span>
+								<span class="info_comment"><span>评论</span><a href="#"><span>12</span></a>
+								<span class="info_sepa">|</span>
+								<a href="#"><span class="comment_praise">8</span></a>
+								</span>
+							</div>
+						</li>
+						<div class="dotted_line"></div>
+						<li>
+							<img src="img/lv3_artinfo_artdecode_artdecode_06.jpg" alt="super info" />
+							<div>
+								<a href="#"><h3>法国枫丹白露宫中国馆被盗文物不止15件</h3></a>
+								<div class="text_overflow_ddd">
+									<P>法国枫丹白露宫中国馆本月1日失窃，当时博物馆方面公布15件文物遭窃</P>
+								</div>
+								<span class="info_time"><span>2月20日</span><span>15:35</span></span>
+								<span class="info_comment"><span>评论</span><a href="#"><span>12</span></a>
+								<span class="info_sepa">|</span>
+								<a href="#"><span class="comment_praise">8</span></a>
+								</span>
+							</div>
+						</li>
+						<div class="dotted_line"></div>
+						<li>
+							<img src="img/lv3_artinfo_artdecode_artdecode_07.jpg" alt="super info" />
+							<div>
+								<a href="#"><h3>法国枫丹白露宫中国馆被盗文物不止15件</h3></a>
+								<div class="text_overflow_ddd">
+									<P>法国枫丹白露宫中国馆本月1日失窃，当时博物馆方面公布15件文物遭窃</P>
+								</div>
+								<span class="info_time"><span>2月20日</span><span>15:35</span></span>
+								<span class="info_comment"><span>评论</span><a href="#"><span>12</span></a>
+								<span class="info_sepa">|</span>
+								<a href="#"><span class="comment_praise">8</span></a>
+								</span>
+							</div>
+						</li>
+						<div class="dotted_line"></div>
+						<li>
+							<img src="img/lv3_artinfo_artdecode_artdecode_08.jpg" alt="super info" />
+							<div>
+								<a href="#"><h3>法国枫丹白露宫中国馆被盗文物不止15件</h3></a>
+								<div class="text_overflow_ddd">
+									<P>法国枫丹白露宫中国馆本月1日失窃，当时博物馆方面公布15件文物遭窃</P>
+								</div>
+								<span class="info_time"><span>2月20日</span><span>15:35</span></span>
+								<span class="info_comment"><span>评论</span><a href="#"><span>12</span></a>
+								<span class="info_sepa">|</span>
+								<a href="#"><span class="comment_praise">8</span></a>
+								</span>
+							</div>
+						</li>
+
+					</ul>
+
+					<div id="page_ctl">
+						<ul>
+							<li><a href="#">上一页</a>
+							</li>
+							<li id="page_select">
+								<form>
+									<div id="pagectl_divselect">
+										<cite>第2页</cite>
+										<ul>
+											<li><a href="javascript:;" selectid="0">第1页</a>
+											</li>
+											<li><a href="javascript:;" selectid="1">第2页</a>
+											</li>
+											<li><a href="javascript:;" selectid="2">第3页</a>
+											</li>
+											<li><a href="javascript:;" selectid="3">第4页</a>
+											</li>
+											<li><a href="javascript:;" selectid="4">第5页</a>
+											</li>
+											<li><a href="javascript:;" selectid="5">第6页</a>
+											</li>
+										</ul>
+									</div>
+									<input name="" type="hidden" value="" id="pagectl_inputselect" />
+								</form>
+							</li>
+							<li><a href="#">下一页</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="content_right" class="wrap_top_border">
+
+					<div id="hot_info">
+						<div id="hot_info_title">
+							<a href="#"></a>
+						</div>
+						<ul id="hot_info_list">
+							<li>
+								<a href="#">
+									<img src="img/lv3_artinfo_common_hotinfo_01.jpg" alt="hot info" />
+								</a>
+								<div>
+									<div class="text_overflow_ddd">
+										<a href="#">
+											<p>高更3亿美元卖家从巴塞尔美术馆撤走18件杰作高更3亿美元卖家从巴塞尔美术馆撤走18件杰作高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+										</a>
+									</div>
+								</div>
+							</li>
+							<div class="dotted_line"></div>
+							<li>
+								<a href="#">
+									<img src="img/lv3_artinfo_common_hotinfo_02.jpg" alt="hot info" />
+								</a>
+								<div>
+									<div class="text_overflow_ddd">
+										<a href="#">
+											<p>高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+										</a>
+									</div>
+								</div>
+							</li>
+							<div class="dotted_line"></div>
+							<li>
+								<a href="#">
+									<img src="img/lv3_artinfo_common_hotinfo_03.jpg" alt="hot info" />
+								</a>
+								<div>
+									<div class="text_overflow_ddd">
+										<a href="#">
+											<p>高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+										</a>
+									</div>
+								</div>
+							</li>
+							<div class="dotted_line"></div>
+							<li>
+								<a href="#">
+									<img src="img/lv3_artinfo_common_hotinfo_04.jpg" alt="hot info" />
+								</a>
+								<div>
+									<div class="text_overflow_ddd">
+										<a href="#">
+											<p>高更3亿美元卖家从巴塞尔美术馆撤走18件杰作</p>
+										</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<div id="opus_show">
+						<a href="#">
+							<img src="img/lv3_artinfo_common_opusshow.jpg" alt="opus show" />
+							<div id="opus_show_info_bg"></div>
+							<div id="opus_show_info">
+								<h4>福州工艺瓷艺作品展</h4>
+								<div class="text_overflow_ddd">
+									<p>法国枫丹白露宫中国馆本月1日失窃，当时博物馆方面公布15件文物遭窃当</p>
+								</div>
+							</div>
+						</a>
+					</div>
+
+			<!-- #BeginLibraryItem "/auction_hot_goods.dwt" --><!-- #EndLibraryItem -->
+
+			<div id="footer_wrap" class="fullwidth">
+				<div id="footer" class="fitwidth">
+					<div id="ft_nav_wrap">
+						<!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+						
+						<img src="/themes/duoyuan/img/ft_phone_code.jpg" alt="二维码" />
+						<img class="ft_second_code" src="/themes/duoyuan/img/ft_weixin_code.jpg" alt="二维码" />
+
+					</div>
+					<div id="ft_shot">
+						<ul>
+							<li><a href="#">回到首页</a></li>
+							<!-- {if $txt_links} -->
+    						<!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+							<li class="ft_shot_sepa">/</li>
+							<li class="ft_shot_2"><a href="{$link.url}" target="_blank">{$link.name}</a></li>
+							<!--结束文字类型的友情链接{/foreach}-->
+    						<!-- {/if} -->
+							<li class="ft_shot_sepa">/</li>
+							<li><a>服务热线：400-100-8759</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="ft_bottom" class="fitwidth"></div>
+		</div>
+
+	</body>
+
 </html>

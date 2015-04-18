@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_rmenu.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_hotinfo.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/artinfo.css" />
+<link rel="stylesheet" type="text/css" href="/themes/duoyuan/css/common_salerank.css" />
+
+
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+{* 包含脚本文件 *}
+{insert_scripts files='jquery.js,jquery.json.js'}
+{insert_scripts files='common.js'}
+<script type="text/javascript" src="js/common_function.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/common_rmenu.js"></script>
+<script type="text/javascript" src="js/artinfo.js"></script>
+<script type="text/javascript" src="js/common_salerank.js"></script>
+</head>
+<body>
+		<div id="wrap">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+		
+			<div class="fitwidth content_block">
+				<div id="banner">
+					<!-- {foreach from=$arts_news_top item=news} -->
+					<a href="{$news.url}">
+						<img src="{$news.file_url}" alt="{$news.title}" />
+					</a>
+					<!--{/foreach}-->
+				</div>
+
+				<div id="hot_info" class="wrap_top_border">
+					<div id="hot_info_title">
+						<a href="article_cat.php?id=12"></a><span>/实时更新</span>
+					</div>
+					<ul id="hot_info_list">
+					<!-- {foreach from=$arts_news item=news} -->
+						<li>
+							<a href="{$news.url}">
+								<img src="{$news.file_url}" alt="{$news.title}" />
+							</a>
+							<div>
+								<h4><span>/</span><a href="{$news.url}">{$news.title}</a></h4>
+								<a href="{$news.url}">
+									<div class="text_overflow_ddd">
+										<p>{$news.content}</p>
+									</div>
+								</a>
+							</div>
+						</li>
+						<div class="dotted_line"></div>
+					<!--{/foreach}-->
+					</ul>
+				</div>
+			</div>
+
+			<div class="fitwidth content_block">
+				<div id="super_info" class="wrap_top_border">
+					<div id="super_info_title"><a href="article_cat.php?id=13">查看更多</a>
+					</div>
+
+					<ul id="super_info_list">
+					<!-- {foreach from=$heavy_news item=news} -->
+						<a href="{$news.url}">
+							<li>
+								<img src="{$news.file_url}" alt="{$news.title}" />
+								<div>
+									<h3>{$news.title}</h3>
+									<div class="text_overflow_ddd">
+										<p>{$news.content}</p>
+									</div>
+								</div>
+							</li>
+						</a>
+						<div class="dotted_line"></div>
+					<!--{/foreach}-->
+					</ul>
+
+				</div>
+
+				<div id="click_sort" class="wrap_top_border">
+
+					<div id="click_sort_title">
+						<a href="article_cat.php?id=12"></a><span>/最热文章</span>
+					</div>
+					<ul id="click_sort_list">
+					<!-- {foreach from=$hits_news item=news} -->
+						<li class="current">
+							<a href="{$news.url}">{$news.title}</a>
+							<div class="click_sort_float click_sort_show">
+								<div class="text_overflow_ddd">
+									<p>{$news.content}</p>
+								</div>
+								<a href="#">
+									<img src="{$news.file_url}" alt="{$news.content}" />
+								</a>
+							</div>
+						</li>
+						<div class="dotted_line"></div>
+					<!--{/foreach}-->
+					</ul>
+
+				</div>
+			</div>
+
+			<div class="fitwidth content_block">
+				<div id="art_eye" class="wrap_top_border">
+
+					<div id="art_eye_title"><a href="article_cat.php?id=15">查看更多</a>
+					</div>
+					<div id="art_eye_list">
+						<ul id="art_eye_list_left">
+					<!-- {foreach from=$arts_eye1 item=news} -->
+							<a href="#">
+								<li>
+									<img src="{$news.file_url}" alt="{$news.title}" />
+									<div>
+										<h4>{$news.title}</h4>
+										<div class="text_overflow_ddd">
+											<p>{$news.content}</p>
+										</div>
+									</div>
+								</li>
+							</a>
+					<!--{/foreach}-->
+						</ul>
+						<ul id="art_eye_list_right">
+					<!-- {foreach from=$arts_eye item=news} -->
+							<a href="{$news.file}">
+								<li>
+									<img src="{$news.file_url}" alt="{$news.title}" />
+									<div>
+										<h4>{$news.title}</h4>
+										<div class="text_overflow_ddd">
+											<p>{$news.content}</p>
+										</div>
+									</div>
+								</li>
+							</a>
+					<!--{/foreach}-->
+						</ul>
+					</div>
+				</div>
+
+				<div id="opus_show">
+					<!-- {foreach from=$arts_eye_top item=news} -->
+					<a href="{$news.url}">
+						<img src="{$news.file_url}" alt="{$news.title}" />
+						<div id="opus_show_info_bg"></div>
+						<div id="opus_show_info">
+							<h4>{$news.title}</h4>
+							<div class="text_overflow_ddd">
+								<p>{$news.content}</p>
+							</div>
+						</div>
+					</a>
+					<!--{/foreach}-->
+				</div>
+
+			</div>
+
+			<div id="art_decode" class="fitwidth content_block wrap_top_border">
+
+				<div id="art_decode_title" class="fitwidth"><a href="article_cat.php?id=14">查看更多</a>
+				</div>
+
+				<ul id="art_decode_list">
+					<!-- {foreach from=$arts_code item=news} -->
+					<a href="{$news.url}">
+						<li>
+							<img src="{$news.file_url}" alt="{$news.title}" />
+							<div>
+								<h4>{$news.title}</h4>
+								<div class="text_overflow_ddd">
+									<P>{$news.content}</P>
+								</div>
+							</div>
+						</li>
+					</a>
+					<!--{/foreach}-->
+				</ul>
+
+			</div>
+
+			<!-- #BeginLibraryItem "/auction_hot_goods.dwt" --><!-- #EndLibraryItem -->
+
+			<div id="footer_wrap" class="fullwidth">
+				<div id="footer" class="fitwidth">
+					<div id="ft_nav_wrap">
+						<!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+						
+						<img src="/themes/duoyuan/img/ft_phone_code.jpg" alt="二维码" />
+						<img class="ft_second_code" src="/themes/duoyuan/img/ft_weixin_code.jpg" alt="二维码" />
+
+					</div>
+					<div id="ft_shot">
+						<ul>
+							<li><a href="#">回到首页</a></li>
+							<!-- {if $txt_links} -->
+    						<!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+							<li class="ft_shot_sepa">/</li>
+							<li class="ft_shot_2"><a href="{$link.url}" target="_blank">{$link.name}</a></li>
+							<!--结束文字类型的友情链接{/foreach}-->
+    						<!-- {/if} -->
+							<li class="ft_shot_sepa">/</li>
+							<li><a>服务热线：400-100-8759</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="ft_bottom" class="fitwidth"></div>
+		</div>
+
+	</body>
+
+</html>

@@ -373,24 +373,6 @@
                 'slick-active');
 
         }
-		
-		if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
-
-            dotString = '<ul class="slick-title">';
-
-            for (i = 0; i <= _.getDotCount(); i += 1) {
-                dotString += '<li>' + _.options.centerTitle.call(this, _, i) + '</li>';
-            }
-
-            dotString += '</ul>';
-
-            _.$dots = $(dotString).appendTo(
-                _.$slider);
-
-            _.$dots.find('li').first().addClass(
-                'block');
-
-        }
 
     };
 

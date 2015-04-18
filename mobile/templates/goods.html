@@ -1,36 +1,92 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ECShop_mobile</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="twcClient" content="false" id="twcClient" />
+	<title>{$goods_info.goods_name}</title>
+	<link rel="stylesheet" href="assets/css/css.css" />
+	<link rel="stylesheet" href="assets/css/product.css" />
+	<script type="text/javascript" src="assets/js/jquery-1.8.3.min.js"></script>
 </head>
-
 <body>
-<p align='left'>
-{$goods_info.goods_name}<br/>
---------------<br/>
-{if $goods_info.brand_id}
-    商品品牌:<a href='brands.php?b_id={$goods_info.brand_id}'>{$brand_name}</a><br/>
-{/if}
-商品编号:{$goods_info.goods_sn}<br/>
-商品分类:
-{foreach from=$cat_array item=cat_data}
-    <a href='category.php?c_id={$cat_data.cat_id}'>{$cat_data.cat_name}</a>-&gt;
-{/foreach}
-{$goods_info.goods_name}<br/>
-{if $goods_info.goods_number neq ""}商品库存：
-{if $goods_info.goods_number eq 0}
-已售完
-{else}
-{$goods_info.goods_number}
-{/if}<br />
-{/if}
-市场价格:{$goods_info.market_price}<br/>
-商品价格:{if $promote_price_org}{$goods_info.promote_price}{else}{$goods_info.shop_price_formated}{/if}<br/>
- <!-- {foreach from=$rank_prices item=rank_price key=key} 会员等级对应的价格-->
-       <strong>{$rank_price.rank_name}：</strong><font class="shop" id="ECS_RANKPRICE_{$key}">{$rank_price.price}</font><br />
-       <!--{/foreach}-->
-{if $goods_info.promote_price and $goods_info.gmt_end_time}促销价格:{$goods_info.promote_price}{/if}<br/>
+
+<!-- 商品轮播图 -->
+<section class="banner">
+	<div class="slider autoplay center">
+		{foreach from=$goods_info.goods_gallery item=goods_img}
+		<div><a href="goods.php?act=view_img&amp;id={$goods_id}"><img src="/{$goods_img.img_url}"></a></div>
+		<div><a href="goods.php?act=view_img&amp;id={$goods_id}"><img src="/{$goods_img.img_url}"></a></div>
+		{/foreach}
+	</div>
+</section>
+
+<!-- 商品信息 -->
+<section class="hidden">
+
+	<div class="prodiv_info">
+		<p class="ft_20">{$goods_info.goods_name}</p>
+		<p class="ft_14">{$goods_info.goods_brief}</p>
+	</div>
+	
+	<div class="prodiv_info ft_16">
+		
+		<p>
+			<span>市场价格：</span>{$goods_info.market_price}
+		<p>
+		
+		{if $promote_price_org}
+			<p>
+				<span>商品价格：</span>{$goods_info.promote_price}
+			</p>
+		{else}
+			<p>
+				<span>商品价格：</span><b class="ft_28 color4">{$goods_info.shop_price_formated}</b>
+			</p>
+		{/if}
+		
+		{if $goods_info.promote_price and $goods_info.gmt_end_time}
+			<p>
+				<span>促销价格：</span>{$goods_info.promote_price}
+			</p>
+		{/if}
+		
+	</div>
+	
+	<div class="prodiv_info ft_16">
+		<span class="fl-left">商品分类：</span>
+		<div class="classdiv hidden">
+			{foreach from=$cat_array item=cat_data}
+				<a href='category.php?c_id={$cat_data.cat_id}'>{$cat_data.cat_name}</a>
+			{/foreach}
+		</div>
+	</div>
+	
+	<div class="prodiv_info ft_16 color2">
+		<p>
+			<span>商品编号：</span>{$goods_info.goods_sn}
+		</p>
+		{if $goods_info.brand_id}
+			<p>
+				<span>商品品牌:</span><a href='brands.php?b_id={$goods_info.brand_id}'>{$brand_name}</a>
+			</p>
+		{/if}
+		{if $goods_info.goods_number neq ""}
+			<p>
+				<span>商品库存：</span>{if $goods_info.goods_number eq 0}已售完{else}{$goods_info.goods_number}{/if}
+			</p>
+		{/if}
+	</div>
+	
+</section>
+
+<section class="prodiv_sub">
+	<a href="buy.php?id={$goods_id}" class="line center color1">立刻购买</a>
+	<a href="buy.php?id={$goods_id}" class="line center">加入购物车</a>
+</section>
+
 {foreach from=$specification item=spec key=spec_key}
 {$spec.name}:<br />
   {if $spec.attr_type eq 1}
@@ -47,16 +103,85 @@
     <input type="hidden" name="spec_list" value="{$key}" />
   {/if}
 {/foreach}
-浏览次数:{$goods_info.click_count}<br/>
-商品说明:{$goods_info.goods_brief}<br/><br/>
-<a href='buy.php?id={$goods_id}'>购买此商品</a><br/>
-<a href='goods.php?act=view_img&amp;id={$goods_id}'>点击查看商品图片</a><br/>
-<a href='comment.php?g_id={$goods_id}'>商品评论({$comment.pager.record_count})</a><br/>
 
---------------<br/>
-<a href="javascript:history.back(-1)">回上一页</a><br/>
-<a href='index.php'>返回首页</a>
-{$footer}
-</p>
+<section class="hidden">
+	
+	<div class="protab hidden center">
+		<span class="fl-left on">商品介绍</span>
+		<span class="fl-left">商品评价</span>
+		<span class="fl-left">猜你喜欢</span>
+	</div>
+	
+	<!--商品介绍-->
+	<div class="tablist procontent">
+		{$goods_info.goods_desc}
+	</div>
+	
+	<!--商品评价-->
+	<div class="tablist hidden" style="display:none;">
+		<ul class="messlist">
+			{foreach from=$comment.comments item=comment_item}
+			<li class="fl-left hidden cleafix">
+				<span><img src="images/pro6.jpg"></span>
+				<span class="ft_18">
+					{if $comment.username}
+						{$comment.username|escape:html}
+					{else}
+						{$lang.anonymous}
+					{/if}
+				</span>
+				<div class="con hidden">
+					<p class="">{$comment_item.content}</p>
+					<p class="ft_14 color3">{$comment_item.add_time}</p>
+				</div>
+			</li>
+			{/foreach}
+		</ul>
+	</div>
+	
+	<!--猜你喜欢-->
+	<ul class="prohotlist hidden tablist" style="display:none;">
+		{foreach from=$new_goods item=goods}
+		<li class="fl-left hidden center">
+			<div class="img"><label class="line"></label><img src="/{$goods.goods_img}" align="top"></div>
+			<span class="block hidden">{$goods.name}</span>
+			<p>现价：{$goods.shop_price}</p>
+		</li>
+		{/foreach}
+	</ul>
+</section>
+
+<script type="text/javascript" src="assets/slick/slick.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.autoplay').slick({
+		dots: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow:1,
+		slidesToScroll:1,
+		autoplay: true,
+		arrows:false
+	});
+	$('.protab span').each(function(i){
+		$(this).click(function(){
+			$(this).addClass('on').siblings('span').removeClass('on');
+			$(this).parent().siblings('.tablist').eq(i).show().siblings('.tablist').hide();
+		});
+	});
+	$('section').delegate('span','click',function(){
+		$('.prohotlist div.img').each(function(){
+			var hei=Math.ceil($(this).width()*186/218)
+			$(this).height(hei);
+		})
+	});
+	$('.prohotlist div.img').each(function(){
+		var hei=Math.ceil($(this).width()*186/218)
+		$(this).height(hei);
+	})
+	
+	$('.classdiv div.fl-left').height($('.classdiv div.fl-left').width());
+});
+</script>
 </body>
 </html>

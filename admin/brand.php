@@ -89,9 +89,10 @@ elseif ($_REQUEST['act'] == 'insert')
     //$site_url = sanitize_url( $_POST['site_url'] );wedo
 
     /*插入数据*/
-
-    $sql = "INSERT INTO ".$ecs->table('brand')."(brand_name, brand_logo, is_show,artist_type, artist_title, artist_area, artist_times, artist_field, artist_describe,sort_order) ".
-           "VALUES ('$_POST[brand_name]', '$img_name', '$is_show', '$_POST[artist_type]', '$_POST[artist_title]', '$_POST[artist_area]', '$_POST[artist_times]' ,'$_POST[artist_field]' ,'$_POST[artist_describe]','$_POST[sort_order]')";
+	    $artist_letter=Getzimu($_POST['brand_name']);
+//		echo $artist_letter;exit;
+    $sql = "INSERT INTO ".$ecs->table('brand')."(brand_name, brand_logo, is_show,artist_type, artist_title, artist_area, artist_times, artist_field, artist_describe,sort_order,artist_letter) ".
+           "VALUES ('$_POST[brand_name]', '$img_name', '$is_show', '$_POST[artist_type]', '$_POST[artist_title]', '$_POST[artist_area]', '$_POST[artist_times]' ,'$_POST[artist_field]' ,'$_POST[artist_describe]','$_POST[sort_order]','$artist_letter')";
 	//var_dump($sql);exit;
     $db->query($sql);
 
@@ -156,8 +157,9 @@ elseif ($_REQUEST['act'] == 'updata')
     //$site_url = sanitize_url( $_POST['site_url'] );wedo
 
     /* 处理图片 */
+    $artist_letter=Getzimu($_POST['brand_name']);
     $img_name = basename($image->upload_image($_FILES['brand_logo'],'brandlogo'));
-    $param = "brand_name = '$_POST[brand_name]', is_show='$is_show', artist_type='$_POST[artist_type]', artist_title='$_POST[artist_title]', artist_area='$_POST[artist_area]', artist_times='$_POST[artist_times]', artist_field='$_POST[artist_field]', artist_describe='$_POST[artist_describe]'";
+    $param = "artist_letter = '$artist_letter', brand_name = '$_POST[brand_name]', is_show='$is_show', artist_type='$_POST[artist_type]', artist_title='$_POST[artist_title]', artist_area='$_POST[artist_area]', artist_times='$_POST[artist_times]', artist_field='$_POST[artist_field]', artist_describe='$_POST[artist_describe]'";
 	//var_dump($param);exit;
     if (!empty($img_name))
     {
@@ -409,4 +411,49 @@ function get_brandlist()
     return array('brand' => $arr, 'filter' => $filter, 'page_count' => $filter['page_count'], 'record_count' => $filter['record_count']);
 }
 
+//获取艺术圈名称首字母
+//用于排序
+
+function Getzimu($str)
+{
+    $str= iconv("UTF-8","gb2312", $str);//如果程序是gbk的，此行就要注释掉
+    if (preg_match("/^[\x7f-\xff]/", $str))
+    {
+        $fchar=ord($str{0});
+        if($fchar>=ord("A") and $fchar<=ord("z") )return strtoupper($str{0});
+        $a = $str;
+        $val=ord($a{0})*256+ord($a{1})-65536;
+        if($val>=-20319 and $val<=-20284)return "A";
+        if($val>=-20283 and $val<=-19776)return "B";
+        if($val>=-19775 and $val<=-19219)return "C";
+        if($val>=-19218 and $val<=-18711)return "D";
+        if($val>=-18710 and $val<=-18527)return "E";
+        if($val>=-18526 and $val<=-18240)return "F";
+        if($val>=-18239 and $val<=-17923)return "G";
+        if($val>=-17922 and $val<=-17418)return "H";
+        if($val>=-17417 and $val<=-16475)return "J";
+        if($val>=-16474 and $val<=-16213)return "K";
+        if($val>=-16212 and $val<=-15641)return "L";
+        if($val>=-15640 and $val<=-15166)return "M";
+        if($val>=-15165 and $val<=-14923)return "N";
+        if($val>=-14922 and $val<=-14915)return "O";
+        if($val>=-14914 and $val<=-14631)return "P";
+        if($val>=-14630 and $val<=-14150)return "Q";
+        if($val>=-14149 and $val<=-14091)return "R";
+        if($val>=-14090 and $val<=-13319)return "S";
+        if($val>=-13318 and $val<=-12839)return "T";
+        if($val>=-12838 and $val<=-12557)return "W";
+        if($val>=-12556 and $val<=-11848)return "X";
+        if($val>=-11847 and $val<=-11056)return "Y";
+        if($val>=-11055 and $val<=-10247)return "Z";
+		return "others";
+    } 
+    else
+    {
+        return false;
+    }
+}
+
+
+?>
 ?>

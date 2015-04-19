@@ -1,0 +1,48 @@
+#cart_top_wrap {
+	height: 45px;
+	margin-bottom: 40px;
+}
+#cart_top {
+	position: relative;
+}
+#cart_logo {
+	display: block;
+	position: absolute;
+	top: 9px;
+	left: 0;
+	width: 237px;
+	height: 27px;
+	background: url(img/cart_logo.jpg) no-repeat center;
+}
+#cart_top_right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	line-height: 45px;
+	font-weight: 600;
+}
+#cart_top_right a {
+	font-size: 13px;
+	margin-left: 10px;
+	letter-spacing: 0;
+}
+#cart_top_right .cart_to_index {
+	color: #a88a43;
+	margin-left: 150px;
+}
+#cart_top_right .cart_to_index:hover {
+	color: #DC5154;
+}
+
+#user_logo {
+	display: block;
+	position: absolute;
+	top: 9px;
+	left: 0;
+	width: 258px;
+	height: 27px;
+	background: url(img/user_logo.jpg) no-repeat center;
+}
+
+
+

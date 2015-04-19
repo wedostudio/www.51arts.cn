@@ -32,8 +32,12 @@ if ($goods_info === false)
    ecs_header("Location: ./\n");
    exit;
 }
+
+$goods_info['goods_id'] = $goods_id;
+
 $goods_info['goods_gallery'] = get_goods_gallery($goods_info['goods_id']);
 $goods_info['goods_gallery_count'] = count($goods_info['goods_gallery']);
+
 $goods_info['goods_name'] = encode_output($goods_info['goods_name']);
 $goods_info['goods_brief'] = encode_output($goods_info['goods_brief']);
 $goods_info['promote_price'] = encode_output($goods_info['promote_price']);
@@ -77,7 +81,6 @@ $smarty->assign('specification',       $properties['spe']);  // 商品规格
 
 $comment = assign_comment($goods_id, 0);
 $smarty->assign('comment', $comment);
-
 
 // 猜您喜欢
 $smarty->assign('new_goods',           get_recommend_goods('new'));

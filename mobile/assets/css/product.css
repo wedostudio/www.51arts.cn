@@ -8,55 +8,38 @@
 .banner .slick-dots li button{background:none;width:100%;height:400%;}
 .banner .slick-dots li.slick-active{background:#fff;}
 
-/* 商品详情 */
-.prodiv_info{ margin: 0 15px; padding:10px 0; border-bottom:1px dashed #e0e0e0; line-height: 30px;}
-.prodiv_info span.ft_20{line-height:2em;margin-bottom:0.2em;}
-.prodiv_info div.classdiv div.fl-left{width:18%;margin-right:1%;border:1px solid #e0e0e0;background:#f9f9f9;}
+/* 商品信息 */
+.prodiv_info{ margin: 0 15px; padding:10px 0; border-bottom: 1px dashed #e0e0e0; line-height: 30px;}
 
-.prodiv_info:last-child{border-bottom:0px;}
+/* 商品分类 */
+.classdiv{}
 
-.prodiv_sub{margin: 0 1em 1em;}
-.prodiv_sub a.line{width:170px;height:52px;line-height:3em;border:1px solid #e5e5e5;}
-.prodiv_sub a.color1{border-color:#eb9897;background-color:#dd5451;}
+/* 商品购买按钮 */
+.prodiv_btns{ margin: 15px;}
+.prodiv_btns a{ display: block; float: left; padding: 10px 20px;}
+.prodiv_btns a.btn-buy{ margin-right: 15px; background-color: #dd5451; color: #fff;}
+.prodiv_btns a.btn-cart{ background-color: #eee;}
 
-.titbor{border-top:1px solid #e0e0e0;margin:0 1em;}
-.titbor label.fl-right{width:9em;height:2.4em;line-height:2.4em;background:#f9f9f9;border:1px solid #e0e0e0;border-top:0px;}
+/* 商品选项卡 */
+.protab{ background: #f9f9f9;}
+.protab .tab-item{ width: 33.33%; padding: 12px 0; border: 1px solid #e0e0e0; border-right: none; box-sizing: border-box;}
+.protab .tab-item:first-child{ border-left-color: #f9f9f9;}
+.protab .tab-item.on{ border-bottom-color: #fff; background-color: #fff;}
+.protab .tab-item a{ display: block;}
 
-.view_pic{width:34%;}
-.view_pic + div.hidden{padding:0 1em;line-height:28px;font-size:120%;}
-.view_pic + div.hidden span.ft_20{line-height:36px;margin-bottom:5px;}
+/* 商品选项卡 - 商品介绍 */
+.procontent{ padding: 15px;}
 
-.protab{background:#f9f9f9;border-top:1px solid #e0e0e0;margin-top:1em;}
-.protab span.fl-left{line-height:3em;height:3em;width:33%;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;margin-right:-1px;}
-.protab span:nth-child(2){width:34%;border-left:1px solid #e0e0e0;margin-right:-2px;}
-.protab span:last-child{border-right:0px;margin-right:0px;border-left:1px solid #e0e0e0;margin-right:-2px;margin-left:1px;}
-.protab span.on{background-color:#fff;border-bottom:1px solid #fff;}
+/* 商品选项卡 - 评论 */
+.messlist{ padding: 15px;}
+.messlist li{ width: 100%; border-bottom: 1px solid #e0e0e0; }
+.messlist li:last-child{ border-bottom: 0px;}
+.messlist li img{ margin-right: 10px;}
+.messlist li .username { line-height: 38px;}
+.messlist li .content{ line-height: 30px;}
 
-.procontent{line-height:24px;padding:1em;}
-
-.hottit{border-top:1px solid #e0e0e0;line-height:3em;}
-
-.prohotlist{margin:0.5em 2%;}
-.prohotlist li.fl-left{width:32%;line-height:1.6em;margin:0.5em 0;}
-.prohotlist li:nth-child(3n){margin-right:0px;float:right;}
-.prohotlist li:nth-child(3n-1){margin:0.5em 2%;}
-.prohotlist li.fl-left span.block{height:1.6em;line-height:1.6em;}
-.prohotlist li.fl-left div.img{overflow:hidden;}
-.messlist{margin:0.5em 1.4em;}
-.messlist > li.fl-left{width:100%;border-bottom:1px solid #e0e0e0;padding:0.8em 0;}
-.messlist > li:last-child{border-bottom:0px;}
-.messlist > li.fl-left img{margin-right:10px;}
-.messlist > li.fl-left div.con{line-height:24px;margin-top:10px;}
-
-@media screen and (max-width:420px) { 
-	.prodiv_sub a.line{width:85px;height:32px;line-height:32px;font-size:75%;}
-	.titbor {font-size:75%;}
-	.view_pic + div.hidden{font-size:90%;line-height:22px;}
-	.prohotlist{font-size:65%;}
-}
-@media screen and (max-width:360px) { 
-}
-
-@media screen and (max-width:320px) { 
-}
-
+/* 商品选项卡 - 猜您喜欢 */
+.prohotlist{ padding: 15px;}
+.prohotlist li{ width: 33.33%;}
+.prohotlist li .img{ padding: 0 10px; text-align: center;}
+.prohotlist li .name{ padding: 0 10px; line-height: 30px;}

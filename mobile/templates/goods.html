@@ -18,7 +18,6 @@
 	<div class="slider autoplay center">
 		{foreach from=$goods_info.goods_gallery item=goods_img}
 		<div><a href="goods.php?act=view_img&amp;id={$goods_id}"><img src="/{$goods_img.img_url}"></a></div>
-		<div><a href="goods.php?act=view_img&amp;id={$goods_id}"><img src="/{$goods_img.img_url}"></a></div>
 		{/foreach}
 	</div>
 </section>
@@ -35,7 +34,7 @@
 		
 		<p>
 			<span>市场价格：</span>{$goods_info.market_price}
-		<p>
+		</p>
 		
 		{if $promote_price_org}
 			<p>
@@ -82,11 +81,13 @@
 	
 </section>
 
-<section class="prodiv_sub">
-	<a href="buy.php?id={$goods_id}" class="line center color1">立刻购买</a>
-	<a href="buy.php?id={$goods_id}" class="line center">加入购物车</a>
+<!-- 商品购买按钮 -->
+<section class="prodiv_btns clearfix">
+	<a class="btn-buy" href="buy.php?id={$goods_id}">立刻购买</a>
+	<a class="btn-cart" href="buy.php?id={$goods_id}">加入购物车</a>
 </section>
 
+<!-- 商品特殊属性 -->
 {foreach from=$specification item=spec key=spec_key}
 {$spec.name}:<br />
   {if $spec.attr_type eq 1}
@@ -104,56 +105,57 @@
   {/if}
 {/foreach}
 
+<!-- 商品选项卡 -->
 <section class="hidden">
 	
+	<!-- 商品选项卡标签 -->
 	<div class="protab hidden center">
-		<span class="fl-left on">商品介绍</span>
-		<span class="fl-left">商品评价</span>
-		<span class="fl-left">猜你喜欢</span>
+		<div class="tab-item fl-left on">商品介绍</div>
+		<div class="tab-item fl-left">
+			<a href="comment.php?g_id={$goods_info.goods_id}">商品评价</a>
+		</div>
+		<div class="tab-item fl-left">猜你喜欢</div>
 	</div>
 	
 	<!--商品介绍-->
-	<div class="tablist procontent">
+	<div class="tab-content procontent">
 		{$goods_info.goods_desc}
 	</div>
 	
 	<!--商品评价-->
-	<div class="tablist hidden" style="display:none;">
-		<ul class="messlist">
-			{foreach from=$comment.comments item=comment_item}
-			<li class="fl-left hidden cleafix">
-				<span><img src="images/pro6.jpg"></span>
-				<span class="ft_18">
-					{if $comment.username}
-						{$comment.username|escape:html}
-					{else}
-						{$lang.anonymous}
-					{/if}
-				</span>
-				<div class="con hidden">
-					<p class="">{$comment_item.content}</p>
-					<p class="ft_14 color3">{$comment_item.add_time}</p>
-				</div>
-			</li>
-			{/foreach}
+	<div class="tab-content hidden" style="display:none;">
+		<ul class="messlist" id="ECS_COMMENT">
+			{if $comment.pager.record_count eq 0}
+				<li class="center hidden clearfix">
+					还未有任何评论
+				</li>
+			{else}
+				<li class="center hidden clearfix">
+					<a href="comment.php?g_id={$goods_info.goods_id}">查看评论</a>
+				</li>
+			{/if}
 		</ul>
 	</div>
 	
 	<!--猜你喜欢-->
-	<ul class="prohotlist hidden tablist" style="display:none;">
-		{foreach from=$new_goods item=goods}
+	<ul class="tab-content prohotlist clearfix" style="display:none;">
+		{foreach from=$recommend_goods item=goods}
 		<li class="fl-left hidden center">
-			<div class="img"><label class="line"></label><img src="/{$goods.goods_img}" align="top"></div>
-			<span class="block hidden">{$goods.name}</span>
-			<p>现价：{$goods.shop_price}</p>
+			<div class="img hidden">
+				<img src="/{$goods.goods_img}" align="top">
+			</div>
+			<h4 class="name hidden">{$goods.name}</h4>
+			<p class="price hidden">现价：{$goods.shop_price}</p>
 		</li>
 		{/foreach}
 	</ul>
+	
 </section>
 
 <script type="text/javascript" src="assets/slick/slick.js"></script>
 <script type="text/javascript">
 $(function(){
+	
 	$('.autoplay').slick({
 		dots: true,
 		infinite: true,
@@ -163,24 +165,14 @@ $(function(){
 		autoplay: true,
 		arrows:false
 	});
-	$('.protab span').each(function(i){
-		$(this).click(function(){
-			$(this).addClass('on').siblings('span').removeClass('on');
-			$(this).parent().siblings('.tablist').eq(i).show().siblings('.tablist').hide();
-		});
-	});
-	$('section').delegate('span','click',function(){
-		$('.prohotlist div.img').each(function(){
-			var hei=Math.ceil($(this).width()*186/218)
-			$(this).height(hei);
-		})
-	});
-	$('.prohotlist div.img').each(function(){
-		var hei=Math.ceil($(this).width()*186/218)
-		$(this).height(hei);
-	})
 	
-	$('.classdiv div.fl-left').height($('.classdiv div.fl-left').width());
+	$('.protab').on('click', '.tab-item', function(){
+		var $this = $(this),
+			index = $this.index();
+		$this.addClass('on').siblings('.tab-item').removeClass('on');
+		$this.parent().siblings('.tab-content').hide().eq(index).show();
+	});
+	
 });
 </script>
 </body>

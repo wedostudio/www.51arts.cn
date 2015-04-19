@@ -26,21 +26,8 @@
 <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
 			<div id="banner" class="fitwidth slidebox">
 				<ul class="slidepic">
-					<li>
-						<a href="#">
-							<img alt="img1" src="img/lv3_artcircle_artcollectors_banner_01.jpg" />
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img alt="img2" src="img/lv3_artcircle_artcollectors_banner_02.jpg " />
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img alt="img3" src="img/lv3_artcircle_artcollectors_banner_03.jpg" />
-						</a>
-					</li>
+					<!-- TemplateBeginEditable name="艺术圈广告2" -->
+<!-- TemplateEndEditable -->
 				</ul>
 				<div class="slidebtn">
 					<ul>
@@ -74,82 +61,82 @@
 							<ul class="letter_classify">
 								<li class="classify_title">按首字母</li>
 								<li>/</li>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=A">
 									<li>A</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=B">
 									<li>B</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=C">
 									<li>C</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=D">
 									<li>D</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=E">
 									<li>E</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=F">
 									<li>F</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=G">
 									<li>G</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=H">
 									<li>H</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=I">
 									<li>I</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=J">
 									<li>J</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=K">
 									<li>K</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=L">
 									<li>L</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=M">
 									<li>M</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=N">
 									<li>N</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=O">
 									<li>O</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=P">
 									<li>P</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=Q">
 									<li>Q</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=R">
 									<li>R</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=S">
 									<li>S</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=T">
 									<li>T</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=U">
 									<li>U</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=V">
 									<li>V</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=W">
 									<li>W</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=X">
 									<li>X</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=Y">
 									<li>Y</li>
 								</a>
-								<a href="#">
+								<a href="brand.php?id={$artist_type}&letter=Z">
 									<li>Z</li>
 								</a>
 							</ul>
@@ -198,11 +185,11 @@
 
 				<div id="artcircle_elem_sort">
 					<div id="sort_left">
-						<a href="#">按人气</a>
-						<a class="new_sort" href="brand.php?id={$artist_type}&artist_field=<!-- {if $cur_artist_field} -->{$cur_artist_field}<!-- {/if} -->&artist_times=<!-- {if $cur_artist_times} -->{$cur_artist_times}<!-- {/if} -->">最新加入</a>
+						<a href="brand.php?id={$artist_type}&sort=artist_support&artist_field={if $cur_artist_field}{$cur_artist_field}{/if}&artist_times={if $cur_artist_times}{$cur_artist_times}{/if}&letter={if $cur_artist_letter}{$cur_artist_letter}{/if}">按人气</a>
+						<a class="new_sort" href="brand.php?id={$artist_type}&sort=brand_id&artist_field={if $cur_artist_field}{$cur_artist_field}{/if}&artist_times={if $cur_artist_times}{$cur_artist_times}{/if}&letter={if $cur_artist_letter}{$cur_artist_letter}{/if}">最新加入</a>
 					
-						<a href="#" class="new_sort_down"></a>
-						<a href="#" class="new_sort_up"></a>
+						<a  class="new_sort_down" href="brand.php?id={$artist_type}&sort={if $cur_sort}{$cur_sort}{/if}&artist_field={if $cur_artist_field}{$cur_artist_field}{/if}&artist_times={if $cur_artist_times}{$cur_artist_times}{/if}&letter={if $cur_artist_letter}{$cur_artist_letter}{/if}&order=DESC"></a>
+						<a class="new_sort_up" href="brand.php?id={$artist_type}&sort={if $cur_sort}{$cur_sort}{/if}&artist_field={if $cur_artist_field}{$cur_artist_field}{/if}&artist_times={if $cur_artist_times}{$cur_artist_times}{/if}&letter={if $cur_artist_letter}{$cur_artist_letter}{/if}&order=ASC"></a>
 					</div>
 
 					<div class="clear_float"></div>
@@ -233,97 +220,96 @@
 
 			<div id="footer_wrap" class="fullwidth">
 				<div id="footer" class="fitwidth">
-					<div id="ft_nav_wrap">
-
-						<div id="ft_nav">
-							<ul>
-								<li>
-									<ul class="ft_sec_nav">
-										<li class="ft_title"><a href="#">购买艺术</a>
-										</li>
-										<li><a href="#">购买流程</a>
-										</li>
-
-										<li><a href="#">支付方式</a>
-										</li>
-
-										<li><a href="#">提货方式</a>
-										</li>
-
-										<li><a href="#">竞拍保证</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="ft_sec_nav">
-										<li class="ft_title"><a href="#">合作艺术</a>
-										</li>
-										<li><a href="#">艺术家签约</a>
-										</li>
-
-										<li><a href="#">在线签约</a>
-										</li>
-
-										<li><a href="#">包装推广</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="ft_sec_nav">
-										<li class="ft_title"><a href="#">专业服务</a>
-										</li>
-										<li><a href="#">VIP/SVIP</a>
-										</li>
-
-										<li><a href="#">联动合作</a>
-										</li>
-
-										<li><a href="#">常见问题</a>
-										</li>
-
-										<li><a href="#">法律政策</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="ft_sec_nav">
-										<li class="ft_title"><a href="#">关<span class="nbsp_font">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>于</a>
-										</li>
-										<li><a href="#">网站地图</a>
-										</li>
-
-										<li><a href="#">品牌介绍</a>
-										</li>
-
-										<li><a href="#">联系我们</a>
-										</li>
-
-										<li><a href="#">友情链接</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-
-						<img src="img/ft_phone_code.jpg" alt="二维码" />
-						<img class="ft_second_code" src="img/ft_weixin_code.jpg" alt="二维码" />
-
-					</div>
-					<div id="ft_shot">
-						<ul>
-							<li><a href="#">回到首页</a>
+		<div id="ft_nav_wrap">
+			<div id="ft_nav">
+				<ul>
+					<li>
+						<ul class="ft_sec_nav">
+							<li class="ft_title">
+								<a href="#">购买艺术</a>
 							</li>
-							<li class="ft_shot_sepa">/</li>
-							<li class="ft_shot_2"><a>收藏多元主义</a>
+							<li><a href="#">购买流程</a>
 							</li>
-							<li class="ft_shot_sepa">/</li>
-							<li><a>服务热线：400-100-8759</a>
+
+							<li><a href="#">支付方式</a>
+							</li>
+
+							<li><a href="#">提货方式</a>
+							</li>
+
+							<li><a href="#">竞拍保证</a>
 							</li>
 						</ul>
-					</div>
-				</div>
+					</li>
+					<li>
+						<ul class="ft_sec_nav">
+							<li class="ft_title"><a href="#">合作艺术</a>
+							</li>
+							<li><a href="#">艺术家签约</a>
+							</li>
+
+							<li><a href="#">在线签约</a>
+							</li>
+
+							<li><a href="#">包装推广</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul class="ft_sec_nav">
+							<li class="ft_title"><a href="#">专业服务</a>
+							</li>
+							<li><a href="#">VIP/SVIP</a>
+							</li>
+
+							<li><a href="#">联动合作</a>
+							</li>
+
+							<li><a href="#">常见问题</a>
+							</li>
+
+							<li><a href="#">法律政策</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul class="ft_sec_nav">
+							<li class="ft_title"><a href="#">关<span class="nbsp_font">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>于</a>
+							</li>
+							<li><a href="#">网站地图</a>
+							</li>
+
+							<li><a href="#">品牌介绍</a>
+							</li>
+
+							<li><a href="#">联系我们</a>
+							</li>
+
+							<li><a href="#">友情链接</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
 			</div>
 
+			<img src="/themes/duoyuan/img/ft_phone_code.jpg" alt="二维码" />
+			<img class="ft_second_code" src="/themes/duoyuan/img/ft_phone_code.jpg" alt="二维码" />
+
+		</div>
+		<div id="ft_shot">
+			<ul>
+				<li><a href="#">回到首页</a>
+				</li>
+				<li class="ft_shot_sepa">/</li>
+				<li class="ft_shot_2"><a>收藏多元主义</a>
+				</li>
+				<li class="ft_shot_sepa">/</li>
+				<li><a>服务热线：400-100-8759</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
 		</div>
 	</body>
 

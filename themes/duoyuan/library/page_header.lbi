@@ -103,7 +103,7 @@
 						</li>
 						<li class="nav_sep">/</li>
 						<li class="navs">
-							<a href="artinfo.html" class="nav_a">艺术情报</a>
+							<a href="article_index.php" class="nav_a">艺术情报</a>
 							<ul id="subNav_5" class="sub_nav subnav_artinfo">
 								<li><a href="artinfo_superinfo.html">重磅快讯</a>
 								</li>

@@ -53,18 +53,19 @@ if (!$smarty->is_cached('article_index.dwt', $cache_id))
 
     $smarty->assign('hot_goods',            get_recommend_goods('hot'));
 
-    //艺术资讯
-    $arts_news = cat_articles(12, 20, 1, 4);
-    $arts_news_top = $arts_news ? array_slice($arts_news, 0, 1) : array();
-    $smarty->assign('arts_news_top',  $arts_news_top);
-    $arts_news = $arts_news ? array_slice($arts_news, 1) : array();
-    $smarty->assign('arts_news',  $arts_news);
+    //热门资讯
+    $hot_news = cat_articles('14,15,16', 20, 1, 4);
+    $hot_news_top = $hot_news ? array_slice($hot_news, 0, 1) : array();
+    $smarty->assign('hot_news_top',  $hot_news_top);
+    $hot_news = $hot_news ? array_slice($hot_news, 1,3) : array();
+    $smarty->assign('hot_news',  $hot_news);
     
     //重磅快讯
-    $heavy_news = cat_articles(13, 100, 1, 3, 1);
-    $smarty->assign('arts_news',  $arts_news);
+    $heavy_news = cat_articles(14, 20, 1, 3, 0);
+	$heavy_news = $heavy_news ? array_slice($heavy_news, 0, 3) : array();
+	$smarty->assign('heavy_news',  $heavy_news);
     //艺术眼
-    $arts_eye = cat_articles(15, 50, 1, 5, 1);
+    $arts_eye = cat_articles(15, 50, 1, 5, 0);
     $arts_eye_top = $arts_eye ? array_slice($arts_eye, 0, 1) : array();
     $smarty->assign('arts_eye_top',  $arts_eye_top);
     $arts_eye1 = $arts_eye ? array_slice($arts_eye, 1, 2) : array();
@@ -72,10 +73,10 @@ if (!$smarty->is_cached('article_index.dwt', $cache_id))
     $arts_eye = $arts_eye ? array_slice($arts_eye, 3) : array();
     $smarty->assign('arts_eye',  $arts_eye);
     //艺术解码
-    $arts_code = cat_articles(14, 80, 1, 4, 1);
+    $arts_code = cat_articles(16, 80, 1, 4, 0);
     $smarty->assign('arts_code',  $arts_code);
-    //点击排行
-    $hits_news = cat_articles('12,13,14,15', 30, 1, 8);
+    //点击排行function cat_articles($cat_id, $length=20, $page = 1, $size = 20, $article_type=FALSE, $order='article_id')
+    $hits_news = cat_articles('14,15,16', 30, 1, 8, 0, 'view_count');
     $smarty->assign('hits_news',  $hits_news);
     
     assign_dynamic('article_cat');
@@ -102,7 +103,7 @@ function cat_articles($cat_id, $length=20, $page = 1, $size = 20, $article_type=
     $sql .= ' ORDER BY article_type DESC, '.$order.' DESC';
 
     $res = $GLOBALS['db']->selectLimit($sql, $size, ($page-1) * $size);
-
+//echo $sql;exit;
     $arr = array();
     if ($res)
     {
@@ -114,11 +115,11 @@ function cat_articles($cat_id, $length=20, $page = 1, $size = 20, $article_type=
             $arr[$article_id]['title']       = $row['title'];
             $arr[$article_id]['content']     = sub_str(strip_tags($row['content']), 20, '...');
             $arr[$article_id]['file_url']    = $row['file_url'];
-            $arr[$article_id]['short_title'] = $GLOBALS['_CFG']['article_title_length'] > 0 ? sub_str($row['title'], $GLOBALS['_CFG']['article_title_length']) : $row['title'];
+            $arr[$article_id]['short_title'] = $GLOBALS['_CFG']['article_title_length'] > 0 ? sub_str($row['title'], $length) : $row['title'];
             $arr[$article_id]['author']      = empty($row['author']) || $row['author'] == '_SHOPHELP' ? $GLOBALS['_CFG']['shop_name'] : $row['author'];
             $arr[$article_id]['url']         = $row['open_type'] != 1 ? build_uri('article', array('aid'=>$article_id), $row['title']) : trim($row['file_url']);
             $arr[$article_id]['add_time']    = date($GLOBALS['_CFG']['date_format'], $row['add_time']);
-            
+//          echo $cat_id.'   '.$article_id.'    '.$GLOBALS['_CFG']['article_title_length'].'<br />';
         }
     }
 

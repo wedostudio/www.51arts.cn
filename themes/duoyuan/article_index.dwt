@@ -36,7 +36,7 @@
 		
 			<div class="fitwidth content_block">
 				<div id="banner">
-					<!-- {foreach from=$arts_news_top item=news} -->
+					<!-- {foreach from=$hot_news_top item=news} -->
 					<a href="{$news.url}">
 						<img src="{$news.file_url}" alt="{$news.title}" />
 					</a>
@@ -48,7 +48,7 @@
 						<a href="article_cat.php?id=12"></a><span>/实时更新</span>
 					</div>
 					<ul id="hot_info_list">
-					<!-- {foreach from=$arts_news item=news} -->
+					<!-- {foreach from=$hot_news item=news} -->
 						<li>
 							<a href="{$news.url}">
 								<img src="{$news.file_url}" alt="{$news.title}" />
@@ -72,7 +72,7 @@
 				<div id="super_info" class="wrap_top_border">
 					<div id="super_info_title"><a href="article_cat.php?id=13">查看更多</a>
 					</div>
-
+<!--重磅快讯-->
 					<ul id="super_info_list">
 					<!-- {foreach from=$heavy_news item=news} -->
 						<a href="{$news.url}">
@@ -98,10 +98,14 @@
 						<a href="article_cat.php?id=12"></a><span>/最热文章</span>
 					</div>
 					<ul id="click_sort_list">
-					<!-- {foreach from=$hits_news item=news} -->
+					<!-- {foreach from=$hits_news name=hits_news item=news key=k} -->
 						<li class="current">
 							<a href="{$news.url}">{$news.title}</a>
-							<div class="click_sort_float click_sort_show">
+						<!--{if $smarty.foreach.hits_news.first}-->
+							<div class="click_sort_float click_sort_show" style="display: block;">
+						<!--{else}-->
+							<div class="click_sort_float click_sort_show" style="display: none;">
+						<!--{/if}-->
 								<div class="text_overflow_ddd">
 									<p>{$news.content}</p>
 								</div>

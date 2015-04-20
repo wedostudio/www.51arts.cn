@@ -103,11 +103,11 @@
 						<li class="navs">
 							<a href="article_index.php" class="nav_a">艺术情报</a>
 							<ul id="subNav_5" class="sub_nav subnav_artinfo">
-								<li><a href="artinfo_superinfo.html">重磅快讯</a>
+								<li><a href="article_cat.php?id=14">重磅快讯</a>
 								</li>
-								<li><a href="artinfo_arteye.html">艺<span>&nbsp;&nbsp;</span>术<span>&nbsp;&nbsp;</span>眼</a>
+								<li><a href="article_cat.php?id=15">艺<span>&nbsp;&nbsp;</span>术<span>&nbsp;&nbsp;</span>眼</a>
 								</li>
-								<li><a href="artinfo_artdecode.html">艺术解码</a>
+								<li><a href="article_cat.php?id=16">艺术解码</a>
 								</li>
 							</ul>
 						</li>

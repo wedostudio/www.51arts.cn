@@ -74,7 +74,7 @@ header div.fl-right{height:100%;margin-right:10px;}
 header a.line{width:72px;height:31px;line-height:31px; vertical-align:middle;border-radius:5px;margin:0 5px;}
 header a.reg_a{background-color:#666666;}
 header a.login_a{background-color:#b1955d;}
-header span.back{margin-right:-60px;margin-left:16px;}
+header .back{ padding: 0 10px; box-sizing: border-box;}
 /*底部*/
 .foot{height:100px;margin-top:2em;}
 .footbg{background:#595757;left:0px;width:100%;bottom:0px;z-index:2;}
@@ -101,8 +101,8 @@ figcaption.center img{ height:16px;}
 	/*body,.indexclass{font-size:75%;}*/
 	header{height:52px;line-height:52px;}
 	header > img{height:20px;}
-	header span.back{width:30px;margin-right:-40px;}
-	header a.line{width:52px;height:23px;line-height:23px;}
+	header .back{width:50px;margin-right:-50px;}
+	header .line{width:52px;height:23px;line-height:23px;}
 
 	.foot{height:62px;}
 	footer img{width:35px;}

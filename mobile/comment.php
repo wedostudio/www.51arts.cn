@@ -54,6 +54,7 @@ if ($num > 0)
         $page = $pages;
     }
     $i = 1;
+    $comment_data = array();
     foreach ($comment['comments'] as $key => $data)
     {
         if (($i > ($page_num * ($page - 1 ))) && ($i <= ($page_num * $page)))
@@ -71,6 +72,7 @@ if ($num > 0)
 }
 
 $smarty->assign('footer', get_footer());
+$smarty->assign('pagetitle', $goods_info['goods_name']);
 $smarty->display('comment.html');
 
 ?>

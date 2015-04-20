@@ -1,0 +1,17 @@
+.listdiv {
+	margin: 15px;
+	line-height: 28px;
+}
+.listdiv .addtime{
+	color: #ccc;
+}
+
+.listpagebar {
+	margin: 15px 0;
+	text-align: center;
+	line-height: 28px;
+}
+.listpagebar a {
+	display: inline-block;
+	margin: 0 15px;
+}

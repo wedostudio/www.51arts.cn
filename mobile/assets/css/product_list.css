@@ -1,0 +1,79 @@
+/* 商品类型 */
+.typediv{
+	display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: -ms-flexbox;
+    display: flexbox;
+    width: 100%;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.typediv a{
+	display: block;
+	padding: 10px 0;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	border-sizing: border-box;
+	-moz-box-flex: 1;
+    -webkit-box-flex: 1;
+        -o-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+}
+.typediv a:first-child {
+	border-left: none;
+}
+.typediv a.active {
+	background: #fff;
+	border-bottom-color: #fff;
+}
+
+/* 商品排序 */
+.sortdiv {
+	margin: 15px;
+}
+.sortdiv a{
+	display: block;
+	float: left;
+	margin-left: 15px;
+	padding: 8px 10px;
+	border: 1px solid #ddd;
+	font-size: 12px;
+}
+.sortdiv a:first-child {
+	margin-left: 0;
+}
+.sortdiv a.active {
+	background-color: #dd5451;
+	border-color: #dd5451;
+	color: #fff;
+}
+
+/* 商品列表 */
+.listdiv {
+	margin: 15px;
+}
+.listdiv a {
+	display: block;
+}
+.listdiv img{
+	display: block;
+	width: 100%;
+	max-width: 100%;
+}
+.listdiv h4 {
+	margin: 15px 0;
+}
+
+/* 商品列表-分页栏 */
+.listpagebar {
+	margin: 15px 0;
+	text-align: center;
+	line-height: 28px;
+}
+.listpagebar a {
+	display: inline-block;
+	margin: 0 15px;
+}

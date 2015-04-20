@@ -1,57 +1,58 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ECShop_mobile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="twcClient" content="false" id="twcClient" />
+<title>商品列表</title>
+<link rel="stylesheet" href="assets/css/css.css?i=12" />
+<link rel="stylesheet" href="assets/css/product_list.css" />
+<script src="assets/js/jquery-1.8.3.min.js"></script>
 </head>
-
 <body>
-<p align='left'>
-{if $type eq 'best'}
-精品推荐<br/>
---------------<br/>
-<a href='goods_list.php?type=promote'>促销</a>|<a href='goods_list.php?type=hot'>热门</a>|<a href='goods_list.php?type=new'>最新</a>
-{elseif $type eq 'promote'}
-商家促销<br/>
---------------<br/>
-<a href='goods_list.php?type=best'>精品</a>|<a href='goods_list.php?type=hot'>热门</a>|<a href='goods_list.php?type=new'>最新</a>
-{elseif $type eq 'hot'}
-热门商品<br/>
---------------<br/>
-<a href='goods_list.php?type=best'>精品</a>|<a href='goods_list.php?type=promote'>促销</a>|<a href='goods_list.php?type=new'>最新</a>
-{else}
-最新商品<br/>
---------------<br/>
-<a href='goods_list.php?type=promote'>促销</a>|<a href='goods_list.php?type=hot'>热门</a>|<a href='goods_list.php?type=new'>最新</a>
-{/if}
-<br/><br/>
-{if $smarty.get.order_price}
-当前为价格降序排列，<a href='goods_list.php?type={$smarty.get.type}{if $smarty.get.page}&page={$smarty.get.page}{/if}'>转换成价格升序排列</a>
-{else}
-当前为价格升序排列，<a href='goods_list.php?type={$smarty.get.type}&order_price=1{if $smarty.get.page}&page={$smarty.get.page}{/if}'>转换成价格降序排列</a>
-{/if}<br/><br/>
 
+<!-- 公共头部 -->
+{include file="includes/header.html"}
+
+<!-- 商品类型 -->
+<div class="typediv">
+	<a {if $type eq 'best'}class="active"{/if} href='goods_list.php?type=best'>精品</a>
+	<a {if $type eq 'promote'}class="active"{/if} href='goods_list.php?type=promote'>促销</a>
+	<a {if $type eq 'hot'}class="active"{/if} href='goods_list.php?type=hot'>热门</a>
+	<a {if $type eq 'new'}class="active"{/if} href='goods_list.php?type=new'>最新</a>
+</div>
+
+<!-- 排序功能 -->
+<div class="sortdiv clearfix">
+	<a {if $smarty.get.order_price neq 1}class="active"{/if} href='goods_list.php?type={$smarty.get.type}{if $smarty.get.page}&page={$smarty.get.page}{/if}'>价格升序</a>
+	<a {if $smarty.get.order_price eq 1}class="active"{/if} href='goods_list.php?type={$smarty.get.type}&order_price=1{if $smarty.get.page}&page={$smarty.get.page}{/if}'>价格降序</a>
+</div>
+
+<!-- 商品列表 -->
+<ul class="listdiv clearfix">
 {foreach from=$goods_data item=goods}
-    {$goods.i}.<a href='goods.php?id={$goods.id}'>{$goods.name}</a>[{$goods.price}]<br/>
+	<li>
+		<a href="goods.php?id={$goods.id}">
+			<img src="/{$goods.img}" />
+			<h4>商品名称：{$goods.name}</h4>
+			<h4>店铺价格：{$goods.price}</h4>
+		</a>
+	</li>
 {foreachelse}
-    暂无此类商品<br/>
-{/foreach}<br/>
+	<li>暂无此类商品</li>
+{/foreach}
+</ul>
+
 {if $pagebar}
-{$pagebar}<br/>
+<div class="listpagebar">
+{$pagebar}
+</div>
 {/if}
---------------<br/>
-<a href="javascript:history.back(-1)">回上一页</a><br/>
-{if $type eq 'best'}
-<a href='goods_list.php?type=promote'>促销</a>|<a href='goods_list.php?type=hot'>热门</a>|<a href='goods_list.php?type=new'>最新</a>
-{elseif $type eq 'promote'}
-<a href='goods_list.php?type=best'>精品</a>|<a href='goods_list.php?type=hot'>热门</a>|<a href='goods_list.php?type=new'>最新</a>
-{elseif $type eq 'hot'}
-<a href='goods_list.php?type=best'>精品</a>|<a href='goods_list.php?type=promote'>促销</a>|<a href='goods_list.php?type=new'>最新</a>
-{else}
-<a href='goods_list.php?type=promote'>促销</a>|<a href='goods_list.php?type=hot'>热门</a>|<a href='goods_list.php?type=new'>最新</a>
-{/if}
-<br/><a href='index.php'>返回首页</a>
-{$footer}
-</p>
+
+<!-- 公共底部 -->
+{include file="includes/footer.html"}
+
 </body>
 </html>

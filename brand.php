@@ -25,7 +25,7 @@ if ((DEBUG_MODE & 2) != 2)
 /*------------------------------------------------------ */
 //-- INPUT
 /*------------------------------------------------------ */
-
+$_REQUEST = stripslashes_deep($_REQUEST);
 /* 获得请求的分类 ID */
 if (!empty($_REQUEST['id']))
 {
@@ -153,32 +153,35 @@ if (!$smarty->is_cached('artist_lists.dwt', $cache_id))
 {
     //$brand_info = get_allbrand_info($brand_id);
    //var_dump($brand_info);exit;
-   $sql = "SELECT COUNT(*) FROM ".$ecs->table('brand')." WHERE artist_type=".$brand_id;
-//echo  $sql;exit;
-$count = $GLOBALS['db']->getOne($sql);
 
-//wedo 艺术圈筛选
-    $sql = "SELECT  * FROM " . $ecs->table('brand') . " WHERE artist_type = ".$brand_id;
+    $where = '';
+    if(!empty($_REQUEST['artist_field'])){
+        $where.=" AND artist_field='".$_REQUEST['artist_field']."'";
+        $smarty->assign('cur_artist_field',   $_REQUEST['artist_field']);
+    }
+    if(!empty($_REQUEST['artist_times'])){
+        $where.=" AND artist_times='".$_REQUEST['artist_times']."'";
+        $smarty->assign('cur_artist_times',   $_REQUEST['artist_times']);
+    }
+    if(!empty($_REQUEST['letter'])){
+        $where.=" AND artist_letter= '".$_REQUEST['letter']."'";
+        $smarty->assign('cur_artist_letter',   $_REQUEST['letter']);
+    }
+    if(!empty($_REQUEST['kw'])){
+        $where.=" AND brand_name LIKE '%".$_REQUEST['letter']."%'";
+        $smarty->assign('cur_artist_letter',   $_REQUEST['letter']);
+    }
+    
+    $sql = "SELECT COUNT(*) FROM ".$ecs->table('brand')." WHERE artist_type=".$brand_id.$where;
+    //echo  $sql;exit;
+    $count = $GLOBALS['db']->getOne($sql);
 
-
-	if(!empty($_REQUEST['artist_field'])){
-		$sql.=" AND artist_field=".$_REQUEST['artist_field'];
-		$smarty->assign('cur_artist_field',   $_REQUEST['artist_field']);
-	}
-	if(!empty($_REQUEST['artist_times'])){
-		$sql.=" AND artist_times=".$_REQUEST['artist_times'];
-		$smarty->assign('cur_artist_times',   $_REQUEST['artist_times']);
-	}
-	if(!empty($_REQUEST['letter'])){
-		$sql.=" AND artist_letter= '".$_REQUEST['letter']."'";
-		$smarty->assign('cur_artist_letter',   $_REQUEST['letter']);
-	}
-		$sql.=" ORDER BY ".$sort." ".$order." LIMIT ".(($page-1)*$size).",".$size;
-//		echo $sql;exit;
-
+	//wedo 艺术圈筛选
+	$sql = "SELECT  * FROM " . $ecs->table('brand') . " WHERE artist_type = ".$brand_id.$where;
+	$sql.=" ORDER BY ".$sort." ".$order." LIMIT ".(($page-1)*$size).",".$size;
 //echo $sql;exit;
 
-$brand_info = $GLOBALS['db']->getAll($sql);
+    $brand_info = $GLOBALS['db']->getAll($sql);
 //  if (empty($brand_info))
 //  {
 //      ecs_header("Location: ./\n");

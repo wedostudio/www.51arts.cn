@@ -73,11 +73,11 @@
               {/foreach}
             </td>
           </tr>
-          <tr style="display:none;">
-            <td class="label">{$lang.lab_goods_brand}</td>
+          <tr>
+            <td class="label">艺术家</td>
             <td><select name="brand_id" onchange="hideBrandDiv()" ><option value="0">{$lang.select_please}{html_options options=$brand_list selected=$goods.brand_id}</select>
               {if $is_add}
-              <a href="javascript:void(0)" title="{$lang.rapid_add_brand}" onclick="rapidBrandAdd()" class="special" >{$lang.rapid_add_brand}</a>
+              <a style="display:none;" href="javascript:void(0)" title="{$lang.rapid_add_brand}" onclick="rapidBrandAdd()" class="special" >{$lang.rapid_add_brand}</a>
               <span id="brand_add" style="display:none;">
               <input class="text" size="15" name="addedBrandName" />
                <a href="javascript:void(0)" onclick="addBrand()" class="special" >{$lang.button_submit}</a>

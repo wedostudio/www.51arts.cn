@@ -39,12 +39,12 @@ elseif (!empty($_GET['category']))
 {
     $cat_id = intval($_GET['category']);
 }
-else
-{
-    ecs_header("Location: ./\n");
+// else
+// {
+//     ecs_header("Location: ./\n");
 
-    exit;
-}
+//     exit;
+// }
 
 /* 获得当前页码 */
 $page   = !empty($_REQUEST['page'])  && intval($_REQUEST['page'])  > 0 ? intval($_REQUEST['page'])  : 1;
@@ -79,12 +79,12 @@ if (!$smarty->is_cached('article_cat.dwt', $cache_id))
     /* Meta */
     $meta = $db->getRow("SELECT keywords, cat_desc FROM " . $ecs->table('article_cat') . " WHERE cat_id = '$cat_id'");
 
-    if ($meta === false || empty($meta))
-    {
-        /* 如果没有找到任何记录则返回首页 */
-        ecs_header("Location: ./\n");
-        exit;
-    }
+//     if ($meta === false || empty($meta))
+//     {
+//         /* 如果没有找到任何记录则返回首页 */
+//         ecs_header("Location: ./\n");
+//         exit;
+//     }
 
     $smarty->assign('keywords',    htmlspecialchars($meta['keywords']));
     $smarty->assign('description', htmlspecialchars($meta['cat_desc']));

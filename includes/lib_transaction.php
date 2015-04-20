@@ -140,7 +140,7 @@ function get_profile($user_id)
     $info  = array();
     $infos = array();
     $sql  = "SELECT user_name, birthday, sex, question, answer, rank_points, pay_points,user_money, user_rank,".
-             " msn, qq, office_phone, home_phone, mobile_phone, passwd_question, passwd_answer ".
+             " msn, qq, office_phone, home_phone, mobile_phone, passwd_question, passwd_answer, avatar ".
            "FROM " .$GLOBALS['ecs']->table('users') . " WHERE user_id = '$user_id'";
     $infos = $GLOBALS['db']->getRow($sql);
     $infos['user_name'] = addslashes($infos['user_name']);
@@ -207,6 +207,7 @@ function get_profile($user_id)
     $info['mobile_phone'] = $infos['mobile_phone'];
     $info['passwd_question'] = $infos['passwd_question'];
     $info['passwd_answer'] = $infos['passwd_answer'];
+    $info['avatar'] = $infos['avatar'];
 
     return $info;
 }

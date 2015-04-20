@@ -161,8 +161,11 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
     }
     else
     {
+        $arts = array();
         if ($goods['brand_id'] > 0)
         {
+            $sql = "SELECT * FROM ".$ecs->table('brand')." WHERE brand_id=".$goods['brand_id'];
+            $arts = $db->getRow($sql);
             $goods['goods_brand_url'] = build_uri('brand', array('bid'=>$goods['brand_id']), $goods['goods_brand']);
         }
 
@@ -187,6 +190,7 @@ if (!$smarty->is_cached('goods.dwt', $cache_id))
             }
         }
 
+        $smarty->assign('arts',              $arts);
         $smarty->assign('goods',              $goods);
         $smarty->assign('goods_id',           $goods['goods_id']);
         $smarty->assign('promote_end_time',   $goods['gmt_end_time']);

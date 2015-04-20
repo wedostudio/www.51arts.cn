@@ -633,9 +633,16 @@ function load_config()
  * 取得品牌列表
  * @return array 品牌列表 id => name
  */
-function get_brand_list()
+function get_brand_list($type='')
 {
-    $sql = 'SELECT brand_id, brand_name FROM ' . $GLOBALS['ecs']->table('brand') . ' ORDER BY sort_order';
+    if($type)
+    {
+        $sql = 'SELECT brand_id, brand_name FROM ' . $GLOBALS['ecs']->table('brand') . ' WHERE artist_type='.$type.' ORDER BY sort_order';
+    }
+    else 
+    {
+        $sql = 'SELECT brand_id, brand_name FROM ' . $GLOBALS['ecs']->table('brand') . ' ORDER BY sort_order';
+    }
     $res = $GLOBALS['db']->getAll($sql);
 
     $brand_list = array();
@@ -1538,6 +1545,10 @@ function build_uri($app, $params, $append = '', $page = 0, $keywords = '', $size
                     {
                         $uri .= '-' . $order;
                     }
+                    if (!empty($keywords))
+                    {
+                        $uri .= '-' . $keywords;
+                    }
                 }
                 else
                 {
@@ -1570,6 +1581,10 @@ function build_uri($app, $params, $append = '', $page = 0, $keywords = '', $size
                     if (!empty($order))
                     {
                         $uri .= '&amp;order=' . $order;
+                    }
+                    if (!empty($keywords))
+                    {
+                        $uri .= '&amp;keywords=' . $keywords;
                     }
                 }
             }

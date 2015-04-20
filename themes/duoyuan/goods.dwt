@@ -57,10 +57,11 @@
 						</div>
 
 						<div id="product_price">
-							<!-- {if $cfg.show_marketprice} 市场价格-->
-							<p>市场价:<span class="cost_price">{$goods.market_price}</span></p>
-							<!-- {/if} -->
-							<p>本店价:{$goods.shop_price_formated}</p>
+							<p>价&nbsp;&nbsp;格:<span class="shop" id="ECS_SHOPPRICE">{$goods.shop_price_formated}</span></p>
+							<!--{if $goods.is_promote and $goods.gmt_end_time } 促销-->
+							<p>促销价:{$goods.promote_price}</p>
+							<!--{/if}-->
+							<input name="number" type="hide" id="number" value="1" size="4" onblur="changePrice()" style="display:none;"/>
 						</div>
 						<!-- {* 开始循环所有可选属性 *} -->
 						<!-- {foreach from=$specification item=spec key=spec_key} -->
@@ -137,30 +138,30 @@
 					<img src="/themes/duoyuan/img/productdetail_productshow_code.jpg" alt="code" />
 				</div>
 			</div>
-
+<!-- {if $arts} -->
 			<div id="owner_artist" class="fitwidth wrap_top_border">
 				<div class="lookmore">
 					<a href="#">查看更多信息</a>
 				</div>
 				<div class="artist_img">
-					<img src="/themes/duoyuan/img/productdetail_ownerartist.jpg" alt="artist" />
+					<img src="/data/brandlogo/{$arts.brand_logo}" alt="artist" />
 				</div>
 
 				<div class="artist_info">
-					<h2>所属艺术家 <span>/陈光艺</span></h2>
+					<h2>所属艺术家 <span>/{$arts.brand_name}</span></h2>
 					<div class="text_overflow_ddd">
-						<p class="artist_iden">中国美术家协会会员/工艺美术师福建省美协会员/中国美术家协会会员/工艺美术师</p>
+						<p class="artist_iden">{$arts.artist_title}</p>
 					</div>
 					<div class="artist_deed">
 						<span>【个人事迹】</span>
 						<div class="text_overflow_ddd">
-							<p>代表作品/代表作品/代表作品代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品/代表作品 </p>
+							<p>{$arts.artist_describe}</p>
 						</div>
 					</div>
 				</div>
 
 			</div>
-
+<!-- {/if} -->
 			<div id="content_wrap" class="fitwidth">
 
 				<div id="content_left">

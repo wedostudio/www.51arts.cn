@@ -15,6 +15,23 @@
 
 define('IN_ECS', true);
 
+$stype = isset($_REQUEST['stype']) ? $_REQUEST['stype'] : 0;
+$kw = isset($_REQUEST['keywords'])  ? addslashes(htmlspecialchars(urldecode(trim($_REQUEST['keywords'])))) : '';
+
+switch ($stype)
+{
+    case 2 :
+        header("Location: brand.php?id=1&keywords=$kw");
+        exit;
+    case 3 :
+        header("Location: article_cat.php?keywords=$kw");
+        exit;
+    default :
+        header("Location: category.php?keywords=$kw");
+        exit;
+     
+}
+
 if (!function_exists("htmlspecialchars_decode"))
 {
     function htmlspecialchars_decode($string, $quote_style = ENT_COMPAT)

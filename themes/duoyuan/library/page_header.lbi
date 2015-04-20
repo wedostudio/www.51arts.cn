@@ -11,17 +11,15 @@
 										<div id="divselect">
 											<cite>筛选</cite>
 											<ul>
-												<li><a href="javascript:;" selectid="1" class="short_text">所有</a>
+												<li><a href="javascript:;" selectid="1">艺术品</a>
 												</li>
-												<li><a href="javascript:;" selectid="2">艺术品</a>
+												<li><a href="javascript:;" selectid="2">艺术家</a>
 												</li>
-												<li><a href="javascript:;" selectid="3">艺术家</a>
-												</li>
-												<li><a href="javascript:;" selectid="4" class="short_text">资讯</a>
+												<li><a href="javascript:;" selectid="3" class="short_text">资讯</a>
 												</li>
 											</ul>
 										</div>
-										<input name="" type="hidden" value="0" id="inputselect" />
+										<input name="stype" type="hidden" value="1" id="inputselect" />
 									</td>
 									<td>
 										<label for="keyword">

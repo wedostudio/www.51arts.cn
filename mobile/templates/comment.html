@@ -1,33 +1,54 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>ECShop_mobile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="twcClient" content="false" id="twcClient" />
+<title>商品列表</title>
+<link rel="stylesheet" href="assets/css/css.css?i=12" />
+<link rel="stylesheet" href="assets/css/comment.css" />
+<script src="assets/js/jquery-1.8.3.min.js"></script>
 </head>
-
 <body>
-<p align='left'>
-{$goods_info.goods_name}<br/>
---------------<br/>
+
+<!-- 公共头部 -->
+{include file="includes/header.html"}
+
+<ul class="listdiv clearfix">
 {foreach from=$comment_data item=comment}
-    评论:{$comment.i}.{$comment.content}<br/>
-    发布人:{$comment.username}&nbsp;&nbsp;{$comment.add_time}<br/>
-    {if $comment.re_username}
-        =关于此评论的回复=<br/>
-        {$comment.re_content}<br/>
-        回复人:{$comment.re_username}&nbsp;&nbsp;{$comment.re_add_time}<br/>
-    {/if}
+	<li>
+		<div class="commentdiv">
+			<h4>{$comment.username}</h4>
+			<p>
+				{$comment.content}<br />
+				<span class="addtime">{$comment.add_time}</span>
+			</p>
+		</div>
+		{if $comment.re_username}
+		<div class="replydiv">
+			<h4>{$comment.re_username}</h4>
+			<p>
+				{$comment.re_content}<br />
+				<span class="addtime">{$comment.re_add_time}</span>
+			</p>
+		</div>
+		{/if}
+	</li>
 {foreachelse}
-    暂无此商品评论<br/>
+ 	<li>暂无此商品评论</li>
 {/foreach}
+</ul>
+
 {if $pagebar}
-{$pagebar}<br/>
+<div class="listpagebar">
+{$pagebar}
+</div>
 {/if}
---------------<br/>
-<a href="javascript:history.back(-1)">回上一页</a><br/>
-<a href='goods.php?id={$goods_id}'>回商品详细</a><br/>
-<a href='index.php'>返回首页</a>
-{$footer}
-</p>
+
+<!-- 公共底部 -->
+{include file="includes/footer.html"}
+
 </body>
 </html>

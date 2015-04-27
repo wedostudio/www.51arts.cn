@@ -84,8 +84,9 @@
 {foreach from=$goods_data item=goods name=goods_list}
 	<li>
 		<a href='goods.php?id={$goods.goods_id}'>
-			<img src="{$goods.goods_img}" alt="{$goods.goods_name}" />
+			<img src="/{$goods.goods_img}" alt="{$goods.goods_name}" />
 			<h4>商品名称：{$goods.goods_name}</h4>
+			<h4>店铺价格：{$goods.shop_price}</h4>
 		</a>
 	</li>
 {foreachelse}

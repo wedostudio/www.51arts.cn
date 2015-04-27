@@ -83,7 +83,7 @@ if ($num > 0)
         {
             $price = empty($goods[$goods_key]['promote_price_org']) ? $goods[$goods_key]['shop_price'] : $goods[$goods_key]['promote_price'];
             //$wml_data .= "<a href='goods.php?id={}'>".encode_output($goods[$goods_key]['name'])."</a>[".encode_output($price)."]<br/>";
-            $goods_data[] = array('i' => $i , 'price' => encode_output($price) , 'id' => $goods[$goods_key]['id'] , 'name' => encode_output($goods[$goods_key]['name']));
+            $goods_data[] = array('img' => $goods[$goods_key]['goods_img'] , 'price' => encode_output($price) , 'id' => $goods[$goods_key]['id'] , 'name' => encode_output($goods[$goods_key]['name']));
         }
         $i++;
     }
@@ -93,6 +93,17 @@ if ($num > 0)
 }
 
 $smarty->assign('footer', get_footer());
+
+if('best' == $type) {
+	$smarty->assign('pagetitle', '精品推荐');
+} else if('promote' == $type) {
+	$smarty->assign('pagetitle', '促销商品');
+} else if('hot' == $type) {
+	$smarty->assign('pagetitle', '热门商品');
+} else {
+	$smarty->assign('pagetitle', '最新商品');
+}
+
 $smarty->display('goods_list.html');
 
 

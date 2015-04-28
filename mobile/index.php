@@ -108,12 +108,13 @@ if (!empty($brands_array))
     $smarty->assign('brand_array', $brands_array);
 }
 
-$article_array = $db->GetALLCached("SELECT article_id, title FROM " . $ecs->table("article") . " WHERE cat_id != 0 AND is_open = 1 AND open_type = 0 ORDER BY article_id DESC LIMIT 0,4");
+$article_array = $db->GetALLCached("SELECT article_id, add_time, title FROM " . $ecs->table("article") . " WHERE cat_id != 0 AND is_open = 1 AND open_type = 0 ORDER BY article_id DESC LIMIT 0,4");
 if (!empty($article_array))
 {
     foreach ($article_array as $key => $article_data)
     {
         $article_array[$key]['title'] = encode_output($article_data['title']);
+        $article_array[$key]['time'] = date('Y-m-d', $article_data['add_time']);
     }
     $smarty->assign('article_array', $article_array);
 }
